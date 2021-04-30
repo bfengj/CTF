@@ -123,7 +123,7 @@ Java中可以将声明放在代码中的任何地方。但是变量的声明尽�
 
 ```java
 var feng = 12;
-var fff = "feng"''
+var fff = "feng";
 ```
 
 
@@ -346,11 +346,7 @@ System.out.println(dir);
 
 
 
-![image-20210429200610386](C:\Users\15997\AppData\Roaming\Typora\typora-user-images\image-20210429200610386.png)
-
-
-
-可以看到，IntelliJ IDEA的启动目录总是和.idea同级而不是当然执行的src里面的那个Main.java。
+IntelliJ IDEA的启动目录总是和.idea同级而不是当然执行的src里面的那个Main.java。
 
 
 
