@@ -910,6 +910,146 @@ method.invoke(feng,"123");
 
 
 
+# 接口
+
+接口用来描述类应该做什么，而不指定它们具体应该怎么做。
+
+接口中的所有方法都自动是`public`方法。因此，在接口中声明方法时，不必提供关键字`public`。
+
+接口可以定义常量，但是接口**绝不会**有实例字段。
+
+提供实例字段和方法实现的任务应该由实现接口的那个类来完成。因此，可以将接口看成是没有实例字段的抽象类。（但是两个概念还是有一定区别的）
+
+
+
+让类实现一个接口，通常需要完成下面两个步骤：
+
+1. 将类声明为实现给定的接口。
+2. 对接口中的所有方法提供定义。
+
+要将类声明为实现某个接口，需要使用关键字`implements`。
+
+
+
+> 在接口声明中，没有将`compareTo`方法声明为`public`，这是因为在接口中的所有方法都自动是`public`。不过，在实现接口时，必须把方法声明为`public`；否则，编译器将认为这个方法的访问属性是包可见性，这是类的默认访问属性。
+
+```java
+public class Employee extends Person implements Comparable<Employee>
+{
+    ......
+    public int compareTo(Employee other)
+    {
+        return Double.compare(this.salary,other.getSalary());
+    }
+    .....
+}
+
+//在Java5中，Comparable接口已经提升为一个泛型类型。
+/*
+public interface Comparable<T>
+{
+	int compare(T other);
+}
+*/
+```
+
+
+
+### 接口的属性
+
+接口不是类。具体地说，不能使用`new`运算符实例化一个接口。
+
+尽管不能构造接口的对象，却能声明接口的变量。接口变量也必须引用实现了这个接口的类对象：
+
+```java
+        Comparable x;
+        x = new Employee("feng",123);
+```
+
+
+
+也可以使用`instanceof`检查一个对象是否实现了某个特定的接口。
+
+```java
+        Employee feng = new Employee("feng",123);
+        if(feng instanceof Comparable)
+        {
+            System.out.println("ok");
+        }
+```
+
+
+
+与建立类的继承层次一样，也可以拓展接口。
+
+虽然在接口中不能包含实例字段，但是可以包含常量。 
+
+```java
+public interface Moveable
+{
+    void move(double x, double y);
+    double SPEED_LIMIT= 95;
+}
+```
+
+
+
+与接口中的方法都自动被设置为`public`一样，接口中的字段总是`public static final`。
+
+
+
+尽管每个类只能有一个超类，但却可以实现多个接口。可以使用逗号将想要实现的各个接口分隔开。
+
+```java
+class Employee implements Cloneable, Comparable
+```
+
+
+
+实际上，接口可以提供多重继承的大多数好处，同时还能避免多重继承的复杂性和低效性。
+
+
+
+### 默认方法
+
+可以为接口提供一个默认实现。必须用`default`修饰符标记这样一个方法。
+
+```java
+public interface Comparable<T>
+{
+    default int compareTo(T other) {return 0;}
+}
+```
+
+默认方法可以调用其他方法。
+
+
+
+
+
+### 解决默认方法冲突
+
+如果先在一个接口中将一个方法定义为默认方法，然后又在超类或另一个接口中定义同样的方法，会发生什么情况？
+
+1. 超类优先。如果超类提供了一个具体的方法，同名而且具有相同参数类型的默认方法会被忽略。
+2. 接口冲突。如果一个接口提供了一个默认方法，另一个接口提供了一个同名而且参数类型（不管是否是默认参数）相同的方法，必须覆盖这个方法来解决冲突。
+
+
+
+两个接口如果冲突并不重要。如果至少有一个接口提供了一个实现，编译器就会报告错误，程序员就必须解决这个二义性。
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
