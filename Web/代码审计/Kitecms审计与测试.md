@@ -259,7 +259,7 @@ http://www.kitecms.com/admin/admin/scanFiles?dir=phar://./upload/20210606/1c57fd
 
 
 
-## phar rce 3
+## phar rce 3（质量高一些）
 
 这个phar比较难发现，我找到这个phar还是比较开心的。
 
