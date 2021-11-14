@@ -20,8 +20,16 @@
 
 ## Java
 
+### fastjson
+
 - [fastjson学习(一)](./Web/java/fastjson/[Java安全]fastjson学习(一).md)
+
+### Java-sec-code
+
 - [[Java-sec-code]PathTraversal学习](./Web/java/Java-sec-code/[Java-sec-code]PathTraversal学习.md)
+
+### Java反序列化
+
 - [CommonsBeanutils1利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsBeanutils1利用链学习.md)
 - [CommonsCollections1利用链学习(上)](./Web/java/Java反序列化/[Java反序列化]CommonsCollections1利用链学习(上).md)]
 - [CommonsCollections1利用链学习(中)](./Web/java/Java反序列化/[Java反序列化]CommonsCollections1利用链学习(中).md)
@@ -36,9 +44,59 @@
 - [URLDNS链学习](./Web/java/Java反序列化/[Java反序列化]URLDNS链学习.md)
 - [JDBC反序列化漏洞学习](./Web/java/Java反序列化/JDBC反序列化漏洞学习.md)
 
+### Java基础
+
+- [动态加载字节码](./Web/java/Java基础/[Java安全]动态加载字节码学习.md)
+
+- [ClassLoader](./Web/java/Java基础/Java ClassLoader 学习笔记.md)
+
+- [IO流](./Web/java/Java基础/Java IO流 学习笔记.md)
+
+- [JDBC](./Web/java/Java基础/Java JDBC 学习笔记.md)
+
+- [RMI](./Web/java/Java基础/Java RMI 学习笔记.md)
+
+- [动态代理](./Web/java/Java基础/Java 动态代理 学习笔记.md)
+
+- [命令执行](./Web/java/Java基础/Java 命令执行.md)
+
+- [序列化和反序列化](./Web/java/Java基础/Java 序列化和反序列化 学习笔记.md)
+
+- [反射](./Web/java/Java基础/Java反射学习笔记.md)
+
+- [集合](./Web/java/Java基础/Java集合学习笔记.md)
+
+- [Java基础学习笔记（一）](./Web/java/Java基础/Java基础学习笔记（一）.md)
+
+- [Java基础学习笔记（二）](./Web/java/Java基础/Java基础学习笔记（二）.md)
+
+- [Java基础学习笔记（三）](./Web/java/Java基础/Java基础学习笔记（三）.md)
+
+- [Java基础学习笔记（四）](./Web/java/Java基础/Java基础学习笔记（四）.md)
+
+- [Java基础学习笔记（五）](./Web/java/Java基础/Java基础学习笔记（五）.md)
+
+- [Java基础学习笔记（六）](./Web/java/Java基础/Java基础学习笔记（六）.md)
+
+  
+
+### JNDI
+
+### shiro
+
+### Spring
+
+### XMLDecoder
+
+### 内存马
 
 
-## Php
+
+
+
+
+
+## PHP
 
 
 
