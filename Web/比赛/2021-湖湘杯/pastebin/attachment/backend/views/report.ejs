@@ -1,0 +1,49 @@
+<div class="col-md-10 mx-auto">
+	<div class="card border-primary bg-light mb-4 rounded-3">
+		<div class="card-header">
+			<ul class="nav justify-content-between">
+				<li class="nav-item">
+					<h3>Pastebin</h3>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="/user/logout"
+						>Logout</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="card-body">
+			<div class="row justify-content-start">
+				<form action="/report" method="POST">
+                    <div>
+                        <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Your Paste url"
+                        aria-label="Your Paste url"
+                        aria-describedby="button-addon2"
+                        name="url" />
+                    </div>
+                    
+					<div class="input-group">
+                        <span class="input-group-text" id="captcha">md5(?).substr(0,7) == <%= captcha %> </span>
+                        <input
+							type="text"
+							class="form-control"
+							placeholder="Captcha"
+							aria-label="Captcha"
+							aria-describedby="button-addon2"
+                            name="captcha"
+						/>
+						<input
+							class="btn btn-outline-success"
+							type="submit"
+						>
+						</input>
+					</div>
+				</form>
+			</div>
+			<%- include('partials/messages') %>
+		</div>
+	</div>
+</div>

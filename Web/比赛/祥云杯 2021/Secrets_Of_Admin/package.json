@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.11",
+    "@types/html-pdf": "^2.2.0",
+    "@types/http-errors": "^1.8.0",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.14.28",
+    "@types/sqlite3": "^3.1.7",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "html-pdf": "^2.2.0",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.0",
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "start":"ts-node app.ts"
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+      <link rel="icon" href="../../favicon.ico">
+      <title>文章列表</title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link href="/bootstrap.css" rel="stylesheet">
+
+      <link href="/stylesheets/users/logup.css" rel="stylesheet">
+  </head>
+
+  <body>
+     <%include ../incloud/inc.ejs%>
+
+      <div class="container">
+            <table class="table">
+                <tr>
+                    <td class="active"><h3>标题</h3></td>
+                    <td class="danger"><h3>作者</h3></td>
+                    <td class="info"><h3>操作</h3></td>
+                </tr>
+                <% for(var i=0;i<arts.length;i++){ %>
+                <tr>
+                    <td class="active"><%=arts[i].title%></td>
+                    <td class="danger">
+                            <%=arts[i].au%>
+                    </td>
+                    <td class="info">
+                        <button type="button" class="btn btn-success">
+                            <a href="/art/brow/<%=arts[i]._id%>">查看</a>
+                        </button>
+                        <button type="button" class="btn btn-info">
+                            <a href="/art/up/<%=arts[i]._id%>">修改</a>
+                        </button>
+                        <button type="button" class="btn btn-danger" id="del" aid="<%=arts[i]._id%>">删除</button>
+                    </td>
+                </tr>
+                <% } %>
+            </table>  
+      </div>
+  </body>
+
+  <script src="/javascripts/jquery.min.js"></script>
+  <script>
+    $("#del").on("click",function(){
+        var _this=$(this)
+        var _id=$(this).attr("aid")
+        console.log(_id)
+        $.post("/art/del",{id:_id},function(data){
+            if(data.status==1){      
+            _this.parents("tr").remove()
+            }else{
+            alert("退出失败")
+            }
+    })})
+</script>
+</html>

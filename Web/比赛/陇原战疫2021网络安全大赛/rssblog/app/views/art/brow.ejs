@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>文章详情</title>
+    <link href="/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+  <%include ../incloud/inc.ejs%>
+      <div>
+          <h2><%=art.title%></h2>
+          <p><%=art.au%></p>
+          <p><%=art.txt%></p>
+      </div>
+          
+    <footer class="blog-footer">
+      <p>京公网安备 8888888888888号</p>
+      <p>
+        <a href="#">Copyright © 2004 - 2017  肥鸟FD.com 版权所有</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

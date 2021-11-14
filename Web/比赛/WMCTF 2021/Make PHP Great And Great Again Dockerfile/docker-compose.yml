@@ -1,0 +1,34 @@
+version: '3'
+services:
+  web1:
+    build: ./
+    restart: always
+    image: mpga:v1
+    networks:
+      web1_net_internal:
+        aliases:
+          - web
+
+  web1_nginx:
+    build: ./nginx
+    restart: always
+    ports:
+        - "20001:80"
+    networks:
+      web1_net_internal:
+      web1_net:
+
+networks:
+  web1_net_internal:
+    driver: bridge
+    internal: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.201.0/24
+  web1_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.101.0/24

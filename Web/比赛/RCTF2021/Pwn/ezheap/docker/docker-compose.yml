@@ -1,0 +1,9 @@
+version: '2'
+services:
+    no_write:
+        build: ./
+        image: ezheap:latest
+        ports:
+          - "6222:9999"
+        restart: unless-stopped
+    

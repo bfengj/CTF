@@ -1,0 +1,55 @@
+[
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_target",
+                "type": "address"
+            }
+        ],
+        "name": "execute",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "payforflag",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "addr",
+                "type": "address"
+            }
+        ],
+        "name": "ForFlag",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "addr",
+                "type": "address"
+            }
+        ],
+        "name": "Fail",
+        "type": "event"
+    }
+]

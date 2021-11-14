@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center
+      h1 😰 😅 🤔 🤡
+    .row.justify-content-center
+      .col-md-8.col-lg-6.mt-5
+        .card
+          h4.card-header Login as admin
+          .card-body
+          form(action='/' method='POST')
+            .form-group.row
+              label.col-md-4.col-form-label.text-md-right(for='username') Username
+              .col-md-6
+                input#username.form-control(type='text' name='username' required='' autofocus='')
+            .form-group.row
+              label.col-md-4.col-form-label.text-md-right(for='password') Password
+              .col-md-6
+                input#password.form-control(type='password' name='password' required='')
+            if error
+              .alert.alert-danger.mx-5(role='alert') #{error}
+            if message
+              .alert.alert-success.mx-5(role='alert') #{message}
+            .row.justify-content-center
+              .col-md-3
+                button.btn.btn-primary.btn-block(id='submit' type='submit') Signin
+                br

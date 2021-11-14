@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    if error
+      .alert.alert-danger.mx-5(role='alert') #{error}
+    .row.justify-content-center
+      .col-lg-8.col-md-6.mt-5
+        form.form(action='/packages/add', method='POST')
+          input(type='hidden', name='_csrf', value=csrfToken)
+          div.mb-3
+            input.form-control(type='text', name='name', placeholder='Name')
+          div.mb-3
+            textarea.form-control(name='description', placeholder='Description', rows=8)
+          div.mb-3
+            input.form-control(type='text', name='version', placeholder='Package version')
+          div.mb-3
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Add 

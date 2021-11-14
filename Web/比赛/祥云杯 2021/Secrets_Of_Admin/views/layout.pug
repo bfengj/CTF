@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= "Useless"
+    link(rel='stylesheet', href='/static/bootstrap.min.css')
+    style.
+      body {
+        padding-top: 56px;
+        padding-bottom: 56px;
+        min-height: 100vh;
+        position: relative;
+      }
+      .footer {
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        height: 56px;
+      }
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      div.container
+        a.navbar-brand(href='/') Admin's 🙈 Secret
+        button.navbar-toggler(type='button', data-toggle="collapse", data-target="#navbarResponsive", aria-controls="navbarResponsive", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+
+    main.py-4.bg-white(role='main')
+      .container 
+        block content

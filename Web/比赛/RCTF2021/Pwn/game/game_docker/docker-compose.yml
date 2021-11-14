@@ -1,0 +1,7 @@
+version: "2"
+services:
+  game:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "20000:20000"

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="container">
+<header>
+    <%- include('partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Crawler Community</h1>
+        <% if (locals.username) {%>
+            <br></br>
+            <p>Welcome, <strong><%= username %></strong>. You can update your profile at any time</p>
+        <%} else {%>
+            <p>You might be interested in following features: </p>
+            <ul>
+                <li><strong>Automated</strong> crawler</li>
+                <li>Bucket <strong>verification</strong></li>
+                <li><strong>Security</strong> protection</li>
+            </ul>
+        <% } %>
+    </div>
+
+</main>
+
+<footer>
+    <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+</html>

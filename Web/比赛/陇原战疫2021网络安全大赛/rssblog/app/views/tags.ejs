@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+      <link rel="icon" href="../../favicon.ico">
+      <title>文章标题</title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link href="/bootstrap.css" rel="stylesheet">
+
+      <link href="/stylesheets/users/logup.css" rel="stylesheet">
+  </head>
+
+  <body>
+     <%include ./incloud/inc.ejs%>
+
+      <div>
+            <table>
+                <tr>
+                    <% for(var i=0;i<ID_Ary.length;i++){ %>
+                    <% if(ID_Ary[i] == ID){ %>
+                    <% var num = i %>
+                    <td class="active"><h3>文章<%=ID%>存在</h3></td>
+                    <a href="/../art/brow/<%=ID%>">链接</a>
+                    <% }} %>
+                </tr>
+            </table>
+      </div>
+  </body>
+
+  <script src="/javascripts/jquery.min.js"></script>
+  <script>
+    $("#del").on("click",function(){
+        var _this=$(this)
+        var _id=$(this).attr("aid")
+        console.log(_id)
+        $.post("/art/del",{id:_id},function(data){
+            if(data.status==1){
+            _this.parents("tr").remove()
+            }else{
+            alert("退出失败")
+            }
+    })})
+</script>
+<script>
+var passage = {"title":"<%=arts[num].title%>","author":"<%=arts[num].au%>","description":"<%=ID%>","link":"http://example.com/art/brow/<%=ID%>","image":"http://example.com/favicon.ico",};
+</script>
+</html>

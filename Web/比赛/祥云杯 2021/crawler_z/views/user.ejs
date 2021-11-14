@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="container">
+<header>
+    <%- include('partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <div class="mb-3">
+            <label for="username">Username</label>
+            <textarea class='form-control' name="" id="username"  rows="1"><%= user.username%></textarea>
+        </div>
+        <form action="/user/profile" method="POST">
+            <div class="mb-3">
+                <label for="userAffiliation">Age</label>
+                <input class='form-control' type='text', name='affiliation', placeholder='ichunqiu', id="userAffiliation" value="<%= user.affiliation %>">
+            </div>
+            <div class="mb-3">
+                <label for="userAge">Age</label>
+                <input class='form-control' type='text', name='age', placeholder='20', id="userAge" value="<%= user.age %>">
+            </div>
+            <div class="mb-3">
+                <label for="userBucket">Bucket</label>
+                <textarea class='form-control' type='text', name='bucket', id="userBucket"  rows="1"><%= user.bucket %></textarea>
+            </div>
+            <div class="mb-3">
+                <button class='btn btn-primary' type='submit'>Update</button>
+            </div>
+        </form>
+        <% if (locals.error) { %>
+            <p class="alert alert-danger"><%= locals.error %></p>
+        <% } %>
+        <% if (locals.message) {%>
+            <br></br>
+            <p class="alert alert-success"><%= locals.message %></alert>
+        <% }%>
+    </div>
+</main>
+
+<footer>
+    <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+</html>

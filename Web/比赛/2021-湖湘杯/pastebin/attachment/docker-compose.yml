@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  app:
+    build: ./backend/
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NPM_RUN_SCRIPT=$NPM_RUN_SCRIPT
+    depends_on: 
+      - db
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./backend/:/app/:ro
+    networks:
+      - net
+
+  db:
+    image: mongo
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d
+    networks:
+      - net
+
+networks:
+  net:
+    name: net

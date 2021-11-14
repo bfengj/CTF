@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Implementation-Title: challenge
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: shiyu
+Implementation-Vendor-Id: io.tricking
+Spring-Boot-Version: 2.1.0.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: io.tricking.challenge.ChallengeApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_102
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/challenge
+

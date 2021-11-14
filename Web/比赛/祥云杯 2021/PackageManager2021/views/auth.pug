@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center
+      .col-lg-8.col-md-6.mt-5
+        .card.h-200
+          .card-header Get granted with your token
+          .card-body
+          form(action='/auth' method='POST')
+            input(type='hidden', name='_csrf', value=csrfToken)
+            .form-group.row
+              label.col-md-4.col-form-label.text-md-right(for='token') Token
+              .col-md-5            
+                input#token.form-control(type='text' name='token' required='' autofocus='')
+            if error
+              .alert.alert-danger.mx-5(role='alert') #{error}
+            .row.justify-content-center
+              .col-md-2
+                button.btn.btn-primary.btn-block(type='submit') Auth              
+            a.btn.btn-link.col-12(href='/packages/submit') Auth user can submit your packages here

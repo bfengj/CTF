@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0.21
+#    ports:
+#      - "127.0.0.1:13306:3306"
+    environment:
+      MYSQL_DATABASE: RCTF
+      MYSQL_USER: ${FLAG}
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: "%"
+    command: "--default-authentication-plugin=mysql_native_password
+              --regexp_stack_limit=1
+              --regexp_time_limit=1"
+    restart: unless-stopped
+
+  web:
+    build: .
+    ports: 
+      - "11002:80"
+    volumes: 
+      - "./logs:/var/log/apache2/"
+    environment:
+        - TZ=Asia/Shanghai
+        - DB_NAME=RCTF
+        - DB_USER=${FLAG}
+        - DB_PASS=password
+    depends_on:
+      - "db"
+    restart: unless-stopped
+

@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">Log in</h2>
+
+  <form class="login-container" id="userInfo">
+    <p><input name="username" placeholder="username"></p>
+    <p><input type="password" name="password" placeholder="Password"></p>
+    <p><input type="submit" value="Log in" id="login"></p>
+  </form>
+</div>
+<script>
+	$('#login').click(
+        function(){
+            event.preventDefault();
+            var formObject = {};
+            var formArray =$("#userInfo").serializeArray();
+            $.each(formArray,function(i,item){
+                formObject[item.name] = item.value;
+            });
+            // console.log(formObject);
+            $.ajax({
+                url: '/',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                data: formObject,
+
+                success(data){
+                    console.log(data);
+                    if(data ==="yes"){
+                        console.log(data);
+                        window.location.href = './admin';
+                    }
+                    else{
+                    	alert(data);
+                    }
+                },
+                error:function(e){
+                    alert("错误！！");
+                }
+            })
+        }
+    );
+</script>

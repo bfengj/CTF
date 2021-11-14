@@ -1,0 +1,23 @@
+<div class="col-md-10 mx-auto">
+    <div class="card border-primary bg-light mb-4 rounded-3">
+        <div class="card-header">
+            <ul class="nav justify-content-between">
+                <li class="nav-item">
+                    <h3>Pastebin</h3>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-start">
+                <form action="comment" id="usrform" method="POST">
+                    <input type="hidden" value="<%= user._id %>" name="id">
+                    <input type="text" class="form-control" name="remarks" id="remarks">
+                    <input type="submit" class="btn btn-success" id="submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  httpd_proxy:
+    build: ./httpd_proxy
+    links:
+      - weblogic
+    ports:
+      - 80:80
+    networks:
+      ctf:
+        ipv4_address: 172.24.0.3
+  weblogic:
+    restart: always
+    build: ./weblogic
+    expose:
+     - "7001"
+    networks:
+      ctf:
+        ipv4_address: 172.24.0.2
+
+networks:
+  ctf:
+    ipam:
+      config:
+      - subnet: 172.24.0.0/16

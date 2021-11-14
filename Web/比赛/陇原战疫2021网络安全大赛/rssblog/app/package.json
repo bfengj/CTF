@@ -1,0 +1,26 @@
+{
+  "name": "RSS System",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "connect-mongo": "^2.0.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "latest",
+    "express": "~4.15.5",
+    "express-session": "^1.15.6",
+    "less-middleware": "~2.2.1",
+    "markdown-it": "^8.4.0",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "rd": "^1.1.2",
+    "request": "latest",
+    "rss": "latest",
+    "serve-favicon": "~2.4.5",
+    "view-helpers": "^0.1.5"
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="container">
+<header>
+    <%- include('partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Signup</h1>
+        <form action="/signup" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" name="username" id="username" placeholder="" value="">
+                <label for="password1">Password</label>
+                <input type="password" class="form-control" name="password" id="password1" placeholder="" value="">
+                <label for="password2">Password Confirmation</label>
+                <input type="password" class="form-control" name="password_confirm" id="password2" placeholder="" value="">
+                <% if (locals.error) { %>
+                    <br></br>
+                    <p class="alert alert-danger"><%= locals.error %></p>
+                    <% } %>
+                    <br></br>
+                <button class="btn btn-primary" >Signup</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <%- include('partials/footer'); %>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+body,td,th {font-size: 12px;color: #666666;}
+body {margin-left: 0px;margin-top: 0px;margin-right: 0px;}
+a:link {color: #666666;text-decoration: none;}/* 未访问的链接 */
+a:visited {color: #666666; font-weight:bold;}/* 已访问的链接 */
+a:hover {text-decoration: none;}/* 当有鼠标悬停在链接上 */
+a:active {color: #333333;} /* 被选择的链接 */
+a:active {text-decoration: none;}  
+ul,ol,li{list-style:none;}
+.red {color: #FF0000}
+.font24{ font-size:24px;}
+.font14{ font-size:14px;}
+.bold {font-weight: bold;}
+/*tablecss*/
+.table_list_98 {background:#DDDDDD ; width:98%;border:0px;padding:0px;margin:3px;}
+.table_list_98 tr{height:18px;background:#FFFFFF;}
+.table_list_98 .td_1{ background-color:#f5f5f5;font-size: 12px;font-weight: bold; padding-left:10px;color:#333333;line-height:26px;}
+.table_98 {background:#DDDDDD ;width:98%;border:0px;padding:0px;margin:0px;}
+.table_98 tr{height:18px;background:#FFFFFF;}
+.table_98 .td_1{ background-color:#f5f5f5;font-size: 12px;font-weight: bold; color:#333333;line-height:24px;}
+.table_98 td{ padding:4px 0 4px 10px; text-align:left;}
+.table_98 a:link {color: #0066CC;text-decoration: none;}
+.table_98 a:visited {color: #0066CC;}
+.table_50 {background:#DDDDDD ;width:50%;border:0px;padding:0px;margin:0px;}
+.table_50 tr{height:18px;background:#FFFFFF;}
+.table_50 .td_1{ background-color:#F3FAFC;font-size: 12px;font-weight: bold; color:#333333;line-height:24px; text-align:center;}
+.table_50 .td_2{ background-color:#F3FAFC;font-size: 18px;font-weight: bold; color:#333333;line-height:24px;}
+.table_50 td{ padding:4px 0 4px 10px; text-align:left;}
+.table_list_200 {background:#DDDDDD ;width:200px;border:0px;padding:0px;margin:0px auto;}
+.table_list_200 tr{height:18px;background:#FFFFFF;}
+.table_list_200 .td_1{ background-color:#F3FAFC;font-size: 12px;font-weight: bold; color:#333333;line-height:24px;}
+.table_list_200 td{ padding:4px 0 4px 10px; text-align:left;}
+.input1{width:100;border: 1px solid #CCCCCC;}
+.input2{border-left: 1px solid #E6E6E6; border-right: 1px solid #C0C0C0; border-top: 1px solid #E6E6E6; border-bottom: 1px solid #C0C0C0; background-color: #F9F9F9}
+.exli{line-height:25px;}

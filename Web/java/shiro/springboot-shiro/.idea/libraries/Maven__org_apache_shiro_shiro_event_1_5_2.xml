@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.shiro:shiro-event:1.5.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../../../environment/apache-maven-3.6.3/maven-repository/org/apache/shiro/shiro-event/1.5.2/shiro-event-1.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../../../../environment/apache-maven-3.6.3/maven-repository/org/apache/shiro/shiro-event/1.5.2/shiro-event-1.5.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../../../../environment/apache-maven-3.6.3/maven-repository/org/apache/shiro/shiro-event/1.5.2/shiro-event-1.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

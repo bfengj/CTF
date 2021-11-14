@@ -1,0 +1,24 @@
+version: "3.0"
+services:
+  rctf-mysql80:
+    image: mysql:8.0.26
+    user: mysql:mysql
+    command: --default-authentication-plugin=mysql_native_password --max-connections=1024 --general_log=1 --general_log_file=/var/run/mysqld/MySQL_g4n4rAl_233334.log
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: 5a3ebbc9-dd16-4086-903b-4beb76662bb2
+      MYSQL_DATABASE: rctf2021
+    restart: always
+    container_name: rctf-mysql80
+  rctf-php:
+    # image: php:8.0.10-apache
+    build: .
+    ports:
+      - 23334:80
+    # volumes:
+    #   - ./www:/var/www/html
+    restart: always
+    container_name: rctf-php
+    links:
+      - rctf-mysql80

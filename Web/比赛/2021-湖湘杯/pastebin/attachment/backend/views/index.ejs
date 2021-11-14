@@ -1,0 +1,62 @@
+<div class="col-md-10 mx-auto">
+	<div class="card border-primary bg-light mb-4 rounded-3">
+		<div class="card-header">
+			<ul class="nav justify-content-between">
+				<li class="nav-item">
+					<h3>Pastebin</h3>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="/user/logout"
+						>Logout</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="card-body">
+			<div class="row justify-content-start">
+				<div class="mb-2">
+					<textarea
+						name="content"
+						form="usrform"
+						class="form-control"
+						rows="3"
+					></textarea>
+				</div>
+				<form action="/add" id="usrform" method="POST">
+					<input type="submit" class="btn btn-success" />
+					<a href="/report" class="btn btn-primary" role="button" data-bs-toggle="button">Want to share with admin?</a>
+				</form>
+				<%- include('partials/messages') %>
+			</div>
+			<div class="row justify-content-end">
+				<div class="">
+					<h3 class="text-center mb-2"><%= username %>'s Pastebin</h3>
+					<ul class="list-group mh-50 overflow-auto rounded-2" id="url-list">
+						<% items.forEach(function (item) { %>
+						<li class="list-group-item">
+							<a href="/paste/<%= item.hash %>/view"
+								><%= item.hash %></a
+							>
+							<%= new Date(parseInt(item.date)).toISOString().slice(0, 19).replace('T', ' '); %>
+							
+						</li>
+						<% }) %> <% if(!items.length) { %>
+						<small class="text-center text-secondary"
+							>You have not got any pastes</small
+						>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	// Check that service workers are supported
+	if ("serviceWorker" in navigator) {
+		// Use the window load event to keep the page load performant
+		window.addEventListener("load", () => {
+			navigator.serviceWorker.register("/sw.js");
+		});
+	}
+</script>

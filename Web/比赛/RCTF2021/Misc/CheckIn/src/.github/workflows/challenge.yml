@@ -1,0 +1,23 @@
+name: CheckIn
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        env:
+          issues: "${{ github.event.issue.body }}"
+          user: "${{ github.event.issue.user.login }}"
+          flag: "${{ secrets.FLAG }}"
+        run: |
+          echo "$user:$issues" >> issues
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "add a new issue"
+          git push

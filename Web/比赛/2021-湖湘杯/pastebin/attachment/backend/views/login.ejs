@@ -1,0 +1,43 @@
+        <div class="col-md-10 mx-auto">
+            <div class="card border-primary bg-light mb-4 rounded-3">
+                <div class="card-header">
+                    <ul class="nav justify-content-between">
+                        <li class="nav-item">
+                            <h3><i class="bi bi-bookmark-heart"></i> Pastebin</h3>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/user/register">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                <div class="row justify-content-start">
+                    <div class="col-md-4"> 
+                        <%- include('partials/about') %>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="text-center mb-2">Login</h3>
+                        <%- include('partials/messages') %>
+                        <form action="/user/login" method="POST">
+                            <div class="mb-2">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" id="username" name="username" class="form-control"
+                                    placeholder="Enter Username" autocomplete="username" value="<%= typeof username != 'undefined' ? username : '' %>"/>
+                            </div>
+                            <div class="mb-2">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="Enter Password" autocomplete="current-password" value="<%= typeof password != 'undefined' ? password : '' %>"/>
+                            </div>
+                            <button type="submit" id="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="everyday">
+                    <b>There is nothing to do with the challenge.</b><br>
+                    <small>Do you konw what the `25W SXG GDD DDHM` mean?</small><br>
+                    <small>I find this pretty interesting.</small><br>
+                    <small>25W SXG GDD DDHM: 在 25 瓦 ( 25 W) 的三星 Galaxy (SXG) 上研究植物的生长度日 (GDD, GrowingDegreeDay) 以求获得顺势疗法医学深造文凭 (DDHM, Deeper Diploma in Homeopathic Medicine)</small>
+                </div>
+            </div>
+        </div>

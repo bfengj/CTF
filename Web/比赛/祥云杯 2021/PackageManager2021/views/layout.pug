@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title= "PackageManager 2021"
+    link(rel='stylesheet', href='/static/bootstrap.min.css')
+    style.
+      body {
+        padding-top: 56px;
+        padding-bottom: 56px;
+        min-height: 100vh;
+        position: relative;
+      }
+      .footer {
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        height: 56px;
+      }
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      div.container
+        a.navbar-brand(href='/') PackageManager 2021
+        button.navbar-toggler(type='button', data-toggle="collapse", data-target="#navbarResponsive", aria-controls="navbarResponsive", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbarResponsive
+          ul.navbar-nav.ml-auto
+            if session && session.userId
+              li.nav-item
+                a.nav-link(href='/packages/list') My packages
+              li.nav-item
+                a.nav-link(href='/packages/add') Add Packages              
+              li.nav-item
+                a.nav-link(href='/packages/submit') Submit
+              li.nav-item
+                a.nav-link(href='/auth') Auth                
+              li.nav-item
+                a.nav-link(href='/logout') Logout
+            else
+              li.nav-item
+                a.nav-link(href='/register') Register
+              li.nav-item
+                a.nav-link(href='/login') Login
+
+    main.py-5.bg-white(role='main')
+      .container 
+        block content
+
+    footer.bg-dark.footer 
+      div.container
+        .row.align-items-center
+          .col-12
+            p.pt-3.text-center.text-white Copyright &copy; PackageManager 2021

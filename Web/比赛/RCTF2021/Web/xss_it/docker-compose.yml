@@ -1,0 +1,35 @@
+version: '3'
+services:
+  bot:
+    build: ./bot
+    privileged: true
+    ports:
+      - "127.0.0.1:12314:9000"
+    networks:
+      testing_net:
+        ipv4_address: 172.28.1.10
+  main:
+    build: ./main
+    ports:
+       - "127.0.0.1:60002:80"
+    environment:
+      BYTE_FLAG: "RCTF{rv45WIB8mXIQaz5d}"
+    restart: always
+    networks:
+      testing_net:
+        ipv4_address: 172.28.1.120
+  web:
+    build: ./web
+    ports:
+      - "0.0.0.0:60001:80"
+    networks:
+      testing_net:
+        ipv4_address: 172.28.1.100
+    extra_hosts:
+      - "bot:172.28.1.10"
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.28.0.0/16

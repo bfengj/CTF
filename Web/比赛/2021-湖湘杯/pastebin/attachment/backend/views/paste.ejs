@@ -1,0 +1,58 @@
+<script src="/static/js/sanitize-min.js"></script>
+<script>
+function get(id) {
+    return $.get('/paste/'+id).fail(() => {
+        throw "can't fetch paste";
+    }).then((data) => {
+        return atob(data);
+    });
+}
+
+async function do_things(id) {
+    try {
+        var html = await get(id);
+        var doc = new DOMParser().parseFromString(html, "text/html");
+        // You don't need math and svg. I hate these guys.
+        // Of course you don't need base and object. These are evil monster.
+        if(doc.querySelectorAll("math").length !== 0 || doc.querySelectorAll("svg").length !== 0 || doc.querySelectorAll("base").length !== 0 || doc.querySelectorAll("object").length !== 0){
+            console.log("filtered");
+            return "<b>Your paste have been filtered</b>";
+        }
+        html = safepaste.sanitize(html);
+    } catch(e) {
+        // fetch failed
+        console.log(e)
+    }
+    return html;
+}
+
+window.addEventListener('load', async (event) => {
+    var paste_id = '<%= typeof pasteid != 'undefined' ? pasteid : '' %>';
+    var html = await do_things(paste_id);
+    document.getElementById('content').innerHTML = html;
+});
+
+</script>
+<div class="col-md-10 mx-auto">
+    <div class="card border-primary bg-light mb-4 rounded-3">
+        <div class="card-header">
+            <ul class="nav justify-content-between">
+                <li class="nav-item">
+                    <h3>Pastebin</h3>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link text-secondary" href="/user/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-start">
+                <div id="content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

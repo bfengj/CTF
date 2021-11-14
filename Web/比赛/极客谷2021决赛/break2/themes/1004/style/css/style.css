@@ -1,0 +1,103 @@
+﻿body{
+	margin: 0px;
+	overflow: hidden;
+	font-family:Monospace;
+	font-size:13px;
+	text-align:center;
+	font-weight: bold;
+  height: auto;font:13px "Microsoft YaHei";padding:0; margin:0
+}
+a:link{
+color:#00F;
+text-decoration:none;
+}
+a:visited {
+color: #00F;
+text-decoration:none;
+}
+a:hover {
+color: #c00;
+text-decoration:underline;
+}
+#canvas { position: absolute; top: 0px; left: 0px; }
+.main_box {
+    position: absolute; top:40%; left:50%; margin-top:-260px; margin-left: -300px; padding:1px; width:600px; height:auto;z-index:999
+}
+.main_box h1{ text-align:center}
+.main_box h1 img{max-width:600px}
+.table{ width:420px; margin:0 auto}
+.input {
+	padding:10px 10px;
+	border:1px solid #d5d9da;
+	border-radius:5px;
+	box-shadow: 0 0 5px #e8e9eb inset;
+	width:200px; /* 400 (parent) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+	font-size:1em;
+	outline:0; /* remove webkit focus styles */
+}
+.select{
+	padding:10px 10px;
+	border:1px solid #d5d9da;
+	border-radius:5px;
+	box-shadow: 0 0 5px #e8e9eb inset;
+	width:100px; /* 400 (parent) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+	font-size:1em;
+	outline:0; /* remove webkit focus styles */
+}
+.submit{
+	text-shadow:1px 1px 0 rgba(255,255,255,0.4);
+	text-decoration:none !important;
+	white-space:nowrap;
+	display:inline-block;
+	vertical-align:baseline;
+	position:relative;
+	cursor:pointer;
+	padding:10px 20px; 
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	background-image:url('button_bg.png');
+	background-position:bottom left, top right, 0 0, 0 0;
+	background-clip:border-box;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	-moz-box-shadow:0 0 1px #fff inset;
+	-webkit-box-shadow:0 0 1px #fff inset;
+	box-shadow:0 0 1px #fff inset;
+	-webkit-transition:background-position 1s;
+	-moz-transition:background-position 1s;
+	transition:background-position 1s; font-size:14px;
+	color:#ffffff !important;
+	border:1px solid #a5a5a5 !important;	
+	background-color: #a9adb1;
+	background-image:url('button_bg.png'), url('button_bg.png'), -moz-radial-gradient(center bottom, circle, rgba(197,199,202,1) 0,rgba(197,199,202,0) 100px),-moz-linear-gradient(#c5c7ca, #92989c);
+	background-image:url('button_bg.png'), url('button_bg.png'), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(197,199,202,1)), to(rgba(197,199,202,0))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(#c5c7ca), to(#0042ff));
+	}
+.submit:hover{
+	background-position:top left;
+	background-position:top left, bottom right, 0 0, 0 0;
+	background-color:#108cff; color:#FFF;
+	background-image:url('button_bg.png'), url('button_bg.png'), -moz-radial-gradient(center bottom, circle, rgba(0,54,255,1) 0,rgba(0,54,255,0) 100px),-moz-linear-gradient(#108cff, #0042ff);
+	background-image:url('button_bg.png'), url('button_bg.png'), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(0,54,255,1)), to(rgba(0,54,255,0))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(#108cff), to(#0042ff));
+}
+.submit:active{
+	bottom:-1px;
+}
+.foot{ text-align:center; color:#FFF; margin-top:150px}
+.foot a{color:#FFF}
+/*????*/
+#musicControl { position:fixed;right:10px;bottom:10px;margin-top:-27px;display:inline-block;z-index:99999999}
+#musicControl a { display:inline-block;width:46px;height:46px;overflow:hidden;background-image:url('img/mcbg.png');background-repeat: no-repeat ;background-size:100%;}
+#musicControl a audio{width:100%;height:50px;}
+#musicControl a.stop { background-position:1px bottom;}
+#musicControl a.on { background-position:0px 1px;-webkit-animation: reverseRotataZ 1.2s linear infinite;}
+@-webkit-keyframes reverseRotataZ{
+	0%{-webkit-transform: rotateZ(0deg);}
+	100%{-webkit-transform: rotateZ(-360deg);}
+}
+@-webkit-keyframes rotataZ{
+	0%{-webkit-transform: rotateZ(0deg);}
+	100%{-webkit-transform: rotateZ(360deg);}
+}
+#music_play_filter{width:100%;height:100%;overflow:hidden;position:fixed;top:0;left:0}
+#music_btn{width:40px;height:40px;overflow:hidden;background:url('img/mcbg.png') no-repeat;cursor:pointer;margin:0 auto;}

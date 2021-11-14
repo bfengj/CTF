@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    if error
+      .alert.alert-danger= error
+    if message
+      .alert.alert-success.mx-5(role='alert') #{message}
+    .row
+      each pack in packs
+        .col-lg-4.col-md-6.mb-4
+          .card.h-100
+            a(href=`/packages/${pack.pack_id}`)
+              img.card-img-top(src=`/static/images/${pack.name}.png`, alt='')
+            .card-body
+              h4.card-title
+                a(href=`/packages/${pack.pack_id}`) #{pack.name}
+              p.card-text.text-truncate
+                | #{pack.description}
+            .card-footer
+              small.text-muted v#{pack.version}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" href="../../favicon.ico">
+    <title>发布文章</title>
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="/stylesheets/users/logup.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <%include ../incloud/inc.ejs%>
+    <div class="container">
+        <form id="rele" method="post" action="/art/rele">
+            <div class="form-group">
+              <h2 for="title">标题<span class="err" id="msg"></span></h2>
+              <input type="text" class="form-control" name="title" id="title" placeholder="请输入标题">
+            </div>
+            <div class="form-group">
+              <label for="au">作者</label>
+              <input type="text" class="form-control" name="au" id="au" placeholder="请输入作者">
+            </div>
+            <div class="form-group">
+              <label for="txt">请输入正文</label>
+              <textarea class="form-control" name="txt" id="txt" rows="10"></textarea>
+            </div>
+            <input type="hidden" name="username" id="username" value="<%=username%>">
+            <button type="submit" class="btn btn-default" id="btn">发布</button>
+        </form>
+    </div>
+        <script src="/javascripts/jquery.min.js"></script>
+        <script>
+            $("#btn").click(function(){
+              $("#rele").submit(function () { 
+                var title = $("#title").val();
+                var au = $("#au").val();
+                var txt = $("#txt").val();
+                var username = $("#username").val();
+                
+                $.ajax({ 
+                    url: "/art/rele", 
+                    type:"post",
+                    data: { title:title,au:au,txt:txt,username:username},
+                    success: function (data) {
+                      if (data.status == -1) {
+                        $("#msg").text(data.msg).show()
+                      }else {
+                        $("#msg").text(data.msg).hide()
+                        location.href="/art"
+                      }}
+                })
+                return false;
+              })
+            })
+        </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>登陆</title>
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/users/logup.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form id="logins" class="form-signin" method="post" action="/users/login">
+        <h2 class="form-signin-heading">登陆</h2>
+        <label for="inputEmail" class="sr-only">用户名</label>
+        <input type="text" name="DUserName" id="DUserName" class="form-control" placeholder="用户名" required autofocus>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" name="DPwd" id="DPwd" class="form-control" placeholder="密码" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+        <a href="/users/logup">注册</a>
+        <span class="err" id="msg"></span>
+      </form>
+    </div> <!-- /container -->
+
+    <script src="/javascripts/jquery.min.js"></script>
+    <script>
+       $("#logins").submit(function () { 
+            var strTxtName = $("#DUserName").val();
+            var strTxtPass = $("#DPwd").val();
+            
+            $.ajax({ 
+                url: "/users/login", 
+                type:"post",
+                data: { name: strTxtName, pwd: strTxtPass },
+                success: function (data) {
+                  if (data.status == -1) {
+                    $("#msg").text(data.msg).show()
+                  }else {
+                    $("#msg").text(data.msg).hide()
+                    location.href="/"
+                  }}
+            })
+            return false;
+          })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "puppeteer": "1.15.0"
+  }
+}

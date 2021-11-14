@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>注册</title>
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/users/logup.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form id="logups" class="form-signin" method="post" action="/users/logup">
+        <h2 class="form-signin-heading">注册</h2>
+        <label for="inputEmail" class="sr-only">用户名</label>
+        <input type="text" name="UserName" id="UserName" class="form-control" placeholder="用户名" required autofocus>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" name="Pwd" id="Pwd" class="form-control" placeholder="密码" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+        <a href="/users/login">登陆</a>
+        <a href="/users/login">忘记密码</a>
+        <span class="err" id="msg"></span>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <script src="/javascripts/jquery.min.js"></script>
+    <script>
+       $("#logups").submit(function () { 
+            var strTxtName = $("#UserName").val();
+            var strTxtPass = $("#Pwd").val();
+            
+            $.ajax({ 
+                url: "/users/logup", 
+                type:"post",
+                data: { name: strTxtName, pwd: strTxtPass },
+                success: function (data) {
+                  if (data.status == -1) {
+                    $("#msg").text(data.msg).show()
+                  }else {
+                    $("#msg").text(data.msg).hide()
+                    location.href="/users/login"
+                  }}
+            })
+            return false;
+          })
+    </script>
+  </body>
+</html>

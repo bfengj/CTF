@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .row
+    .col-lg-3
+      h1.my-4 Package
+      .list-group
+        a.list-group-item(href=`/packages/list?search=${package.name}`) Specify your package
+    .col-lg-9
+      .card.mt-4
+        .card-body
+          img.card-img-top.img-fluid(src=`/static/images/${package.name}.png` alt='')    
+          h3.card-title !{package.name}
+          p.card-text
+            | !{package.description}
+          div
+            | v!{package.version}            
+      .card.card-outline-secondary.my-4
+        .card-header
+          | Update or delete your package at any time
+        .card-body
+          a.btn.btn-link(href=`/packages/${package.pack_id}/edit`) Edit
+          a.btn.btn-link(href=`/packages/${package.pack_id}/delete`) Delete

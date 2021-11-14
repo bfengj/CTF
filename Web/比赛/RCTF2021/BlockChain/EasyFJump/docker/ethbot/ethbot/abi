@@ -1,0 +1,60 @@
+[
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "tmp_a",
+                "type": "uint256"
+            },
+            {
+                "name": "tmp_b",
+                "type": "uint256"
+            },
+            {
+                "name": "tmp_m",
+                "type": "uint256"
+            }
+        ],
+        "name": "Set",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "payforflag",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "GetFlag",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "addr",
+                "type": "address"
+            }
+        ],
+        "name": "ForFlag",
+        "type": "event"
+    }
+]

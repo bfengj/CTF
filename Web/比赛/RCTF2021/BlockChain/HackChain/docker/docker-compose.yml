@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+
+  proxy:
+    image: nginx:alpine
+    container_name: rpcproxy
+    ports:
+      - "8545:80"
+    links:
+      - ethereum
+    volumes:
+      - "./ctf-eth-env/rpcproxy/njs:/etc/nginx/njs"
+      - "./ctf-eth-env/rpcproxy/log:/var/log/nginx"
+      - "./ctf-eth-env/rpcproxy/nginx.conf:/etc/nginx/nginx.conf"
+    restart: always
+
+  ethereum:
+    image: ethereum/client-go:latest
+    container_name: geth-clique
+    expose:
+      - "8545"
+    volumes:
+      - "./ctf-eth-env/geth-clique:/root/.ethereum"
+    command: --allow-insecure-unlock --networkid=8888 --unlock="0" --password="/root/.ethereum/password.txt" --nodiscover --mine --http --http.api=debug,eth,web3,net --http.addr=0.0.0.0 --http.port=8545 --http.corsdomain='*' --http.vhosts='*'
+    restart: always
+
+  api:
+    build: eth-faucet
+    container_name: faucet-api
+    ports:
+      - "8080:8080"
+    links:
+      - ethereum
+    volumes:
+      - "./eth-faucet/config.yml:/app/config.yml"
+    restart: always
+
+  web:
+    build: eth-faucet/web
+    container_name: faucet-web
+    ports:
+      - "80:80"
+    links:
+      - api
+      - ethereum
+    volumes:
+      - "./eth-faucet/nginx:/etc/nginx/conf.d"
+    restart: always
+
+  ethbot:
+    build: ethbot
+    container_name: ethbot
+    ports:
+      - "10001:10001"
+    links:
+      - ethereum
+    # volumes:
+    #   - "./ethbot/ethbot:/root/ethbot"
+    #   - "./ethbot/start.sh:/start.sh"
+    #   - "./ethbot/ctf.xinetd:/etc/xinetd.d/ctf"
+    restart: always

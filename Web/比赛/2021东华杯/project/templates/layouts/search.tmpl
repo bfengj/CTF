@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+	<title>LIBRARY BOOK SEARCH</title>
+
+	<!-- Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Library Member Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Style --> <link rel="stylesheet" href="/static/css/search.css" type="text/css" media="all">
+
+	<!-- Fonts -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+	<h1>LIBRARY BOOK SEARCH FORM</h1>
+
+	<div class="container w3layouts agileits">
+
+		<div class="login w3layouts agileits">
+			<h2>Search books</h2>
+			<form action="/search" method="get">
+				<input type="text" name="booktitle" placeholder="Book Title" required="">
+				<div class="send-button w3layouts agileits">
+					<input type="submit" value="Search">
+				</div>
+			</form>
+			
+			<div class="clear"></div>
+		</div>
+
+		<div class="register w3layouts agileits">
+			<h2>The query results</h2>
+			<p>Title: {{ .title }}</p><br>
+			<p>Author: {{ .author }}</p><br>
+			<p>Description: {{ .description }}</p><br>
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footer w3layouts agileits">
+		<p> &copy; 2021 Library Books Search Form. All Rights Reserved | Design by <a href="#" target="_blank">Mockingjay</a></p>
+	</div>
+
+</body>
+<!-- //Body -->
+
+</html>

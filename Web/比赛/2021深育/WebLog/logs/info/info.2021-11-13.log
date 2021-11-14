@@ -1,0 +1,45 @@
+2021-11-13 15:45:35 INFO  main com.ctf.cb.CbApplication Starting CbApplication v0.0.1-SNAPSHOT using Java 13.0.2 on DESKTOP-C25SBOE with PID 19604 (D:\this_is_feng\github\CTF\Web\比赛\2021深育\WebLog\cb-0.0.1-SNAPSHOT.jar started by 15997 in D:\this_is_feng\github\CTF\Web\比赛\2021深育\WebLog)
+2021-11-13 15:45:35 INFO  main com.ctf.cb.CbApplication No active profile set, falling back to default profiles: default
+2021-11-13 15:45:37 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8081 (http)
+2021-11-13 15:45:37 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8081"]
+2021-11-13 15:45:37 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2021-11-13 15:45:37 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-13 15:45:37 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2021-11-13 15:45:37 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 1651 ms
+2021-11-13 15:45:37 INFO  main org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page template: index
+2021-11-13 15:45:37 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8081"]
+2021-11-13 15:45:38 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8081 (http) with context path ''
+2021-11-13 15:45:38 INFO  main com.ctf.cb.CbApplication Started CbApplication in 3.223 seconds (JVM running for 3.728)
+2021-11-13 15:46:04 INFO  http-nio-8081-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-13 15:46:04 INFO  http-nio-8081-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2021-11-13 15:46:04 INFO  http-nio-8081-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 0 ms
+2021-11-13 15:50:42 INFO  main com.ctf.cb.CbApplication Starting CbApplication v0.0.1-SNAPSHOT using Java 13.0.2 on DESKTOP-C25SBOE with PID 9784 (D:\this_is_feng\github\CTF\Web\比赛\2021深育\WebLog\cb-0.0.1-SNAPSHOT.jar started by 15997 in D:\this_is_feng\github\CTF\Web\比赛\2021深育\WebLog)
+2021-11-13 15:50:42 INFO  main com.ctf.cb.CbApplication No active profile set, falling back to default profiles: default
+2021-11-13 15:50:44 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8081 (http)
+2021-11-13 15:50:44 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8081"]
+2021-11-13 15:50:44 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2021-11-13 15:50:44 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-13 15:50:44 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2021-11-13 15:50:44 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 1658 ms
+2021-11-13 15:50:44 INFO  main org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page template: index
+2021-11-13 15:50:44 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8081"]
+2021-11-13 15:50:44 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8081 (http) with context path ''
+2021-11-13 15:50:44 INFO  main com.ctf.cb.CbApplication Started CbApplication in 3.245 seconds (JVM running for 3.742)
+2021-11-13 15:50:48 INFO  http-nio-8081-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-13 15:50:48 INFO  http-nio-8081-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2021-11-13 15:50:48 INFO  http-nio-8081-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+2021-11-13 15:59:21 INFO  main com.ctf.cb.CbApplication Starting CbApplication v0.0.1-SNAPSHOT using Java 13.0.2 on DESKTOP-C25SBOE with PID 11320 (D:\this_is_feng\github\CTF\Web\比赛\2021深育\WebLog\cb-0.0.1-SNAPSHOT.jar started by 15997 in D:\this_is_feng\github\CTF\Web\比赛\2021深育\WebLog)
+2021-11-13 15:59:21 INFO  main com.ctf.cb.CbApplication No active profile set, falling back to default profiles: default
+2021-11-13 15:59:23 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8081 (http)
+2021-11-13 15:59:23 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8081"]
+2021-11-13 15:59:23 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2021-11-13 15:59:23 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-13 15:59:23 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2021-11-13 15:59:23 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 1686 ms
+2021-11-13 15:59:23 INFO  main org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page template: index
+2021-11-13 15:59:23 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8081"]
+2021-11-13 15:59:24 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8081 (http) with context path ''
+2021-11-13 15:59:24 INFO  main com.ctf.cb.CbApplication Started CbApplication in 3.395 seconds (JVM running for 3.859)
+2021-11-13 15:59:24 INFO  http-nio-8081-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-13 15:59:24 INFO  http-nio-8081-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2021-11-13 15:59:24 INFO  http-nio-8081-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms

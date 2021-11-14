@@ -1,0 +1,65 @@
+<html>
+
+    <head>
+      <title>计算器</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+        }
+    
+        main {
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+          border-radius: 4px;
+          vertical-align: top;
+          background: #fff;
+          width: 60vw;
+          height: 80vh;
+          margin: 10vh 20vw;
+          justify-content: center;
+          text-align: center;
+        }
+    
+        .title {
+          font-size: 3em;
+          width: 100%;
+        }
+    
+        .input {
+          margin: 10px 0;
+        }
+    
+        #submit {
+          width: 20%;
+          height: 20px;
+          background-color: grey;
+          margin: 10px auto;
+          cursor: pointer;
+          display: block;
+        }
+    
+        #id {
+          width: 100%;
+        }
+      </style>
+    </head>
+    
+    <body>
+      <main>
+        <div class="title">计算器</div>
+        <form class="form" action="/" method="POST">
+          <input type="text" name="e" class="input" placeholder="readFile('./src/index.js')"/>
+          <button type="submit" id="submit">算吧</button>
+        </form>
+    
+        <div id="res">
+          {{res}}
+          <br/>
+        </div>
+      </main>
+    </body>
+    
+    </html>

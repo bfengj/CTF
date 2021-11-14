@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center
+      h1 Pdfs 😛 for admin
+    br
+    if error
+      .alert.alert-danger.mx-5(role='alert') #{error}
+    if message
+      .alert.alert-success.mx-5(role='alert') #{message}
+    .row.justify-content-center
+      .col-lg-8.col-md-6.mt-5
+        form.form(action=`/admin`, method='POST')
+          div.mb-3
+            input.form-control(type='text', name='content', placeholder='Content' )
+          div.mb-3
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Generate

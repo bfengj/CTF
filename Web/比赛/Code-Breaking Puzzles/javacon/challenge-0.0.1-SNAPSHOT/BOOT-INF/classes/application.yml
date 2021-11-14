@@ -1,0 +1,14 @@
+spring:
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    mode: HTML
+keywords:
+  blacklist:
+    - java.+lang
+    - Runtime
+    - exec.*\(
+user:
+  username: admin
+  password: admin
+  rememberMeKey: c0dehack1nghere1

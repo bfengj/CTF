@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" href="../../favicon.ico">
+    <title>修改文章</title>
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="/stylesheets/users/logup.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <%include ../incloud/inc.ejs%>
+    <div class="container">
+        <form id="up" method="post" action="/art/up">
+            <div class="form-group">
+              <h2 for="title">标题<span class="err" id="msg"></span></h2>
+              <input type="text" class="form-control" name="title" id="title" value="<%=art.title%>">
+            </div>
+            <div class="form-group">
+              <label for="au">作者</label>
+              <input type="text" class="form-control" name="au" id="au" value="<%=art.au%>">
+            </div>
+            <div class="form-group">
+              <label for="txt">正文</label>
+              <textarea class="form-control" name="txt" id="txt" rows="10">
+                    <%=art.txt%>
+              </textarea>
+            </div>
+            <input type="hidden" name="id" value="<%=art._id%>">
+            <button type="submit" class="btn btn-default">修改</button>
+        </form>
+    </div>
+
+    <script src="/javascripts/jquery.min.js"></script>
+  </body>
+</html>

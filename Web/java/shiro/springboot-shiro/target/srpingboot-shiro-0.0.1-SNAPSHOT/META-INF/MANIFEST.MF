@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: feng
+Build-Jdk: 1.8.0_302
+Implementation-Title: srpingboot-shiro
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: org.syclover
+Main-Class: ${start-class}
+

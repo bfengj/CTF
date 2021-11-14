@@ -1,0 +1,103 @@
+﻿body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background: #eeeeee url(images/bg2.png) top center no-repeat;
+}
+a:link {
+	color: #ffffff;
+}
+a:visited {
+	color: #ffffff;
+}
+a:hover {
+	color: #ffffff;
+}
+a:active {
+	color: #ffffff;
+}
+form{margin:0px; padding:0px;}
+
+ /*????????*/
+.divmain_login {
+	font-size:12px;
+	font-weight:normal;
+	height:680px;
+	width:100%;
+	margin:0; padding:0;
+}
+.loginform{
+	height:450px;
+	width:600px;
+	margin-top:165px;
+	position:relative;
+}
+.divlogin_login {
+	top:160px;
+	width:300px;
+	height:180px;
+	left:200px;
+	position:absolute
+}
+.input{width:145px; height:20px; border:1px solid #7F9DB9; padding:0px;  margin:0;}
+.input_yz{width:100px; height:20px; border:1px solid #7F9DB9; padding:0; margin:0;}
+.btn{
+	width:100px;
+	height:40px;
+	color:orange;
+        background:black;
+	border:0px;
+	cursor:pointer;
+	padding:0 0 4px 0;
+        padding:2px 0 0 0;
+        font-size:12px;
+}
+
+.btn_over{
+	width:100px;
+	height:40px;
+	color:#2a4a61;
+	border:0;
+        background:orange;
+	cursor:pointer;
+	padding:0 0 4px 0;
+        padding:2px 0 0 0;
+        font-size:12px;
+}
+
+.divlogin_login  td{font-size:12px;	font-weight:bold;color:#2a4a61;line-height:120%;} 
+.divbot_login {
+	font-size: 10pt;
+	color: #79a9c8;
+	height:35px;
+}
+.logobox {margin-top:6%;width:400px;height:auto;margin-left:auto;margin-right:auto;text-align:center;}
+.inputbox {width:500px; height:35px;font-size:30px;vertical-align: middle;border-size:1px;border-color:black}
+.nrboxx {width:610px;margin-top:50px;margin-left:auto;margin-right:auto;}
+/*????????*/
+@media screen and (max-width: 800px) { 
+.logobox {margin-top:50px;width:280px;height:auto;margin-left:auto;margin-right:auto;text-align:center;}
+.inputbox {width:80%; height:40px;font-size:30px;border-size:1px;border-color:black}
+.btn {
+	background: black;
+	border: 0px;
+	width: 81%;
+	height: 40px;
+	color: orange;
+	margin-top: 5px;
+}
+.btn_over{
+	margin-top: 5px;
+	width:81%;
+	height:40px;
+	color:#2a4a61;
+	border:0;
+        background:orange;
+	cursor:pointer;
+	padding:0 0 4px 0;
+        padding:2px 0 0 0;
+        font-size:12px;
+}
+.nrboxx {width:80%;margin-left:auto;margin-right:auto;}
+} 

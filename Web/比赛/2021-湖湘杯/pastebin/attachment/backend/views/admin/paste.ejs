@@ -1,0 +1,39 @@
+<div class="col-md-10 mx-auto">
+    <div class="card border-primary bg-light mb-4 rounded-3">
+        <div class="card-header">
+            <ul class="nav justify-content-between">
+                <li class="nav-item">
+                    <h3>Pastebin</h3>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-end">
+                <div class="">
+                    <h3 class="text-center mb-2">
+                        <%= data[0].username %>'s Pastebin
+                    </h3>
+                    <div>
+                        <ul class="list-group mh-50 overflow-auto rounded-2">
+                            <% data.forEach(function (item) { %>
+                                <li class="list-group-item">
+                                    <a href="#" class="link-info"><%= item.hash %></a>
+                                </li>
+                                    <% }) %>
+                                        <% if(!data.length) { %>
+                                            <small class="text-center text-secondary">You have not got any pastes</small>
+                                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="mb-2 center">
+                        <a href="/admin/paste/<%= data[0].hash %>/comment" class="btn btn-primary" id="send" role="button" data-bs-toggle="button">Send Flag To Him</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

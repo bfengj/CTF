@@ -1,0 +1,15 @@
+service CreativityPlus
+{
+        disable = no
+        flags           = REUSE
+        type            = UNLISTED
+        per_source      = 5
+        port            = 10001
+        protocol        = tcp
+        socket_type     = stream
+        wait            = no
+        user            = root
+        server          = /usr/bin/python3
+        server_args     = /root/ethbot/ethbot.py
+        log_on_failure  += USERID
+}

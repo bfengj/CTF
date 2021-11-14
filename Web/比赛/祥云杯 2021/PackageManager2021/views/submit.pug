@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center
+      .col-lg-8.col-md-6.mt-5
+        .card.h-200
+          .card-header Submit your package id
+          .card-body
+          form(action='/packages/submit' method='POST')
+            input(type='hidden', name='_csrf', value=csrfToken)
+            .form-group.row
+              label.col-md-4.col-form-label.text-md-right(for='pack_id') ID
+              .col-md-5            
+                input#pack_id.form-control(type='text' name='pack_id' required='' autofocus='')
+            if error
+              .alert.alert-danger.mx-5(role='alert') #{error}
+            if message
+              .alert.alert-success.mx-5(role='alert') #{message}
+            .row.justify-content-center
+              .col-md-2
+                button.btn.btn-primary.btn-block(type='submit') Submit
+                br

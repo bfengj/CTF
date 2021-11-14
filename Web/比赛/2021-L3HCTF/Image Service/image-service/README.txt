@@ -1,0 +1,1 @@
+change host to your public ip in .env

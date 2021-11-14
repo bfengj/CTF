@@ -1,0 +1,114 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+html, body, ul, li {padding:0; margin:0;}
+body { background-color:#fff; font-size:12px;}
+ul,li {list-style-type:none; text-transform:capitalize;}
+.cl {clear:both; *display:inline;/*IE only*/}
+img { border:0;}
+a { text-decoration:none;}
+
+
+.zhuce_head {
+	padding-top:13px;
+	padding-bottom:13px;
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #e5e5e5;
+    text-align:center;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #3a3b3d;
+}
+.zhuce_head a { width:100%; height:160px; display:block;}
+.zhuce_head2 { width:100%; height:120px; border-bottom:1px solid #e5e5e5; background:url(img/user.jpg) 15px center no-repeat;}
+.zhuce_head2logo { width:415px; height:120px; float:left;}
+.zhuce_head2logo a { width:415px; height:120px; display:block;}
+.zhuce_head2menu { width:auto; float:right; height:40px; margin-top:40px; margin-right:15px;}
+.zhuce_head2menu li { width:122px; height:37px; text-align:center; font-family:"????????????"; font-size:16px; float:right; margin-left:15px; line-height:35px; color:#f5f5f5;}
+.zhuce_head2menu li a { width:120px; height:35px;line-height:35px;font-family:"????????????"; font-size:16px; float:right;border-radius:19px; border:1px solid #e5e5e5; display:block; color:#999;}
+.zhuce_head2menu li a:hover { width:120px; background:#06C; height:35px;line-height:35px;font-family:"????????????"; font-size:16px; float:right;border-radius:19px; border:1px solid #06C; display:block; color:#fff;}
+.zhuce_main { width:800px; margin:0 auto;}
+.zhuce_main2 { width:100%; margin:0 auto;}
+.zhuce_maintl { width:800px; height:40px; background:url(img/xfl_zc.jpg) center 10px no-repeat; text-align:center; padding-top:40px; margin-top:25px; color:#bbb;}
+.zhuce_maintl2 { width:800px; height:40px; background:url(img/xfl_login.jpg) center 10px no-repeat; text-align:center; padding-top:10px; margin-top:25px; color:#bbb;}
+.rs_input1 { width:500px; height:40px; border:1px solid #e5e5e5; line-height:40px; padding-left:10px;border-radius:8px; font-family:"????????????"; font-size:18px; outline:none; margin-left:10px;}
+
+.rs_input2 { width:500px; height:40px; border:1px solid #ff4444; line-height:40px; padding-left:10px;border-radius:8px; font-family:"????????????"; font-size:18px; outline:none; margin-left:10px;}
+.tj_input { width:510px; height:45px; background:#146ff4;border-radius:8px;font-family:"????????????"; font-size:18px; color:#fff; border:1px solid #146ff4; margin-left:10px; outline:none; cursor:pointer}
+.fwtk1 { background:url(img/xfl_ic4.jpg) left no-repeat; padding-left:35px; height:40px; line-height:40px; margin-left:10px; margin-bottom:20px; margin-top:10px; cursor:pointer;}
+.fwtk1 a { color:#06c;}
+.fwtk1 a:hover { color:#06c; text-decoration:underline;}
+.fwtk1a { background:url(img/xfl_ic4a.jpg) left no-repeat; padding-left:35px; height:40px; line-height:40px; margin-left:10px; margin-bottom:20px; margin-top:10px; cursor:pointer;}
+.fwtk1a a { color:#06c;}
+.fwtk1a a:hover { color:#06c; text-decoration:underline;}
+.diqu_xz { width:147px; height:40px; border:1px solid #e5e5e5;border-radius:8px;line-height:40px; margin-left:10px; float:left; background:url(img/xfl_ic3.jpg) right no-repeat; padding-left:15px; color:#666; position:relative; cursor:pointer;}
+.diqu_xzin { position:absolute; width:400px; padding:10px; background:#FFF; border:1px solid #e5e5e5; left:-1px; top:35px; z-index:99; }
+.diqu_xzin li { width:100px; float:left; font-size:14px; height:30px; line-height:30px; text-align:center;}
+.diqu_xzin_lia { background:#e5e5e5;border-radius:4px; color:#000;}
+.diqu_xzin2 { position:absolute; width:142px; padding:10px; background:#FFF; border:1px solid #e5e5e5; border-top:0; left:-1px; top:35px; z-index:99;border-radius:0 0 4px 4px ; }
+.diqu_xzin2 li { width:142px;font-size:14px; height:30px; line-height:30px; text-align:center;}
+.diqu_xzin2_lia { background:#e5e5e5;border-radius:4px; color:#000;}
+.tx_right { width:25px; height:25px; background:url(img/xfl_ic1.jpg); display:none}
+.tx_wrong { width:25px; height:25px; background:url(img/xfl_ic2.jpg);display:none}
+
+
+.login_input1 { width:270px; height:40px; border:1px solid #e5e5e5; line-height:40px; padding-left:40px;border-radius:20px; font-family:"????????????"; font-size:18px; outline:none; background:url(img/xfl_ic5.jpg) 10px no-repeat; margin:0 auto;}
+.login_input2 { width:270px; height:40px; border:1px solid #e5e5e5; line-height:40px; padding-left:40px;border-radius:20px; font-family:"????????????"; font-size:18px; outline:none; background:url(img/xfl_ic6.jpg) 10px no-repeat; margin:0 auto;}
+.login_input3 { width:310px; height:45px; background:#129B0F;border-radius:22.5px;font-family:"????????????"; font-size:18px; color:#fff; border:1px solid #129B0F; outline:none; cursor:pointer; margin-top:5px;}
+.login_input4 { width:310px; height:45px; background:#0884CC;border-radius:22.5px;font-family:"????????????"; font-size:18px; color:#fff; border:1px solid #0884CC; outline:none; cursor:pointer;}
+.tx_sc { width:250px; height:250px; border:1px solid #e5e5e5; margin-left:10px;}
+.sc_input { width:252px; height:45px; background:#099;border-radius:8px;font-family:"????????????"; font-size:18px; color:#fff; border:1px solid #099; margin-left:10px; margin-top:10px; outline:none;}
+.pp_xz { width:250px; height:40px; background:#f5f5f5; cursor:pointer; border:1px solid #e5e5e5; line-height:40px; text-align:center;border-radius:8px; font-family:"????????????"; font-size:18px; outline:none; margin-left:10px; position:relative;}
+.pp_xzin { width:600px; background:#fff; border:1px solid #e5e5e5; padding:10px; position:absolute; left:-1px; bottom:-10px; z-index:99;border-radius:8px; display:none;}
+.pp_xzin li { width:100px; float:left; font-size:14px; height:30px; line-height:30px; text-align:center; margin-top:5px;}
+.pp_xzin_lia { background:#e5e5e5;border-radius:4px; color:#000;}
+.yxz_pp { width:600px; padding:10px;}
+.yxz_pp li { width:160px; float:left; font-size:14px; height:30px; line-height:30px; text-indent:10px; border:1px solid #e5e5e5; z-index:99;border-radius:4px; margin-right:10px; margin-top:5px; cursor:pointer;}
+.yxz_pp_lia {  width:160px; background:url(img/xfl_ic8.jpg) 135px no-repeat; font-size:14px; height:30px; line-height:30px; text-indent:10px; border:1px solid #e5e5e5; z-index:99;border-radius:4px; margin-right:10px; margin-top:5px;}
+
+.dlpp_tl { border-top:1px solid #e5e5e5; padding-top:10px; font-size:14px; padding-bottom:15px; margin-top:10px;}
+.name1 { float:left; font-size:26px; padding-right:10px;}
+.name2 { float:left; border:1px solid #e5e5e5; padding-left:5px; padding-right:5px; font-size:16px; margin-left:10px; margin-top:10px; color:#666;}
+select{
+  width:500px !important;
+  padding:0.5em;
+  color: #555;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  padding-left:10px;
+  margin-left:10px;
+   height:40px; border:1px solid #e5e5e5; line-height:40px; padding-left:10px;border-radius:8px;
+  }
+  .rs_input11 { width:500px; height:100px; border:1px solid #e5e5e5; line-height:40px; padding-left:10px;border-radius:8px; font-family:"新宋体"; font-size:18px; outline:none; margin-left:10px;}
+.tableclas1 { width:100%;}
+  .leftweidd { width:150px;}
+@media (max-width:800px){
+.zhuce_main { width:100%; margin:0 auto;}
+.zhuce_main2 { width:100%; margin:0 auto;}
+.zhuce_maintl { width:100%; height:40px; background:url(img/xfl_zc.jpg) center 10px no-repeat; text-align:center; padding-top:40px; margin-top:25px; color:#bbb;}
+.zhuce_maintl2 { width:100%; height:40px; background:url(img/xfl_login.jpg) center 10px no-repeat; text-align:center; padding-top:10px; margin-top:25px; color:#bbb;}
+.rs_input1 { width:80%; height:40px; border:1px solid #e5e5e5; line-height:40px; padding-left:10px;border-radius:8px; font-family:"????????????"; font-size:18px; outline:none; margin-left:10px;}
+select{
+  width:80% !important ;
+  padding:0.5em;
+  color: #555;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  padding-left:10px;
+  margin-left:10px;
+   height:40px; border:1px solid #e5e5e5; line-height:40px; padding-left:10px;border-radius:8px;
+  }
+ .rs_input11 { width:80%; height:100px; border:1px solid #e5e5e5; line-height:40px; padding-left:10px;border-radius:8px; font-family:"新宋体"; font-size:18px; outline:none; margin-left:10px;}
+
+.tableclas1 { width:100%;}
+.leftweidd { width:70px;}
+.tj_input { width:80%; height:45px; background:#146ff4;border-radius:8px;font-family:"????????????"; font-size:18px; color:#fff; border:1px solid #146ff4; margin-left:10px; outline:none; cursor:pointer}
+td { height:50px !important;}
+
+.zhuce_head img {
+	max-width:100%;
+}
+}
