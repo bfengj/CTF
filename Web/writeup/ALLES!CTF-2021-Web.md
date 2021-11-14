@@ -167,7 +167,7 @@ password=da39a3ee5e6b4b0d3255bfef95601890afd80709&username=admin
 
 即可拿到flag：
 
-![image-20210907122704175](ALLES! CTF 2021 Web.assets/image-20210907122704175.png)
+![image-20210907122704175](ALLES!CTF-2021-Web.assets/image-20210907122704175.png)
 
 
 

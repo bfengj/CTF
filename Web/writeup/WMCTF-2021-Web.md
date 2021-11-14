@@ -49,9 +49,9 @@ eval('if(0){' . $code . '}');
 
 所以直接执行就可以了：
 
-![image-20210829132419457](WMCTF 2021 Web.assets/image-20210829132419457.png)
+![image-20210829132419457](WMCTF-2021-Web.assets/image-20210829132419457.png)
 
 
 
-![image-20210829132437559](WMCTF 2021 Web.assets/image-20210829132437559.png)
+![image-20210829132437559](WMCTF-2021-Web.assets/image-20210829132437559.png)
 

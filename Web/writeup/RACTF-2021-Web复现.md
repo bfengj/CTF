@@ -195,7 +195,7 @@ Connection: close
 
 拿到shell发现`/flag.txt`没权限读：
 
-![image-20210818195722377](RACTF 2021 Web复现.assets/image-20210818195722377.png)
+![image-20210818195722377](RACTF-2021-Web复现.assets/image-20210818195722377.png)
 
 这里需要提权。读`/etc/passwd`发现多了个admin用户，而且`/etc/shadow`同样可以读：
 

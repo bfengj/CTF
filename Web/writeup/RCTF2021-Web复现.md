@@ -149,7 +149,7 @@ public class Evil {
 
 然后我本地打通了复现的docker那边死活没回显：
 
-![image-20211103172357082](RCTF2021 Web复现.assets/image-20211103172357082.png)
+![image-20211103172357082](RCTF2021-Web复现.assets/image-20211103172357082.png)
 
 看了一下各种writeup，才看到好像题目的环境是不出网，过滤了内存马和命令执行，还给了个提示：冰蝎basicinfo。
 
@@ -459,7 +459,7 @@ public class Evil {
 
 运行main产生payload打过去就行。
 
-![image-20211103180443494](RCTF2021 Web复现.assets/image-20211103180443494.png)
+![image-20211103180443494](RCTF2021-Web复现.assets/image-20211103180443494.png)
 
 
 

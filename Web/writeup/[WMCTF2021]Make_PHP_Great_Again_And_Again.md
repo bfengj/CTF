@@ -431,7 +431,7 @@ file_put_contents('ftp://127.0.0.1:46819/aaa',$payload);
 
 接下来就是上传这个ant.so，也是从赵总那里学了这么一手，妙！
 
-![image-20211026235851484]([WMCTF2021]Make PHP Great Again And Again.assets/image-20211026235851484.png)
+![image-20211026235851484]([WMCTF2021]Make_PHP_Great_Again_And_Again.assets/image-20211026235851484.png)
 
 
 
@@ -439,7 +439,7 @@ file_put_contents('ftp://127.0.0.1:46819/aaa',$payload);
 
 先开启上面的FTP服务器：
 
-![image-20211026235940933]([WMCTF2021]Make PHP Great Again And Again.assets/image-20211026235940933.png)
+![image-20211026235940933]([WMCTF2021]Make_PHP_Great_Again_And_Again.assets/image-20211026235940933.png)
 
 （POST的数据就是执行那个FTP 的PHP代码）
 
@@ -447,7 +447,7 @@ file_put_contents('ftp://127.0.0.1:46819/aaa',$payload);
 
 然后发送payload：
 
-![image-20211027000015204]([WMCTF2021]Make PHP Great Again And Again.assets/image-20211027000015204.png)
+![image-20211027000015204]([WMCTF2021]Make_PHP_Great_Again_And_Again.assets/image-20211027000015204.png)
 
 
 
@@ -455,5 +455,5 @@ file_put_contents('ftp://127.0.0.1:46819/aaa',$payload);
 
 这样ant.so就加载成功了。ant.so的作用就是当调用`antsystem("qwq");`的时候，会把`/tmp/xxxxxx`这个文件中写好的命令进行执行然后把结果写进`/tmp/yyyyyy`中：
 
-![image-20211027000152009]([WMCTF2021]Make PHP Great Again And Again.assets/image-20211027000152009.png)
+![image-20211027000152009]([WMCTF2021]Make_PHP_Great_Again_And_Again.assets/image-20211027000152009.png)
 

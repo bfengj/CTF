@@ -65,7 +65,7 @@ https://en.wikipedia.org/wiki/Digraphs_and_trigraphs
 
 利用报错的信息来得到flag：
 
-![image-20210817235357923](Hacker's Playground(SSTF) 2021 Web.assets/image-20210817235357923.png)
+![image-20210817235357923](Hacker's-Playground(SSTF)-2021-Web.assets/image-20210817235357923.png)
 
 
 

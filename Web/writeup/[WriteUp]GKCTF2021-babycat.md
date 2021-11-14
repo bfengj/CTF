@@ -54,7 +54,7 @@ data={"username":"1","password":"1","role":"admin"}
 
 尝试下载文件。考虑到之前测试register接口的时候，我忘记了加上data结果报了500：
 
-![image-20210903104130416]([WriteUp]GKCTF2021 babycat.assets/image-20210903104130416.png)
+![image-20210903104130416]([WriteUp]GKCTF2021-babycat.assets/image-20210903104130416.png)
 
 当时也看了一下，很熟悉的`Servlet`。因此对于项目的结构也大致能猜出来。
 
@@ -145,7 +145,7 @@ data={"username":"1","password":"1","role":"admin"}
 
 最后大致会读出来这些：
 
-![image-20210903104541375]([WriteUp]GKCTF2021 babycat.assets/image-20210903104541375.png)
+![image-20210903104541375]([WriteUp]GKCTF2021-babycat.assets/image-20210903104541375.png)
 
 大致审计一下，首先就是注册那里role的问题：
 
@@ -221,7 +221,7 @@ Content-Type: application/octet-stream
 
 
 
-![image-20210903105537495]([WriteUp]GKCTF2021 babycat.assets/image-20210903105537495.png)
+![image-20210903105537495]([WriteUp]GKCTF2021-babycat.assets/image-20210903105537495.png)
 
 
 
@@ -286,7 +286,7 @@ Content-Type: application/octet-stream
 </java>
 ```
 
-![image-20210903114858324]([WriteUp]GKCTF2021 babycat.assets/image-20210903114858324.png)
+![image-20210903114858324]([WriteUp]GKCTF2021-babycat.assets/image-20210903114858324.png)
 
 写个反弹shell，然后覆盖掉db.xml：
 
@@ -294,7 +294,7 @@ Content-Type: application/octet-stream
 
 再重新登录即可反弹shell拿到flag。
 
-![image-20210903114944936]([WriteUp]GKCTF2021 babycat.assets/image-20210903114944936.png)
+![image-20210903114944936]([WriteUp]GKCTF2021-babycat.assets/image-20210903114944936.png)
 
 
 

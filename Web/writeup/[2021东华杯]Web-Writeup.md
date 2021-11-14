@@ -187,11 +187,11 @@ public class Test {
 
 打：
 
-![image-20211031114720910]([2021东华杯]Web Writeup.assets/image-20211031114720910.png)
+![image-20211031114720910]([2021东华杯]Web-Writeup.assets/image-20211031114720910.png)
 
 得到flag：
 
-![image-20211031114735527]([2021东华杯]Web Writeup.assets/image-20211031114735527.png)
+![image-20211031114735527]([2021东华杯]Web-Writeup.assets/image-20211031114735527.png)
 
 
 
@@ -217,15 +217,15 @@ curl http://121.5.169.223:39656/ -F file=@/flag
 
 
 
-![image-20211031135233990]([2021东华杯]Web Writeup.assets/image-20211031135233990.png)
+![image-20211031135233990]([2021东华杯]Web-Writeup.assets/image-20211031135233990.png)
 
-![image-20211031135312816]([2021东华杯]Web Writeup.assets/image-20211031135312816.png)
+![image-20211031135312816]([2021东华杯]Web-Writeup.assets/image-20211031135312816.png)
 
 
 
 而且串payload，我和学长那边都nc收到别人的payload。可能运气比较好就出了，拿了一血：
 
-![image-20211031135508633]([2021东华杯]Web Writeup.assets/image-20211031135508633.png)
+![image-20211031135508633]([2021东华杯]Web-Writeup.assets/image-20211031135508633.png)
 
 
 
@@ -377,11 +377,11 @@ https://securitylab.github.com/advisories/GHSL-2021-020-pillarjs-hbs/
 
 本来以为是个任意文件的读取：
 
-![image-20211031182231547]([2021东华杯]Web Writeup.assets/image-20211031182231547.png)
+![image-20211031182231547]([2021东华杯]Web-Writeup.assets/image-20211031182231547.png)
 
 读`/flag`的时候发现读的文件必须要有个后缀，不然就自动加上.hbs：
 
-![image-20211031182314642]([2021东华杯]Web Writeup.assets/image-20211031182314642.png)
+![image-20211031182314642]([2021东华杯]Web-Writeup.assets/image-20211031182314642.png)
 
 然后想到了，这应该是解析模板文件的，利用上传功能，就可以实现模板渲染rce。
 
@@ -415,19 +415,19 @@ https://xz.aliyun.com/t/4695
 
 传过去：
 
-![image-20211031182442379]([2021东华杯]Web Writeup.assets/image-20211031182442379.png)
+![image-20211031182442379]([2021东华杯]Web-Writeup.assets/image-20211031182442379.png)
 
 
 
 再解析这个模板文件：
 
-![image-20211031182521588]([2021东华杯]Web Writeup.assets/image-20211031182521588.png)
+![image-20211031182521588]([2021东华杯]Web-Writeup.assets/image-20211031182521588.png)
 
 
 
 带出flag：
 
-![image-20211031182535332]([2021东华杯]Web Writeup.assets/image-20211031182535332.png)
+![image-20211031182535332]([2021东华杯]Web-Writeup.assets/image-20211031182535332.png)
 
 
 

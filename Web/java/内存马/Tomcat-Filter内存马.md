@@ -94,7 +94,7 @@
 
 运行这个jsp马之后就成功注入了内存马：
 
-![image-20211102174522551](Tomcat Filter内存马.assets/image-20211102174522551.png)
+![image-20211102174522551](Tomcat-Filter内存马.assets/image-20211102174522551.png)
 
 
 
@@ -108,11 +108,11 @@ tomcat环境（版本需要为7.x以上）
 
 在`project structure`里面找到libraries，点加号，Java：
 
-![image-20211102175103790](Tomcat Filter内存马.assets/image-20211102175103790.png)
+![image-20211102175103790](Tomcat-Filter内存马.assets/image-20211102175103790.png)
 
 然后把tomcat的lib下面的所有jar包都给导进来就行了：
 
-![image-20211102175122244](Tomcat Filter内存马.assets/image-20211102175122244.png)
+![image-20211102175122244](Tomcat-Filter内存马.assets/image-20211102175122244.png)
 
 
 
@@ -174,7 +174,7 @@ tomcat环境（版本需要为7.x以上）
 
 看一下`fragment`，发现是个`Webxml`：
 
-![image-20211102190821613](Tomcat Filter内存马.assets/image-20211102190821613.png)
+![image-20211102190821613](Tomcat-Filter内存马.assets/image-20211102190821613.png)
 
 实际上也就是和web.xml相关联的一个变量，如果web.xml里面没有配置Filter，`(FilterDef)fragment.getFilters().get(filterName);`就得不到，所以`isWebXMLfilterDef = false;`。
 
@@ -303,17 +303,17 @@ if (!isWebXMLfilterDef) {
 
 然后在这里调用`getParent()`获取当前的Context：
 
-![image-20211102194429098](Tomcat Filter内存马.assets/image-20211102194429098.png)
+![image-20211102194429098](Tomcat-Filter内存马.assets/image-20211102194429098.png)
 
 
 
 上面也提到了，之前的那些`FilterDef`还有`FilterMap`都放到了这个context里面：
 
-![image-20211102194546538](Tomcat Filter内存马.assets/image-20211102194546538.png)
+![image-20211102194546538](Tomcat-Filter内存马.assets/image-20211102194546538.png)
 
 继续往下看，从context中得到`filterMaps`之后进行遍历：
 
-![image-20211102194751100](Tomcat Filter内存马.assets/image-20211102194751100.png)
+![image-20211102194751100](Tomcat-Filter内存马.assets/image-20211102194751100.png)
 
 如果当前请求的path和filterMap中的url-pattern匹配了，就产生这么一个`ApplicationFilterConfig`的`filterConfig`（可以发现它也是从context中取得了，这个也很重要！），然后调用了`addFilter`：
 
@@ -354,7 +354,7 @@ if (!isWebXMLfilterDef) {
 
 装配完这个chain有什么用呢？继续跟进`StandardWrapperValve.class`的`invoke()`方法，跟进到这一行（实际上也可以在自己写的Filter里面打断点，然后回看之前的栈也可以找到）：
 
-![image-20211102200030431](Tomcat Filter内存马.assets/image-20211102200030431.png)
+![image-20211102200030431](Tomcat-Filter内存马.assets/image-20211102200030431.png)
 
 
 
@@ -399,7 +399,7 @@ if (!isWebXMLfilterDef) {
 
 
 
-![image-20211102200334246](Tomcat Filter内存马.assets/image-20211102200334246.png)
+![image-20211102200334246](Tomcat-Filter内存马.assets/image-20211102200334246.png)
 
 
 
@@ -502,9 +502,9 @@ if (!isWebXMLfilterDef) {
 
 访问shell.jsp即可成功注入内存马：
 
-![image-20211102201204073](Tomcat Filter内存马.assets/image-20211102201204073.png)
+![image-20211102201204073](Tomcat-Filter内存马.assets/image-20211102201204073.png)
 
-![image-20211102201216282](Tomcat Filter内存马.assets/image-20211102201216282.png)
+![image-20211102201216282](Tomcat-Filter内存马.assets/image-20211102201216282.png)
 
 
 

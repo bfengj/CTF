@@ -61,7 +61,7 @@ url=dict://127.0.0.1:6379/set:a_isAdmin:yes
 
 拿到flag：
 
-![image-20210815113145485](InCTF 2021 Web.assets/image-20210815113145485.png)
+![image-20210815113145485](InCTF-2021-Web.assets/image-20210815113145485.png)
 
 笑死了，终于不用爆0了。
 
@@ -235,7 +235,7 @@ if __name__ == "__main__":
 
 通过读/etc/hosts，发现了`192.168.112.2`：
 
-![image-20210815200138870](InCTF 2021 Web.assets/image-20210815200138870.png)
+![image-20210815200138870](InCTF-2021-Web.assets/image-20210815200138870.png)
 
 再通过ssrf访问：
 
@@ -422,7 +422,7 @@ if __name__=='__main__':
 ?role=superuse\u0072","name":"admin
 ```
 
-![image-20210815133624373](InCTF 2021 Web.assets/image-20210815133624373.png)
+![image-20210815133624373](InCTF-2021-Web.assets/image-20210815133624373.png)
 
 
 
@@ -541,7 +541,7 @@ server.setTimeout(10000);
 
 发现就是上传一个json文件，然后会解析。比如这样：
 
-![image-20210815144044272](InCTF 2021 Web.assets/image-20210815144044272.png)
+![image-20210815144044272](InCTF-2021-Web.assets/image-20210815144044272.png)
 
 
 
@@ -567,7 +567,7 @@ var config = require('config-handler')();
 
 在本地写了个弹计算器的payload：
 
-![image-20210815144213144](InCTF 2021 Web.assets/image-20210815144213144.png)
+![image-20210815144213144](InCTF-2021-Web.assets/image-20210815144213144.png)
 
 
 
@@ -579,7 +579,7 @@ var config = require('config-handler')();
 }
 ```
 
-![image-20210815144249023](InCTF 2021 Web.assets/image-20210815144249023.png)
+![image-20210815144249023](InCTF-2021-Web.assets/image-20210815144249023.png)
 
 这种不需要自己挖rce的题目还是很友好的。
 

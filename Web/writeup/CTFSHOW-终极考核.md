@@ -189,5 +189,5 @@ flag在/root下面，UDF提权:
 
 
 
-![image-20210808150511761](CTFSHOW 终极考核.assets/image-20210808150511761.png)
+![image-20210808150511761](CTFSHOW-终极考核.assets/image-20210808150511761.png)
 

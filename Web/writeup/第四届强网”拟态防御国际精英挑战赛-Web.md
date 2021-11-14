@@ -25,7 +25,7 @@
 
 在最后一行代码那里正常包含文件`?action=r&r=d0165506bd`，发现有这些warning：
 
-![image-20211023195300238](D:\this_is_feng\github\CTF\Web\writeup\第四届强网”拟态防御国际精英挑战赛 Web.assets\image-20211023195300238.png)
+![image-20211023195300238](D:\this_is_feng\github\CTF\Web\writeup\第四届强网”拟态防御国际精英挑战赛-Web.assets\image-20211023195300238.png)
 
 发现这么一行很奇妙的warning：
 
