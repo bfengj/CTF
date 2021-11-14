@@ -48,19 +48,19 @@
 
 - [动态加载字节码](./Web/java/Java基础/[Java安全]动态加载字节码学习.md)
 
-- [ClassLoader](./Web/java/Java基础/Java ClassLoader 学习笔记.md)
+- [ClassLoader](./Web/java/Java基础/Java-ClassLoader-学习笔记.md)
 
-- [IO流](./Web/java/Java基础/Java IO流 学习笔记.md)
+- [IO流](./Web/java/Java基础/Java-IO流-学习笔记.md)
 
-- [JDBC](./Web/java/Java基础/Java JDBC 学习笔记.md)
+- [JDBC](./Web/java/Java基础/Java-JDBC-学习笔记.md)
 
-- [RMI](./Web/java/Java基础/Java RMI 学习笔记.md)
+- [RMI](./Web/java/Java基础/Java-RMI-学习笔记.md)
 
-- [动态代理](./Web/java/Java基础/Java 动态代理 学习笔记.md)
+- [动态代理](./Web/java/Java基础/Java-动态代理-学习笔记.md)
 
-- [命令执行](./Web/java/Java基础/Java 命令执行.md)
+- [命令执行](./Web/java/Java基础/Java-命令执行.md)
 
-- [序列化和反序列化](./Web/java/Java基础/Java 序列化和反序列化 学习笔记.md)
+- [序列化和反序列化](./Web/java/Java基础/Java-序列化和反序列化-学习笔记.md)
 
 - [反射](./Web/java/Java基础/Java反射学习笔记.md)
 
