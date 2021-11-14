@@ -10,7 +10,7 @@
 
 ## Go
 
-- [Go学习笔记(一)](./Web/go/golang learn notes/Go学习笔记(一).md)
+- [Go学习笔记(一)](./Web/go/golang_learn_notes/Go学习笔记(一).md)
 - [Go学习笔记(二)](./Web/go/golang learn notes/Go学习笔记(二).md)
 - [Go学习笔记(三)](./Web/go/golang learn notes/Go学习笔记(三).md)
 - [Go学习笔记(四)](./Web/go/golang learn notes/Go学习笔记(四).md)
