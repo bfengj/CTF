@@ -165,15 +165,18 @@
 
 
 
-## 比赛
-
 
 
 ## 代码审计
 
-
+- [Thinkphp5.0.24-反序列化rce链](./Web/代码审计/Thinkphp5.0.24-反序列化rce链学习.md)
+- [OurPHP3.3.1](./Web/代码审计/OurPHP3.3.1审计与测试.md)
+- [KYXSCMS1.3.2](./Web/代码审计/KYXSCMS1.3.2审计与测试.md)
+- [Kitecms](./Web/代码审计/Kitecms审计与测试.md)
 
 ## 漏洞复现
+
+- [Laravel-Debug-mode-RCE](./Web/漏洞复现/Laravel-Debug-mode-RCE（CVE-2021-3129-漏洞复现.md)
 
 # BlockChain
 
@@ -187,4 +190,10 @@
 
 - [Thinkphp5.0.24反序列化rce链](./Exploit/thinkphp5.0.24反序列化rce/thinkphp5.0.24反序列化rce.md)
 - [极致CMS一键Rce](./Exploit/极致CMS1.7/jizhicms.py)
+
+
+
+# 随笔
+
+- [十月，你好](./随笔/十月，你好.md)
 

@@ -225,7 +225,7 @@ namespace{
 }
 ```
 
-![image-20211025200531099](Thinkphp5.0.24 反序列化rce链学习.assets/image-20211025200531099.png)
+![image-20211025200531099](Thinkphp5.0.24-反序列化rce链学习.assets/image-20211025200531099.png)
 
 
 
