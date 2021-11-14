@@ -11,12 +11,12 @@
 ## Go
 
 - [Go学习笔记(一)](./Web/go/golang_learn_notes/Go学习笔记(一).md)
-- [Go学习笔记(二)](./Web/go/golang learn notes/Go学习笔记(二).md)
-- [Go学习笔记(三)](./Web/go/golang learn notes/Go学习笔记(三).md)
-- [Go学习笔记(四)](./Web/go/golang learn notes/Go学习笔记(四).md)
-- [Go学习笔记(五)](./Web/go/golang learn notes/Go学习笔记(五).md)
-- [Go学习笔记(六)](./Web/go/golang learn notes/Go学习笔记(六).md)
-- [Go学习笔记(七)](./Web/go/golang learn notes/Go学习笔记(七).md)
+- [Go学习笔记(二)](./Web/go/golang_learn_notes/Go学习笔记(二).md)
+- [Go学习笔记(三)](./Web/go/golang_learn_notes/Go学习笔记(三).md)
+- [Go学习笔记(四)](./Web/go/golang_learn_notes/Go学习笔记(四).md)
+- [Go学习笔记(五)](./Web/go/golang_learn_notes/Go学习笔记(五).md)
+- [Go学习笔记(六)](./Web/go/golang_learn_notes/Go学习笔记(六).md)
+- [Go学习笔记(七)](./Web/go/golang_learn_notes/Go学习笔记(七).md)
 
 ## Java
 
