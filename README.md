@@ -31,7 +31,7 @@
 ### Java反序列化
 
 - [CommonsBeanutils1利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsBeanutils1利用链学习.md)
-- [CommonsCollections1利用链学习(上)](./Web/java/Java反序列化/[Java反序列化]CommonsCollections1利用链学习(上).md)]
+- [CommonsCollections1利用链学习(上)](./Web/java/Java反序列化/[Java反序列化]CommonsCollections1利用链学习(上).md)
 - [CommonsCollections1利用链学习(中)](./Web/java/Java反序列化/[Java反序列化]CommonsCollections1利用链学习(中).md)
 - [CommonsCollections2利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsCollections2利用链学习.md)
 - [CommonsCollections3利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsCollections3利用链学习.md)
@@ -82,13 +82,27 @@
 
 ### JNDI
 
+- [JNDI注入](./Web/java/JNDI/[Java安全]JNDI注入学习.md)
+
 ### shiro
+
+- [Shiro反序列化学习(一)](./Web/java/shiro/[Java反序列化]Shiro反序列化学习(一).md)
+- [Shiro反序列化学习(二)](./Web/java/shiro/[Java反序列化]Shiro反序列化学习(二).md)
+- [CVE-2020-1957 Shiro权限绕过](./Web/java/shiro/CVE-2020-1957-Shiro权限绕过.md)
+- [CVE-2020-11989 Shiro权限绕过](./Web/java/shiro/CVE-2020-11989-Shiro权限绕过.md)
+- [CVE-2020-13933 Shiro权限绕过](./Web/java/shiro/CVE-2020-13933-Shiro权限绕过.md)
 
 ### Spring
 
+- [Spring学习笔记(1)](./Web/java/Spring/[Java框架]Spring学习笔记(1).md)
+
 ### XMLDecoder
 
+- [XMLDecoder反序列化学习(一)](./Web/java/XMLDecoder/[Java安全]XMLDecoder反序列化学习(一).md)
+
 ### 内存马
+
+- [Tomcat-Filter内存马](./Web/java/内存马/Tomcat-Filter内存马.md)
 
 
 
