@@ -474,9 +474,9 @@ Go 同样支持 Unicode（UTF-8），因此字符同样称为 Unicode 代码点�
 
 包 unicode 包含了一些针对测试字符的非常有用的函数（其中 ch 代表字符）：
 
-判断是否为字母：unicode.IsLetter(ch)
-判断是否为数字：unicode.IsDigit(ch)
-判断是否为空白符号：unicode.IsSpace(ch)
+判断是否为字母：`unicode.IsLetter(ch)`
+判断是否为数字：`unicode.IsDigit(ch)`
+判断是否为空白符号：`unicode.IsSpace(ch)`
 
 
 
@@ -485,7 +485,7 @@ Go 同样支持 Unicode（UTF-8），因此字符同样称为 Unicode 代码点�
 字符串是一种值类型，且值不可变，即创建某个文本后你无法再次修改这个文本的内容；更深入地讲，字符串是字节的定长数组。
 
 - 解释字符串：`var s1 string = "hello,world\n"`
-- 非解释字符串：`var s2 string = `hello,world\n``
+- 非解释字符串：`var s2 string =` hello,world\n``
 
 
 
