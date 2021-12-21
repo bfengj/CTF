@@ -17,6 +17,9 @@
 - [Go学习笔记(五)](./Web/go/golang_learn_notes/Go学习笔记(五).md)
 - [Go学习笔记(六)](./Web/go/golang_learn_notes/Go学习笔记(六).md)
 - [Go学习笔记(七)](./Web/go/golang_learn_notes/Go学习笔记(七).md)
+- [第十二章：读写数据](./Web/go/golang_learn_notes/第十二章：读写数据.md)
+- [第十三章：错误处理与测试](./Web/go/golang_learn_notes/第十三章：错误处理与测试.md)
+- [第十三章：错误处理与测试](./Web/go/golang_learn_notes/第十三章：错误处理与测试.md)
 
 ## Java
 
@@ -104,9 +107,13 @@
 
 - [Tomcat-Filter内存马](./Web/java/内存马/Tomcat-Filter内存马.md)
 
+### jsp免杀绕waf
 
+- [1.jsp](./Web/java/jsp免杀绕waf/1.jsp)
 
+### Log4j2
 
+1. [Log4j2-rce-学习](./Web/java/Log4j2/Log4j2-rce-学习.md)
 
 
 
@@ -162,6 +169,7 @@
 - [祥云杯2021-Web复现](./Web/writeup/祥云杯2021-Web复现.md)
 - [祥云杯2021-Web简单题wp](./Web/writeup/祥云杯2021-Web简单题wp.md)
 - [长城杯线下-Web-Work-复现](./Web/writeup/长城杯线下-Web-Work-复现.md)
+- 
 
 
 
