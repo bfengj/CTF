@@ -25,7 +25,8 @@
 
 ### fastjson
 
-- [fastjson学习(一)](./Web/java/fastjson/[Java安全]fastjson学习(一).md)
+- [fastjson学习](./Web/java/fastjson/[Java安全]fastjson学习.md)
+- [2022-卷王杯-happyFastjson](./Web/java/fastjson/2022-卷王杯-happyFastjson.md)
 
 ### Java-sec-code
 
@@ -46,6 +47,7 @@
 - [Shiro反序列化学习(二)](./Web/java/Java反序列化/[Java反序列化]Shiro反序列化学习(二).md)
 - [URLDNS链学习](./Web/java/Java反序列化/[Java反序列化]URLDNS链学习.md)
 - [JDBC反序列化漏洞学习](./Web/java/Java反序列化/JDBC反序列化漏洞学习.md)
+- [C3P0反序列化](./Web/java/Java反序列化/[Java反序列化]C3P0反序列化.md)
 
 ### Java基础
 
@@ -86,6 +88,8 @@
 ### JNDI
 
 - [JNDI注入](./Web/java/JNDI/[Java安全]JNDI注入学习.md)
+- [RMI、JRMP、JNDI学习](./Web/java/JNDI/RMI、JRMP、JNDI学习.md)
+- [绕过高版本JDK的JNDI注入](./Web/java/JNDI/[Java安全]绕过高版本JDK的JNDI注入学习.md)
 
 ### shiro
 
@@ -113,13 +117,28 @@
 
 ### Log4j2
 
-1. [Log4j2-rce-学习](./Web/java/Log4j2/Log4j2-rce-学习.md)
+- [Log4j2-rce-学习](./Web/java/Log4j2/Log4j2-rce-学习.md)
+- [Log4j2-信息泄露学习](./Web/java/Log4j2/Log4j2-信息泄露学习.md)
 
+### tomcat
 
+- [Tomcat-Session反序列化](./Web/java/tomcat/Tomcat-Session反序列化学习.md)
+
+### 命令执行
+
+- [Java外带](./Web/java/命令执行/Java外带.md)
+- [关闭RASP然后命令执行](./Web/java/命令执行/关闭RASP然后命令执行.md)
+
+### 题目
+
+- [[红明谷CTF2021]JavaWeb](./Web/java/题目/[红明谷CTF2021]JavaWeb)
+- [ezj4va[国赛总决赛复现]](./web/java/题目/ezj4va[国赛总决赛复现])
+- [SUSCTF2022的两个Java](./web/java/题目/SUSCTF2022的两个Java)
 
 ## PHP
 
-- [利用pearcmd.php从LFI到getshell.md](./Web/php/利用pearcmd.php从LFI到getshell.md)
+- [利用pearcmd.php从LFI到getshell](./Web/php/利用pearcmd.php从LFI到getshell.md)
+- [无需可控文件的LFI-RCE](./Web/php/[PHP]无需可控文件的LFI-RCE学习.md)
 
 ## Python
 
@@ -185,6 +204,8 @@
 ## 漏洞复现
 
 - [Laravel-Debug-mode-RCE](./Web/漏洞复现/Laravel-Debug-mode-RCE（CVE-2021-3129-漏洞复现.md)
+- [pkexec提权](./Web/漏洞复现/pkexec提权)
+- [Clash-For-Windows-Rce](./Web/漏洞复现/Clash-For-Windows-Rce.md)
 
 # BlockChain
 
