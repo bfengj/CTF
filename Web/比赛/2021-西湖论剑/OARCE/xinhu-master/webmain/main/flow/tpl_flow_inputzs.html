@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?>-<?=TITLE?></title>
+<link rel="stylesheet" href="webmain/css/css.css" />
+<link rel="stylesheet" href="mode/kindeditor/themes/default/default.css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="mode/kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript">
+var id  = '<?=$da['rs']['id']?>',adminid='<?=$da['adminid']?>';
+var modenum = '<?=$da['rs']['num']?>',editor,atype='<?=$da['atype']?>';
+function initbody(){
+	resizes();
+	$(window).resize(resizes);
+	
+	var cans  = {
+		resizeType : 0,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		formatUploadUrl:false,
+		allowFileManager:true,
+		minWidth:'300px',
+		items : [
+			'forecolor', 'hilitecolor', 'bold', 'italic', 'underline','fontsize','hr',
+			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			'insertunorderedlist', '|','table', 'link','unlink','|','source','clearhtml','fullscreen'
+		]
+	};
+	editor = KindEditor.create('#content', cans);
+}
+function resizes(){
+	var s = winHb();
+	$('#page_left').css('height',''+(s-80)+'px');
+	$('#page_conent').css('height',''+s+'px');
+	$('#content').css('height',''+(s-70)+'px');
+}
+var subdata={};
+var c={
+	insert1:function(o1,lx){
+		var o  = $(o1).parent();
+		var fid = o.attr('fields'),fss = o.attr('fname'),iszb=parseFloat(o.attr('iszb'));
+		if(lx==0)editor.insertHtml(fss);
+		if(lx==1){
+			if(iszb=='0'){
+				editor.insertHtml('{'+fid+'}');
+			}else{
+				editor.insertHtml('['+fid+''+(iszb-1)+',0]');
+			}
+		}
+		if(lx==2){
+			c.insertsubdata(iszb);
+		}
+	},
+	save:function(){
+		js.msg('wait','保存中...');
+		var nr= editor.html();
+		nr = nr.replace(/\n/gi,'');
+		nr = nr.replace(/[	]/gi,'');
+		if(nr.indexOf('[xuhao0,0]')>-1){
+			js.msg('msg', '子表的展示内容请全部替换为{subdata0}');
+			return;
+		}
+		if(nr.indexOf('r-tabs-item')>0){
+			js.msg('msg', '有选择卡的展示，不能在这里保存否则无法使用选择卡，请直接到对文件修改');
+			return;
+		}
+		var d = {content:nr,num:modenum,atype:atype};
+		$.post(js.getajaxurl('viewsave','flow','main'),d,function(da){
+			if(da=='success'){
+				js.msg('success','保存成功');
+			}else{
+				js.msg('msg', da);
+			}
+		});
+		return false;
+	},
+	addmobo:function(){
+		if(atype=='1'){
+			js.msg('msg','手机页面展示不能使用录入页面');
+			return;
+		}
+		var s = '';
+		$.get(js.getajaxurl('getinput','flow','main',{num:modenum}),function(s){
+			var str = '<div id="htmlstsing" style="display:none">'+s+'</div>';
+			$('body').append(str);
+			for(var i=0;i<=5;i++)if(get('tablesub'+i+''))$('#tablesub'+i+'').parent().html('{subdata'+i+'}');
+			editor.html($('#htmlstsing').html());
+			$('#htmlstsing').remove();
+		});
+		
+	},
+	clearkong:function(){
+		editor.html('');
+		js.msg('success','已清空，保存后自动删除对应模版文件');
+	},
+	biaotiqieh:function(){
+		var nr= editor.html(),th='<span class="notitle"></span>';
+		if(nr.indexOf('notitle')>-1){
+			js.msg('success','已加入默认标题显示');
+			editor.html(nr.replace(th,''));
+		}else{
+			js.msg('success','已删除标题显示');
+			editor.html(nr+''+th+'');
+		}
+	}
+};
+</script>
+
+<style>
+select{font-size:12px}
+.yangss{height:40px;line-height:40px;background:#e1e1e1;overflow:hidden}
+#page_left div{text-align:left;padding:5px 10px;cursor:pointer}
+#page_left div:hover{ background-color:#f1f1f1;color:#225DE8}
+</style>
+</head>
+<body>
+<div align="center">
+<table width="100%">
+<tr>
+	<td  bgcolor="#f5f5f5">
+		<div style="width:270px;">
+			<div class="yangss"><h1>&nbsp;<?=$da['rs']['name']?>(元素)</h1></div>
+			<div id="page_left" style="overflow:auto">
+				<?php
+				foreach($da['fleft'] as $k=>$rs){
+					$str = '<div fields="'.$rs[0].'" fname="'.$rs[1].'" iszb="'.$rs[2].'">';
+					$str.= ''.($k+1).'. '.$rs[1].'('.$rs[0].')';
+					if($rs[0]){
+						$str.= ' <a href="javascript:" onclick="c.insert1(this,0)">＋</a> <a href="javascript:" onclick="c.insert1(this,1)">⊥</a>';
+					}else{
+						$str.= '';
+					}
+					$str.= '</div>';
+					echo $str;
+				}
+				?>
+			</div>
+			<div class="yangss" align="left">&nbsp; &nbsp;<a href="javascript:" onclick="return c.save()" class="webbtn">保存</a>&nbsp; 
+			<a href="javascript:" onclick="return c.addmobo()" style="background-color:#888888" class="webbtn">使用录入页面</a>&nbsp; 
+			<a href="javascript:" onclick="return c.clearkong()" style="background-color:#888888" class="webbtn">清空</a>
+			</div>
+		</div>
+	</td>
+	<td width="100%">
+		<div style="overflow:auto" id="page_conent">
+			<div style="padding:10px"><textarea style="width:650px;" id="content"><?=$da['content']?></textarea></div>
+			<div align="left" style="font-size:12px;padding:0px 10px">
+			<a href="javascript:" onclick="return c.biaotiqieh()" style="background-color:#888888" class="webbtn">是否标题切换</a>&nbsp;
+			模版保存在：<?=$da['p']?>/flow/page/view_<?=$da['bianhao']?>_<?=$da['atype']?>.html</div>
+		</div>
+	</td>
+</tr>
+</table>
+	
+</div>
+</body>
+</html>

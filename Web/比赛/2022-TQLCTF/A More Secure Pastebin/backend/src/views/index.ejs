@@ -1,0 +1,42 @@
+<div class="col-md-10 mx-auto">
+	<div class="card border-primary bg-light mb-4 rounded-3">
+		<%- include('partials/nav') %>
+		<div class="card-body">
+			<div class="row justify-content-start">
+				<div class="mb-2">
+					<input name="title" type="text" class="form-control" placeholder="title" form="usrform">
+					<textarea name="content" form="usrform" class="form-control" placeholder="content"
+						rows="3"></textarea>
+				</div>
+				<form action="/add" id="usrform" method="POST">
+					<input type="submit" class="btn btn-success" />
+				</form>
+				<%- include('partials/messages') %>
+			</div>
+			<div class="row justify-content-end">
+				<div class="">
+					<h3 class="text-center mb-2">
+						<%= username %>'s Pastebin
+					</h3>
+					<ul class="list-group mh-50 overflow-auto rounded-2" id="url-list">
+						<% items.forEach(function (item) { %>
+						<li class="list-group-item">
+							<a href="/paste/<%= item.pasteid %>/view">
+								<%= item.pasteid %>
+							</a>
+							<span>
+								<%= item.date %>
+							</span>
+
+
+						</li>
+						<% }) %>
+						<% if(!items.length) { %>
+						<small class="text-center text-secondary">You have not got any pastes</small>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

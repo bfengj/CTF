@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选择人员</title>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/css.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript">
+function initbody(){
+	c.init();
+}
+companymode		= <?=(getconfig('companymode')? 'true' : 'false')?>;
+uidid		= <?=$da['adminid']?>;
+var c = {
+	maxshow:300,
+	grouparr:[],
+	userarr:[],
+	deptarr:[],
+	firstpid:0,
+	init:function(){
+		this.changevalue = js.request('changevalue');//默认值
+		this.changerange = js.request('changerange');
+		var us = js.getoption('userjson');
+		if(us)this.userarr = js.decode(us);
+		
+		us = js.getoption('groupjson');
+		if(us)this.grouparr = js.decode(us);
+		
+		us = js.getoption('deptjson');
+		if(us)this.deptarr = js.decode(us);
+		
+		
+		if(!us || this.changerange!=''){
+			this.loaddata(true);
+		}else{
+			this.firstpid = this.deptarr[0].pid;
+			this.showlist(this.firstpid,0);
+			this.initxuan();
+		}
+		this.resets();
+		$(window).resize(this.resets);
+		
+		$('#keywords').keydown(function(e){
+			c._searchkeys(e)
+		});
+		$('#keywords').keyup(function(e){
+			c._searchkeys(e)
+		});
+	},
+	resets:function(lx){
+		var he = winHb()-80;
+		$('#zxuandiv').css('height',''+he+'px');
+		$('#xuandiv').css('height',''+he+'px');
+		$('#showtype').css('height',''+he+'px');
+	},
+	loaddata:function(iscs){
+		var url = js.getajaxurl('deptuserjson','dept','system',{'changerange':this.changerange});
+		$('#showdiv_0').html('<div align="center" style="margin-top:30px"><img src="images/mloading.gif"></div>')
+		$.get(url,function(ret){
+			var d = js.decode(ret);
+			ret = d.data;
+			if(c.changerange==''){
+				js.setoption('deptjson', ret.deptjson);
+				js.setoption('userjson', ret.userjson);
+				js.setoption('groupjson', ret.groupjson);
+			}
+			
+			c.userarr = js.decode(ret.userjson);
+			c.deptarr = js.decode(ret.deptjson);
+			c.grouparr = js.decode(ret.groupjson);
+			c.firstpid = 0;
+			if(c.deptarr[0])c.firstpid=c.deptarr[0].pid;
+			c.showlist(c.firstpid,0);
+			if(iscs)c.initxuan();
+		});
+	},
+	showlist:function(pid,oi){
+		var a=this.deptarr,len=a.length,i,s='',ssu='',wjj,s2='',hw=24;
+		var s1='<div style="width:'+(hw*oi)+'px"></div>';
+		this.fid = 1;
+		for(i=0;i<len;i++){
+			if(a[i].pid==pid){
+				if(this.fid==1)this.fid = a[i].id;
+				wjj= 'images/files.png';
+				if(a[i].ntotal=='0')wjj= 'images/file.png';
+				s+='<div id="showssd'+a[i].id+'" class="listss">';
+				s+='<table width="100%"><tr><td height="36">'+s1+'</td><td><img deptxu="'+i+'_'+oi+'" align="absmiddle" height="20" height="20" src="'+wjj+'"></td><td onclick="c.deptstr('+a[i].id+','+i+', \'showssd'+a[i].id+'\')" width="100%">'+a[i].name+'</td></tr></table>';
+				s+='</div>';
+				s+='<span show="false" id="showdiv_'+a[i].id+'"></span>';
+			}
+		}
+		var xud = (oi==0)?'0' : pid;
+		$('#showdiv_'+xud+'').html(s).attr('show','true');
+		if(oi==0){
+			this.showlist(this.fid, 1);
+			this.showgroup();
+		}
+		
+		$('#showdiv_0 [deptxu]').unbind('click').click(function(){
+			c._deptclicks(this);
+		});
+	},
+	showgroup:function(){
+		var a = this.grouparr,len=a.length,i,s='';
+		for(i=0;i<len;i++){
+			s+='<div onclick="c.groupstr('+a[i].id+','+i+', this.id)"  id="showssg'+a[i].id+'" class="listsss">';
+			s+=''+a[i].name+'';
+			s+='</div>';
+		}
+		$('#groupshow').html(s);
+	},
+	_deptclicks:function(o){
+		var sxu = $(o).attr('deptxu').split('_');
+		var a 	= this.deptarr[sxu[0]];
+		var o1	= $('#showdiv_'+a.id+'');
+		var lx	= o1.attr('show');
+		if(lx=='false'){
+			this.showlist(a.id, parseFloat(sxu[1])+1);
+		}else{
+			o1.toggle();
+		}
+	},
+	initxuan:function(){
+		var val = this.changevalue;
+		if(!val)return;
+		var vals = ','+val+',';
+		var a = this.deptarr,i,len=a.length,d,s='';
+		for(i=0;i<len;i++){
+			d = a[i];
+			if(vals.indexOf(',d'+d.id+',')>-1){
+				this.xuan('d',i);
+			}
+		}
+	
+		a = this.userarr;len=a.length;
+		for(i=0;i<len;i++){
+			d = a[i];
+			if(vals.indexOf(',u'+d.id+',')>-1){
+				this.xuan('u',i);
+			}
+		}
+		
+		a = this.grouparr;len=a.length;
+		for(i=0;i<len;i++){
+			d = a[i];
+			if(vals.indexOf(',g'+d.id+',')>-1){
+				this.xuan('g',i);
+			}
+		}
+	},
+	chcangdi:function(ids){
+		$('#'+ids+'').addClass('tract');
+		if(this.changeids)$('#'+this.changeids+'').removeClass('tract');
+		this.changeids = ids;
+	},
+	deptstr:function(did,oi, ids){
+		this.chcangdi(ids);
+		var d = this.deptarr[oi];
+		var s = '<div onclick="c.xuan(\'d\','+oi+',this)" class="listsss">['+d.id+'.部门]'+d.name+'</div>';
+		var a=this.userarr,len=a.length,i,oi=0;
+		for(i=0;i<len;i++){
+			if(a[i].deptpath && a[i].deptpath.indexOf('['+did+']')>-1){
+				oi++;
+				if(oi>this.maxshow)break;
+				
+				s+='<div temuoi="'+i+'" onclick="c.xuan(\'u\','+i+',this)" class="listsss"><img src="'+a[i].face+'" height="24" width="24" align="absmiddle"> &nbsp;'+a[i].name+'<span style="font-size:12px;color:#888888">('+a[i].ranking+')</span></div>';		
+			}
+		}
+		$('#showtype').html(s);
+	},
+	groupstr:function(did,oi,ids){
+		this.chcangdi(ids);
+		var d = this.grouparr[oi];
+		var s = '<div onclick="c.xuan(\'g\','+oi+',this)" class="listsss">['+d.id+'.组]'+d.name+'</div>';
+		var a=this.userarr,len=a.length,i,oi=0,gids;
+		for(i=0;i<len;i++){
+			gids = a[i].groupname;
+			if(isempt(gids))continue;
+			gids = ','+gids+',';
+			if(gids.indexOf(','+did+',')>-1){
+				oi++;
+				s+='<div temuoi="'+i+'" onclick="c.xuan(\'u\','+i+',this)" class="listsss"><img src="'+a[i].face+'" height="24" width="24" align="absmiddle"> &nbsp;'+a[i].name+'<span style="font-size:12px;color:#888888">('+a[i].ranking+')</span></div>';		
+			}
+		}
+		$('#showtype').html(s);
+	},
+	quanx:function(){
+		$('#showtype div[temuoi]').each(function(){
+			var o1 = $(this);
+			c.xuan('u', parseFloat(o1.attr('temuoi')), this);
+		});
+	},
+	xuan:function(lx,oi,o1){
+		var d = false,s='',id='',s1;
+		if(lx=='d'){
+			d = this.deptarr[oi];
+			id= d.id;
+			s1='['+d.id+'.部门]';
+			if(id==1)s1='<span class="label">全员</span>';
+			s='<div id="d_'+d.id+'" onclick="$(this).remove()" class="listsss">'+s1+'<font>'+d.name+'</font></div>';
+			if(companymode && id==1 && uidid>1){
+				s='';
+				js.msg('msg','多单位模式下不能选择最高的顶级部门');
+			}
+			if(this.changerange && id==1){
+				s='';
+				js.msg('msg','不能选最顶级部门');
+			}
+		}
+		if(lx=='g'){
+			d = this.grouparr[oi];
+			id= d.id;
+			s1='['+d.id+'.组]';
+			s='<div id="g_'+d.id+'" onclick="$(this).remove()" class="listsss">'+s1+'<font>'+d.name+'</font></div>';
+		}
+		if(lx=='u'){
+			d = this.userarr[oi];
+			id= d.id;
+			s='<div id="u_'+d.id+'" onclick="$(this).remove()" class="listsss"><img src="'+d.face+'" height="24" width="24" align="absmiddle"> &nbsp;<font>'+d.name+'</font><span style="font-size:12px;color:#888888">('+d.ranking+')</span></div>';
+		}
+		if(!d)return;
+		var sid = ''+lx+'_'+id+'';
+		if(sid!='d_1' && get('d_1')){
+			js.msg('msg','已经选了最顶级部门，已包含全体人员了');
+			return;
+		}
+		if(get(sid))return;
+		$('#'+lx+'_'+id+'').remove();
+		$('#xuandiv').append(s);
+	},
+	queding:function(){
+		var sid='',sna='';
+		$('#xuandiv').find('div').each(function(){
+			var id = this.id.replace('_','');
+			sid+=','+id+'';
+			sna+=','+$(this).find('font').text();
+		});
+		if(sid!=''){
+			sid = sid.substr(1);
+			sna = sna.substr(1);
+		}
+		var call = js.request('callback');
+		if(call){
+			try{parent[call](sna,sid);}catch(e){}
+		}else{
+			console.log(sna+'|'+sid);
+		}
+	},
+	cancel:function(){
+		try{
+			parent.js.tanclose('changeaction');
+		}catch(e){}
+	},
+	
+	_searchkeys:function(e){
+		clearTimeout(this._searchkeystime);
+		this._searchkeystime=setTimeout(function(){
+			c._searchkey(false);
+		},500);
+	},
+	_searchkey:function(bo){
+		var key = $('#keywords').val(),a=[],d=[],len,i,oi=0,s='';
+		a=this.userarr;
+		if(bo && key=='')return;
+		len=a.length;
+		if(key!='')for(i=0;i<len;i++)if(a[i].name.indexOf(key)>-1 || a[i].pingyin.indexOf(key)==0 || a[i].deptname.indexOf(key)>-1 || a[i].ranking.indexOf(key)>-1){
+			s+='<div onclick="c.xuan(\'u\','+i+',this)" class="listsss"><img src="'+a[i].face+'" height="24" width="24" align="absmiddle"> &nbsp;'+a[i].name+'<span style="font-size:12px;color:#888888">('+a[i].ranking+')</span></div>';
+		}
+		if(bo && s=='' && key!='')js.msg('msg','无相关['+key+']的记录', 2);
+		$('#showtype').html(s);
+	}
+};
+</script>
+<style>
+*{font-size:14px}
+.headers{line-height:30px; background-color:#dddddd;color:#1389D3;font-size:14px;height:30px;overflow:hidden}
+.lists{line-height:34px; background-color:white;font-size:14px;padding-left:5px;border-bottom:1px #eeeeee solid;color:#888888;height:34px;overflow:hidden}
+.active{ background-color:#eeeeee;color:#000000;font-weight:bold}
+
+.listsss{padding:8px; background:white;border-bottom:1px #eeeeee solid;cursor:default;font-size:14px}
+.listsss:hover{background-color:#f1f1f1}
+
+.listss{background:white;border-bottom:1px #eeeeee solid;cursor:default;font-size:14px;padding:0px 5px}
+.listss:hover{background-color:#f1f1f1}
+
+.listhui{color:#888888}
+.listhui img{opacity:0.5}
+
+.changeuserbotton{height:30px;width:50px; background:#d9534f;color:white;font-size:14px;border:none;padding:0px;margin:0px;line-height:20px;cursor:pointer;opacity:1;outline:none;border-radius:5px}
+.changeuserbotton:hover{color:white;border:none;opacity:0.8}
+.label{font-size:12px;background:#1389D3;color:white;padding:1px 3px;border-radius:5px}
+.tract{ background-color:#d6edf9;}
+.tract:hover{background-color:#d6edf9;}
+</style>
+</head>
+<body style="padding:0px;margin:0px; overflow:hidden;" scroll="no">
+<table height="100%" width="100%">
+<tr>
+	<td  valign="top" width="35%" style="border:1px #eeeeee solid">
+		<div class="headers">&nbsp;选择部门/组</div>
+		<div style="height:300px;overflow:auto" id="zxuandiv">
+			<div class="lists active">根据部门选择 v</div>
+			<div id="showdiv_0"></div>
+			<div class="lists">根据组选择 v</div>
+			<div id="groupshow"></div>
+		</div>
+	</td>
+	<td  valign="top" width="30%" style="border:1px #eeeeee solid">
+		<div class="headers">&nbsp;选择人员</div>
+		<div style="height:300px;overflow:auto" id="showtype"></div>
+	</td>
+	<td style="padding:5px;width:10px" valign="center">
+	
+		<div><input type="button" onclick="c.quanx()" value="全选"></div>
+		<div style="height:20px"></div>
+		<div><input type="button" onclick="$('#xuandiv').html('')" value="清空"></div>
+	
+	</td>
+	<td  valign="top" width="35%" style="border:1px #eeeeee solid">
+		<div class="headers">&nbsp;√已选择</div>
+		<div style="height:300px;overflow:auto" id="xuandiv"></div>
+	</td>
+</tr>
+<tr>
+	<td  style="background-color:#dddddd" colspan="5">
+	
+	<table width="100%">
+	<tr>
+	<td height="50" width="10" nowrap>&nbsp;</td>
+	<td width="100%">
+		<input type="text" id="keywords" style="border:1px #cccccc solid;height:26px;padding:2px;width:180px" placeholder="关键词搜索人员"><input onclick="c._searchkey(true)" type="button" value="搜索" style="background:#888888" class="changeuserbotton">
+	</td>
+	<td><input style="width:70px;border:none" type="button" onclick="c.loaddata()" class="changeuserbotton" value="刷新数据" ></td>
+	<td width="20" nowrap>&nbsp;</td>
+	<td><input class="changeuserbotton" type="button" onclick="c.cancel()" value="取消" ></td>
+	<td width="20" nowrap>&nbsp;</td>
+	<td height="50"><input style="background:#1389D3;" onclick="c.queding()" type="button" value="确定" class="changeuserbotton"></td>
+	<td width="10" nowrap>&nbsp;</td>
+	</tr>
+	</table>
+	
+	</td>
+</tr>
+</table>
+</body>
+</html>

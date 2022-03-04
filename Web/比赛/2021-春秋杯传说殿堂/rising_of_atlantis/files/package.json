@@ -1,0 +1,23 @@
+{
+  "name": "nodectf",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "crypto": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "fs": "latest",
+    "handlebars": "latest",
+    "hbs": "latest",
+    "path": "latest",
+    "randomatic": "latest"
+  },
+  "devDependencies": {
+    "cookie-parser": "latest",
+    "session-file-store": "latest"
+  }
+}

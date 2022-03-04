@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/css.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['d']?><?=$da['m']?>/<?=$da['m']?>script.js"></script>
+<style>
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';background:rgba('.$maincolors.',0.05)}';
+?>
+.lmaisft{width:450px;border-radius:10px;text-align:left;background:white;border:1px #dddddd solid;}
+.box{box-shadow:0px 5px 15px 1px rgba(0,0,0,0.1);}
+.btn-danger{background-color:#d9534f;}
+</style>
+</head>
+
+
+<body>
+
+<div align="center" style="position:absolute;width:100%">
+	<div id="topheih" class="blank40"></div>
+
+	<div style="font-size:30px"><b><?=$da['title']?></b></div>
+	<div class="blank30"></div>
+	<div class="lmaisft box">
+		<div class="blank20"></div>
+		<div id="mainlogin">
+		
+		<div  align="center"><img title="<?=URL?>" class="box" onclick="location.reload()" style="border-radius:50%;border:1px #ffffff solid; background:white" src="images/logo.png" id="imglogo" align="absmiddle" height="100" width="100"><b style="font-size:22px"></b></div>
+		<div class="blank10"></div>
+		<form style="padding:20px;padding-left:80px" autocomplete="off" name="myform">
+			
+			<?php if($da['loginyzm']!=3){?>
+			<div id="loginview0">
+			
+				<div>
+					<div><input type="text" style="height:40px;width:300px;border-radius:5px" class="input" onKeyUp="if(event.keyCode==13)getpassobj().focus()" value="<?=$da['ca_adminuser']?>"  placeholder="请输入用户名/姓名/手机号/邮箱" name="adminuser" ></div>
+				</div>
+
+				<div class="blank30"></div>
+				<div>
+					<div><input  style="height:40px;width:300px;border-radius:5px" class="input"  onKeyUp="if(event.keyCode==13)loginsubmit()" value="<?php if($da['ca_rempass']=='1')echo $da['ca_adminpass'];?>"   type="password" placeholder="请输入密码"></div>
+				</div>
+
+				<div class="blank10"></div>
+				<div align="left">
+					 <div class="checkbox"><label><input type="checkbox" <?php if($da['ca_rempass']=='1')echo 'checked';?> name="rempass">记住密码</label><?php if($da['loginyzm']>0){?>&nbsp; <a href="javascript:;" class="zhu" onclick="changlogin()">使用验证码登录</a><?php }?>&nbsp; <a onclick="erwmlogin()" href="javascript:;"><img src="images/ewml.png" title="二维码登录" align="absmiddle"></a>
+					 <?php 
+					 if($da['platsign'])echo '&nbsp; <a onclick="reimplatlogin(this)" href="javascript:;">快捷登录</a>';
+					 ?>
+					 </div>
+				</div>
+			</div>
+			<div id="loginview1" style="display:none">
+				<input type="hidden" name="logintype" value="0">
+			<?php }else{?>
+			<div id="loginview1">
+				<input type="hidden" name="logintype" value="1">
+			<?php }?>
+				<div>
+					<input type="text" style="height:40px;width:300px;border-radius:5px" class="input" onKeyUp="if(event.keyCode==13)form('adminmobileyzm').focus()" maxlength="11" value=""  placeholder="请输入手机号" name="adminmobile" >
+				</div>
+				<div class="blank30"></div>
+				<div>
+					<table><tr>
+					<td><input type="text" style="height:40px;width:200px;border-top-left-radius:5px;border-bottom-left-radius:5px" class="input" onKeyUp="" maxlength="6" placeholder="请输入验证码" name="adminmobileyzm" ></td>
+					<td><input type="button" onclick="getyzm(this)" style="height:42px;width:100px;border-top-right-radius:5px;border-bottom-right-radius:5px" value="获取验证码" class="webbtn" ></td>
+					</tr></table>
+				</div>
+			</div>
+			
+
+			<div class="blank20"></div>
+
+			<div align="left">
+				<button type="button" onClick="loginsubmit()" style="padding:10px 30px;border-radius:5px" class="webbtn" name="button">登录</button>&nbsp;<span id="msgview"><?php if(getconfig('regbool'))echo '<a class="zhu" href="?m=reg">注册</a>';?></span>
+			</div>
+			<div class="blank10"></div>
+		</form>
+		
+		</div>
+	</div>
+
+
+
+	<div class="blank20"></div>
+	<div align="center" style="height:30px;line-height:30px;color:#555555">
+		Copyright &copy;<?=date('Y')?> <?=$da['title']?>v<?=VERSION?> &nbsp; - &nbsp; 
+		版权所有：<a href="<?=URLY?>" class="zhu" target="_blank">信呼开发团队</a>
+	</div>
+	<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+</div>
+</body>
+</html>

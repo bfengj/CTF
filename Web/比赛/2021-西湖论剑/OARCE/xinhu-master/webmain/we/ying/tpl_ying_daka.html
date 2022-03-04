@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&libraries=convertor,geometry&key=<?=$da['qqmapkey']?>"></script>
+<script type="text/javascript" src="js/dingwei.js"></script>
+<style>
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.'}';
+?>
+.weui_tabbar_icon{text-align:center;color:#888888;font-size:20px;}
+.weui_tabbar_item{padding-top:2px;margin-bottom:5px;position:relative}
+.weui_bar_item_on .weui_tabbar_icon{color:<?=$maincolor?>}
+</style>
+<script>
+var kqrs = <?=json_encode($kqrs);?>,kqors = <?=json_encode($kqors);?>,kqallrs=[],isgzh = <?=$isgzh?>;
+js.servernow = '<?=$rock->now?>',openfrom='<?=$openfrom?>';
+
+var label='',accuracy=0,latitude='',longitude='',kqjuli=-1,addbo = true,explain='',dakaci=1;
+
+function initbody(){
+	js.getsplit();
+	showtimessabc();
+	showkqrswz();
+	initupload();
+	kqallrs.push(kqrs);
+	for(var i in kqors)kqallrs.push(kqors[i]);
+	nowtimetime = js.now('time');
+	addkqinfor(0);
+}
+
+
+function addkqinfor(bo){
+	js.ajax('kaoqin','getshang',{},function(ret){
+		var sbarr = ret.sbarr,s='',rs;
+		s='<table width="100%"  class="r-border-t">';
+		for(var i=0;i<sbarr.length;i++){
+			rs = sbarr[i];
+			if(i>0)s+='<tr><td colspan="2"><div style="margin:0px 10px" class="r-border-t"></div></td></tr>';
+			s+='<tr><td align="center" nowrap height="60px"><div style="padding:0px 20px"><b>'+rs.name+'</b></div></td><td width="99%"><div style="color:#888888;font-size:14px">'+rs.stime.substr(0,5)+'-'+rs.etime.substr(0,5)+'</div><div>'+rs.state+'</div></td></tr>';
+		}
+		s+='</table>';
+		$('#shangbshow').html(s);
+		
+		var dkarr = ret.dkarr;
+		var s = '',i,oi=1;
+		for(i=0;i<dkarr.length;i++){
+			s+='，'+dkarr[i].dktime+'';
+			oi++;
+		}
+		if(s!='')s=s.substr(1);
+		$('#todyadak').html(s);
+		dakaci = oi;
+		if(bo==0){
+			$('#dkbtn').html('第'+oi+'次打卡');
+			js.dw.init(isgzh); //定位开始
+		}
+	},'mode', false,false, 'get');
+}
+
+function showtimessabc(){
+	var dt = js.serverdt('Y年m月d日(星期W) H:i:s').split(' ');
+	$('#dtstr').html(dt[0]);
+	$('#timess').html(dt[1]);
+	setTimeout('showtimessabc()',1000);
+}
+
+//显示考勤位置
+function showkqrswz(){
+	var s = '';
+	if(kqrs){
+		s+=','+kqrs.name+'';
+		if(kqrs.iswgd=='1')s=',无固定位置';
+		if(kqors && kqrs.iswgd=='0')for(var i=0;i<kqors.length;i++){
+			s+=','+kqors[i].name+'';
+			if(kqors[i].iswgd=='1'){
+				s=',无固定位置';
+				break;
+			}
+		}
+	}
+	if(s=='')s='没设置考勤位置';
+	if(s!='')s=s.substr(1);
+	$('#weizhi').html(s);
+}
+
+js.dw.ondwwait=function(msg){
+	latitude = '';
+	$('#dwshow').html('<img src="images/loadings.gif" height="14px" align="absmiddle"> '+msg+'');
+	return true;
+}
+
+js.dw.ondwerr=function(msg){
+	latitude = '';
+	$('#dwshow').html(''+msg+',<a href="javascript:;" onclick="js.dw.start()">[在定位]</a>');
+}
+
+//定位成功后回调
+js.dw.ondwcall = function(res){
+	latitude 	= res.latitude;
+	longitude 	= res.longitude;
+	accuracy 	= res.accuracy;
+	label		= res.address;
+	var center	= res.center;
+	$('#dwshow').html(''+res.addressinfo+',<a href="javascript:;" onclick="js.dw.start()">[更新]</a>');
+	var i,kqrsa,enddt,juli;
+	
+	addbo		= true;//可以添加记录
+	for(i=0;i<kqallrs.length;i++){
+		kqrsa = kqallrs[i];
+		enddt = new qq.maps.LatLng(parseFloat(kqrsa.location_x), parseFloat(kqrsa.location_y));
+		juli  = parseInt(qq.maps.geometry.spherical.computeDistanceBetween(center, enddt));
+		if(juli<0)juli = 0-juli;
+		if(kqrsa['iswgd']=='1')juli=0; //无固定位置的
+		kqallrs[i]['kqjuli'] = juli;
+		kqjuli = juli;
+	}
+	
+	if(!isfenwein()){
+		$('#dkbtnto').addClass('btnwai');
+		$('#dkbtn').html('外出定位');
+	}else{
+		$('#dkbtnto').removeClass('btnwai');
+		$('#dkbtn').html('第'+dakaci+'次打卡');
+	}
+	nowtimetime = js.now('time');
+}
+
+//判断有没有在考勤地点上
+function isfenwein(){
+	var i,kqrsa,slju,sljus,iskqbo=false;
+	for(i=0;i<kqallrs.length;i++){
+		kqrsa 	= kqallrs[i];
+		slju	= parseFloat(kqrsa.precision);
+		sljus	= parseFloat(kqrsa.kqjuli);
+		if(sljus<=slju)iskqbo = true;
+	}
+	kqwucha = slju;
+	return iskqbo;
+}
+var addkaoqinbool=false,upfileid='';
+function addkaoqin(o1, lbos){
+	if((js.now('time') - nowtimetime)>60*1000){
+		js.wx.alert('停留页面太久，请刷新页面再试',function(){
+			js.reload();
+		});
+		return;
+	}
+	if(addkaoqinbool){
+		js.wx.alert('已保存过了，请退出页面');
+		return;
+	}
+	if(js.dw.dwbool){js.wx.alert('正在定位，稍后在添加');return;}
+	if(latitude=='' || kqjuli==-1){js.wx.alert('定位没有成功，不能添加');return;}
+	if(!addbo){js.wx.alert('请重新定位后在打卡');return;}
+	
+	if(!lbos && ispzs){
+		js.wx.load('<span id="tisssa">处理中</span>...');
+		if(!imagecont){
+			upfaceobj.start();
+		}else{
+			upfaceobj.sendbase64(imagecont,{filename:'打卡图片.png'});
+		}
+		return;
+	}
+	
+	if(isfenwein()){
+		if(kqrs.ispz=='1' && !ispzs){js.wx.alert('请使用相机拍照才能打卡');return;}
+		adddk('打卡',1);
+	}else{
+		adddk('保存',0);
+	}
+}
+
+function adddk(ts, lx){
+	var o1 = get('dkbtn');
+	$(o1).html(''+ts+'中...');
+	var data = {location_x:latitude,type:lx,location_y:longitude,scale:12,fileid:upfileid,precision:accuracy,label:jm.base64encode(label),sm:jm.base64encode(explain)};
+	addkaoqinbool = true;
+	js.ajax('weixin','addlocation',data,function(ret){
+		js.wx.unload();
+		js.wx.alert(''+ts+'成功:'+ret.now+'');
+		$(o1).html(''+ts+'成功');
+		addbo = false;
+		addkqinfor(1);
+		if(lx==1)get('notify_sound_audio').play();
+	},'none');	
+}
+
+function addbeizhu(o1){
+	js.wx.prompt('加备注','请输入备注说明：',function(txt){
+		explain = txt;
+		if(txt){
+			$(o1).html('备注：'+txt+'');
+		}else{
+			$(o1).html('加备注...');
+		}
+	});
+}
+
+function changetab(lx){
+	var url='?d=we&m=ying&a=location';
+	if(lx==2)url='?m=ying&d=we&num=kqtotal';
+	if(lx==3)url='?m=ying&d=we&num=kqpai';
+	js.location(url);
+}
+
+
+function paizhao33(){
+	if(js.jssdkstate!=1){
+		js.wx.alert('非微信下的jssdk无法使用拍照');
+		return;
+	}
+	wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        sourceType: ['camera'],
+        defaultCameraMode: "normal", 
+        isSaveToAlbum: 0,
+        success: function (res) {
+			var localIds = res.localIds;
+        }
+    });
+}
+var imagecont = '';
+function paizhao(){
+	if(!ispzs){
+		if(apicloud){
+			api.getPicture({
+				sourceType: 'camera',
+				encodingType: 'png',
+				destinationType: 'base64',quality:80,
+				targetWidth:1000,targetHeight:1000
+			}, function(ret, err) {
+				if (ret) {
+					imagecont= ret.base64Data;
+					$('#paizhaoimg').parent().show();
+					get('paizhaoimg').src = imagecont;
+					get('pzbtnicons').className='icon-remove';
+					ispzs = true;
+				}
+			});
+		}else{
+			upfaceobj.click({uptype:'image'});
+		}
+	}else{
+		upfaceobj.clear();
+		imagecont = '';
+		$('#paizhaoimg').parent().hide();
+		get('paizhaoimg').src = 'images/noimg.jpg';
+		get('pzbtnicons').className='icon-camera';
+		ispzs	= false;
+	}
+}
+
+function showimgs(o1){
+	$.imgview({'url':o1.src,'ismobile':true});
+}
+
+var ispzs = false;
+function initupload(){
+	upfaceobj=$.rockupload({
+		uptype:'image',
+		inputfile:'cameraInput',
+		fileview:'fileview',
+		autoup:false,
+		urlparams:{noasyn:'yes'},
+		onsuccess:function(f,str){
+			var a=js.decode(str);
+			if(imagecont){
+				imagecont= '';
+				upfileid = a.id;
+				addkaoqin(false,true);
+			}
+		},
+		onchange:function(f){
+			$('#paizhaoimg').parent().show();
+			get('paizhaoimg').src = f.imgviewurl;
+			get('pzbtnicons').className='icon-remove';
+			ispzs = true;
+		},
+		onchangebefore:function(f){
+			if(f.lastModified){
+				var btune = js.now('time')-f.lastModified;
+				if(btune>10*1000)return '请使用相机拍照';
+			}
+		},
+		onprogress:function(f,bl){
+			$('#tisssa').html('上传中('+bl+'%)');
+		},
+		allsuccess:function(far, ids){
+			imagecont = '';
+			upfileid = ids;
+			addkaoqin(false,true);
+		}
+	});
+}
+function changfile(o1){
+	upfaceobj.change(o1);
+}
+
+var yy={
+	iscy:'<?=$iscy?>',
+	clickadd:function(){
+		var str = '应用首页显示';
+		if(this.iscy==1)str='取消应用首页显示';
+		if(apicloud){
+			api.actionSheet({
+				title: '选择菜单',
+				cancelTitle: '取消',
+				buttons: [str,'关闭应用']
+			}, function(ret, err) {
+				var index = ret.buttonIndex;
+				if(index==1)yy.addchangying();
+				if(index==2)js.back();
+			});
+		}else{
+			js.showmenu({
+				data:[{name:str,lx:1}],
+				width:170,
+				onclick:function(d){
+					if(d.lx==1)yy.addchangying();
+				}
+			});
+		}
+	},
+	addchangying:function(){
+		js.ajax('indexreim','shecyy',{yynum:'kqdaka'},function(ret){
+			yy.iscy = ret.iscy;
+			js.wx.msgok(ret.msg, false, 1);
+		},'mode', false,false, 'get');
+	}
+}
+</script>
+<style>
+.addbtns{ background:#C5E0F7;padding:5px;margin-top:20px;width:100px;height:100px;border-radius:50%}
+.addbtnss{right:10px;bottom:10px;width:100px;height:100px; background:#4E9CE0;opacity:0.8;z-index:1;border-radius:50%;font-size:16px;color:white;text-align:center;line-height:98px;}
+.addbtnss:active{opacity:1}
+
+.btnwai{background:#FCD5BA}
+.btnwai .addbtnss{background:#ff6600}
+</style>
+</head>
+
+
+<body>
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header" style="padding-top:<?=$cenghei?>px" >
+		<div class="r-header-text" onclick="location.reload()" id="header_title"><?=$da['title']?></div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+		<span onclick="yy.clickadd()" class="r-position-right r-header-btn"><i class="icon-plus"></i></span>
+	</div>
+	<div class="blank50" id="header_line" style="height:<?=($cenghei+50)?>px"></div>
+</div>
+<?php }?>
+<div align="center"  style="background:white;padding-bottom:10px">
+	<div id="timess" onclick="location.reload()" style="font-size:40px">15:10:00</div>
+	<div id="dtstr" style="font-size:14px"><?=date('Y年m月d日')?>(星期三)</div>
+	<div class="blank5"></div>
+	<div id="dwshow" style="font-size:14px;color:#aaaaaa;padding:0px 10px">等待定位</div>
+
+</div>
+
+<div style="display:none;position:fixed;z-index:2;left:1px;top:60px;width:120px;height:80px;overflow:hidden;"><img width="100%" onclick="showimgs(this)" id="paizhaoimg" src="images/noimg.jpg"></div>
+<div style="display:none">
+<form name="form_cameraInput">
+<input type="file" <?php if($rock->iswebbro())echo 'capture="camera"';?> onchange="changfile(this)" accept="image/*" id="cameraInput" /></form>
+</div>
+<div style="display:none" id="fileview"></div>
+
+<div class="r-padding10 r-border-t" style="background:white;padding:15px 10px; background-color:#f5f5f5">考勤范围：<font color="#888888" id="weizhi">没设置考勤位置</font></div>
+<div id="shangbshow" style="background:white">
+<table width="100%"  class="r-border-t">
+<tr><td align="center" nowrap height="60px"><div style="padding:0px 20px"><b>上班</b></div></td><td width="99%"><div style="color:#888888;font-size:14px">09:00-12:00</div><div><font color=#888888>加载中</font></div></td></tr>
+<tr><td colspan="2"><div style="margin:0px 10px" class="r-border-t"></div></td></tr><tr><td align="center" nowrap height="60px"><div style="padding:0px 20px"><b>下班</b></div></td><td width="99%"><div style="color:#888888;font-size:14px">13:00-18:00</div><div><font color=#888888>加载中</font></div></td></tr>
+</table>
+</div>
+<div class="r-border-t"></div>
+<div align="center">
+	<div id="dkbtnto" class="addbtns">
+		<div class="addbtnss" id="dkbtn" onclick="addkaoqin(this)">第1次打卡</div>
+	</div>
+</div>
+<div class="r-padding10" align="center"><a id="beshuomdiv" onclick="addbeizhu(this)" href="javascript:;">加备注...</a>&nbsp;&nbsp;<a href="javascript:;" onclick="paizhao()"><i id="pzbtnicons" class="icon-camera"></i></a></div>
+<div class="r-padding10 r-wrap" align="center" style="font-size:14px;color:#888888;">今日打卡：<span id="todyadak">无</span></div>
+
+<audio id="notify_sound_audio" hidden="true" style="display:none" src="web/res/sound/dkcg.mp3"></audio>
+<div style="height:55px; overflow:hidden"></div>	
+<div style="height:55px;overflow:hidden;z-index:2;position:fixed" class="weui_tabbar">
+	<a href="javascript:;" class="weui_tabbar_item weui_bar_item_on">
+		<div class="weui_tabbar_icon">
+			<i class="icon-time"></i>
+		</div>
+		<p class="weui_tabbar_label"><?=$da['title']?></p>
+	</a>
+	<a href="javascript:;" onclick="changetab(1)" class="weui_tabbar_item">
+		<div class="weui_tabbar_icon">
+			<i class="icon-fighter-jet"></i>
+		</div>
+		<p class="weui_tabbar_label">外勤定位</p>
+	</a>
+	<a href="javascript:;" onclick="changetab(2)" class="weui_tabbar_item">
+		<div class="weui_tabbar_icon">
+			<i class="icon-bar-chart"></i>
+		</div>
+		<p class="weui_tabbar_label">考勤统计</p>
+	</a>
+	<a href="javascript:;" onclick="changetab(3)" class="weui_tabbar_item">
+		<div class="weui_tabbar_icon">
+			<i class="icon-list-alt"></i>
+		</div>
+		<p class="weui_tabbar_label">我的排班</p>
+	</a>
+</div>
+
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+</body>
+</html>

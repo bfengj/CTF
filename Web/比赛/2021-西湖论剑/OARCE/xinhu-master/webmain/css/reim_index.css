@@ -1,0 +1,62 @@
+.reim_index{position:absolute;left:10px;bottom:10px;height:50px;width:50px;z-index:50;border-radius:50%;text-align:center;color:white;}
+.reim_main{z-index:9;width:250px;background-color:white;overflow:hidden}
+
+.gradient{
+	background:#545e6a;color:white;overflow:hidden;
+	background:-moz-linear-gradient(top, #687584, #5d6875,#545e6a);
+	background:-webkit-linear-gradient(top,#687584,#5d6875,#545e6a);
+	background:-ms-linear-gradient(top, #687584, #5d6875,#545e6a);/*IE9以上*/
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#687584', centerColorstr='#5d6875',endColorstr='#545e6a', GradientType='0'); /* IE8以下*/
+}
+
+.gradienth{
+	background:#585858;color:white;overflow:hidden;
+	background:-moz-linear-gradient(top, #666666, #585858,#454545);
+	background:-webkit-linear-gradient(top,#666666, #585858,#454545);
+	background:-ms-linear-gradient(top, #666666, #585858,#454545);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', centerColorstr='#585858',endColorstr='#454545', GradientType='0'); /* IE8以下*/
+}
+
+.toolsliao{height:30px;overflow:hidden;line-height:28px}
+.toolsliao span,.toolsliao a{height:30px; background-color:eeeeee;display:block;float:left;width:30px;font-size:16px;color:#aaaaaa;cursor:pointer;text-align:center;line-height:28px}
+.toolsliao a{padding-top:5px}
+.toolsliao span:hover,.toolsliao a:hover{background-color:rgba(0,0,0,0.1);color:#555555}
+
+.headertab{height:40px;background-color:#dedede;overflow:hidden;line-height:40px;color:#aaaaaa;}
+.headertab div{height:40px;overflow:hidden;float:left;width:33%;text-align:center;cursor:pointer;font-size:18px;}
+.headertab .active{background-color:#f5f5f5;color:#1389D3}
+
+.lists{padding:8px; border-bottom:1px #f1f1f1 solid;cursor:pointer; background-color:white;position:relative;}
+.lists img{height:24px;width:24px;}
+.lists .close{position:absolute;right:3px;top:5px;display:none;color:#aaaaaa}
+.lists .bqs{position:absolute;right:3px;top:5px;}
+.lists:hover{ background-color:#f1f1f1}
+.lists:hover .close{display:block}
+.lists:hover .bqs{display:none}
+
+.userlist div,.userlist a{padding:8px 5px 8px 10px;border-bottom:1px #f1f1f1 solid;cursor:pointer; display:block}
+.userlist div img,.userlist a img{width:20px;height:20px;margin-right:5px}
+.userlist div span.right{position:absolute;right:5px;}
+.userlist div span.right img{width:16px;height:16px;}
+
+.usersslist div{padding:8px 5px 8px 25px;border-bottom:1px #f1f1f1 solid;cursor:pointer;}
+.usersslist div img{width:20px;height:20px;margin-right:5px}
+
+.userslist div{padding:8px 5px 8px 10px;border-bottom:1px #f1f1f1 solid;cursor:pointer;}
+.userslist div img{width:20px;height:20px;margin-right:5px}
+
+.listviewt .lists{padding:7px 3px 7px 8px;border-bottom:1px #f1f1f1 solid;cursor:pointer; display:block}
+.huicont{color:#888888;font-size:12px;height:20px;line-height:20px; overflow:hidden;word-wrap:break-word;word-break:break-all;white-space:normal;}
+.listviewt .lists img{height:34px;width:34px; border-radius:0px}
+
+
+.userlist div:hover,.listcont:hover,.listconts:hover,.usersslist div:hover,.gsholiv:hover,.userslist div:hover,.userlist a:hover,.listviewt .lists:hover{background:#f1f1f1}
+
+.reim_agent_types{line-height:20px; font-size:12px;color:#888888; padding:0px 5px; margin-top:5px}
+.reim_agent_grid td{border:1px #f1f1f1 solid;text-align:center}
+.reim_agent_grid img{width:26px;height:26px}
+.reim_agent_grid .reim_agent_div{position:relative;padding:10px 5px;cursor:pointer}
+.reim_agent_grid .reim_agent_div:hover{ background-color:#f1f1f1}
+.reim_agent_grid .reim_agent_img{height:26px;overflow:hidden}
+.reim_agent_grid .reim_agent_text{font-size:12px;padding-top:5px}
+.reim_agent_grid .badge{position:absolute;top:2px;right:2px}

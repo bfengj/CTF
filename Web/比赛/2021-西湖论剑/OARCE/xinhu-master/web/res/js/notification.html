@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>消息提醒</title>
+<script src="../../../js/jquery.js"></script>
+<style>
+body,html{padding:0px;margin:0px;font-size:14px}
+.close{height:20px;width:20px;display:block;text-align:center;line-height:18px;cursor:pointer;font-size:16px}
+.close:hover{background:#ff1118;color:white}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+</style>
+<script>
+$(document).ready(function(){
+	winobj = nw.Window.get();
+	winobj.moveTo(screen.width-355,screen.height-170);
+	winobj.show();
+	var nr = localStorage.getItem('xinhuoa_notification');
+	if(nr){
+		nr = unescape(nr);
+		var da = JSON.parse(nr);
+		$('#logodiv').attr('src', da.icon);
+		$('#titlediv').html(da.title);
+		$('#messdiv').html(da.body);
+	}
+});
+function winclose(){
+	winobj.close(true);
+}
+function clickbody(){
+	localStorage.setItem('xinhuoa_closelx', 'yes');
+	winclose();
+}
+</script>
+</head>
+<body style="overflow:hidden;cursor:pointer" >
+<div style="position:absolute;right:2px;top:2px;-webkit-app-region:no-drag;z-index:5">
+<span onclick="winclose();" title="关闭" class="close">×</span>
+</div>
+<div style="height:10px"></div>
+<table border="0" style="margin:0px 8px" onclick="clickbody()">
+<tr valign="top">
+<td>
+<div style="width:80px;height:80px;overflow:hidden;margin:5px" align="center">
+<img src="../../../images/logo.png" id="logodiv" height="80px" width="80px">
+</div>
+</td>
+<td style="padding-left:5px">
+<div id="titlediv" style="font-size:16px;font-size:bold;line-height:20px;height:20px;overflow:hidden;margin-top:12px"></div>
+<div id="messdiv" style="font-size:14px;color:gray;line-height:20px;height:40px;overflow:hidden;margin-top:8px"></div>
+</td>
+</tr>
+</table>
+
+
+</body>
+</html>

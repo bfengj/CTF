@@ -1,0 +1,13 @@
+<script>
+var loadbo = [];
+js.ontabsclicks=function(ind,tid,o,ho){
+	if(ind>=3 && !loadbo[ind]){
+		var uid = o.attr('uid');
+		ho.html('<img src="images/mloading.gif">');
+		js.ajax(geturlact('gethetong'),{'guid':uid,'ind':ind},function(ret){
+			ho.html(ret);
+		});
+	}
+	loadbo[ind] = true;
+}
+</script>

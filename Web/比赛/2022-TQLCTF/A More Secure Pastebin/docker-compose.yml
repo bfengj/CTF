@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+    app:
+        build: ./backend/
+        container_name: app
+        restart: unless-stopped
+        env_file: .env
+        environment:
+            - NPM_RUN_SCRIPT=$NPM_RUN_SCRIPT
+        depends_on:
+            - db
+            - redis
+        networks:
+            - net1
+            - net2
+
+    proxy:
+        build: ./proxy/
+        container_name: proxy
+        restart: unless-stopped
+        depends_on:
+            - app
+        ports:
+            - "0.0.0.0:11001:443"
+        networks:
+            - net2
+    redis:
+        image: redis:alpine
+        container_name: redis
+        env_file: .env
+        command: >
+          --requirepass ${REDIS_PASSWORD}
+          --bind 0.0.0.0
+          --protected-mode yes
+        networks:
+            - net1
+            - net2
+    db:
+        build: ./db/
+        container_name: db
+        restart: unless-stopped
+        env_file: .env
+        networks:
+            - net1
+    bot:
+        build: ./bot/
+        container_name: bot
+        env_file: .env
+        restart: unless-stopped
+        ports:
+            - "0.0.0.0:4000:4000"
+        networks:
+            - net2
+        cap_add:
+            - NET_ADMIN
+networks:
+    net1:
+        name: net1
+    net2:
+        name: net2

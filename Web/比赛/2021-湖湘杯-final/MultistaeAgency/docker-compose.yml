@@ -1,0 +1,13 @@
+version: "3.0"
+
+services:
+  web:
+    build: .
+    image: multi_stage_agency
+#    volumes:
+#      - .:/code
+#    command: tail -f /dev/null
+    ports:
+    - 19090:9090
+#    - 19091:9091
+#    - 18080:8080

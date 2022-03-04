@@ -363,6 +363,8 @@ clas = helper.loadClass(factoryName, codebase);
 
 
 
+
+
 # 使用RMI的限制
 
 在P神写的《Java安全漫谈》的RMI那里也提到了：

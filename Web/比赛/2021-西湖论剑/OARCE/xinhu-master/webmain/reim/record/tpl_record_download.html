@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下载管理器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/webimcss.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<link rel="stylesheet" type="text/css" href="web/res/perfectscrollbar/perfect-scrollbar.css"/>
+<script type="text/javascript" src="web/res/perfectscrollbar/perfect-scrollbar.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/jquery.mousewheel.js"></script>
+<style>
+<?php
+$col = getconfig('apptheme','#1389D3');
+echo 'body{--main-color:'.$col.'}';
+?>
+
+.list{padding:10px 10px;border-top:1px #eeeeee solid}
+.list:hover{background:#f1f1f1}
+</style>
+<script>
+maincolor='<?=$col?>';
+function initbody(){
+	c.init();
+}
+var c = {
+	init:function(){
+		this.getsese();
+		$(window).resize(c.getsese);
+		if(nwjsgui)this.showdata();
+		$('#downlist').perfectScrollbar();
+	},
+	getsese:function(){
+		var he = winHb()-50;
+		$('#downlist').css('height',''+he+'px');
+	},
+	showdata:function(){
+		chrome.downloads.search({}, function(e){
+			c.showdatas(e);
+		});
+	},
+	showdatas:function(da){
+		da.sort(function(d1,d2){
+			if(d1.id>d2.id)return 1;
+			if(d1.id<d2.id)return -1;
+			if(d1.id==d2.id)return 0;
+		});
+		for(var i=da.length-1;i>=0;i--)this.showlist(da[i]);
+		if(da.length==0)$('#downlist').append('<div style="padding:50px;color:#cccccc;font-size:14px" align="center">无下载内容</div>');
+	},
+	showlist:function(d){
+		var s = '',s1='',s2='',s3='';
+		if(d.error=='USER_CANCELED'){
+			d.filename='用户取消';
+			d.exists = false;
+		}
+		if(!d.exists){
+			s1='已删除 ';
+			s2='text-decoration:line-through;';
+		}else{
+			s3='&nbsp; <a onclick="c.show('+d.id+')" class="zhu">打开所在文件夹</a>';
+		}
+		if(d.state=='interrupted')s1+='中断 ';
+		if(d.state=='in_progress'){
+			var bil = js.float((d.bytesReceived/d.totalBytes)*100);
+			s1+='<span id="loading'+d.id+'">正在下载('+bil+'%)...</span> ';
+			c.reshowimt(d.id);
+		}
+		if(d.state=='complete')s1+='下载完成 ';
+		
+		s+='<div id="list'+d.id+'" class="list">';
+		s+='	<table><tr><td width="42">';
+		s+='	<img id="icon'+d.id+'" src="images/noimg.jpg" align="absmiddle" width="32" height="32">&nbsp;'
+		s+='	</td><td>';
+		s+='	<div style="'+s2+'">'+d.id+'、'+d.filename+' &nbsp;<span onclick="c.delete('+d.id+')" title="删除" class="cursor"><i class="icon-trash"></i></span></div>';
+		s+='	<div style="font-size:12px;color:#888888">'+s1+''+js.formatsize(d.fileSize)+'('+js.now('now',new Date(d.startTime).getTime())+')&nbsp;'+s3+'</div>';
+		//s+='	<div>'+JSON.stringify(d)+'</div>';
+		s+='	</td></tr></table>'
+		s+='</div>';
+		$('#downlist').append(s);
+		if(d.exists){
+			chrome.downloads.getFileIcon(d.id,{}, function(str){
+				get('icon'+d.id+'').src=str;
+			});
+		}
+	},
+	delete:function(id){
+		chrome.downloads.erase({id:id}, function(){
+			js.msgok('记录已删除');
+			$('#list'+id+'').remove();
+		})
+	},
+	show:function(id){
+		chrome.downloads.show(id);
+	},
+	add:function(){
+		js.prompt('新建下载','输入下载地址',function(jg,txt){
+			if(jg=='yes' && txt.substr(0,4)=='http'){
+				chrome.downloads.download({url:txt}, function(){
+					
+				})
+			}
+		})
+	},
+	clearall:function(){
+		chrome.downloads.erase({}, function(){
+			js.msgok('记录已清空');
+			js.reload();
+		})
+	},
+	reshowimt:function(id){
+		chrome.downloads.search({id:id}, function(da){
+			c.reshowimts(da[0]);
+		});
+	},
+	reshowimts:function(d){
+		var s1 = '';
+		if(d.state=='interrupted')s1='中断';
+		if(d.state=='in_progress'){
+			var bil = js.float((d.bytesReceived/d.totalBytes)*100);
+			s1='正在下载('+bil+'%)...<a onclick="c.cancel('+d.id+')" class="zhu">取消下载</a>';
+			setTimeout('c.reshowimt('+d.id+')',1000);
+		}
+		if(d.state=='complete')s1='下载完成';
+		$('#loading'+d.id+'').html(s1);
+	},
+	cancel:function(id){
+		chrome.downloads.cancel(id, function(){
+			js.msgerror('下载已取消');
+		});
+	}
+}
+
+</script>
+</head>
+
+
+<body style="overflow:hidden;background:white">
+<div id="downlist" style="height:100px;overflow:hidden;position:relative">
+
+</div>
+<div style="height:50px;padding:0px 10px;text-align:right;line-height:50px;background:#f1f1f1;border-top:1px #cccccc solid">
+	<!--<a class="zhu" title="新增下载" onclick="c.add()"><i class="icon-plus"></i></a>&nbsp;&nbsp;-->
+	<a class="zhu" onclick="js.reload()"><i class="icon-refresh"></i> 刷新</a>&nbsp;&nbsp;
+	<a class="zhu" onclick="c.clearall()"><i class="icon-trash"></i> 清空下载项</a>&nbsp;
+</div>
+</body>
+</html>

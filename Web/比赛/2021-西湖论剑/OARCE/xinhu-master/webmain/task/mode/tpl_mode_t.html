@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+<title><?=$da['pagetitle']?></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<?php
+if($stype==''){
+?>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/css.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/task/mode/modeview.js?<?=$da['logintime']?>"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+
+<script>
+var mid = '<?=$da['arr']['mid']?>',modenum='<?=$da['arr']['modenum']?>',ismobile=0,receiptrs=<?=json_encode($da['arr']['receiptrs'])?>,isinput=0;
+</script>
+<?php 
+}
+$cheikbo = false;
+?>
+<style>
+<?php
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';}';
+?>
+.stitle{padding:5px;border-bottom:1px #dddddd solid;font-size:14px;}
+.ydullist{display:inline-block;width:100%;}
+.ydullist li{float:left;width:10%;text-align:center;padding:5px 0px;font-size:12px;display:block;line-height:25px;padding-top:10px}
+.ydullist li:active{ background-color:#eeeeee}
+.ydullist li img,.faces{height:30px;width:30px;border-radius:15px}
+.ydullist li span{font-size:12px;color:#888888;}
+
+.faces{margin-right:10px}
+.ptitle{text-align:center;font-size:20px;padding-top:15px;padding-bottom:10px;}
+.tabled2 td{padding:5px;border:1px #e5e5e5 solid;text-align:center}
+td.tdys1{border:1px #e5e5e5 solid;text-align:center;padding:0px 5px}
+.createtable{width:90%}
+.menulls{position:absolute;left:1px;top:10px}
+.menullss{position:absolute;left:1px;top:32px; background-color:white; border:1px #cccccc solid;border-bottom:0px;display:none}
+.menullss li{padding:5px 10px;border-bottom:1px #dddddd solid;cursor:pointer}
+.menullss li:hover{ background-color:#f1f1f1}
+.pcont{line-height:27px;}
+.pcont p{text-indent:2em;margin:10px 0px}
+.pcont a{color:blue}
+.status{position: absolute;right:20px;top:10px;display:}
+
+.ke-zeroborder{border-spacing: 0;border-collapse: collapse;}
+.ys0{border:1px #000000 solid}
+.ys1{padding:5px 5px; border:1px #000000 solid;color:#000000;}
+.ys2{padding:5px 5px; border:1px #000000 solid;}
+.datesss{background:url(mode/icons/date.png) no-repeat right;cursor:pointer;width:50%}
+.inputs{width:95%}
+.statustext{position: absolute;right:40px;top:10px;width:80px;height:80px;overflow:hidden; border:3px red solid;border-radius:50%;font-size:20px;text-align:center;line-height:80px;color:red;transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-webkit-transform:rotate(-45deg);filter:progid:DXImagetransform.Microsoft.Matrix(M11=0.707,M12=-0.707,M21=0.707,M22=0.707,SizingMethod='auto expand');}
+.tableblack .ys0,.tableblack .ys1,.tableblack .ys2{border:1px #000000 solid;color:#000000;}
+
+.btn-danger{background-color:#d9534f;}
+.printtable td,.printborder{border:1px #000000 solid}
+.printtable td{padding:0px 3px}
+.notitle{display:none}
+<?php
+if($stype!=''){
+?>
+*{font-size:14px}
+.tabled2 td{border-color:#000000}
+<?php }?>
+</style>
+</head>
+<body style="background:white">
+<div align="center">
+<div style="width:<?=$da['xiangwidth']?>px;position:relative;background:white" class="noprint" id="maindiv" align="left">
+	<?php if($stype==''){?>
+	<div class="menulls"><input id="showmenu" style="background-color:#888888;font-size:12px;border-radius:5px" class="webbtn" value="操作V" type="button"></div>
+	<div class="menullss"><ul><li lx="0">打印全部...</li>
+	<li lx="9">回到详情页</li>
+	<li lx="5">另存为word...</li>
+	<li lx="7">另存为图片...</li>
+	<li lx="3">关闭</li>
+	<li lx="4">刷新</li>
+		</ul>
+	</div>
+	<?php }?>
+	
+	<?php
+	//显示状态
+	if($da['arr']['isflow']>0 && $stype==''){
+		//echo '<div class="statustext" onclick="$(this).remove()" style="color:'.$da['arr']['statuscolor'].';border-color:'.$da['arr']['statuscolor'].'">'.$da['arr']['statustext'].'</div>';
+	}
+	$contview = $da['arr']['contview'];
+	if(!isempt($da['title']) && !isset($da['arr']['notitle']) && !contain($contview, 'notitle')){
+		echo '<div align="center"><div class="ptitle">'.$da['title'].'</div></div>';
+	}
+	?>
+	
+	
+	<div class="padding10 pcont" align="left">
+	<?php 
+		if($stype!='')$contview=str_replace('cccccc','000000', $contview);
+		echo $contview;
+	?>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

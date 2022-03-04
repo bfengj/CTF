@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+*{font-family:微软雅黑,Verdana, Geneva, sans-serif;list-style-type:none;padding:0px;margin:0px;}
+
+html{
+	font-family: sans-serif;
+}
+body{--main-color:#1389D3;color:#000000;margin:0px;border:0;font-size:14px; background-color:white}
+.mbody{background-color: #f1f1f1;}
+td,button{ font-size:14px}
+a,.cursor{cursor:pointer;}
+p{text-indent:24pt; margin:12px 0px;line-height:25px}
+input,textarea,select,button{resize: none;outline:none;font-size:14px;}
+.zhu{ color:#1389D3;color:var(--main-color)}
+.hui{ color:#888888}
+.red{ color:#ff0000}
+.blue{ color:blue}
+table{border-spacing: 0;border-collapse: collapse;}
+a:link,a:visited{TEXT-DECORATION:none;color:#1389D3;color:var(--main-color)}
+a:hover{TEXT-DECORATION:none;color:red;}
+.touch{-webkit-overflow-scrolling:touch;overflow-scrolling:touch;}
+a.zhu{color:#046DA5}
+img{border:0}
+
+
+a.blue:link,a.blue:visited{color:blue;TEXT-DECORATION:none;}
+a.blue:hover{TEXT-DECORATION:underline;color:red;}
+
+a.red:link,a.red:visited{color:red;TEXT-DECORATION:underline;}
+a.red:hover{TEXT-DECORATION:underline;color:red;}
+
+
+
+
+.white{color:white;}
+a.white:link,a.white:visited{color:white;TEXT-DECORATION:none;}
+a.white:hover{TEXT-DECORATION:underline;color:white;}
+
+.blank1{ height:1px; overflow:hidden; border-bottom:1px #dddddd solid}
+.blank10{ height:10px; overflow:hidden}
+.blank20{ height:20px; overflow:hidden}
+.blank5{ height:5px; overflow:hidden}
+.blank25{ height:25px; line-height:25px;overflow:hidden;}
+.blank30{ height:30px; line-height:30px; overflow:hidden}
+.blank46{ height:46px; line-height:46px; overflow:hidden}
+ul,li,a{ list-style-type:none}
+.h1{ font-size:24px;font-weight:bold;}
+.h2{ font-size:20px;font-weight:bold;}
+
+.input,.inputs,.textarea{height:30px;line-height:25px;background-color:white;padding:2px;width:95%;border:0.5px #dddddd solid;border-radius:2px}
+
+.inputb{height:30px;line-height:20px;background-color:white;padding:2px;border:0.5px #cccccc solid;border-radius:2px}
+.inputb:focus,.inputs:focus,.textarea:focus{border:0.5px var(--main-color) solid;box-shadow:0px 0px 5px rgba(0,0,0,0.3);}
+
+.title{height:40px;line-height:40px;overflow:hidden;font-size:18px;text-align:left;border-bottom:1px #cccccc solid;color:#55555;font-weight:bold; background-color:var(--main-color)}
+
+.inputs[readonly]{ background-color:#f1f1f1;box-shadow:none}
+
+.btn{width:100%;height:44px;line-height:44px;opacity:0.8; background-color:var(--main-color);border:none;color:white;font-size:14px; cursor:pointer}
+.btn:active,.btn:hover{opacity:1;color:white;TEXT-DECORATION:none;}
+.btn:disabled{ background-color:#cccccc;color:#888888}
+a.btn{padding:5px 8px}
+
+.header{height:50px; overflow:hidden;line-height:50px; text-align:center; border-bottom:0.5px #cccccc solid;font-size:18px; position:fixed;width:100%;top:0px;left:0px; background:white;z-index:8}
+.header .back{position:absolute;top:5px;left:5px}
+.header .back img{height:24px;width:24px}
+.header-back{width:50px;height:50px;display:block; background:url(../../images/back.png) no-repeat 7px 7px;position:absolute;left:0px;bottom:0px; cursor:default}
+.header-back:active{opacity:0.5}
+.divinput{padding:8px;}
+.padding10{padding:10px;}
+
+.imgbtn{padding:0px 5px}
+.imgbtn:active{ background-color:#eeeeee}
+
+.tdinpu{text-align:right;color:#555555;}
+.tdinput{padding:8px 5px}
+.inborder{border:1px #cccccc solid;}
+
+a.webbtn:link,a.webbtn:visited,.webbtn{color:#ffffff;opacity:0.8; background-color:var(--main-color); padding:8px 10px; border:none; cursor:pointer;font-size:14px}
+.webbtn:disabled{background-color:#aaaaaa; color:#eeeeee}
+.webbtn:hover{box-shadow:0px 0px 5px rgba(0,0,0,0.3);opacity:1}
+.radius5{border-radius:5px;}
+
+.upload_items{border:1px #cccccc solid;height:60px;overflow:hidden;float:left;margin-top:5px;margin-bottom:5px;margin-right:10px;cursor:pointer;position:relative}
+.upload_items:active{border:1px var(--main-color) solid}
+.upload_items img.imgs{width:50px;height:50px;margin:5px}
+.upload_items_items{padding:5px;text-align:center}
+.upload_items_meng{ background:rgba(0,0,0,0.5);position:absolute;left:0px;top:0px;height:60px;overflow:hidden;line-height:60px;text-align:center;width:100%;color:white}

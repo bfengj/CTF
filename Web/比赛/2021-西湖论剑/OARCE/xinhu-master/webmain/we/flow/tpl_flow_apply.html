@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<style>
+
+</style>
+<script>
+ismobile = 1;
+function xuantype(o1){
+	var val = o1.value;
+	if(val){
+		js.backto('typelx'+val+'');
+	}
+}
+function initApp(){
+	js.setapptitle();
+}
+</script>
+</head>
+<body>
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header" style="padding-top:<?=$cenghei?>px" >
+		<div onclick="location.reload()" id="header_title" class="r-header-text"><?=$da['title']?></div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+	</div>
+	<div class="blank50" id="header_line" style="height:<?=($cenghei+50)?>px"></div>
+</div>
+<?php }?>
+ 
+<div style="background:white"><div style="margin:0px 10px"><select style="width:100%;border:none;background:none;height:40px;font-size:16px" onchange="xuantype(this)">
+<option value="">-快速选择分类-</option>
+<?php
+$count=0;
+foreach($modearr as $type=>$rows){
+	$count++;
+	echo '<option value="'.$count.'">'.$type.'('.count($rows).')</option>';
+}
+?>
+</select></div></div>
+
+<?php
+$count=0;$count1=0;
+foreach($modearr as $type=>$rows){
+$count1++;
+?>
+<div class="weui_cells_title" id="typelx<?=$count1?>"><?=$type?>(<?=count($rows)?>)</div>
+<div class="weui_cells weui_cells_access">
+	<?php
+	foreach($rows as $k=>$rs){
+	$count++;
+	?>
+	<a class="weui_cell" href="<?=$rs['url']?>">
+		<div class="weui_cell_bd weui_cell_primary">
+			<p><?=$rs['title']?></p>
+		</div>
+		<div class="weui_cell_ft">
+		</div>
+	</a>
+	<?php
+	}
+	?>
+</div>
+<?php 
+}
+?>
+<div align="center" class="weui_cells_title">总共<?=$count?>个模块</div>
+            
+</div>
+</body>
+</html>

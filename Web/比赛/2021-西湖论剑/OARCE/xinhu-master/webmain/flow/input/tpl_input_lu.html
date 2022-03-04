@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" href="<?=$da['p']?>/css/css.css" />
+<link rel="stylesheet" type="text/css" href="mode/plugin/css/jquery-rockdatepicker.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockdatepicker.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/flow/input/inputjs/input.js?<?=$da['logintime']?>"></script>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<script type="text/javascript">
+<?php
+$maincolor = getconfig('apptheme','#1389D3');
+?>
+var editor,arr=<?=$da['fieldsjson']?>,moders=<?=json_encode($da['moders'])?>,gongsiarr=<?=json_encode($da['gongsiarr'])?>,subfielsa=<?=json_encode($da['subfielsa'])?>,zbnamearr=<?=json_encode($da['zbnamearr'])?>,isedit=0,mid='<?=$da['mid']?>',isinput=1,data={},maincolor='<?=$maincolor?>';
+</script>
+<style>
+<?php
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';--main-border:rgba('.$maincolors.',0.2)}';
+?>
+.tdcont{padding:0px 0px;font-size:14px;}
+.tdcont *{font-size:14px;}
+.tdcont a{color:blue;}
+.ys0{border:1px #888888 solid;border:1px var(--main-border) solid}
+.ys1{padding:5px 5px;border:1px #888888 solid; border:1px var(--main-border) solid;color:#555555;}
+.ys2{padding:5px 5px;border:1px #888888 solid;border:1px var(--main-border) solid;}
+
+.inputs{width:95%;font-size:14px;}
+.cionsss{padding:4px; background-color:#dddddd}
+.datesss{background:url(mode/icons/date.png) no-repeat right;cursor:pointer}
+
+.status{position: absolute;right:5px;top:10px;display:none;width:80px;height:80px;overflow:hidden; border:3px red solid;border-radius:50%;font-size:20px;text-align:center;line-height:80px;color:red;transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-webkit-transform:rotate(-45deg);filter:progid:DXImagetransform.Microsoft.Matrix(M11=0.707,M12=-0.707,M21=0.707,M22=0.707,SizingMethod='auto expand');}
+
+.tablesub td{height:25px;text-align:center;border-bottom:1px var(--main-border) solid;border-right:1px var(--main-border) solid;}
+.tablesub .inputs{border:none}
+
+.course{padding:8px; background-color:rgba(<?=$maincolors?>,0.2);border:1px rgba(<?=$maincolors?>,0.3) solid;margin-right:10px;text-align:center;border-radius:5px}
+.coursejt{height:8px;overflow:hidden;width:30px;background-color:rgba(<?=$maincolors?>,0.2)}
+.coursejts{width:0px;  height:0px; overflow:hidden;border-width:8px;border-style:solid;border-color:transparent transparent transparent rgba(<?=$maincolors?>,0.2);}
+.tishi{color:#888888;font-size:12px;padding:3px}
+.btn-default{background-color:#1389D3;}
+.btn-danger{background-color:#d9534f;}
+.btn:hover{opacity:1;color:#ffffff}
+.ke-icon-crop{background-image: url(mode/icons/crop.png);width: 16px;height: 16px;}
+.xuhao{text-align:center;}
+</style>
+</head>
+<body style="background:white">
+<div align="center">
+	<div class="blank10"></div>
+	<div style="min-width:650px; position:relative;max-width:<?=$da['inputwidth']?>px;margin:0px 10px">
+		<div class="status"></div>
+		<div style="padding-bottom:15px;"><span id="inputtitle" onclick="location.reload()" style="font-size:24px"><?=$da['title']?></span></div>
+		<div class="tdcont" align="left">
+			<form name="myform" autocomplete="off">
+			<input name="id" type="hidden" value="<?=$da['mid']?>">
+			<?php 
+			$firstrs 	= array();
+			$coursestr 	= '';
+			for($i=0;$i<$da['zbshu'];$i++)echo '<input value="0" type="hidden" name="sub_totals'.$i.'">';
+			echo $da['content'];
+			if($da['course']){
+				
+				$coursestr = '<div align="center" style="padding:20px 0px">';
+				$coursestr .='<table><tr>';
+				foreach($da['course'] as $k=>$rs){
+					$coursestr .='<td><div class="course">'.$rs['name'].'';
+					$coursestr .='</div></td>';
+					if($rs['id']>-1){
+						if($rs['id'] > 0){
+							if(!$firstrs)$firstrs = $rs;
+							if($rs['isnow'])$firstrs = $rs;
+						}
+						$coursestr .='<td><div class="coursejt"></div></td>';
+						$coursestr .='<td><div class="coursejts"></div></td>';
+					}
+				}
+				$coursestr .= '</tr></table>';
+				$coursestr .= '</div>';
+				
+				if($da['moders']['isbxs']==1)$coursestr='';//不显示流程图
+				
+				//判断流程步骤是否上步指定
+				if($firstrs && $firstrs['checktype']=='change'){
+					$firstrs['isbt'] = 0;
+					$placeholder = '可不选,如自己选择不要随意选择';
+					$stsp = '<div style="padding-top:20px"><table width="100%"><tr><td width="15%" nowrap height="30" align="right">';
+					if($firstrs['checktype']=='change'){
+						$stsp.='<font color=red>*</font>';
+						$placeholder = '必须指定人员';
+						$firstrs['isbt'] = 1;
+					}
+					$stsp.= ''.$firstrs['name'].'：</td>';
+					$stsp.= '<td width="100%"><input  class="inputs" style="width:99%" id="sysnextchange" value="'.$firstrs['sysnextopt'].'" placeholder="'.$placeholder.'" readonly type="text" name="sysnextopt"><input name="sysnextoptid" value="'.$firstrs['sysnextoptid'].'" id="sysnextchange_id" type="hidden"><input name="sysnextcustidid" value="'.$firstrs['id'].'" type="hidden"></td>';
+					$stsp.= '<td nowrap><a href="javascript:;" onclick="js.changeclear(\'sysnextchange\')" class="webbtn">×</a><a href="javascript:;" id="btnchange_recename" onclick="js.changeuser(\'sysnextchange\',\'changeusercheck\',\'选择'.$firstrs['name'].'\',{changerange:\''.$firstrs['checktypeid'].'\'})" class="webbtn">选择</a></td>';
+					$stsp.= '</tr></table></div>';
+					echo $stsp;
+				}
+			}
+			
+			
+			
+			//是否抄送
+			$iscs = (int)$da['moders']['iscs'];
+			if($iscs>0){
+				$csstr= $inputobj->inputchangeuser(array(
+					'name'		=> 'syschaosong',
+					'id'		=> 'syschaosongid',
+					'placeholder'=>'选择要抄送的人员',
+					'type'		=> 'changeusercheck',
+					'title'		=> '选择抄送人员',
+					'value' 	=> $da['chao']['csname'],
+					'valueid'	=> $da['chao']['csnameid']
+				));
+				echo '<div style="padding-top:20px"><table width="100%"><tr><td width="15%" nowrap height="30" align="right"><font color="red">'.(($iscs==1) ? '':'*').'</font>抄送给&nbsp;</td><td width="100%">'.$csstr.'</td></tr></table></div>';
+			}
+			?>
+			</form>
+		</div>
+		<?php echo $coursestr;?>
+		<div style="height:60px; overflow:hidden"></div>
+	</div>
+	<div align="right" style="background:#eeeeee;border-top:1px #aaaaaa solid;padding:10px 0px; position:fixed;width:100%;bottom:0px;left:0px;z-index:10">
+		<span id="msgview"></span>&nbsp; 
+		<span id="AltSspan" style="display:none" >
+		<?php
+		if($da['isflow']>0)echo '<label><input onclick="c.changeturn(this)" value="1" checked type="checkbox" id="sysisturn">直接提交</label>&nbsp;';
+		?>
+		<input id="AltS" type="button" style="border-radius:5px" onclick="return c.save()" value="提交" class="webbtn"></span>&nbsp; &nbsp; 
+	</div>
+</div>
+<script>
+firstrs=<?=json_encode($firstrs)?>;
+</script>
+<script type="text/javascript" src="<?=$da['p']?>/flow/input/inputjs/mode_<?=$da['moders']['num']?>.js?<?=$da['logintime']?>"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<?php 
+if($otherfile)include_once($otherfile);
+?>
+</body>
+</html>

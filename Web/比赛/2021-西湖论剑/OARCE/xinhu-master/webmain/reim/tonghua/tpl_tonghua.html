@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/webimcss.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="mode/agora/AgoraRTC_N-4.7.1.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<script>
+adminid = <?=$da['adminid']?>;
+var localAudioTrack=false,localVideoTrack = false,remoteAudioTrack=false,remoteVideoTrack=false;
+function initbody(){
+	c.init();
+}
+function bodyunload(){
+	c.bodyunload(false);
+}
+var c = {
+	iscall:<?=$ars['iscall']?>,
+	type:0,
+	callshu:30,
+	id:<?=$ars['id']?>,
+	nwwin:false,
+	init:function(){
+		this.typearr = ['语音','视频'];
+		this.name   = '<?=$ars['name']?>';
+		this.playobj = get('notify_sound_tonghua');
+		js.initbtn(this);
+		//接收端
+		if(!this.iscall){
+			this.type = <?=$thrs['type']?>;
+			this.channel = '<?=$thrs['channel']?>';
+			this.jieshoucall();
+		}else{
+			$('#calldiv').show();
+		}
+		if(nwjsgui){
+			this.nwwin = nw.Window.get();
+			this.nwwin.on('close', function(){
+				c.bodyunload(this);
+			});
+		}
+	},
+	hujiao:function(o1,lx){
+		if(this.hujiaobo)return;
+		js.loading('请求中...');
+		this.hujiaobo = true;
+		this.type 	  = lx;
+		js.ajax('tonghua|thinit',{id:this.id,type:lx},function(ret){
+			c.hujiaoback(ret);
+		}, 'get', function(str){
+			js.msgerror(str);
+			c.stateupdate(str);
+			c.hujiaobo=false;
+		});
+	},
+	stateupdate(str, bo){
+		$('#wiatling').html(str);
+		$('#wiatlings').html(str);
+		document.title = str;
+		if(bo)this.showtoast(str);
+	},
+	showtoast:function(str){
+		js.msg('success',str);
+	},
+	hujiaoback:function(ret){
+		this.thcan = ret.data;
+		this.channel = this.thcan.channel;
+		$('#backbtn').hide();
+		$('#hujiaobtn').remove();
+		$('#cancelbtn').show();
+		this.initagoraRtc();
+		this.callstartplay();
+		this.callstrimes = js.now('time');
+		this.callmiashue();
+		this.hujiaobool = true;
+	},
+	callstartplay:function(){
+		this.playobj.src='web/res/sound/call.mp3';
+		if(this.playobj.play)this.playobj.play();
+	},
+	callstopplay:function(){
+		if(this.playobj.pause)this.playobj.pause();
+	},
+	cancalpayls:function(){
+		this.playobj.src='web/res/sound/gua.mp3';
+		this.playobj.loop='';
+		if(this.playobj.play)this.playobj.play();
+	},
+	
+	callmiashue:function(){
+		clearTimeout(this.callmiashuetime);
+		var sj = parseInt((js.now('time')-this.callstrimes)*0.001);
+		if(sj>this.callshu){
+			this.cancelhus(5);
+			return;
+		}
+		if(sj%2==0 && sj>0 && !this.ztpandbool){
+			this.ztpandbool = true;
+			js.ajax('tonghua|state',{channel:this.channel}, function(ret){
+				var zt = ret.data.state;
+				c.ztpandbool = false;
+				if(!c.calljutong && (zt=='tongyi' || zt=='jujue'))c.callbackss(zt);
+			},'get', function(st1){
+				c.ztpandbool = false;
+				js.msg();
+			});
+		}
+		this.stateupdate(''+this.typearr[this.type]+'通话呼叫中已呼叫'+sj+'秒...');
+		this.callmiashuetime = setTimeout(function(){c.callmiashue()},1000);
+	},
+	initagoraRtc:async function(){
+		client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+		
+		client.on("user-published", async (user, mediaType) => {
+			await client.subscribe(user, mediaType);
+			if (mediaType === "video") {
+				remoteVideoTrack = user.videoTrack;
+				remoteVideoTrack.play('remote_stream');
+			}
+			if (mediaType === "audio") {
+				remoteAudioTrack = user.audioTrack;
+				remoteAudioTrack.play();
+			}
+		});
+		client.on("user-joined", (user) => {
+			//showSuccess('有人来('+JSON.stringify(user)+')');
+		});
+		client.on("user-left", (user, reason) => {
+			//showAlert('有人退出['+reason+']('+JSON.stringify(user)+')');
+			c.guaduanok(false);
+		});
+	},
+	cancelhu:function(){
+		this.cancelhus(3);
+	},
+	closewin:function(bo){
+		if(bo){
+			if(this.nwwin){
+				this.nwwin.close(true);
+			}else{
+				window.close();
+			}
+		}else{
+			setTimeout(function(){c.closewin(true)},2000);
+		}
+	},
+	cancelhus:function(zt){
+		$('#cancelbtn').hide();
+		this.hujiaobool = false;
+		clearTimeout(this.callmiashuetime);
+		var ss1='';if(zt==5)ss1='无人接听';
+		js.loading(''+ss1+'取消呼叫中...');
+		this.stateupdate(''+ss1+'取消呼叫中...');
+		this.callstopplay();
+		js.ajax('tonghua|cancel',{channel:this.thcan.channel,state:zt},function(ret){
+			c.stateupdate(''+ss1+'已取消呼叫', true);
+			c.closewin();
+		}, 'get', function(str){
+			$('#cancelbtn').show();
+			js.msgerror(str);
+			c.stateupdate(str);
+		});
+	},
+	
+	//接通后显示视频
+	localvadio:async function(){
+		if(this.localvadiobool)return;
+		this.localvadiobool = true;
+		this.isjietong = true;
+		this.showtoast(''+this.typearr[this.type]+'已接通');
+		this.stateupdate('与'+this.name+''+this.typearr[this.type]+'通话中(00:00)');
+		$('#backbtn').hide();
+		this.starttime = js.now('time');
+		this.showmian();
+		
+		
+		$('#calldiv').remove();
+		$('#canceldiv').show();
+		
+		if(this.type==1){
+			$('#shipindiv').show();
+			$('#yuyindiv').hide();
+			$('#local_stream').show();
+			$('#remote_stream').show();
+		}
+		
+		await client.join(this.thcan.appid, this.thcan.channel, this.thcan.token, this.thcan.uid);
+	
+		// 通过麦克风采集的音频创建本地音频轨道对象。
+		localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
+		await client.publish(localAudioTrack);
+		
+		if(this.type==1){
+			// 通过摄像头采集的视频创建本地视频轨道对象。
+			localVideoTrack = await AgoraRTC.createCameraVideoTrack();
+			// 将这些音视频轨道对象发布到频道中。
+			await client.publish(localVideoTrack);
+			localVideoTrack.play('local_stream'); //播放视频
+		}
+	},
+	showmian:function(){
+		var sj = parseInt((js.now('time')-this.starttime)*0.001);
+		this.tonghuasj = sj;
+		var fz = 0;
+		if(sj>59)fz = parseInt(sj/60);
+		var ms = sj-fz*60;
+		this.stateupdate(''+this.typearr[this.type]+'通话中('+xy10(fz)+':'+xy10(ms)+')');
+		if(sj>0 && sj%2==0 && !this.showmiaobool){
+			this.showmiaobool = true;
+			js.ajax('tonghua|stateth',{channel:this.channel}, function(ret){
+				var zt = ret.data.state;
+				c.showmiaobool = false;
+				if(zt=='jiesu')c.callbackss(zt);
+			},'get', function(st1){
+				c.showmiaobool = false;
+				js.msg();
+			});
+		}
+		this.showmiantime = setTimeout(function(){c.showmian()},1000);
+	},
+	
+	guaduan:function(){
+		this.guaduanok(true);
+	},
+	guaduanok:function(bo){
+		if(this.guaduanbool)return;
+		this.guaduanbool = true;
+		if(bo){
+			this.showtoast('挂断中...');
+			js.ajax('tonghua|jiesu',{channel:this.thcan.channel,toid:this.id}, function(ret){
+				c.guaduanokok();
+			},'get', function(str){
+				c.guaduanokok();
+			});
+		}else{
+			this.guaduanokok();
+		}
+	},
+	guaduanokok:function(){
+		clearTimeout(this.showmiantime);
+		if(localAudioTrack)localAudioTrack.close();
+		if(localVideoTrack)localVideoTrack.close();
+		client.unpublish();
+		client.leave();
+		this.stateupdate('通话已结束', true);
+		$('#canceldiv').remove();
+		this.cancalpayls();
+		this.closewin();
+	},
+	
+	
+	payerstart:function(){
+		this.playobj.src='web/res/sound/mi.mp3';
+		if(this.playobj.play)this.playobj.play();
+	},
+	payerend:function(){
+		this.callstopplay();
+	},
+	qiehysq:function(){
+		if(!this.yuancjinb){
+			remoteAudioTrack.setVolume(0);
+			this.yuancjinb = true;
+			$('#jingyinclltxt').html('开启声音');
+			get('jingyincll').className='icon-volume-off';
+		}else{
+			remoteAudioTrack.setVolume(100);
+			this.yuancjinb = false;
+			$('#jingyinclltxt').html('静音');
+			get('jingyincll').className='icon-volume-up';
+		}
+	},
+	
+	//接电话端处理初始化
+	jieshoucall:function(){
+		$('#backbtn').hide();
+		$('#anjiandiv').show();
+		js.ajax('tonghua|receopen',{channel:this.channel});
+		this.jieshoutimes(-1);
+		this.isyaoqbool = true;
+		this.payerstart();
+	},
+	jieshoutimes:function(i1){
+		var str = this.typearr[this.type];
+		var sys = this.callshu - <?=$thrs['sytime']?> -i1;
+		if(sys<0){
+			this.stateupdate('超时自动取消', true);
+			this.jiedianha(false,3);
+		}else{
+			if(i1%2==0 && i1>0 && !this.ztpandbool){
+				this.ztpandbool = true;
+				js.ajax('tonghua|state',{channel:this.channel}, function(ret){
+					var zt = ret.data.state;
+					c.ztpandbool = false;
+					if(zt=='cancel' || zt=='tongyi' || zt=='jujue')c.callbackss(zt);
+				},'get', function(st1){
+					c.ztpandbool = false;
+					js.msg();
+				});
+			}
+			this.stateupdate('邀请与您'+str+'通话('+sys+')...');
+			this.jieshoutimesa = setTimeout(function(){c.jieshoutimes(i1+1)},1000);
+		}
+	},
+	jiedianha:function(o1,lx){
+		clearTimeout(this.jieshoutimesa);
+		this.ismybool = true;
+		this.isyaoqbool = false;
+		$('#anjiandiv').hide();
+		this.payerend();
+		if(lx==1){
+			this.stateupdate('接通中...');
+			this.initagoraRtc();
+			js.ajax('tonghua|jietong',{channel:this.channel,state:1},function(ret){
+				c.jietongback(ret);
+			}, 'get', function(str){
+				js.msgerror(str);
+				c.stateupdate(str);
+				$('#anjiandiv').show();
+			});
+		}
+		if(lx==2){
+			this.stateupdate('拒绝中...');
+			js.ajax('tonghua|jie',{channel:this.channel,state:2},function(ret){
+				var ms2 = '已拒绝通话';
+				if(ret.data.satype)ms2 = ret.data.satype;
+				c.jiequxian(ms2);
+			},'get', function(str){
+				js.msgerror(str);
+				c.stateupdate(str);
+				$('#anjiandiv').show();
+			});
+		}
+		if(lx==3){
+			this.closewin();
+		}
+	},
+	jiequxian:function(s1){
+		this.stateupdate(s1, true);
+		this.closewin();
+	},
+	jietongback:function(ret){
+		this.thcan = ret.data;
+		if(ret.data.satype){
+			this.jiequxian(ret.data.satype);
+		}else{
+			this.stateupdate(''+this.typearr[this.type]+'通话中...');
+			this.localvadio();//被叫端接通
+		}
+	},
+	bodyunload:function(win){
+		var lx = '';
+		if(this.isjietong){
+			this.guaduan();
+			lx = '挂断中...';
+		}else{
+			if(this.hujiaobool){
+				this.cancelhu();
+				lx='取消中...';
+			}
+			if(this.isyaoqbool){
+				this.jiedianha(false,2);
+				lx='邀请中..';
+			}
+		}
+		if(!lx){
+			win.close(true);
+		}
+	},
+	callbackss:function(lx){
+		this.callstopplay();
+		clearTimeout(this.callmiashuetime);
+		clearTimeout(this.jieshoutimesa);
+		if(lx=='jujue'){
+			this.calljutong = true;
+			this.hujiaobool = false;
+			if(this.iscall){
+				$('#cancelbtn').remove();;
+				this.stateupdate('对方拒绝通话', true);
+				this.closewin();
+			}
+			if(!this.iscall && !this.ismybool){
+				this.stateupdate('已在另端拒绝', true);
+				$('#anjiandiv').remove();
+				this.closewin();
+			}
+		}
+		if(lx=='tongyi'){
+			this.calljutong = true;
+			this.hujiaobool = false;
+			if(this.iscall){
+				this.stateupdate('接通中...');
+				this.localvadio(); //主叫端接通
+			}
+			if(!this.iscall && !this.ismybool){
+				this.stateupdate('已在另端接通', true);
+				$('#anjiandiv').remove();
+				this.closewin();
+			}
+		}
+		
+		//----以下是接收端处理----
+		//呼叫已经取消
+		if(lx=='cancel' && get('anjiandiv')){
+			$('#anjiandiv').remove();
+			clearTimeout(this.jieshoutimesa);
+			this.stateupdate('对方已取消', true);
+			this.closewin();
+		}
+		//对方挂电话
+		if(lx=='jiesu'){
+			this.guaduanok(false);
+		}
+	}
+}
+js.ajax=function(lex,ds,fun,lxss,efun){
+	var lexa = lex.split('|');
+	if(!lxss)lxss='type';
+	var cans = {
+		url:js.apiurl(lexa[0],lexa[1]),
+		data:ds,
+		type:lxss,
+		dataType:'json',
+		success:function(ret){
+			js.unloading();
+			if(ret.success){
+				if(fun)fun(ret);
+			}else{
+				if(efun)efun(ret.msg)
+			}
+		},
+		error:function(e){
+			js.unloading();
+			if(efun)efun('处理出错:'+e.responseText+'');
+		}
+	}
+	$.ajax(cans);
+}
+js.initbtn = function(obj){
+	var o = $("[clickevt]"),i,o1,cl;
+	for(i=0; i<o.length; i++){
+		o1	= $(o[i]);
+		cl	= o1.attr('clickadd');
+		if(cl!='true'){
+			o1.click(function(eo){
+				var cls = $(this).attr('clickevt');
+				if(typeof(cls)=='string'){
+					cls=cls.split(',');
+					obj[cls[0]](this, cls[1], cls[2], eo);
+				}
+				return false;
+			});
+		}
+	}
+	o.attr('clickadd','true');
+}
+function showAlert(str,col){
+	var obj = $('div[temp="div"]'),hei=0;
+	for(var i=0;i<obj.length;i++)hei+=$(obj[i]).height()+15;
+	if(!col)col='red';
+	var str = '<div temp="div" onclick="$(this).remove()" style="background:rgba(0,0,0,0.8);position:fixed;left:0px;top:'+hei+'px;padding:5px;color:'+col+'">'+str+'</div>';
+	$('body').append(str);
+}
+
+
+function showSuccess(str){
+	showAlert(str,'white');
+}
+
+
+
+</script>
+</head>
+
+
+<body style="overflow:hidden;background:#555555">
+
+<div id="local_stream" style="width:100px;height:150px;right:0px;top:0px;border:0px red solid;position:fixed;z-index:2;display:none"></div>
+<div id="remote_stream" style="width:100%;height:100%;left:0px;top:0px;border:0px red solid;position:fixed;z-index:1;display:none"></div>
+
+<div align="left" style="padding:0px 10px;height:60px;overflow:hidden;display:none;position:fixed;z-index:9;left:0;top:0" id="shipindiv">
+	<table style="margin-top:10px"><tr>
+	<td><img id="tonghuafaces" src="<?=$ars['face']?>" width="40px" height="40px" style="border-radius:50%"></td>
+	<td width="5"></td>
+	<td style="color:white"><?=$ars['name']?></td>
+	<td width="10"></td>
+	<td><div id="wiatlings" style="color:#888888;font-size:14px">等待呼叫</div></td>
+	</tr></table>
+</div>
+<div align="center" style="position:fixed;z-index:9;left:0;top:0;width:100%" id="yuyindiv">
+	<div style="margin-top:50px"><img id="tonghuaface" src="<?=$ars['face']?>" width="100px" height="100px" style="border-radius:50%"></div>
+	<div style="color:white"><?=$ars['name']?></div>
+	<div id="wiatling" style="color:#888888;font-size:14px;margin-top:5px">等待呼叫</div>
+</div>
+
+
+<div align="center" id="calldiv" style="position:fixed;bottom:50px;width:100%;display:none;z-index:9">
+	<div id="hujiaobtn">
+		<div style="color:#888888;font-size:12px">请选择通话类型</div>
+		<table><tr>
+		<td align="center">
+			<div class="webbtn" clickevt="hujiao,0" align="center" style="width:90px;height:90px;background:#ff6600;color:white;line-height:90px;border-radius:50%;font-size:16px;margin-top:10px;padding:0"><i class="icon-volume-up"></i> 语音</div>
+		</td>
+		<td width="50"></td>
+		<td align="center">
+		<div class="webbtn"  clickevt="hujiao,1" align="center"  style="width:90px;height:90px;background:#339933;color:white;line-height:90px;border-radius:50%;font-size:16px;padding:0;margin-top:20px"><i class="icon-facetime-video"></i> 视频</div>
+		</td>
+		</tr></table>
+	</div>
+	<div id="cancelbtn" style="display:none">
+		<div class="webbtn" clickevt="cancelhu" style="width:80px;height:80px;background:#FF6666;color:white;line-height:80px;border-radius:50%;font-size:40px;padding:0;margin-top:20px;transform:rotate(135deg);"><i class="icon-phone"></i></div>
+		<div style="color:#888888;font-size:12px;margin-top:5px">取消</div>
+	</div>
+</div>
+<div align="center" id="canceldiv" style="position:fixed;bottom:0px;width:100%;display:none;height:120px;overflow:hidden;z-index:9">
+	<table style="margin-top:10px"><tr>
+	<td align="center">
+		<div class="webbtn" clickevt="guaduan" style="width:80px;height:80px;background:#FF6666;color:white;line-height:80px;border-radius:50%;font-size:40px;padding:0;margin-top:20px;margin:0;transform:rotate(135deg);"><i class="icon-phone"></i></div>
+		<div style="color:#888888;font-size:12px;margin-top:5px">挂断</div>
+	</td>
+	<td width="30"></td>
+	<td align="center">
+		<div class="webbtn" clickevt="qiehysq" style="width:80px;height:80px;background:white;color:#000000;line-height:80px;border-radius:50%;font-size:40px;padding:0;margin-top:20px;margin:0"><i id="jingyincll" class="icon-volume-up"></i></div>
+		<div  id="jingyinclltxt" style="color:#888888;font-size:12px;margin-top:5px">静音</div>
+	</td>
+	
+	</tr></table>
+</div>
+
+<div align="center" id="anjiandiv" style="position:fixed;bottom:50px;width:100%;display:none;z-index:9">
+	<div>
+		<table><tr>
+		<td align="center">
+			<div class="webbtn" clickevt="jiedianha,2" style="width:80px;height:80px;background:#FF6666;color:white;line-height:80px;border-radius:50%;font-size:40px;padding:0;margin-top:20px;transform:rotate(135deg);"><i class="icon-phone"></i></div>
+			<div style="color:#888888;font-size:12px;margin-top:5px">拒绝</div>
+		</td>
+		<td width="50"></td>
+		<td align="center">
+			<div class="webbtn" clickevt="jiedianha,1" style="width:80px;height:80px;background:#339933;color:white;line-height:80px;border-radius:50%;font-size:40px;padding:0;margin-top:20px"><i class="icon-phone"></i></div>
+			<div style="color:#888888;font-size:12px;margin-top:5px">接听</div>
+		</td>
+		</tr></table>
+	</div>
+	
+</div>
+<audio id="notify_sound_tonghua" hidden="true" loop="loop" autoplay="autoplay" src=""></audio>
+</body>
+</html>

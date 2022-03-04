@@ -1,0 +1,42 @@
+<?php
+if($da['arr']['ispingfen']==1){
+?>
+<div align="center">
+	
+	<table border="0" width="80%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="2"><div align="center" style="background-color:#f1f1f1;line-height:30px">任务评分</div></td>
+		</tr>
+		<tr>
+			<td width="120"><div align="right">分数</div></td>
+			<td style="padding:10px"><div align="left"><input class="inputs" id="fenshu" onfocus="js.focusval=this.value" maxlength="10" value="<?=$da['arr']['score']?>" onblur="js.number(this)" type="number" value="0"></div></td>
+		</tr>
+		
+		<tr>
+			<td width="120"><div align="right">说明</div></td>
+			<td style="padding:10px"><div align="left"><textarea placeholder="" class="inputs" id="other_explain" style="width:95%;height:60px"></textarea></div></td>
+		</tr>
+		
+		<tr>
+			<td ></td>
+			<td>
+				<div align="left" style="padding:10px">
+				<a id="spage_btn" class="webbtn" onclick="submittijiao()" href="javascript:;">提交</a>
+				&nbsp;<span id="msgview_spage"></span>
+				</div>
+			</td>
+		</tr>
+	</table>	
+</div>
+<script>
+function submittijiao(){
+	var o  	 = get('statecate');
+	var fen  = get('fenshu').value;
+	if(fen==''){
+		js.msg('msg', '请输入分数');return;
+	}
+	c.others('任务评分', '评分', '1', '', {'fenshu':fen});
+}
+</script>
+<?php }
+?>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=TITLE?>_安装</title>
+<link rel="stylesheet" type="text/css" href="<?=P?>/css/css.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="<?php echo P;?>/install/installscript.js"></script>
+<style>
+.input{width:210px;height:30px;line-height:20px}
+</style>
+
+</head>
+<body style="padding:10px">
+<center>
+	<div style="padding:10px;font-size:30px;"><b><?=TITLE?>-安装</b></div>
+	<div style="width:500px;padding:10px;border:2px #cccccc solid;border-radius:5px">
+		<div style="text-align:left;">
+			<div id="step1" style="padding:20px;line-height:35px;font-size:16px;display:">
+				<b>安装使用前必读：</b><br>
+				<p>我们网站：<?=URLY?></p>
+				<p>产品名称：信呼</p>
+				
+				<p>源码仅供学习开发使用，禁止原封不动出售。</p>
+				<p style="color:red">版权来自：信呼开发团队，二次开发请标识来自《信呼》。</p>
+				<p><b>为了您使用系统安全请时时关注官网在线升级，有出现bug漏洞等要及时修复，尽量不要将自己公网地址暴露给不相关人员。</b></p>
+				<p>版权所有：<a href="<?=URLY?>" class="blue" target="_blank">信呼开发团队</a>，<a href="<?=URLY?>view_shengming.html"  target="_blank" class="blue"><u>责任声明</u></a></p>
+				<p>当前版本：V<?=VERSION?></p>
+				<p><a href="<?=URLY?>view_demo.html" class="blue" target="_blank"><u>在线演示</u></a>&nbsp; &nbsp; &nbsp; 已安装？<a href="?m=login" class="blue"><u>直接登录</u></a></p>
+				<div align="center" style="text-align:center;padding-top:15px"><input class="webbtn" onclick="nextabc()" disabled id="zhidbtns" value="我知道了" style="border-radius:5px" type="button"> &nbsp;<a target="_blank" href="<?=URLY?>view_anzz.html" class="blue" ></a></div>
+			</div>
+			<div id="step2" style="display:none">
+			<form name="myform">
+			<table width="100%">
+				<tr><td  colspan="2" height="40" align="center"><font color=#888888>数据库采用是<font color=red>mysql</font>，请先配置好本地</font></td></tr>
+				
+				<tr>
+					<td align="right"></td>
+					<td style="padding:5px;0px;line-height:30px">
+					PHP版本：<?=PHP_VERSION?><br>
+					操作系统：<?=PHP_OS?>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">操作数据库方法：</td>
+					<td><select class="input" name="dbtype"><option value="mysqli">mysqli(推荐)</option></select></td>
+				</tr>
+				
+				<tr><td height="8"></td></tr>
+				
+				<tr>
+					<td align="right">mysql数据库引擎：</td>
+					<td><select class="input" name="engine"><option value="MyISAM">MyISAM</option></select>&nbsp;<a href="<?=URLY?>view_dbyin.html" class="blue" target="_blank">[看区别]</a></td>
+				</tr>
+				
+				<tr><td height="8"></td></tr>
+				
+				<tr>
+					<td align="right" width="150px"><font color=red>*</font>数据库地址：</td>
+					<td><input class="input" name="host" value="<?=$dbdiz?>"></td>
+				</tr>
+				
+				
+				
+				<tr><td height="8"></td></tr>
+				<tr>
+					<td align="right"><font color=red>*</font>用户名：</td>
+					<td><input class="input" name="user" value="root"></td>
+				</tr>
+				
+				<tr><td height="8"></td></tr>
+				<tr>
+					<td align="right">数据库密码：</td>
+					<td><input name="pass" class="input" value=""> <font color=#888888>您的数据库密码</font></td>
+				</tr>
+				
+				<tr><td height="8"></td></tr>
+				<tr>
+					<td align="right"><font color=red>*</font>数据库名称：</td>
+					<td><input class="input" name="base" value="rockxinhu"></td>
+				</tr>
+				
+				<tr><td height="8"></td></tr>
+				<tr>
+					<td align="right"><font color=red>*</font>表名前缀：</td>
+					<td><input class="input" name="perfix" value="xinhu_"></td>
+				</tr>
+				
+				
+				<tr><td height="8"></td></tr>
+				<tr>
+					<td align="right"><a target="_blank" class="blue" href="<?=URLY?>view_xhkey.html">信呼官网key</a>：</td>
+					<td><input name="xinhukey" placeholder="在线升级使用" class="input" value=""> <span><a class="blue" href="javascript:;" onclick="getxhkey(this)">点我获取</a></span></td>
+				</tr>
+				
+				
+				<tr><td height="8"></td></tr>
+				
+				<tr><td  colspan="2" height="60" align="left" style="padding-left:80px"><a href="javascript:" onclick="backabc()" class="blue" ><u>&lt;&lt;返回</u></a>&nbsp; &nbsp; 
+				<?php
+				if(version_compare(PHP_VERSION, '5.2.0','<')){
+					echo '<font color=red>您当前php版本太低了，至少需要5.2+以上版本</font>';
+				}else{
+					echo '<a class="webbtn" style="padding:10px 20px;font-size:16px;border-radius:5px" onclick="submitla()" href="javascript:">提交安装</a>';
+				}
+				?>
+				&nbsp;<span id="msgview"></span></td></tr>
+				
+			</table>
+			</form>
+			</div>
+			
+			<div id="step3" style="display:none;padding:20px">
+				<div style="color:green;font-size:30px;padding:50px" align="center">√安装完成</div>
+				<div style="padding:10px" align="center"><a href="?m=login" class="webbtn" >前去登录页面</a>&nbsp; &nbsp; 访问<a class="blue" href="<?=URLY?>">信呼官网</a></div>
+				<div style="padding:20px;color:#333333" align="center">登录系统管理员帐号：admin，密码：123456</div>
+				<div style="padding:20px" align="center"><font color=#888888>记得删除安装目录(<?=P?>/install)哦</font>，<a class="red" onclick="return delinstall()" href="javascript:">[马上删除]</a></div>
+			</div>
+		</div>
+	</div>
+	
+	<div align="center" style="line-height:40px;color:#555555">
+	Copyright &copy;<?=date('Y')?> 信呼v<?=VERSION?> <?=substr(URLY,7,-1)?> &nbsp; - &nbsp; 
+	版权所有：<a href="<?=URLY?>" class="blue" target="_blank">信呼开发团队</a>
+	</div>
+	
+</center>
+
+<script>
+function restimes(sj){
+	var o = get('zhidbtns');
+	if(sj==0){
+		o.value='知道了';
+		o.disabled=false;
+		return;
+	}
+	o.value='在读'+sj+'秒';
+	o.disabled=true;
+	setTimeout('restimes('+(sj-1)+')',1000);
+}
+restimes(10);
+</script>
+
+</body>
+</html>

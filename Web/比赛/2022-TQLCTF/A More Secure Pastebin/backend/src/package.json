@@ -1,0 +1,25 @@
+{
+  "name": "pastebin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "pm2 start app.js -i max -n pastebin --no-daemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^6.1.1",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
+    "escape-string-regexp": "^4.0.0",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.12",
+    "redis": "^4.0.3",
+    "uuid": "^8.3.2"
+  }
+}

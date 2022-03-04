@@ -1,0 +1,30 @@
+<div class="col-md-10 mx-auto">
+    <div class="card border-primary bg-light mb-4 rounded-3">
+		<%- include('partials/nav') %>
+        <div class="card-body">
+            <div class="row justify-content-start">
+                <h3 class="text-center">Profile</h3>
+                <div>
+                    WebSite: <%= website %>
+                </div>
+                <hr>
+                <h4 class="text-center">Edit</h4>
+                <div>
+                    <form action="/user/profile" method="POST">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">WebSite</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                name="website">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <%- include('partials/messages') %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

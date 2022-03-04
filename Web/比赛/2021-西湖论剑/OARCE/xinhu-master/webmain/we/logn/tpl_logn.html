@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>确认登录</title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<style>
+body,html{overflow:hidden; background:white}
+.page_desc{text-align:center;color:#888;font-size:14px}
+.hd{padding:2em 0; text-align:center}
+.hd img{height:100px;width:100px;border-radius:50px}
+</style>
+<script>
+function loginsubmit(lx,o){
+	var spd = {lx:lx,'randkey':'<?=$urs['randkey']?>'};
+	js.ajax('index','checkewm',spd, function(da){
+		$('#loginsits').html(da);
+	},'mode',false, function(str){
+		
+	},'get');
+	return false;
+}
+</script>
+</head>
+
+
+<body>
+
+<div style="margin-top:30px" class="hd">
+	<div><img id="myface" onclick="location.reload()" src="<?=$urs['face']?>"></div>
+	<div class="page_desc"><?=$urs['name']?></div>
+</div>
+<div id="loginsits" align="center">
+	<div class="weui_btn_area">
+		<input class="weui_btn weui_btn_primary" type="button" onclick="loginsubmit(1)" value="确认登录">
+	</div>
+
+	<div class="weui_btn_area">
+		<input class="weui_btn weui_btn_default" type="button" onclick="loginsubmit(0)" value="取消">
+	</div>
+</div>
+</body>
+</html>

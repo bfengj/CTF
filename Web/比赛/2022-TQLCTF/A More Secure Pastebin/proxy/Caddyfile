@@ -1,0 +1,8 @@
+:80 {
+    reverse_proxy app:3000
+}
+
+:443 {
+    tls /etc/caddy/backend.pem /etc/caddy/backend-key.pem
+    reverse_proxy app:3000
+}

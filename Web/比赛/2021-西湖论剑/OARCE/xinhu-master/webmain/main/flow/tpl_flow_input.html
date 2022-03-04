@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?>-<?=TITLE?></title>
+<link rel="stylesheet" href="webmain/css/css.css" />
+<link rel="stylesheet" href="mode/kindeditor/themes/default/default.css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="mode/kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript">
+var id  = '<?=$da['rs']['id']?>',adminid='<?=$da['adminid']?>';
+var modenum = '<?=$da['rs']['num']?>',editor,atype='0',zibiaoshu=<?=$da['rs']['zibiaoshu']?>;
+function initbody(){
+	resizes();
+	$(window).resize(resizes);
+	
+	var cans  = {
+		resizeType : 0,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		formatUploadUrl:false,
+		allowFileManager:true,
+		minWidth:'300px',
+		items : [
+			'forecolor', 'hilitecolor', 'bold', 'italic', 'underline','fontsize','hr',
+			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			'insertunorderedlist', '|','table', 'link','unlink','|','source','clearhtml','fullscreen'
+		]
+	};
+	editor = KindEditor.create('#content', cans);
+}
+function resizes(){
+	var s = winHb();
+	$('#page_left').css('height',''+(s-80)+'px');
+	$('#page_conent').css('height',''+s+'px');
+	$('#content').css('height',''+(s-70)+'px');
+}
+var subdata={};
+var c={
+	insert1:function(o1,lx){
+		var o  = $(o1).parent();
+		var fid = o.attr('fields'),fss = o.attr('fname'),iszb=parseFloat(o.attr('iszb'));
+		if(lx==0)editor.insertHtml(fss);
+		if(lx==1){
+			if(iszb=='0'){
+				editor.insertHtml('{'+fid+'}');
+			}else{
+				editor.insertHtml('['+fid+''+(iszb-1)+',0]');
+			}
+		}
+		if(lx==2){
+			c.insertsubdata(iszb);
+		}
+	},
+	save:function(){
+		js.msg('wait','保存中...');
+		var nr= editor.html();
+		nr = nr.replace(/\n/gi,'');
+		nr = nr.replace(/[	]/gi,'');
+		var d = {content:nr,num:modenum,atype:atype};
+		$.post(js.getajaxurl('pagesave','flow','main'),d,function(da){
+			if(da=='success'){
+				js.msg('success','保存成功');
+			}else{
+				js.msg('msg', da);
+			}
+		});
+		return false;
+	},
+	addmobo:function(){
+		var s = '<table width="100%" bordercolor="#000000" border="0"><tbody><tr><td height="34" width="15%" align="right" class="ys1">申请日期</td><td class="ys2" width="35%">{applydt}</td><td align="right" class="ys1" width="15%">操作时间</td><td class="ys2" width="35%">{optdt}</td></tr><tr><td height="34" align="right" class="ys1">说明</td><td colspan="3" class="ys2">{explain}</td></tr><tr><td height="34" align="right" class="ys1">相关文件</td><td colspan="3" class="ys2">{file_content}</td></tr><tr><td  height="34" align="right" class="ys1">申请人</td><td  class="ys2">{base_name}</td><td class="ys1" align="right">申请人部门</td><td  class="ys2">{base_deptname}</td></tr></tbody></table>';
+		editor.html(s);
+	},
+	yulan:function(){
+		var url = js.getajaxurl('@lu','input','flow',{num:modenum});
+		js.open(url, 700,450);
+	},
+	instartrows:function(){
+		var s1='';
+		for(var i=1;i<=zibiaoshu;i++)s1+='<option value="'+i+'">第'+i+'个多行子表</option>';
+		var s='<div style="padding:10px"><select class="inputs" id="sss1ds">'+s1+'</select>&nbsp;<select class="inputs" id="hangshu"><option value="1">默认1行</option><option value="2">默认2行</option><option value="3">默认3行</option><option value="4">默认4行</option></select></div>';
+		js.tanbody('charusss','获取多行子表',300,150,{
+			html:s,
+			btn:[{text:'确定'}]
+		});
+		$('#charusss_btn0').click(function(){
+			c.instesdsa();
+		});
+	},
+	insertsubdata:function(iszb){
+		var s = subdata[iszb];
+		if(!s){
+			alert('请先获取在操作');
+			return;
+		}
+		var zhtml = editor.html();
+		if(zhtml.indexOf('tablesub'+(parseFloat(iszb)-1)+'')>0){
+			alert('请不要重复添加第'+iszb+'个多行子表');
+			return;
+		}
+		editor.insertHtml(s);
+	},
+	instesdsa:function(){
+		var iszb=$('#sss1ds').val();
+		js.msg('wait','获取表格中...');
+		var d={iszb:iszb,hang:$('#hangshu').val(),modeid:id};
+		js.tanclose('charusss');
+		var url=js.getajaxurl('getsubtable','flow','main');
+		js.ajax(url,d,function(s){
+			js.msg('none');
+			var a=js.decode(s);
+			if(a.success){
+				subdata[iszb]=a.data;
+				js.msg('success','获取成功，请用左边菜单插入到对应位置');
+			}else{
+				alert(a.msg);
+			}
+		},'post')
+	},
+	yyjinru:function(){
+		js.msg('wait','获取中...');
+		var xgwj=0,base=0,cont=editor.html();
+		if(cont.indexOf('file_content')>-1)xgwj=1;
+		if(cont.indexOf('base_name')>-1)base=1;
+		var url=js.getajaxurl('yinruone','flow','main');
+		js.ajax(url,{modeid:id,xgwj:xgwj,base:base},function(s){
+			js.msg('none');
+			editor.html(s);
+		},'get')
+	}
+};
+</script>
+
+<style>
+select{font-size:12px}
+.yangss{height:40px;line-height:40px;background:#e1e1e1;overflow:hidden}
+#page_left div{text-align:left;padding:5px 10px;cursor:pointer}
+#page_left div:hover{ background-color:#f1f1f1;color:#225DE8}
+</style>
+</head>
+<body>
+<div align="center">
+<table width="100%">
+<tr>
+	<td  bgcolor="#f5f5f5">
+		<div style="width:270px;">
+			<div class="yangss"><h1>&nbsp;<?=$da['rs']['name']?>(元素)&nbsp;<a href="javascript:" onclick="return c.yulan()" style="background-color:#888888" class="webbtn">预览</a>&nbsp;</h1></div>
+			<div id="page_left" style="overflow:auto">
+				<?php
+				foreach($da['fleft'] as $k=>$rs){
+					$str = '<div fields="'.$rs[0].'" fname="'.$rs[1].'" iszb="'.$rs[2].'">';
+					$str.= ''.($k+1).'. '.$rs[1].'('.$rs[0].')';
+					if($rs[0]){
+						$str.= ' <a href="javascript:" onclick="c.insert1(this,0)">＋</a> <a href="javascript:" onclick="c.insert1(this,1)">⊥</a>';
+					}else{
+						$str.= ' <a href="javascript:" title="插入表格" onclick="c.insert1(this,2)">＋</a>';
+					}
+					$str.= '</div>';
+					echo $str;
+				}
+				?>
+			</div>
+			<div class="yangss" align="left">&nbsp; &nbsp;<a href="javascript:" onclick="return c.save()" class="webbtn">保存</a>&nbsp; 
+			<a href="javascript:" onclick="return c.addmobo()" style="background-color:#888888" class="webbtn">引用模版</a>&nbsp; 
+			 
+			<a href="javascript:" onclick="return c.yyjinru()" style="background-color:#888888" class="webbtn">一键布局</a>
+			</div>
+		</div>
+	</td>
+	<td width="100%">
+		<div style="overflow:auto" id="page_conent">
+			<div style="padding:10px"><textarea style="width:650px;" id="content"><?=$da['content']?></textarea></div>
+			<div align="left" style="font-size:12px;padding:0px 10px"><a onclick="c.instartrows()" class="blue" href="javascript:;">[获取多行子表]</a>&nbsp;录入JS：<?=$da['p']?>/flow/input/inputjs/mode_<?=$da['rs']['num']?>.js来写交互代码，模版保存在：<?=$da['p']?>/flow/page/input_<?=$da['bianhao']?>.html</div>
+		</div>
+	</td>
+</tr>
+</table>
+	
+</div>
+</body>
+</html>

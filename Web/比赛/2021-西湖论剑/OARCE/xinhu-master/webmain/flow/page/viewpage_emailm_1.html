@@ -1,0 +1,55 @@
+<?php
+if($da['arr']['ishuifu']==1){
+?>
+<div align="center">
+	
+	<table border="0" width="100%%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="2"><div align="center" style="background-color:#f1f1f1;line-height:30px">快速回复</div></td>
+		</tr>
+		<tr>
+			<td nowrap><div align="right">主题</div></td>
+			<td style="padding:10px"><div align="left"><input readonly style="width:95%" value="回复：<?=$da['title']?>" class="inputs" ></div></td>
+		</tr>
+		<tr>
+			<td nowrap><div align="right">回复内容</div></td>
+			<td style="padding:10px"><div align="left"><textarea placeholder="" class="inputs" id="other_explain" style="width:95%;height:60px"></textarea></div></td>
+		</tr>
+		
+		<tr>
+			<td ></td>
+			<td>
+				<div align="left" style="padding:10px">
+				<a id="spage_btn" class="webbtn" onclick="submittijiao(this)" href="javascript:;">回复</a>&nbsp; &nbsp;
+				<a class="webbtn" onclick="zhuangfa(0)" href="javascript:;">转发</a>&nbsp; &nbsp;
+				<a class="webbtn" onclick="zhuangfa(1)" href="javascript:;">完整回复</a>
+				</div>
+			</td>
+		</tr>
+	</table>	
+</div>
+<script>
+function submittijiao(o1){
+	var nr = get('other_explain').value;
+	if(!nr){
+		js.msg('msg','请输入回复内容');return;
+	}
+	var d = {mid:mid,cont:nr};
+	js.msg('wait','回复中...');
+	js.ajax(geturlact('emailhuifu'),d,function(str){
+		if(str=='ok'){
+			js.msg('success','回复成功');
+			o1.remove();
+		}else{
+			js.msg('msg',str);
+		}
+	}, 'post');
+}
+function zhuangfa(zflx){
+	var url = 'index.php?a=lum&m=input&d=flow&num=emailm&mid=0&zfid='+mid+'&zflx='+zflx+'';
+	js.location(url);
+}
+</script>
+<?php
+}
+?>

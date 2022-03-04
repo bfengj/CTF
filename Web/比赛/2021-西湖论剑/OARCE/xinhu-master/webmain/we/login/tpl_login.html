@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<?php
+if($iskj==3)echo '<script type="text/javascript" src="js/jsdd.js"></script>';
+?>
+<style>
+body,html{overflow:hidden;}
+body{background-color:#fbf9fe}
+.page_desc{text-align:center;color:#888;font-size:14px}
+.hd{padding:2em 0; text-align:center}
+.hd img{height:100px;width:100px;border-radius:50px}
+.weui_label{width:80px;}
+.weui_btn:disabled{background:#888888}
+</style>
+<script>
+var temp_token='';
+function initbody(){
+	var msurl = location.href;
+	var us=jm.base64decode(js.request('user'));
+	if(!us)us=js.getoption('adminuser');
+	$('#adminpass').val(jm.base64decode(js.getoption('weadminpass')));
+	get('adminmobile').value=js.getoption('adminmobile');
+	temp_token=js.request('token');
+	$('#adminuser').val(us);
+	var face = js.getoption('adminface');
+	if(face)get('myface').src=face;
+	if(temp_token.length>=8&&us!=''){
+		loginsubmit(0);
+	}
+	var errmsg = js.request('errmsg');
+	if(errmsg)js.wx.alert(jm.base64decode(errmsg));
+	if(!errmsg){
+		var ptoken = js.request('ptoken');
+		if(ptoken!='' && us!=''){
+			$('#adminpass').val(ptoken);
+			loginsubmit(0);
+		}
+	}
+	$('#adminuser').keyup(function(e){
+		if(e.keyCode==13 && this.value)$('#adminpass').focus();
+	});
+	$('#adminpass').keyup(function(e){
+		js.setoption('weadminpass', jm.base64encode(this.value));
+		if(e.keyCode==13 && this.value)loginsubmit(0);
+	});
+}
+var loginyzm = '';
+function loginsubmit(lx){
+	if(js.ajaxbool)return false;
+	if(lx==1)temp_token='';
+	var user = '',pass = '';
+	js.setmsg('');
+	var ltype = get('logintype').value;
+	
+	if(ltype=='0'){
+		user = get('adminuser').value,pass = get('adminpass').value;
+		if(user==''){
+			js.wx.alert('用户名不能为空', function(){get('adminuser').focus()});
+			return false;
+		}
+		if(pass==''&&temp_token==''){
+			js.wx.alert('密码不能为空', function(){get('adminpass').focus()});
+			return false;
+		}
+	}else{
+		user = get('adminmobile').value;
+		if(user==''){
+			js.msg('msg','手机号不能为空');
+			get('adminmobile').focus();
+			return false;
+		}
+		js.setoption('adminmobile', user);
+		loginyzm = get('adminmobileyzm').value;
+		if(loginyzm=='' || loginyzm.length!=6){
+			js.msg('msg','手机验证码格式不对');
+			get('adminmobileyzm').focus();
+			return false;
+		}
+	}
+	
+	js.setoption('adminuser', user);
+	var o = get('btn0');
+	o.value='登录中...';
+	o.disabled=true;
+	var spd = {user:jm.base64encode(user),pass:jm.base64encode(pass),ltype:ltype,token:temp_token,yanzm:loginyzm};
+	loginyzm = '';
+	js.ajax('login','check',spd, function(da){
+		o.value='登录成功';
+		loginsuccess(da);
+	},'none',false, function(str, ret){
+		o.value='登录';
+		o.disabled=false;
+		if(ret){
+			var a = ret.data;
+			if(a.shouji){
+				mobilejsho = a.mobile;
+				js.wx.prompt('输入手机验证码','手机号：'+a.shouji+'&nbsp;<span><a class="zhu" href="javascript:;" onclick="getcodes(this)">[获取验证码]</a></span>',function(txt){
+					if(txt){
+						loginyzm = txt;
+						loginsubmit(0);
+					}
+				});;
+			}
+		}
+	});
+	return false;
+}
+
+
+function getcodes(o1){
+	var da = {'mobile':mobilejsho,'device':device};
+	var o2 = $(o1).parent();
+	o2.html(js.getmsg('获取中...'));
+	js.ajax('yanzm','index',da, function(da){
+		o2.html(js.getmsg('获取成功','green'));
+	},'none',false, function(str, ret){
+		o2.html(js.getmsg(str));
+	});
+	return false;
+}
+
+
+function loginsuccess(d){
+	js.setoption('adminface', d.face);
+	js.setoption('adminame',d.name);
+	js.setoption('deptallname',d.deptallname);
+	js.setoption('ranking',d.ranking);
+	js.setoption('adminid',d.uid);
+	
+	var burl = js.request('backurl');
+	var curl = (burl=='')?'?m=index&d=we':jm.base64decode(burl);
+	js.location(curl);
+}
+function yanzdengl(lx){
+	js.wx.load('处理中...');
+	var burl = js.request('backurl');
+	js.location('?m=login&d=we&a=wxlogin&state=login&backurl='+burl+'');
+}
+
+//最新钉钉快捷登录使用
+function dingdengl(bo){
+	if(!bo){
+		js.wx.load('处理中...');
+		js.ddjsimport(function(){
+			dingdengl(true);
+		});
+		return;
+	}
+	js.ajax('login','ddqiyeid',false,function(ret){
+		if(!ret.qiyeid){
+			js.wx.alert('没有设置钉钉的企业CorpId');
+			return;
+		}
+		js.wx.load('处理中...');
+		dd.ready(function() {
+			dd.runtime.permission.requestAuthCode({
+				corpId: ret.qiyeid,
+				onSuccess: function(result){
+					dingdlogn(result.code);
+				},
+				onFail : function(err) {
+					shidengl(1);
+				}
+			});
+		});
+	},'none',false, function(str){
+		shidengl(str);
+	});
+}
+
+function shidengl(lx){
+	js.wx.unload();
+	js.wx.alert('无法使用钉钉快捷登录'+lx+'');
+}
+function dingdlogn(code){
+	js.ajax('login','dingcheck',{code:code}, function(ret){
+		$('#adminuser').val(ret.user);
+		$('#adminpass').val(ret.ptoken);
+		loginsubmit(0);
+	},'none',false, function(str){
+		shidengl(str);
+	});	
+}
+
+function reimplatlogin(){
+	js.wx.load('登录中...');
+	js.ajax('login','reimplatlogin',false, function(ret){
+		$('#adminuser').val(ret.user);
+		$('#adminpass').val(ret.pass);
+		loginsubmit(0);
+	},'none',false, function(str){
+		js.wx.unload();
+		js.wx.alert(str);
+	});	
+}
+
+
+function changlogin(o1){
+	var ltype = get('logintype').value;
+	if(ltype=='0'){
+		$(o1).html('帐号密码登录');
+		get('logintype').value='1';
+		$('#loginview0').hide();
+		$('#loginview1').show();
+	}else{
+		$(o1).html('验证码登录');
+		get('logintype').value='0';
+		$('#loginview1').hide();
+		$('#loginview0').show();
+	}
+}
+
+//获取验证码
+function getyzm(o1){
+	mobilejsho = get('adminmobile').value;
+	if(!mobilejsho){
+		js.msg('msg','请输入手机号');
+		get('adminmobile').focus();
+		return;
+	}
+	var da = {'mobile':mobilejsho,'device':device};
+	o1.value = '获取中...';
+	js.setmsg();
+	o1.disabled=true;
+	
+	js.ajax('yanzm','glogin',da, function(da){
+		o1.value = '获取成功';
+		js.msg('success', '验证码已发送到手机上');
+		dshitime(60, o1);
+	},'none',false, function(str, ret){
+		o1.value = '重新获取';
+		o1.disabled=false;
+		js.setmsg(str);
+	});
+	
+}
+
+function dshitime(sj,o1){
+	if(sj==0){
+		o1.disabled=false;
+		o1.value='重新获取';
+		return;
+	}
+	o1.disabled=true;
+	o1.value=''+sj+'';
+	setTimeout(function(){dshitime(sj-1, o1)},1000);
+}
+
+</script>
+</head>
+
+
+<body>
+
+<div class="hd">
+	<div><img id="myface" onclick="location.reload()" src="images/logo.png"></div>
+</div>
+<div class="weui_cells weui_cells_form">
+	<?php if($loginyzm!=3){?>
+	<div id="loginview0">
+		<div class="weui_cell">
+			<div class="weui_cell_hd"><label class="weui_label">用户名</label></div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" id="adminuser" placeholder="请输入用户名/姓名/手机号"/>
+			</div>
+		</div>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd"><label class="weui_label">密码</label></div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" id="adminpass" type="password" placeholder="请输入密码"/>
+			</div>
+		</div>
+	</div>
+	<div id="loginview1" style="display:none">
+		<input type="hidden" id="logintype" value="0">
+	<?php }else{?>
+	<div id="loginview1">
+		<input type="hidden" id="logintype" value="1">
+	<?php }?>
+		<div class="weui_cell">
+			<div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" id="adminmobile" maxlength="11" placeholder="请输入手机号"/>
+			</div>
+		</div>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" id="adminmobileyzm" maxlength="6" placeholder="请输入验证码"/>
+			</div>
+			<div class="weui_cell_ft">
+                <input class="weui_btn weui_btn_mini weui_btn_primary" onclick="getyzm(this)" type="button"  value="获取">
+            </div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="weui_btn_area">
+	<input class="weui_btn weui_btn_primary" type="button" onclick="loginsubmit(0)" value="登录" id="btn0">
+</div>
+<?php 
+if($iskj>0){
+	if($iskj==3){
+		echo '<div onclick="dingdengl()" style="text-align:center;padding-top:10px;color:#1389D3">钉钉快捷登录</div>';
+	}else{
+		echo '<div onclick="yanzdengl('.$iskj.')" style="text-align:center;padding-top:10px;color:#1389D3">'.(($iskj==2)?'企业':'').'微信'.(($iskj==4)? '公众号':'快捷').'登录</div>';
+	}
+}
+if($da['platsign'])echo '<div onclick="reimplatlogin(this)" style="text-align:center;padding-top:10px;color:#336699">快捷登录</div>';
+
+if($loginyzm>0 && $loginyzm!=3)echo '<div class="weui_extra_area" onclick="changlogin(this)" style="text-align:center;color:#888888;padding-bottom:10px">验证码登录</div>';
+?>
+
+
+
+</body>
+</html>

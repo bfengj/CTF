@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<link rel="stylesheet" type="text/css" href="web/res/css/chat.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/strformat.js"></script>
+<script type="text/javascript" src="webmain/we/chat/chat.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockdoupull.js"></script>
+<style>
+body,html{background-color:#f1f1f1;overflow:hidden}
+.showblanks{padding:10px;color:#aaaaaa;font-size:12px;text-align:center}
+.qipao .qipaocont{font-size:16px}
+.qipao .qipaoface{}
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.'}.qipao .qipaocontright{background:rgba('.$maincolors.',0.4)}.qipao .qipaoright{border-color: transparent transparent transparent rgba('.$maincolors.',0.4)}';
+?>
+</style>
+<script>
+ismobile = 1;
+var receinfor=<?=json_encode($arr)?>;
+function initbody(){
+	adminid   = js.getoption('adminid');
+	adminface = js.getoption('adminface','images/noface.png');
+	adminame  = js.getoption('adminame','我');
+	im.init();
+}
+</script>
+</head>
+<body>
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header">
+		<div onclick="location.reload()" id="header_title" class="r-header-text"><?=$da['title']?></div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+	</div>
+	<div class="blank50"></div>
+</div>
+<?php }?>
+
+<div class="r-touch" style="height:300px;" id="showview"></div>
+
+<div class="blank50"></div>
+<div class="r-chat r-border-t">
+	<form onsubmit="return im.submitinput()">
+	<table cellspacing="0" cellpadding="0" width="100%"><tr>
+	<td style="padding-left:10px"><i style="color:#888888;font-size:20px" class="icon-folder-close" onclick="im.sendfile()"></td>
+	<td width="100%" style="padding:10px"><input autocomplete="off" maxlength="500" type="text" id="contentss" class="r-chat-input"></td>
+	<td style="padding-right:10px"><i style="color:#888888;font-size:24px" class="icon-heart" onclick="im.showemit();return false;"></td>
+	<td style="padding-right:10px"><button style="border-radius:5px" type="button" id="btn" class="r-chat-btn r-btn-active" value="">发送</button></td>
+	</tr></table>
+	</form>
+</div>
+
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+</body>
+</html>

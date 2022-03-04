@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>文件预览</title>
+<link rel="stylesheet" type="text/css" href="webmain/css/css.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script>
+var ismobile = <?=$da['ismobile']?>;
+var fileid  = <?=$da['frs']['id']?>,localpath='';
+function zhuang(id,o){
+	var o1 = $(o).parent();
+	o1.html(js.getmsg('发送转化中...'));
+	var url = js.getajaxurl('changetopdf','public')+'&id='+id+'';
+	$.get(url,function(s){
+		var det = js.decode(s);
+		if(det.success){
+			o1.html(js.getmsg('√ 已发送，大概在<font color=red id="times">20</font>秒后可刷新查看', 'green')+'，<a href="javascript:;" class="zhu" onclick="location.reload()">[刷新看一下]</a>');
+			localpath=det.data.localpath;
+			timeshow(det.data.times);
+			js.msg('success','已发送，文件越大等待时间越长');
+		}else{
+			o1.html(js.getmsg(det.msg, 'red'));
+		}
+	});
+}
+function timeshow(s){
+	$('#times').html(s);
+	if(s==0){
+		js.setmsg('预览请求处理超时','red','showtishi');
+		return;
+	}
+	var url = js.getajaxurl('officestatus','public')+'&id='+fileid+'&localpath='+localpath+'';
+	$.get(url,function(res){
+		var det = js.decode(res);
+		if(det.success){
+			var da = det.data;
+			if(da.status=='1'){
+				if(da.ftype=='1'){
+					doanpdf()//下载
+				}else{
+					location.reload();
+				}
+			}else{
+				setTimeout('timeshow('+(s-1)+')',1000);
+			}
+		}else{
+			js.msg('msg', det.msg);
+			js.setmsg(det.msg,'red','showtishi');
+		}
+	});
+}
+
+function doanpdf(){
+	js.setmsg('已经转化完成正在下载中...','','showtishi');
+	var url = js.getajaxurl('officedown','public')+'&id='+fileid+'';
+	$.get(url,function(res){
+		var det = js.decode(res);
+		if(det.success){
+			location.reload();
+		}else{
+			js.msg('msg', det.msg);
+			js.setmsg(det.msg,'red','showtishi');
+		}
+	});
+}
+
+function downxia(id){
+	var url = 'index.php?a=down&id='+id+'';
+	if(ismobile==1)url='api.php?m=upload&a=down&id='+id+'&adminid=<?=$da['adminid']?>&token=<?=$xhrock->admintoken?>';
+	if(appobj1('openfile', id))return;
+	js.location(url);
+}
+</script>
+</head>
+<body style="padding:0px;margin:0px;">
+
+<div align="center"  style="font-size:16px;margin-top:40px">
+	<div>无法预览[<?=$da['frs']['fileext']?>]的类型。</div>
+	<div style="margin-top:15px">如是文档类型需要自己转pdf文件上传才能预览。</div>
+	<div style="margin-top:15px"><button type="button" style="padding:15px;border-radius:10px;background:green" onclick="downxia(<?=$da['frs']['id']?>, this)" class="webbtn">↓直接下载</button></div>
+	
+	<div id="showtishi" style="margin-top:15px">
+		<button type="button" style="border-radius:5px" onclick="zhuang(<?=$da['frs']['id']?>, this)" class="webbtn">发送预览请求</button>&nbsp; <a class="zhu" href="javascript:;" onclick="location.reload()">[刷新]</a></div>
+</div>
+
+</body>
+</html>

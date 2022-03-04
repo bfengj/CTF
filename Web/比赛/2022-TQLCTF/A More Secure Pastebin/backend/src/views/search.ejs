@@ -1,0 +1,48 @@
+<div class="col-md-10 mx-auto">
+    <div class="card border-primary bg-light mb-4 rounded-3">
+        <%- include('partials/nav') %>
+        <div class="card-body">
+            <div class="row justify-content-start">
+                <h3 class="text-center">Search</h3>
+                <span class="d-flex">
+                    <input class="form-control" type="search" placeholder="Search your pastebin content"
+                        aria-label="Search" id="search">
+                    <button class="btn btn-outline-success" id="searchbtn">Search</button>
+                </span>
+            </div>
+            <h3 class="text-center mb-2">
+                's Pastebin
+            </h3>
+            <hr>
+            <ul class="list-group mh-50 rounded-2" id="url-list"></ul>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"
+    nonce="189e1289abe5c075449c6655b872b8d802ca9253"></script>
+<script nonce="189e1289abe5c075449c6655b872b8d802ca9253">
+    $("#searchbtn").click(function () {
+        $.ajax("/user/searchword", {
+            method: "GET",
+            data: {
+                word: $("#search").val()
+            },
+            success: function (res) {
+                $("#url-list").empty();
+                // console.log(res)
+                if (res.status == "success") {
+                    res.data.forEach(element => {
+                        $("#url-list").append(`<li class="list-group-item row"><a href="/paste/${element.pasteid}/view">${element.pasteid}</a><span>${new Date(parseInt(element.date)).toISOString().slice(0, 19).replace('T', ' ')}</span></li>`);
+                    });
+                } else {
+                    $("#url-list").append(`<p>Not Found</p>`);
+                }
+
+            }
+        });
+    });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+version: "3"
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+services:
+  app:
+    build: ./app
+    image: network_tools/app
+    ports: 
+    - "80:8080"
+    dns:
+    - 172.20.0.7
+    restart: always
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.6
+
+  dnsmasq:
+    build: ./dnsmasq
+    image: network_tools/dnsmasq
+    restart: always
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.7
+  
+  dnsproxy:
+    build: ./dnsproxy
+    image: network_tools/dnsproxy
+    restart: always
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.8

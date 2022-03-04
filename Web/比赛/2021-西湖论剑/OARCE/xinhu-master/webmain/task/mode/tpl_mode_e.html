@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+<title><?=$da['title']?></title>
+
+
+<style>
+a{TEXT-DECORATION:none;}
+a:hover{TEXT-DECORATION:underline;}
+body{font-size:14px;padding:0px;margin:0px}
+.table td{border:1pt #000000 solid;text-align:center;padding:5px;font-size:12px}
+.table tr:nth-child(even){background-color: #f5f5f5;}
+.table tr:hover{background-color: #D5EDE8;}
+.menulls{position:absolute;left:1px;top:10px}
+.a{background-color:#888888;font-size:12px;color:#ffffff;padding:5px;margin-left:5px}
+</style>
+</head>
+<body style="padding:5px 10px;">
+<?php if($stype==''){?>
+<div class="menulls" id="show">
+<a href="javascript:;" onclick="wb('xls')" class="a" >另存Excel</a>
+<a href="javascript:;" onclick="wb('doc')" class="a" >另存Word</a>
+<a href="javascript:;" onclick="wb('print')" class="a" >打印...</a>
+</div>
+<script>
+function wb(lx){
+	if(lx=='xls'||lx=='doc'){
+		var url = '<?=$urlstr?>&stype='+lx+'';
+		location.href=url;
+		return;
+	}
+	document.getElementById('show').style.display='none';
+	window.print();
+}
+</script>
+<?php }?>
+
+<table class="table" width="100%" border="0" style="border-collapse:collapse;" width="100%" cellspacing="0" cellpadding="0">
+<tr style="background:none"><td colspan="<?=$arr['cell']?>" style="font-size:18px;padding:10px;border:none"><b><?=$da['title']?></b></td></tr>
+<tr>
+	<td width="30">序号</td>
+	<?php
+	foreach($arr['fields'] as $k=>$v){
+		echo '<td>'.$v.'</td>';
+	}
+	$cell= $arr['cell'];
+	$bel = (int)ceil($cell*0.5)-1;
+	?>
+</tr>
+<?php 
+foreach($arr['rows'] as $k=>$rs){
+	$s = '<tr>';
+	$s.='<td>'.($k+1).'</td>';
+	foreach($arr['fields'] as $k1=>$v1){
+		$sty= '';
+		if($k1=='explain'||$k1=='content')$sty=' style="text-align:left"';
+		if(isset($rs[''.$k1.'_style']))$sty=' style="'.$rs[''.$k1.'_style'].'"';
+		$s.='<td'.$sty.'>';
+		$val = '';
+		if(isset($rs[$k1]))$val = $rs[$k1];
+		if($k1=='explain')$val = str_replace("\n",'<br>', $val);
+		$s.=''.$val.'';
+		$s.='</td>';
+	}
+	$s.='</tr>';
+	echo $s;
+}
+?>
+<tr style="background:none">
+<td style="border:0px;text-align:left;padding-left:0px" colspan="<?=$bel?>">共记录<?=$arr['count']?>条</td>
+<td style="border:0px;text-align:right;padding-right:0px" colspan="<?=($cell-$bel)?>">操作人：<?=$da['adminname']?>，时间：<?=date('Y年m月d日 H:i:s')?></td>
+</tr>
+</table>
+</body>
+</html>

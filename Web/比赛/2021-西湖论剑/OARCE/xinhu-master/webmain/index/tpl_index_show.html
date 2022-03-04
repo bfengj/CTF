@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="mode/bootstrap3.3/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<!--[if IE 7 ]><link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/webmain.css"/>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/style<?=$da['style']?>.css" id="mainstylecss"/>
+<link rel="stylesheet" type="text/css" href="web/res/mode/menu/jquery-rockmenu.css"/>
+<link rel="stylesheet" type="text/css" href="mode/plugin/css/jquery-rockdatepicker.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['p']?>Script.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['d']?><?=$da['m']?>/<?=$da['m']?>public.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['d']?><?=$da['m']?>/<?=$da['m']?>show.js"></script>
+<script type="text/javascript" src="web/res/mode/menu/jquery-rockmenu.js"></script>
+<script type="text/javascript">
+js.servernow	= '<?=$da['now']?>';
+PROJECT			= '<?=$da['p']?>';
+VERSION			= '<?=VERSION?>';
+var show_key 	= '<?=$da['showkey']?>';
+function globalbody(){
+	adminid		= '<?=$da['adminid']?>';
+	adminname	= '<?=$da['adminname']?>';
+	adminuser	= '<?=$da['adminuser']?>';
+	adminstyle	= '<?=$da['style']?>';
+}
+</script>
+</head>
+<body style="padding:0px;margin:0px; overflow:hidden;" scroll="no">
+
+<div style="overflow:hidden;position:relative;">
+	<div class="jtcls" id="jtcls_left" onclick="_changesrcool(1)">&gt;</div>
+	<div class="jtcls" id="jtcls_right" onclick="_changesrcool(-1)" style="left:0px">&lt;</div>
+	<div id="tabsindexm" class="tabsindex"><table border="0" cellspacing="0" cellpadding="0"><tr id="tabs_title"></tr></table></div>
+	<div id="indexcontent" style="overflow:auto;position:relative;">
+		<div id="content_allmainview" style="margin:10px;"></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="mode/bootstrapplugin/jquery-bootstable.js"></script>
+<script type="text/javascript" src="mode/bootstrapplugin/jquery-bootsform.js"></script>
+<script type="text/javascript" src="mode/bootstrapplugin/jquery-bootstree.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockdatepicker.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rockcalendar.js"></script>
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rocklunar.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>修改密码</title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script>
+ismobile = 1;
+function loginsubmit(){
+	var opass	= $('#oldpass').val();
+	var pass	= $('#newpass').val();
+	var pass1	= $('#newpass1').val();
+	
+	if(opass==''){
+		js.msg('msg','旧密码不能为空');
+		return false;
+	}
+
+	if(pass.length <4){
+		js.msg('msg','新密码不能少于4个字符');
+		return false;
+	}
+	if(!/[a-zA-Z]{1,}/.test(pass) || !/[0-9]{1,}/.test(pass)){
+		js.msg('msg','新密码必须使用字母+数字');
+		return false;
+	}
+	if(opass==pass){
+		js.msg('msg','新密码不能和旧密码相同');
+		return false;
+	}
+	if(pass!=pass1){
+		js.msg('msg','确认密码不一致');
+		return false;
+	}
+	js.ajax('user','editpass',{passoldPost:opass,passwordPost:pass},function(){
+		js.wx.msgok('密码修改成功',function(){
+			if(js.request('ofrom')=='reim'){
+				parent.js.tanclose('winiframe');
+			}else{
+				js.back();
+			}
+		},1);
+	});
+}
+function initbody(){
+	
+}
+</script>
+<style>
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';}';
+?>
+</style>
+</head>
+
+
+<body style="overflow:hidden">
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header">
+		<div class="r-header-text" id="header_title">修改密码</div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+	</div>
+	<div class="blank50"></div>
+</div>
+<?php }?>
+
+
+<div class="weui_cells weui_cells_form">
+	<div class="weui_cell">
+		<div class="weui_cell_hd"><label class="weui_label">旧密码</label></div>
+		<div class="weui_cell_bd weui_cell_primary">
+			<input class="weui_input" type="text" id="oldpass" placeholder="请输入旧密码"/>
+		</div>
+	</div>
+	
+	<div class="weui_cell">
+		<div class="weui_cell_hd"><label class="weui_label">新密码</label></div>
+		<div class="weui_cell_bd weui_cell_primary">
+			<input class="weui_input" id="newpass"  type="password" placeholder="至少4位字母+数字组合"/>
+		</div>
+	</div>
+	<div class="weui_cell">
+		<div class="weui_cell_hd"><label class="weui_label">确认密码</label></div>
+		<div class="weui_cell_bd weui_cell_primary">
+			<input class="weui_input" id="newpass1" type="password" placeholder="请输入"/>
+		</div>
+	</div>
+</div>
+
+<div class="weui_btn_area">
+	<input class="weui_btn weui_btn_primary" type="button" onclick="loginsubmit()" value="确定" id="btn0">
+</div>
+
+</body>
+</html>

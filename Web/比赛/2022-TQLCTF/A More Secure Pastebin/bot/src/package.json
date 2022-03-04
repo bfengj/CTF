@@ -1,0 +1,15 @@
+{
+    "scripts": {
+        "start": "pm2 start app.js -i max -n bot --no-daemon"
+    },
+    "dependencies": {
+        "connect-flash": "^0.1.1",
+        "crypto": "^1.0.1",
+        "ejs": "^3.1.6",
+        "express": "^4.17.2",
+        "express-session": "^1.17.2",
+        "puppeteer": "^13.3.1",
+        "redis": "^4.0.3",
+        "connect-redis": "^6.1.1"
+    }
+}

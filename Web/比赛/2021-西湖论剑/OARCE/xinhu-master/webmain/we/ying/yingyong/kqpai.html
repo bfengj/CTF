@@ -1,0 +1,42 @@
+<div id="mainbodyobjdse"></div>
+<div id="dayabc" style="height:24px;line-height:24px;overflow:hidden;font-size:12px;padding:0px 5px; background-color:#d4e3f7;border-top:1px #dddddd solid">空白为休息日</div>
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rockcalendar.js"></script>
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rocklunar.js"></script>
+<script type="text/javascript">
+yingyonginit = function(){
+	monthobj = $('#mainbodyobjdse').rockcalendar({
+		height:yy.getheight(-25),headerbgcolor:'#dddddd',
+		selbgcolor:'#d4e3f7',
+		overShow:false,
+		bordercolor:'#dddddd',
+		changemonth:function(y, m){
+			var dt = ''+y+'年'+xy10(m)+'月';
+			setTimeout(function(){
+				yy.settitle(dt);
+			},10);
+			getpaibang(''+y+'-'+xy10(m)+'');
+		},
+		align:'center',
+		valign:'center',
+		renderer:function(day, s0, s1,s2,col1,col2){
+			var s = '<div><font color='+col1+'>'+s1+'</font><br><div style="font-size:11px;height:16px;overflow:hidden;color:'+col2+'" id="day'+day+'">'+s2+'</div></div>';
+			return s;
+		}
+	});
+}
+yy.clickevent=function(d){
+	if(d.url=='nowmonth')monthobj.nowmonth();
+	if(d.url=='prevmonth')monthobj.fanmonth(-1);
+	if(d.url=='nextmonth')monthobj.fanmonth(1);
+}
+function getpaibang(month){
+	js.ajax('kaoqin','getpaib',{'month':month,'uid':js.request('uid')},function(ret){
+		for(var d1 in ret){
+			var s1 = ret[d1];
+			if(s1=='')s1='休息';
+			if(d1!='abc')s1 = '['+s1+']';
+			$('#day'+d1+'').html(s1);
+		}
+	},'mode', false,false, 'get');
+}
+</script>

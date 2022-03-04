@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/css.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<style>
+
+</style>
+
+</head>
+
+
+<body>
+<div  style="padding:10px">
+	<div><font color="red">长时间打开这个页面，不关闭，也可以达到开启计划任务功能。</font></div>
+	<div>以下是待运行任务共<span id="allshu">(<?=count($da['tasklist'])?>)</span>条，现在是：<span id="nowdate"><?=$rock->now?></span></div>
+	<?php 
+	foreach ($da['tasklist'] as $k=>$rs){
+		$oi 		= $k+1;
+		$runtimes 	= date('Y-m-d H:i:s', $rs['runtime']);
+		$da['tasklist'][$k]['runtimes'] = $runtimes;
+		$runtimesa	= explode(' ', $runtimes);
+		echo '<div oi="'.$oi.'" style="padding:2px">'.$oi.'、['.$runtimesa[1].']'.$rs['name'].',&nbsp;<span id="zt_'.$oi.'"><font color="#888888">(待运行)</font></span></div>';
+	}
+	?>
+</div>
+
+<script>
+var tasklist = <?=json_encode($da['tasklist'])?>;
+var nowoi 	 = 0;
+var nowdt 	 = '';
+var alloi 	 = tasklist.length;
+function startrun(){
+	var now   = js.now('now');
+	var nowa  = now.split(' '),bstdt = nowa[0];
+	if(nowdt=='')nowdt = bstdt;
+	var i,d,url;
+	$('#nowdate').html(now);
+	var suxh  = nowoi;
+	for(i= nowoi;i<nowoi+10;i++){
+		d 	= tasklist[i];
+		if(d && d.runtimes==now){
+			url 	= d.url.split('task.php');
+			if(url.length==2){
+				url = 'task.php'+url[1];
+			}else{
+				url = d.url;
+			}
+			runrurl(url, i);
+			suxh = i;
+			alloi--;
+		}
+	}
+	nowoi = suxh;
+	$('#allshu').html('('+alloi+')');
+	//到了第二天了就要刷新喽
+	if(nowdt != bstdt){
+		location.reload();
+	}
+	setTimeout('startrun()',1000);
+}
+function runrurl(url, i){
+	var oi = i+1;
+	var o  = $('#zt_'+oi+'');
+	o.html('<font color="#ff6600">运行中</font>');
+	$.get(url, function(s){
+		if(s=='success'){
+			o.html('<font color="green">运行成功</font>');
+		}else{
+			o.html('<font color="red">运行失败</font>');
+		}
+	});
+}
+startrun();
+</script>
+
+</body>
+</html>

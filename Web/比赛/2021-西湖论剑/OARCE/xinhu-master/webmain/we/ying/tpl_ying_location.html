@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&libraries=convertor,geometry&key=<?=$da['qqmapkey']?>"></script>
+<script type="text/javascript" src="js/dingwei.js"></script>
+<style>
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.'}';
+?>
+</style>
+<script>
+//考勤信息
+var kqrs = <?=json_encode($kqrs);?>,kqors = <?=json_encode($kqors);?>,kqallrs=[],isgzh = <?=$isgzh?>;
+js.servernow = '<?=$rock->now?>',openfrom='<?=$openfrom?>';
+var infoWin,marker,circle;
+var label='',accuracy=0,latitude='',longitude='',kqjuli=-1,addbo = true;
+
+function initbody(){
+	initbodyss();
+	initupload();
+	nowtimetime = js.now('time');
+}
+
+function initbodyss(){
+	js.getsplit();
+	js.dw.init(isgzh); //定位开始
+	showtimessabc();
+	
+	var lata = js.getoption('latlongedu','24.504332,118.141136,12').split(',');
+	if(!lata[2])lata[2]=12;
+	scale 	= parseFloat(lata[2]);
+	var center = new qq.maps.LatLng(parseFloat(lata[0]), parseFloat(lata[1]));
+	map = new qq.maps.Map(document.getElementById('container'),{
+        center: center,
+        zoom: scale
+    });
+	
+	if(kqrs){
+		kqallrs.push(kqrs);
+		var i,kqrsa,enddt,precision;
+		for(i in kqors)kqallrs.push(kqors[i]);
+		
+		for(i=0;i<kqallrs.length;i++){
+			kqrsa = kqallrs[i];
+			enddt = new qq.maps.LatLng(parseFloat(kqrsa.location_x), parseFloat(kqrsa.location_y));
+			new qq.maps.Marker({map: map,position:enddt});
+			precision = parseFloat(kqrsa.precision);
+			if(precision>0){
+				new qq.maps.Circle({
+					map:map,
+					center:enddt,
+					radius:precision,
+					fillColor:new qq.maps.Color(255,0,0, 0.3),
+					strokeColor:new qq.maps.Color(255,0,0, 0.5),
+					strokeWeight:1
+				});
+			}
+		}
+	}
+}
+
+function dingweidak(){
+	js.dw.start();
+}
+
+//定位成功后回调
+js.dw.ondwcall = function(res){
+	latitude 	= res.latitude;
+	longitude 	= res.longitude;
+	accuracy 	= res.accuracy;
+	var center 	= res.center;
+	addbo	 	= true;
+	scale	 	= map.getZoom();
+	js.setoption('latlongedu',''+latitude+','+longitude+','+scale+'');
+	map.setCenter(res.center);
+	label		= res.address;
+	showinfo(center ,accuracy, '定位成功<br>地址：'+res.addressinfo+'');
+	
+	var i,kqrsa,enddt,juli;
+	for(i=0;i<kqallrs.length;i++){
+		kqrsa = kqallrs[i];
+		enddt = new qq.maps.LatLng(parseFloat(kqrsa.location_x), parseFloat(kqrsa.location_y));
+		juli  = parseInt(qq.maps.geometry.spherical.computeDistanceBetween(center, enddt));
+		if(juli<0)juli = 0-juli;
+		if(kqrsa['iswgd']=='1')juli=0; //无固定位置的
+		kqallrs[i]['kqjuli'] = juli;
+		kqjuli = juli;
+	}
+	nowtimetime = js.now('time');
+}
+
+function showtimessabc(){
+	var dt = js.serverdt('H:i:s');
+	$('#timess').html(dt);
+	setTimeout('showtimessabc()',1000);
+}
+
+function showinfo(center ,fw, str){
+	if(!infoWin)infoWin = new qq.maps.InfoWindow({
+		map: map
+	});
+	infoWin.open();
+	infoWin.setContent(str);
+	infoWin.setPosition(center);
+	
+	if(!marker)marker= new qq.maps.Marker({
+        map: map
+    });
+	marker.setPosition(center);
+	if(!circle)circle=new qq.maps.Circle({
+        map:map,
+        strokeWeight:1
+    });
+	circle.setCenter(center);
+	circle.setRadius(parseFloat(fw));
+}
+
+//保存
+var adddkjlcs = {},upfileid='',imagecont='';
+function adddkjl(lx,ss,sm, uobo){
+	if(!uobo){
+		adddkjlcs.lx=lx;adddkjlcs.ss=ss;adddkjlcs.sm=sm;
+		js.wx.load('<span id="tisssa">'+ss+'中</span>...');
+		if(!imagecont){
+			upfaceobj.start();
+		}else{
+			upfaceobj.sendbase64(imagecont,{filename:'打卡图片.png'});
+		}
+		return;
+	}else{
+		$('#tisssa').html(''+ss+'中');
+	}
+	if(!sm)sm='';
+	scale	 = map.getZoom();
+	js.setoption('latlongedu',''+latitude+','+longitude+','+scale+'');
+	var data = {location_x:latitude,type:lx,location_y:longitude,fileid:upfileid,scale:scale,precision:accuracy,label:jm.base64encode(label),sm:jm.base64encode(sm)};
+	js.ajax('weixin','addlocation',data,function(ret){
+		js.msg('success',''+ss+'成功:'+ret.now+'');
+		$('#dwdiv').after('<div>刚'+ss+'.'+ret.now.substr(10)+'('+label+')</div>');
+		addbo = false;
+		if(lx==1)get('notify_sound_audio').play();
+	},'none');
+}
+function adddkjlok(ids){
+	upfileid= ids;
+	adddkjl(adddkjlcs.lx,adddkjlcs.ss,adddkjlcs.sm,true);
+}
+function adddkjlsss(){
+	if((js.now('time') - nowtimetime)>60*1000){
+		js.wx.alert('停留页面太久，请刷新页面再试',function(){
+			js.reload();
+		});
+		return;
+	}
+	if(js.dw.dwbool){js.wx.alert('正在定位，稍后在添加');return;}
+	if(latitude==''){js.wx.alert('定位没有成功，不能添加');return;}
+	if(!addbo){js.wx.alert('已保存过了，请重新定位后在保存');return;}
+	js.wx.prompt('保存定位','请输入说明(选填)：',function(text){
+		adddkjl(0,'保存', text);
+	});
+}
+
+var dwarr = <?=json_encode($dwarr)?>;
+function showdw(id){
+	var d = dwarr[id];
+	if(isempt(d.location_x)){js.wx.alert('没有位置信息无法查看');return;}
+	if(js.jssdkstate!=1 || isempt(d.location_x)){
+		var url = '?d=main&m=kaoqin&a=location&id='+d.id+'';
+		js.location(url);
+	}else{
+		wx.openLocation({
+			latitude: parseFloat(d.location_x), // 纬度，浮点数，范围为90 ~ -90
+			longitude: parseFloat(d.location_y), // 经度，浮点数，范围为180 ~ -180。
+			name: '定位地址', // 位置名
+			address: d.label, // 地址详情说明
+			scale: parseFloat(d.scale)
+		});
+	}
+}
+function addkaoqin(){
+	if((js.now('time') - nowtimetime)>60*1000){
+		js.wx.alert('停留页面太久，请刷新页面再试',function(){
+			js.reload();
+		});
+		return;
+	}
+	if(!kqrs){js.wx.alert('没有设置定位考勤位置');return;}
+	if(js.dw.dwbool){js.wx.alert('正在定位，稍后在添加');return;}
+	if(latitude=='' || kqjuli==-1){js.wx.alert('定位没有成功，不能添加');return;}
+	
+	var i,kqrsa,slju,sljus,iskqbo=false;
+	for(i=0;i<kqallrs.length;i++){
+		kqrsa 	= kqallrs[i];
+		slju	= parseFloat(kqrsa.precision);
+		sljus	= parseFloat(kqrsa.kqjuli);
+		if(sljus<=slju)iskqbo = true;
+	}
+	if(!iskqbo){js.wx.alert('当前位置距离考勤点有'+kqjuli+'米,考勤设置误差不能超过'+slju+'米，故不能添加考勤打卡！');return;}
+	
+	if(!addbo){js.wx.alert('已打卡过了，请重新定位后在打卡');return;}
+	if(kqrs.ispz=='1' && !ispzs){js.wx.alert('请使用相机拍照才能打卡');return;}
+	adddkjl(1,'打卡');
+}
+
+var ispzs = false;
+function initupload(){
+	upfaceobj=$.rockupload({
+		uptype:'image',
+		inputfile:'cameraInput',
+		fileview:'fileview',
+		autoup:false,
+		urlparams:{noasyn:'yes'},
+		onsuccess:function(f,str){
+			var a=js.decode(str);
+			if(imagecont){
+				imagecont= '';
+				adddkjlok(a.id);
+			}
+		},
+		onchange:function(f){
+			$('#paizhaoimg').parent().show();
+			get('paizhaoimg').src = f.imgviewurl;
+			get('pzbtnicons').className='icon-remove';
+			ispzs = true;
+		},
+		onchangebefore:function(f){
+			if(f.lastModified){
+				var btune = js.now('time')-f.lastModified;
+				if(btune>10*1000)return '请使用相机拍照';
+			}
+		},
+		onprogress:function(f,bl){
+			$('#tisssa').html('上传图中('+bl+'%)');
+		},
+		allsuccess:function(far, ids){
+			imagecont = '';
+			adddkjlok(ids);
+		}
+	});
+}
+
+function paizhao(){
+	if(!ispzs){
+		if(apicloud){
+			api.getPicture({
+				sourceType: 'camera',
+				encodingType: 'png',
+				destinationType: 'base64',quality:80,
+				targetWidth:1000,targetHeight:1000
+			}, function(ret, err) {
+				if (ret) {
+					imagecont= ret.base64Data;
+					$('#paizhaoimg').parent().show();
+					get('paizhaoimg').src = imagecont;
+					get('pzbtnicons').className='icon-remove';
+					ispzs = true;
+				}
+			});
+		}else{
+			upfaceobj.click({uptype:'image'});
+		}
+	}else{
+		upfaceobj.clear();
+		imagecont = '';
+		$('#paizhaoimg').parent().hide();
+		get('paizhaoimg').src = 'images/noimg.jpg';
+		get('pzbtnicons').className='icon-camera';
+		ispzs	= false;
+	}
+}
+function changfile(o1){
+	upfaceobj.change(o1);
+}
+function showimgs(o1){
+	$.imgview({'url':o1.src,'ismobile':true});
+}
+</script>
+<style>
+.addbtnss{position:absolute;right:10px;bottom:10px;width:80px;height:80px; background:rgba(0,0,0,0.5);z-index:1;border-radius:50%;font-size:14px;color:white;text-align:center}
+.addbtnss:active{background:rgba(0,0,0,0.8)}
+</style>
+</head>
+
+
+<body>
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header" style="padding-top:<?=$cenghei?>px" >
+		<div class="r-header-text" onclick="location.reload()" id="header_title"><?=$da['title']?></div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+	</div>
+	<div class="blank50" id="header_line" style="height:<?=($cenghei+50)?>px"></div>
+</div>
+<?php }?>
+
+<div>
+	<div style="width:100%;height:300px;position:relative">
+		<div style="display:none;position:absolute;z-index:2;left:1px;top:1px;width:120px;height:80px;overflow:hidden"><img width="100%" onclick="showimgs(this)" id="paizhaoimg" src="images/noimg.jpg"></div>
+		<div id="container" style="position:absolute;width:100%;height:300px;"></div>
+		<div class="addbtnss" onclick="addkaoqin()"><div style="margin-top:20px">考勤打卡<br><span id="timess"><?=date('H:i:s')?></span></div></div>
+	</div>
+	
+	<div style="display:none">
+	<form name="form_cameraInput">
+	<input type="file" <?php if($rock->iswebbro())echo 'capture="camera"';?> onchange="changfile(this)" accept="image/*" id="cameraInput" /></form>
+	</div>
+	<div style="padding:10px">
+	<table width="100%"><tr>
+		<td width="35%"><button type="button" onClick="dingweidak()" class="weui_btn weui_btn_default" name="button"><i class="icon-map-marker"></i> 定位</button></td>
+		<td width="10" nowrap></td>
+		<td><button type="button" onClick="adddkjlsss()" class="weui_btn weui_btn_primary" name="button"><i class="icon-plus"></i> 保存定位</button></td>
+		<td width="10" nowrap></td>
+		<td><button type="button" onClick="paizhao()" class="weui_btn weui_btn_default" name="button"><i id="pzbtnicons" class="icon-camera"></i></button></td>
+	</tr></table>
+	</div>
+	<div style="display:none" id="fileview"></div>
+	<div style="padding:0px 10px;line-height:26px">
+		<div id="dwdiv"><b>今日定位：</b></div>
+		<?php
+		foreach($dwarr as $k=>$rs){
+			$imgs = '<img src="web/images/fileicons/jpg.gif" align="absmiddle">';
+			if(isempt($rs['imgpath']) || !file_exists($rs['imgpath']))$imgs='';
+			echo '<div>'.($k+1).'.'.substr($rs['optdt'],11).'('.$rs['label'].')'.$imgs.',<a href="javascript:;" onclick="showdw('.$k.')">[查看]</a></div>';
+		}
+		if($rows)echo '<div class="blank10"></div><div><b>今日我的外勤：</b></div>';
+		foreach($rows as $k=>$rs){
+			echo '<div>'.($k+1).'.['.$rs['atype'].']'.$rs['address'].','.$rs['reason'].'('.$rs['outtime'].')</div>';
+		}
+		?>
+	</div>
+	<audio id="notify_sound_audio" hidden="true" style="display:none" src="web/res/sound/dkcg.mp3"></audio>
+	<div class="blank10"></div>
+</div>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+</body>
+</html>

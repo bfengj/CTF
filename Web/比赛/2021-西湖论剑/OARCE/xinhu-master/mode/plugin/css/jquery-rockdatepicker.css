@@ -1,0 +1,21 @@
+/*时间选择器插件样式*/
+.rockdatepicker{z-index:9999;box-shadow:2px 2px 2px #cccccc;border:1px #cccccc solid; background-color:#ffffff; left:0px; top:0px; padding:0px}
+.rockdatepicker td{cursor:pointer}
+.rockdatepicker td.td00:hover,.rockdatepicker td.td01{background:#dedede}
+.rockdatepicker_table td{border:1px #eeeeee solid;}
+.rockdatepicker .a{cursor:pointer;border:none;padding:2px 5px;color:#555555}
+.rockdatepicker .a:hover{color:red}
+.rockdatepicker_span{padding:1px 3px;margin:0px 2px;}
+
+.rockdatepicker_fudong{ position:absolute;padding:2px;border:1px #cccccc solid;  background-color:#f8f8f8;z-index:2;box-shadow:2px 2px 2px #cccccc;overflow:auto}
+.rockdatepicker_fudong div{padding:0px 5px;cursor:pointer;height:24px;overflow:hidden;line-height:24px}
+.rockdatepicker_fudong div:hover{background:#cccccc}
+.rockdatepicker_fudong .div01{background:#aaaaaa;color:white}
+
+.rockdatepicker .a02:link,.rockdatepicker .a02:visited{padding:2px 5px;color:#555555}
+.rockdatepicker .a02:hover{color:#000000;background:#dddddd}
+.rockdatepicker .a03:link,.rockdatepicker .a03:visited{padding:2px 5px;color:#000000;background:#dddddd}
+
+.rockdatepicker .not:link,.rockdatepicker .not:visited,.rockdatepicker .not{color:#cccccc}
+.rockdatepicker .not:hover{background:#ffffff}
+

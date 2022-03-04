@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>选择位置</title>
+<style type="text/css">
+*{
+    margin:0px;
+    padding:0px;
+}
+body, button, input, select, textarea {
+    font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+}
+
+</style>
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=<?=$da['qqmapkey']?>"></script>
+<script>
+
+var callback = '<?=$callback?>'; //回调函数
+var init = function() {
+    var center = new qq.maps.LatLng(<?=$location_x?>,<?=$location_y?>);
+    map = new qq.maps.Map(document.getElementById('container'),{
+        center: center,
+        zoom: <?=$scale?>
+    });
+	
+	marker = new qq.maps.Marker({
+        position: center,
+        map: map,
+		draggable:true,
+		title:'点地图确定位置'
+    });
+    
+	//点击地图切换位置
+	qq.maps.event.addListener(map, 'click', function(evt) {
+		marker.setPosition(evt.latLng);
+    });
+	
+	return;
+	infoWin = new qq.maps.InfoWindow({
+        map: map
+    });
+    infoWin.open();
+    infoWin.setContent('位置：');
+    infoWin.setPosition(map.getCenter());
+}
+function qudong(){
+	var as = marker.getPosition();
+	var x 	= as.getLat();
+	var y 	= as.getLng();
+	var zoom = map.getZoom();
+	var a = {x:x,y:y,zoom:zoom};
+	if(callback!=''){
+		try{
+			parent[callback](a);
+			parent.js.tanclose('winiframe');
+		}catch(e){}
+	}
+}
+var citylocation = false;
+function dingwei(){
+    if(!citylocation)citylocation = new qq.maps.CityService({
+        complete : function(result){
+            map.setCenter(result.detail.latLng);
+        }
+    });
+	var quhao = prompt('请输入城市区号如：0592');
+	if(isNaN(quhao)){
+		if(quhao)citylocation.searchLocalCity();
+	}else{
+		if(quhao)citylocation.searchCityByAreaCode(quhao);
+	}
+}
+</script>
+</head>
+<body onload="init()">
+<div style="position:absolute;top:0px;left:40%;z-index:99;padding:5px 20px; background-color:white"><button style="background:#1389D3;color:white;border:none;padding:5px 8px;cursor:pointer" onclick="qudong()">确定</button>&nbsp;点地图确定位置，<a href="javascript:;" onclick="dingwei()">[定位]</a></div>
+<div style="width:100%;height:100%" id="container"></div>
+</body>
+</html>

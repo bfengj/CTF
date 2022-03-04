@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>我的单位</title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<style>
+body, html{height:auto}
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';}';
+?>
+</style>
+<script>
+var nowid = <?=$carr['companyid']?>;
+var ofrom = '<?=$ofrom?>';
+var c={
+	change:function(ns,id){
+		if(nowid==id)return;
+		js.wx.confirm('确定要切换到单位上“'+ns+'”吗？', function(jg){
+			if(jg=='yes'){
+				js.setoption('nowcompany', ns);
+				js.loading('切换中...');
+				js.ajax('index','changecompany',{id:id}, function(){
+					if(ofrom=='reim'){
+						parent.reim.changecomok();
+					}else{
+						js.wx.msgok('切换成功',function(){js.back();},1);
+					}
+				},'none',false,false,'get');
+			}
+		});
+	}
+}
+</script>
+</head>
+
+
+<body>
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header">
+		<div class="r-header-text" id="header_title">我的单位</div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+	</div>
+	<div class="blank50"></div>
+</div>
+<?php }?>
+
+<div onclick="js.reload();" class="weui_cells_title">我加入单位</div>
+<div id="list" class="weui_cells weui_cells_access">
+	<?php foreach($carr['companyinfoall'] as $k=>$rs){?>
+	<div class="weui_cell" onclick="c.change('<?=$rs['name']?>', <?=$rs['id']?>)">
+		<div class="weui_cell_bd weui_cell_primary"><p><img src="<?=$rs['logo']?>" height="20" width="20" align="absmiddle"> <?=$rs['name']?></p></div>
+		<span class="weui_cell_right">
+			<?php 
+			if($rs['id']==$carr['companyid']){
+				echo '<i class="weui_icon_success_no_circle"></i>';
+			}else{
+				
+			}
+			?>
+			
+		</span>
+	</div>
+	<?php }?>
+</div>
+<?php if(isempt($ofrom)){?>
+<div style="bottom:30px" id="buttonstr" align="center" class="weui_extra_area"><a onclick="js.back()" href="javascript:;">&lt;&lt;返回</a></div>
+	<div style="height:10px"></div>
+<?php }?>	
+</body>
+</html>

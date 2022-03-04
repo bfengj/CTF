@@ -44,11 +44,11 @@ $result = $file->check(['ext' => $this->config['upload_image_ext'], 'size' => $t
 
 用的也是thinkphp自带的检测，具体不说了。总的来说就是白名单检测后缀，这个白名单也是取自的数据库。而且这是单纯的从数据库里取出来白名单进行检验，没有额外再检验php了，所以我直接上后台，改一下上传的设置：
 
-![pic22](D:\this_is_feng\github\CTF\Web\picture\pic22.png)
+![pic22](Kitecms审计与测试.assets/pic22.png)
 
 加个php，然后找个上传点，直接上传马：
 
-![pic23](D:\this_is_feng\github\CTF\Web\picture\pic23.png)
+![pic23](Kitecms审计与测试.assets/pic23.png)
 
 成功getshell。所以这个CMS其实也是前台没东西，后台很容易拿下的。但是因为是thinkphp5.1.41，肯定也没有SQL注入了，想进后台也只能靠弱口令了。本来不想再看了，因为感觉CNVD已经爆出来后台的很多洞了。后来想想还是自己再把后台的功能好好审审，继续增加后台的代码审计的经验叭。
 
@@ -226,7 +226,7 @@ namespace {
 
 改后缀为png然后上传：
 
-![pic24](D:\this_is_feng\github\CTF\Web\picture\pic24.png)
+![pic24](Kitecms审计与测试.assets/pic24.png)
 
 
 
@@ -236,7 +236,7 @@ namespace {
 http://www.kitecms.com/admin/admin/scanFilesForTree?dir=phar://./upload/20210606/1c57fd5e8abbd8ce9e6715c28227a95f.png
 ```
 
-![pic25](D:\this_is_feng\github\CTF\Web\picture\pic25.png)
+![pic25](Kitecms审计与测试.assets/pic25.png)
 
 
 
@@ -342,7 +342,7 @@ upload_type=local&upload_image_ext=jpg%2Cpng%2Cgif%2Cphp&upload_image_size=2048&
 
 然后正常上传文件，即可phar：
 
-![pic26](D:\this_is_feng\github\CTF\Web\picture\pic26.png)
+![pic26](Kitecms审计与测试.assets/pic26.png)
 
 
 

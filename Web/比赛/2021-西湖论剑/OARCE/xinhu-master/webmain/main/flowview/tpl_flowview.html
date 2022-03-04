@@ -1,0 +1,322 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="webmain/css/webmain.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<script src="js/jquery.js"></script>
+<script src="js/js.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<style>
+<?php
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';--main-border:rgba('.$maincolors.',0.2)}';
+?>
+.tools{height:40px;padding:0px 10px;overflow:hidden;text-align:center;line-height:40px;cursor:pointer;font-size:14px;float:left}
+.tools:hover{background-color:#f1f1f1}
+.typedata{margin:8px 10px;padding:8px;border:1px #dddddd solid;font-size:12px;border-radius:5px}
+.listdata{padding:10px;border-bottom:1px #eeeeee solid;cursor:pointer}
+.listdata:hover,.aactive{ background:#f1f1f1;color:<?=$maincolor?>}
+</style>
+<script>
+maincolor='<?=$maincolor?>';
+modenum  = '';
+modeid	 = 0;
+var ke = {
+	init:function(){
+		this.geihes();
+		$(window).resize(this.geihes);
+		this.getzidudn();
+	},
+	geihes:function(){
+		var hei = winHb()-2;
+		$('#leftmain').css('height',''+hei+'px');
+		$('#centerdiv').css('height',''+(hei-40)+'px');
+		$('#shuxinglist').css('height',''+(hei-40)+'px');
+		$('#centerdivs').css('height',''+(hei-110)+'px');
+	},
+	addmode:function(){
+		js.prompt('新增模块','请输入模块名称(模块编号随机生成)', function(jg,txt){
+			if(jg=='yes' && txt){
+				ke.addmodes(txt);
+			}
+		});
+	},
+	addmodes:function(na){
+		js.loading('模块创建中...');
+		js.ajax('?d=main&m=flowview&a=createmode',{name:na},function(ret){
+			if(ret.success){
+				js.msgok('创建成功');
+				var ds = ret.data;
+				$('#modelist').prepend('<div class="listdata" onclick="ke.viewmode(\''+ds.num+'\',\''+ds.id+'\', this)">'+ds.name+'</div>');
+			}else{
+				js.msgerror(ret.msg);
+			}
+		},'post,json');
+	},
+	viewmode:function(bh,sid,o1){
+		if(this.modevsse)this.modevsse.removeClass('aactive');
+		this.modevsse = $(o1);
+		this.modevsse.addClass('aactive');
+		modenum = bh;
+		modeid  = sid;
+		this.getzidudn();
+	},
+	getzidudn:function(){
+		if(!modenum)return;
+		var url = '?a=lum&m=input&d=flow&num='+modenum+'&showtype=view';
+		showIframe.location.href=url;
+	},
+	showshuxing:function(d){
+		var str = '<form name="myform" autocomplete="off">';
+		str+='<input type="hidden" name="id" value="'+d.id+'">';
+		//str+='<input type="hidden" name="isss" value="'+d.isss+'">';
+		str+='<table width="100%">';
+		str+='<tr>';
+		str+='<td align="right" nowrap><font color=red>*</font>名称&nbsp;</td>';
+		str+='<td><input type="text" value="'+d.name+'" name="name" style="width:100%" class="input"></td>';
+		str+='</tr>';
+		
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap><font color=red>*</font>对应字段&nbsp;</td>';
+		str+='<td><input type="text" value="'+d.fields+'" placeholder="不能数字/中文" name="fields" style="width:100%" class="input"></td>';
+		str+='</tr>';
+		
+		if(!d.xiaoshu)d.xiaoshu='0';
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap><font color=red>*</font>字段类型&nbsp;</td>';
+		str+='<td><select onchange="ke.changetype()" name="fieldstype" style="width:100%" class="input"></select><div id="div_number" style="display:none">小数点位数：<input type="text" onfocus="js.focusval=this.value" onblur="js.number(this)" min="0" max="6" name="xiaoshu" class="input" style="width:60px" value="'+d.xiaoshu+'"></div></td>';
+		str+='</tr>';
+		
+		if(!d.lens)d.lens='';
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>长度&nbsp;</td>';
+		str+='<td><input type="text" onfocus="js.focusval=this.value" onblur="js.number(this)" value="'+d.lens+'" name="lens" style="width:100%" class="input"></td>';
+		str+='</tr>';
+		
+		if(!d.dev)d.dev='';
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>默认值&nbsp;</td>';
+		str+='<td><input type="text" value="'+d.dev+'" placeholder="录入时显示的默认值" name="dev" style="width:100%" class="input"></td>';
+		str+='</tr>';
+
+		if(!d.placeholder)d.placeholder='';
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>提示内容&nbsp;</td>';
+		str+='<td><input type="text" value="'+d.placeholder+'" name="placeholder" style="width:100%" class="input"></td>';
+		str+='</tr>';
+		
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>是否必填&nbsp;</td>';
+		str+='<td><label><input type="checkbox" value="1" name="isbt">录入必须填写</label></td>';
+		str+='</tr>';
+		
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>是否录入&nbsp;</td>';
+		str+='<td><label><input type="checkbox" value="1" name="islu">在录入页显示</label></td>';
+		str+='</tr>';
+		
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>是否搜索&nbsp;</td>';
+		str+='<td><label><input type="checkbox" value="1" name="issou">列表页上搜索</label></td>';
+		str+='</tr>';
+		
+		if(!d.attr)d.attr='';
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap>属性&nbsp;</td>';
+		str+='<td><input type="text" value="'+d.attr+'" placeholder="如果只读填写：readonly" name="attr" style="width:100%" class="input"></td>';
+		str+='</tr>';
+		
+		if(!d.data)d.data='';
+		str+='<tr id="div_data">';
+		str+='<td align="right" nowrap>数据源&nbsp;</td>';
+		str+='<td><textarea name="data" style="width:100%;height:100px;margin-top:10px" class="input">'+d.data+'</textarea><a class="blue" href="http://www.rockoa.com/view_element.html" target="_blank">数据源帮助</a></td>';
+		str+='</tr>';
+		
+		str+='<tr><td height="10"></td></tr>';
+		str+='<tr>';
+		str+='<td align="right" nowrap></td>';
+		str+='<td><button type="button" onclick="ke.saveshuxing(this)" class="webbtn">'+d.btnname+'保存</button>&nbsp;<span id="msgview">';
+		if(d.id>0){
+			str+='<button type="button" onclick="ke.delfields(this,'+d.id+')" class="webbtn webbtn-red">删</button>';
+		}
+		str+='</span></td>';
+		str+='</tr>';
+		
+		str+='</table></form>';
+		str='<div style="margin:10px;">'+str+'</div>';
+		$('#shuxinglist').html(str);
+		js.setselectdata(form('fieldstype'),this.typedata,'value');
+		form('fieldstype').value = d.fieldstype;
+		if(d.isbt==1)form('isbt').checked=true;
+		if(d.islu==1)form('islu').checked=true;
+		if(d.issou==1)form('issou').checked=true;
+		this.changetype();
+	},
+	changetype:function(){
+		var val = form('fieldstype').value;
+		if(val=='number'){
+			$('#div_number').show();
+		}else{
+			$('#div_number').hide();
+		}
+	},
+	saveshuxing:function(o1){
+		var da = js.getformdata();
+		o1.disabled=true;
+		if(!da.name){js.setmsg('名称不能为空');return;}
+		if(!da.fields){js.setmsg('对应字段不能为空');return;}
+		js.setmsg('保存中...');
+		da.modenum = modenum;
+		js.ajax('?d=main&m=flowview&a=saveziduan',da,function(ret){
+			if(ret.success){
+				js.setmsg('保存成功','green');
+				ke.getzidudn();
+			}else{
+				js.setmsg(ret.msg,'red');
+				o1.disabled=false;
+			}
+		},'post,json');
+	},
+	iframeshow:function(){
+		
+	},
+	showzdxing:function(fid){
+		js.loading('加载字段信息...');
+		js.ajax('?d=main&m=flowview&a=getziduan',{num:modenum,fid:fid},function(ret){
+			ke.typedata = ret.typedata;
+			var das = ret.ziduan;
+			if(das){
+				das.btnname = '编辑';
+				ke.showshuxing(das);
+				js.unloading();
+			}else{
+				js.msgerror('读取不到字段信息');
+			}
+		},'get,json');
+	},
+	addfields:function(){
+		if(modenum==''){
+			js.msgerror('请先选择模块');return;
+		}
+		js.prompt('新增字段','请输入字段名称', function(jg,txt){
+			if(jg=='yes' && txt){
+				ke.addfieldss(txt);
+			}
+		});
+	},
+	addfieldss:function(jx){
+		js.loading('加载字段信息...');
+		js.ajax('?d=main&m=flowview&a=getziduans',{num:modenum,name:jx},function(ret){
+			ke.typedata = ret.typedata;
+			var das = ret.ziduan;
+			das.btnname = '新增';
+			ke.showshuxing(das);
+			js.unloading();
+		},'post,json');
+	},
+	lubuju:function(){
+		if(modenum==''){
+			js.msgerror('请先选择模块');return;
+		}
+		var url='?m=flow&d=main&a=input&setid='+modeid+'&atype=0';
+		js.open(url,980,530);
+	}
+	,
+	lubujus:function(){
+		if(modenum==''){
+			js.msgerror('请先选择模块');return;
+		}
+		var url = js.getajaxurl('@lu','input','flow',{num:modenum});
+		js.open(url, 800,450);
+	},
+	delfields:function(o1,ids){
+		js.confirm('确定要删除此字段吗？', function(jg){
+			if(jg=='yes'){
+				js.ajax('?d=main&m=flowview&a=delziduan',{id:ids},function(ret){
+					js.msgok('删除成功');
+					ke.getzidudn();
+				},'get,json');
+			}
+		});
+	}
+}
+function initbody(){
+	ke.init();
+}
+</script>
+
+</head>
+<body style="background:#f5f5f5;padding:0;margin:0;overflow:hidden">
+
+<div align="center">
+<div align="left" style="max-width:1200px">
+<table width="100%">
+<tr valign="top">
+	<td >
+	<div id="leftmain" style="width:230px;background-color:white;border:1px #dddddd solid;overflow:auto">
+		<div style="padding:10px" align="center">
+			<button type="button" onclick="ke.addmode()" class="webbtn"><i class="icon-plus"></i> 新增模块</button>
+		</div>
+		<div id="modelist">
+	<?php
+	$type = '';
+	foreach($modearr as $k=>$rs){
+		if($type!=$rs['type']){
+			echo '<div style="line-height:30px;border-bottom:1px #eeeeee solid">&nbsp;<b>'.$rs['type'].'</b></div>';
+		}
+		$type = $rs['type'];
+		echo '<div class="listdata" onclick="ke.viewmode(\''.$rs['num'].'\',\''.$rs['id'].'\', this)">'.$rs['name'].'</div>';
+	}
+	?>	
+		</div>
+	
+	
+	</div>
+	</td>
+	<td width="100%" style="padding:0px 10px">
+		<div style="border:1px #dddddd solid;">
+			<div style="height:40px;overflow:hidden;background:#fefefe;border-bottom:0px #f1f1f1 solid">
+				<div class="tools" onclick="ke.addfields()"><i class="icon-plus"></i>增加字段</div>
+				<div class="tools" onclick="ke.lubuju()"><i class="icon-laptop"></i>PC端录入布局</div>
+				<div class="tools" onclick="ke.lubujus()"><i class="icon-desktop"></i>PC录入页</div>
+			</div>
+			<div id="centerdiv" style="height:40px;background:#ededed" align="center">
+				<div style="padding:15px 0px">
+					<div style="height:40px;line-height:40px;font-size:12px;color:gray">更多完整的设置，请到【流程模块→表单元素管理】下操作</div>
+					<div id="centerdivs" style="width:350px;overflow:hidden;background:white;border:1px #cccccc solid;border-radius:2px" id="ziduanlist" align="left">
+						<iframe src="" onload="ke.iframeshow()" name="showIframe" width="100%" height="100%" frameborder="0"></iframe>
+					</div>
+					
+				</div>
+			
+			</div>
+		</div>
+	</td>
+	<td >
+	<div id="rightmain" style="width:300px;background-color:white;border:1px #dddddd solid">
+		<div style="height:40px;overflow:hidden;background:#fefefe;border-bottom:1px #f1f1f1 solid;line-height:40px">
+			&nbsp;字段属性
+		</div>
+		<div id="shuxinglist" style="height:120px;overflow:auto"></div>
+	</div>
+	</td>
+</tr>
+</table>
+
+</div>
+</div>
+</body>
+</html>

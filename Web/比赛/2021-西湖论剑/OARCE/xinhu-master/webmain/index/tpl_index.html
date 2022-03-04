@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/webmain.css"/>
+<link rel="stylesheet" type="text/css" id="mainstylecss" href="<?=$da['stylecss']?>"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<!--[if IE 7 ]><link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="web/res/mode/menu/jquery-rockmenu.css"/>
+<link rel="stylesheet" type="text/css" href="mode/plugin/css/jquery-rockdatepicker.css"/>
+<link rel="shortcut icon" href="<?=$da['icon']?>" />
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/worker.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['d']?><?=$da['m']?>/<?=$da['m']?>public.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['d']?><?=$da['m']?>/<?=$da['m']?>script.js"></script>
+<script type="text/javascript" src="web/res/mode/menu/jquery-rockmenu.js"></script>
+<script type="text/javascript">
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+?>
+js.servernow	= '<?=$da['now']?>';
+PROJECT			= '<?=$da['p']?>';
+adminip			= '<?=$da['ip']?>';
+VERSION			= '<?=VERSION?>';
+companymode		= <?=(getconfig('companymode')? 'true' : 'false')?>;
+var show_key 	= '<?=$da['showkey']?>',homeurl = '<?=$da['homeurl']?>',homename='<?=$da['homename']?>';
+function globalbody(){
+	adminid		= '<?=$da['adminid']?>';
+	adminface	= '<?=$da['face']?>';
+	adminname	= '<?=$da['adminname']?>';
+	adminuser	= '<?=$da['adminuser']?>';
+	adminstyle	= '<?=$da['style']?>';
+	admintype	= '<?=$da['admintype']?>';
+	deptallname	= '<?=$da['my']['deptallname']?>';
+	adminranking= '<?=$da['my']['ranking']?>';
+}
+datesss = 'background:url(mode/icons/date.png) no-repeat right';
+maincolor = '<?=getconfig('apptheme','#1389D3')?>';
+homestyle = 0;
+</script>
+<style>
+<?php
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.'}';
+?>
+</style>
+</head>
+<body style="padding:0px;margin:0px; overflow:hidden;" scroll="no">
+<?php if(isempt($da['homeurl'])){?>
+
+<div id="topheaderid">
+<nav class="navbar navbar-<?=$da['styledev']?> navbar-static-top" id="navtopheader" style="margin:0px;z-index:0">
+	<div>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+				<span class="sr-only">Toggle</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">
+			   <img src="<?=$da['logo']?>" style="display:inline;" align="absmiddle" height="24" width="24"> <?=$da['title']?>
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="app-navbar-collapse">
+			<ul class="nav navbar-nav">
+				<?php foreach($da['topmenu'] as $k=>$rs){
+					$str = '<li pmenuid="'.$rs['id'].'" title="'.$rs['name'].'" icon="'.$rs['icons'].'"><a>';
+					if($rs['icons'])$str.='<i class="icon-'.$rs['icons'].'"></i> ';
+					$str.=''.$rs['name'].'</a></li>';
+					echo $str;
+				}
+				?>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<?php 
+				if(getconfig('mobile_show',true))echo '<li><a href="javascript:;" onclick="openmobile()"><i class="icon-tablet"></i> 手机版</a></li>';
+				if(getconfig('reim_show', true))echo '<li><a href="javascript:;" onclick="openreim(this)"><span title="REIM即时通信"><i class="icon-comments-alt"></i> REIM <font class="badge red" id="reim_stotal" style="font-size:12px;background:red;color:white"></font></span></a></li>';
+				?>
+				<li id="indexuserl">
+					<a href="javascript:;">
+						<div style="padding-right:10px">
+						<img style="width:18px;height:18px;border-radius:50%" id="myface" src="<?=$da['face']?>" align="absmiddle">
+						<?=$da['adminname']?><span class="caret"></span>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+</div>
+<?php }?>
+
+
+<table width="100%" border="0" id="zhutable" cellspacing="0" cellpadding="0">
+<tr valign="top">
+	<?php if(isempt($da['homeurl'])){?>
+	<td >
+		
+	<div id="indexmenu" style="width:200px;overflow:hidden;">
+		<ul class="list-group" style="margin:0">
+			<li style="border-radius:0px;border-left:none;border-right:none;border-top:none;cursor:pointer;border-bottom:0px" class="list-group-item list-group-item-info"><b id="menulisttop">基本</b>
+			<span style="float:right"><i id="indesearchmenu" class="icon-search"></i>&nbsp; &nbsp;<i id="reordershla" class="icon-reorder cursor"></i></span>
+			</li>
+		</ul>
+		<div style="overflow:auto;height:200px;" id="menulist">
+			<ul class="list-group" style="margin:0" id="menushow">
+			</ul>
+		</div>
+	</div>
+	<div id="indexmenuss" style="display:none;background:rgba(0,0,0,0.3)" class="menulistbg cursor"><i class="icon-reorder"></i><br>打<br>开<br>导<br>航</div>
+	</td>
+	<td>
+		<div id="indexsplit" style="overflow:hidden;width:5px;background:rgba(0,0,0,0.1)"></div>
+	</td>
+	<?php }?>
+	<td width="100%">
+		<div style="overflow:hidden;position:relative;">
+			<div class="jtcls" id="jtcls_left" onclick="_changesrcool(1)">&gt;</div>
+			<div class="jtcls" id="jtcls_right" onclick="_changesrcool(-1)" style="left:0px">&lt;</div>
+			
+			<div class="panel panel-default" style="border:none;border-radius:0;margin-bottom:0">
+			<div id="tabsindexm" class="panel-heading tabsindex" style="border:none;border-radius:0;padding:0px;overflow:hidden;">
+			<table border="0" cellspacing="0" cellpadding="0"><tr id="tabs_title"></tr></table>
+			</div>
+			</div>
+			<div id="indexcontent" style="overflow:auto;position:relative;">
+				<div id="content_allmainview" style="margin:10px;"></div>
+			</div>
+		</div>
+	</td>
+</tr>
+</table>
+<script src="mode/bootstrap3.3/bootstrap.min.js"></script>
+<script type="text/javascript" src="mode/bootstrapplugin/jquery-bootstable.js"></script><!--表格插件-->
+<script type="text/javascript" src="mode/bootstrapplugin/jquery-bootsform.js"></script><!--表单插件-->
+<script type="text/javascript" src="mode/bootstrapplugin/jquery-bootstree.js"></script><!--表格树形插件-->
+<script type="text/javascript" src="mode/plugin/jquery-rockdatepicker.js"></script><!--日期选择插件-->
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script><!--图片预览-->
+<script type="text/javascript" src="web/res/perfectscrollbar/jquery.mousewheel.js"></script><!--鼠标-->
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script><!--上传插件-->
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script><!--人员选择-->
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rockcalendar.js"></script><!--日期插件-->
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rocklunar.js"></script><!--农历-->
+<script type="text/javascript" src="js/option.js"></script><!--数据选项-->
+<script type="text/javascript" src="web/res/js/notify.js"></script><!--通知提醒插件-->
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script><!--弹出提示插件-->
+</body>
+</html>

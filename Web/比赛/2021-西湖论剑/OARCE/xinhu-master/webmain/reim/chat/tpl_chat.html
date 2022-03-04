@@ -1,0 +1,139 @@
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/reim_index.css"/>
+<link rel="stylesheet" type="text/css" href="<?=$da['p']?>/css/reim.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/chat.css"/>
+
+
+<link rel="shortcut icon" href="<?=$arr['face']?>" />
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/strformat.js"></script>
+<script type="text/javascript" src="<?=$da['p']?>/<?=$da['d']?><?=$da['m']?>/<?=$da['m']?>.js"></script>
+<style>
+.showblanks{padding:10px;color:#aaaaaa;font-size:12px;text-align:center}
+.qipao .qipaocont{font-size:16px}
+</style>
+
+<script>
+var receinfor=<?=json_encode($arr)?>;
+js.servernow	= '<?=$da['now']?>';
+function initbody(){
+	adminid		= '<?=$da['adminid']?>';
+	adminname	= '<?=$da['adminname']?>';
+	adminface 	= js.getoption('loginface','images/noface.png');
+	im.init();
+}
+function recemess(){
+	im.readinforshows();
+}
+function serversend(a){
+	var bo = false;
+	try{bo = opener.reim.serversend(a);}catch(e){}
+	return bo;
+}
+</script>
+</head>
+
+
+<body style="overflow:hidden;" scroll="no">
+
+
+<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+<tr>
+	<td colspan="3">
+		<div oncontextmenu="return false" class="gusertop gradient" style="height:40px;overflow:hidden">
+			<div class="div01"><img style="background-color:#ffffff;border-radius:2px" id="uface" src="<?=$arr['face']?>" height="24" width="24"></div>
+			<div class="div02">
+			<?php
+			echo $da['title'];
+			if($arr['type']=='user'){
+				echo '('.$arr['unitname'].'.'.$arr['ranking'].')';
+			}else{
+				$did = $arr['deptid'];
+				if($did=='1')echo ' <span class="reimlabel">全员</span>';
+				if($did>'1')echo ' <span class="reimlabel1">部门</span>';
+			}
+			?>
+			</div>
+			<?php if($arr['type']=='group' && $arr['innei']>0 && isempt($arr['deptid'])){?>
+			<div title="退出会话" onclick="im.exitgroup()" class="div03">
+				&nbsp;<i class="icon-signout"></i>&nbsp;
+			</div>
+			<div title="邀请" onclick="im.yaoqing()" class="div03">
+				&nbsp;<i class="icon-plus"></i>&nbsp;
+			</div>
+			<?php }?>
+			<div title="人员" onclick="im.showuser()" class="div03">
+				&nbsp;<i class="icon-<?=$arr['type']?>"></i>&nbsp;
+			</div>
+			
+		</div>
+	</td>
+</tr>
+<tr>
+	<td height="100%" width="100%">
+		
+		<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td height="100%">
+				<div id="showview" oncontextmenu="return false" style="height:100%;width:100%;overflow:auto">
+					<div align="center" id="showviewload" style="padding:10px;"><img src="images/mloading.gif" align="absmiddle">&nbsp;加载历史记录...</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div oncontextmenu="return false" style="height:30px; background-color:#eeeeee;overflow:hidden">
+					<div class="toolsliao">
+						<a tools="emts" title="添加表情"><img src="web/images/im/emts.png"></a>
+						
+						<a tools="file" title="发送图片/文件"><img src="web/images/im/files.png"></a>
+						<a tools="crop" title="截屏"><img src="web/images/im/crop.png"></a>
+						<a tools="cropput" title="粘贴截屏图片"><img src="web/images/im/crop1.png"></a>
+						<a tools="clear" title="清屏"><img src="web/images/im/clear.png"></a>
+					</div>
+				</div>
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<div style="height:80px;overflow:hidden;position:relative;margin-left:3px;" id="contentdiv"><textarea onpaste="im.readclip(event)" class="content" id="contentss"></textarea></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div  oncontextmenu="return false" style="height:40px; background-color:#eeeeee;overflow:hidden">
+					<div align="right" style="padding:9px">
+						<a class="webbtn" title="快捷键：Alt+C/Esc" tools="close">关闭(C)</a>&nbsp; &nbsp; 
+						<a class="webbtn" title="快捷键：Alt+S" tools="send">发送(S)</a><a class="webbtn" style="padding-left:5px;padding-right:5px;border-left:1px #0572AD solid" tools="change">↓</a>
+					</div>
+				</div>
+			</td>
+		</tr>
+		</table>
+		
+	
+	
+	</td>
+</tr>
+</table>
+
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+<script type="text/javascript" src="web/res/mode/menu/jquery-rockmenu.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="web/res/mode/menu/jquery-rockmenu.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<!--[if IE 7 ]><link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
+
+
+</body>
+</html>

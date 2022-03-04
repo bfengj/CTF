@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/quartz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/commons-lang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/flex-messaging-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/fastjson-1.2.48.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

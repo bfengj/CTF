@@ -1,0 +1,77 @@
+<?php
+//是否我评分
+if($da['arr']['pfrows']){
+	
+?>
+<div align="center" style="background-color:white;">
+	<table border="0" width="100%" style="max-width:500px" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="2"><div align="center" style="background-color:#f1f1f1;line-height:30px">考核评分</div></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+			<div style="margin:5px">
+			<?=$da['arr']['pfrowsstr']?>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="right">评分说明</td>
+			<td style="padding:10px"><div align="left"><textarea placeholder="" class="inputs" id="other_explain" style="width:95%;height:60px"></textarea></div></td>
+		</tr>
+		
+		<tr>
+			<td ></td>
+			<td>
+				<div align="left" style="padding:10px">
+				<button id="spage_btn" style="border-radius:5px" type="button" class="webbtn" onclick="submittijiao(this)">提交评分</button>
+				&nbsp;<span id="msgview_spage"></span>
+				</div>
+			</td>
+		</tr>
+	</table>	
+</div>
+<script>
+function submittijiao(o2){
+	var obj = $('input[name^="pingfen_"]'),o1,str='',str1='';
+	for(var i=0;i<obj.length;i++){
+		o1 = obj[i];
+		if(o1.value==''){
+			js.setmsg('请输入完整评分','', 'msgview_spage');
+			return;
+		}
+		str+=','+o1.name.replace('pingfen_','')+'|'+o1.value+'';
+		if(i>1)str1+=' && ';
+		if(i>0)str1+=''+o1.value+'=='+obj[i-1].value+'';
+	}
+	if(str1!='' && eval(str1)){
+		js.setmsg('所有输入评分值不能都相同','', 'msgview_spage');
+		return;
+	}
+	str = str.substr(1);
+	var da = {'str':str,'sm':get('other_explain').value,'mid':mid};
+	o2.disabled=true;
+	js.setmsg('评分提交处理中...','', 'msgview_spage');
+	
+	js.ajax(geturlact('pingfen'),da,function(s){
+		if(s=='ok'){
+			var msg = '评分处理成功';
+			js.setmsg(msg,'green', 'msgview_spage');
+			c.callback(msg, true);
+			$('#spage_btn').hide();
+		}else{
+			js.setmsg(s,'','msgview_spage');
+			o2.disabled=false;
+		}
+	},'post',function(s){
+		js.setmsg(s,'','msgview_spage');
+		o2.disabled=false;
+	});
+}
+</script>
+
+<?php
+}
+?>

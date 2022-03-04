@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="email=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<!--[if IE 7 ]><link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="web/res/css/webimcss.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/perfectscrollbar/perfect-scrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/mode/menu/jquery-rockmenu.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/chat.css"/>
+<link rel="shortcut icon" id="ico" href="<?=$da['logo']?>" />
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/nwjs.js"></script>
+<script type="text/javascript" src="web/res/mode/menu/jquery-rockmenu.js"></script>
+<script type="text/javascript" src="web/res/js/notify.js"></script>
+<script type="text/javascript" src="web/res/js/strformat.js"></script>
+<script type="text/javascript" src="js/reim_xin.js"></script>
+<script type="text/javascript" src="web/res/js/websocket.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/perfect-scrollbar.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+<style>
+.close{height:24px;width:24px;display:block;text-align:center;line-height:20px;cursor:pointer;font-size:20px;color:#f1f1f1;float:left}
+.close:hover{color:white;}
+</style>
+<script>
+js.servernow	= '<?=$da['now']?>';
+PROJECT			= '<?=$da['p']?>';
+adminip			= '<?=$da['ip']?>';
+systitle		= '<?=$da['title']?>';
+companymode		= <?=(getconfig('companymode')? 'true' : 'false')?>;
+function globalbody(){
+	adminid		= '<?=$da['adminid']?>';
+	adminface	= '<?=$da['face']?>';
+	adminname	= '<?=$da['adminname']?>';
+	adminuser	= '<?=$da['adminuser']?>';
+	deptallname	= '<?=$da['my']['deptallname']?>';
+	adminranking= '<?=$da['my']['ranking']?>';
+}
+function initbody(){
+	reim.init();
+}
+function winfocus(){
+	window.focus();
+}
+</script>
+</head>
+
+<body style="border:0px rgba(0,0,0,0.2) solid;overflow:hidden" oncontextmenu="return false" scroll="no">
+<div id="closediv" style="position:absolute;right:10px;top:15px;z-index:5">
+<span onclick="reim.winzuida();" title="最大化" class="close">□</span>
+<span onclick="reim.winclose();" title="关闭" class="close">×</span>
+</div>
+<div style="position:absolute;bottom:15px;left:5px;width:60px;">
+	<div align="center" id="reimcog" class="cursor" style="color:#aaaaaa;font-size:16px">
+		<i class="icon-cog"></i>
+	</div>
+</div>
+
+<div id="mindivshow" style="height:538px;overflow:hidden;background:#f3f8fd;border:0px rgba(0,0,0,0.2) solid;border-radius:5px;box-shadow:0px 0px 8px rgba(0,0,0,0.3);margin:5px">
+	<div style="height:50px;overflow:hidden;color:white; background:#1389D3;">
+	<table width="100%" height="50px">
+	<tr>
+		<td style="padding-left:15px;" ><div style="height:24px;overflow:hidden"><img height="24" width="24" id="myshow_logo" src="<?=$da['logo']?>"></div></td>
+		<td onclick="reim.clickcompany(this)" style="padding-left:5px;font-size:16px" nowrap><span id="myshow_companyname"><?=$da['showtitle']?></span></td>
+		<td width="100%" style="-webkit-app-region:drag;">&nbsp;</td>
+		<td align="right"><input id="reim_keysou" placeholder="搜索联系人/会话/应用" class="msousou"></td>
+		<td><div style="width:50px"></div></td>
+	</tr>
+	</table>
+	
+	</div>
+
+	<table style="width:100%;" height="100%">
+	<tr valign="top">
+	<td height="100%"  style="border-right:1px #dddddd solid" width="60" bgcolor="#f5f9ff">
+		<div align="center" style="width:60px;overflow:hidden">
+			<div style="margin-top:20px"><img title="<?=$da['adminname']?>" onclick="reim.openmyinfo()" src="images/noface.png" id="myface" style="border-radius:50%;" align="absmiddle" height="40" width="40">
+			</div>
+			<div style="margin-top:20px;">
+				<div class="cursor lefticons" id="changetabs0" onclick="reim.changetabs(0)" title="消息" style="color:#1389D3;">
+					<i class="icon-comment-alt"></i>
+					<span id="chat_stotal"  class="badge"></span>
+				</div>
+			</div>
+			<div style="margin-top:10px;">
+				<div class="cursor lefticons" id="changetabs1" onclick="reim.changetabs(1)" title="组织结构">
+					<i class="icon-sitemap"></i>
+				</div>
+			</div>
+			<div style="margin-top:10px;">
+				<div class="cursor lefticons" id="changetabs2" onclick="reim.changetabs(2)" title="应用">
+					<i class="icon-th-large"></i>
+					<span id="agenh_stotal" class="badge"></span>
+				</div>
+			</div>
+		</div>
+	</td>
+	<td width="220px" id="maincenter" style="border-right:1px #dddddd solid">
+		<div id="centlist" style="height:300px;overflow:hidden;position:relative">
+			<div id="centshow0">
+				<div id="historylist"></div>
+				<div id="historylist_tems" style="padding-top:150px;text-align:center;color:#dddddd">
+				<span style="font-size:40px"><i class="icon-comment-alt"></i></span><br>暂无消息
+				</div>
+			</div>
+			<div id="centshow1" style="display:none">
+				<div style="padding:5px;color:#aaaaaa;border-bottom:1px #f1f1f1 solid">组织结构</div>
+				<div id="showdept"></div>
+				<div id="showgroup"></div>
+				<div align="center" style="padding:10px;"><a onclick="reim.initload(true)" style="font-size:12px;color:#bbbbbb" href="javascript:;"><i class="icon-refresh"></i> 刷新</a></div>
+			</div>
+		</div>
+	</td>
+	<td>
+		<div id="viewzhulist" style="height:300px;overflow:hidden;">
+			<div align="center" tabs="home" id="tabs_home" style="margin-top:100px;font-size:150px;color:#edf4fb">
+				<i class="icon-comment-alt"></i>
+			</div>	
+		</div>
+	</td>
+	</tr>
+	</table>	
+</div>
+</body>
+</html>

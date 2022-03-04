@@ -1,0 +1,85 @@
+<div align="left" style="background-color:#F7FCFF;line-height:25px">
+<form name="wenjuan">
+	<?php
+	foreach($da['arr']['itemarr'] as $k1=>$rs1){
+	?>
+	<div style="margin:5px 10px">
+	<div style="font-weight:bold"><?=$k1+1?>、<?=$rs1['itemname']?></div>
+	<div style="color:#888888;font-size:12px;"><?=$rs1['itemcont']?></div>
+	<?php
+	$str = '';
+	$xuan= explode(',','a,b,c,d,e,f,g,h,i,k');
+	$tyname = 'itemname_'.$rs1['id'].'';
+	if($da['arr']['hlx']=='true'){
+		if($rs1['itemtype']<='1'){
+			$typess = 'radio';
+			if($rs1['itemtype']=='1'){
+				$typess = 'checkbox';
+				$tyname.= '[]';
+			}
+			foreach($xuan as $xzm){
+				if(!isempt(arrvalue($rs1,'item'.$xzm.''))){
+					$bili = $rock->number(($rs1['daan'.$xzm.'']/$rs1['zong'])*100);
+					$str .= '<div><input type="'.$typess.'" name="'.$tyname.'" value="'.$xzm.'">'.$rs1['item'.$xzm.''].'&nbsp;<span style="font-size:12px;color:#888888">'.$rs1['daan'.$xzm.''].'票('.$bili.'%)</font></div>';
+					$str .= '<div style="margin-bottom:5px;border:1px #DCECF7 solid;height:8px;width:100%;overflow:hidden"><div style="background:#6CB0DD;width:'.$bili.'%;height:8px"></div></div>';
+				}
+			}
+		}else{
+			$str = $rs1['showcont'];
+		}
+	}else{
+		if($rs1['itemtype']<='1'){
+			$typess = 'radio';
+			if($rs1['itemtype']=='1'){
+				$typess = 'checkbox';
+				$tyname.= '[]';
+			}
+			foreach($xuan as $xzm){
+				if(!isempt(arrvalue($rs1,'item'.$xzm.''))){
+					$chek = '';
+					if(contain(','.$rs1['daan'].',',','.$xzm.','))$chek='checked';
+					if($da['arr']['tjcount']>0)$chek.=' disabled';
+					$str .= '<div><label><input type="'.$typess.'" '.$chek.' name="'.$tyname.'" value="'.$xzm.'">'.$rs1['item'.$xzm.''].'</label></div>';
+				}
+			}
+		}
+		if($rs1['itemtype']=='2'){
+			$disa = ($da['arr']['tjcount']>0) ? 'disabled' : '';
+			$str .= '<div><textarea class="inputs" '.$disa.' name="'.$tyname.'" style="width:90%;height:60px">'.$rs1['daan'].'</textarea></div>';
+		}
+	}
+	echo $str;
+	?>
+	</div>
+	<?php }?>
+</form>	
+	<div style="margin:15px">
+	<?php
+	if($da['arr']['hlx']!='true'){
+		if($da['arr']['tjcount']==0){
+			echo '<input onclick="submittoupiao(this)" style="background:#800000" type="button" value="提交问卷" class="webbtn">';
+		}else{
+			echo '<font color=#888888>'.$da['arr']['showname'].' 已经提交过了</font>';
+		}
+	}
+	?>
+	<span id="msgview"></span></div>
+</div>
+
+<script>
+function submittoupiao(o1){
+	var da = js.getformdata('wenjuan');
+	o1.disabled=true;
+	js.setmsg('提交中...');
+	da.mid = mid;
+	js.ajax(geturlact('submitwenjian'),da,function(s){
+		if(s=='ok'){
+			js.setmsg('提交成功','green');
+			js.reload();
+		}else{
+			js.setmsg(s);
+			o1.disabled=false;
+		}
+	});
+}
+</script>

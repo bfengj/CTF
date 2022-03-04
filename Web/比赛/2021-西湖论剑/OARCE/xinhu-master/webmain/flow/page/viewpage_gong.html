@@ -1,0 +1,92 @@
+<?php
+//这个页面是显示投票的
+if($da['arr']['istoupiao']>0){
+	$touarr = $da['arr']['touarr'];
+?>
+<div align="center" style="background-color:#F7FCFF;margin:10px 0px">
+	<table border="0" width="80%" cellspacing="0" cellpadding="0">
+		<?php
+		foreach($touarr['touitems'] as $k1=>$rs1){
+		?>
+		<tr height="40">
+			<?php
+			if($touarr['toutype']==2){
+			?>
+			<td width="10" align="center"><input type="<?=$touarr['type']?>" name="toupiaolaabcs" value="<?=$rs1['id']?>"></td>
+			<?php
+			}
+			?>
+			<td align="left" style="padding:0px 5px" nowrap>
+				<?php
+				echo '<div>';
+				echo ($k1+1).'. '.$rs1['touitems'];
+				if($touarr['showtou']==1)echo '&nbsp;<span style="font-size:12px;color:#888888">'.$rs1['touci'].'票('.$rs1['bili'].'%)</span>';
+				echo '</div>';
+				
+				if($touarr['showtou']==1){
+				?>
+				<div style="border:1px #DCECF7 solid;height:8px;width:100%;overflow:hidden">
+				<div style="background:#6CB0DD;width:<?=$rs1['bili']?>%;height:8px"></div>
+				</div>
+				<?php 
+				}
+				?>
+			</td>
+		</tr>
+		<?php
+		}
+		
+		?>
+		<tr>
+			<td height="40" colspan="2">
+			<?php
+			if($touarr['toutype']==2)echo '<input onclick="submittoupiao(this)" type="button" value="提交投票" class="webbtn">';
+			?>
+			&nbsp;<span id="msgview"><?=$da['arr']['toupiaostatus']?></span></td>
+		</tr>
+	</table>
+</div>
+<?php
+	if($touarr['toutype']==2){
+?>
+<script>
+function submittoupiao(o1){
+	var mintou= <?=$touarr['mintou']?>,maxtou= <?=$touarr['maxtou']?>;
+	var xu = 0,sid='';
+	$('input[name=toupiaolaabcs]').each(function(){
+		if(this.checked){
+			xu++;
+			sid+=','+this.value+'';
+		}
+	});
+	if(xu<mintou){
+		js.setmsg('至少要选'+mintou+'个');
+		return;
+	}
+	if(maxtou>0 && xu>maxtou){
+		js.setmsg('最多只能选'+maxtou+'个');
+		return;
+	}
+	o1.disabled=true;
+	js.setmsg('提交投票中...');
+	sid = sid.substr(1);
+	
+	js.ajax(geturlact('submittoupiao'),{'mid':mid,'sid':sid,'modenum':modenum},function(s){
+		if(s=='ok'){
+			js.setmsg('投票成功','green');
+			js.alert('投票成功','', function(){
+				var url = location.href+'&rnd='+Math.random()+'';
+				js.location(url);
+			});
+		}else{
+			js.setmsg(s);
+			o1.disabled=false;
+		}
+	});
+}
+</script>
+
+<?php
+	}
+}
+?>

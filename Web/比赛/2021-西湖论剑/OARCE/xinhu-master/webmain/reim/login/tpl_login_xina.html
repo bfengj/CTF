@@ -1,0 +1,340 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="email=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/webimcss.css"/>
+<link rel="shortcut icon" id="icon_show" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/nwjs.js"></script>
+<style>
+.lmaisft{text-align:center;-webkit-app-region:no-drag;}
+.close{height:20px;width:20px;display:block;text-align:center;line-height:18px;cursor:pointer;font-size:16px}
+.close:hover{background:#ff1118;color:white}
+.inputlog{height:40px;width:220px;border-radius:5px}
+<?php
+$col = getconfig('apptheme','#1389D3');
+echo 'body{--main-color:'.$col.'}';
+?>
+</style>
+<script>
+CFROM = 'reim';
+var temp_token='';
+var logifouct=false;
+function initbody(){
+	
+	nwjs.init();
+	resize();
+	$(window).resize(resize);
+	var face = js.getoption('loginface');
+	if(face)get('myface').src=face;
+	
+	if(get('checkautologin')){
+		get('checkautologin').checked = js.getoption('autologin')=='1';
+		form('adminuser').value = js.getoption('adminuser');
+		getpassobj().val(js.getoption('adminpass'));
+		autologin(3);
+	}
+	if(form('adminmobile'))form('adminmobile').value=js.getoption('adminmobile');
+	
+	if(nwjsgui){
+		$('#footerts').append('<a style="font-size:12px" onclick="return clearchater()" href="javascript:;">清缓存</a>');
+	}
+	//禁止后退
+	try{
+		history.pushState(null, null, document.URL);
+		window.addEventListener('popstate', function (){
+			history.pushState(null, null, document.URL);
+		});
+	}catch(e){}
+	if(winWb()>400)rewinheight(400,380);
+	if(jisxobo()){
+		
+	}
+}
+
+//是不是xp和win7的版本
+function jisxobo(){
+	var llq = navigator.userAgent.toLowerCase();
+	if(llq.indexOf('windows nt 5')>0 || llq.indexOf('windows nt 6.1')>0){
+		return true;
+	}
+	return false;
+}
+
+
+
+function clearchater(){
+	nwjsgui.App.clearCache();
+	localStorage.clear();
+	var na = nwjsgui.App.manifest.name;
+	js.confirm('基本缓存已删除，更多缓存删除，是否打开对应['+na+']目录？需手动全部删除目录。',function(jg){
+		if(jg=='yes'){
+			var naea = nwjsgui.App.dataPath;
+			var oru= naea.split(na)[0]+na;
+			nwjsgui.Shell.openItem(oru);
+			nwjsgui.App.quit();
+		}
+	});
+}
+
+function autologin(ms){
+	if(!logifouct && get('checkautologin') && get('checkautologin').checked && form('adminuser').value!='' && getpassobj().val()){
+		form('submitbtn').value=''+ms+'秒后自动登录';
+		if(ms==0){
+			loginsubmit();
+		}else{
+			setTimeout('autologin('+(ms-1)+')',1000);
+		}
+	}else{
+		form('submitbtn').value = '登录';
+	}
+}
+
+function bodyunload(){
+	nwjs.removetray();
+}
+function resize(){
+	var tt=$(window).height()-$('.lmaisft').height();
+	var ts=(tt*0.5)-20;
+	if(ts<10)ts=10;
+	var lx1 = 0;
+	if(jisxobo())lx1=10;
+	$('#mindivshow').css('height',''+(winHb()-42+lx1)+'px');
+}
+
+
+var loginyzm = '';
+function loginsubmit(lx){
+	var ltype= form('logintype').value,user='',pass='';
+
+	if(ltype=='0'){
+		user = form('adminuser').value;
+		pass = getpassobj().val();
+		if(user==''){
+			js.msg('msg','用户名不能为空');
+			form('adminuser').focus();
+			return false;
+		}
+		if(pass==''){
+			js.msg('msg','密码不能为空');
+			getpassobj().focus();
+			return false;
+		}
+	}else{
+		user = form('adminmobile').value;
+		if(user==''){
+			js.msg('msg','手机号不能为空');
+			form('adminmobile').focus();
+			return false;
+		}
+		js.setoption('adminmobile', user);
+		loginyzm = form('adminmobileyzm').value;
+		if(loginyzm=='' || loginyzm.length!=6){
+			js.msg('msg','手机验证码格式不对');
+			form('adminmobileyzm').focus();
+			return false;
+		}
+	}
+	js.setoption('adminuser', user);
+	js.setoption('adminpass', pass);
+
+	var btnobj = form('submitbtn');
+	btnobj.value='登录中...';
+	btnobj.disabled=true;
+	var data	= {};
+	var url		= js.getajaxurl('check','login');
+	data.device = device;
+	data.cfrom  = 'reim';
+	data.ltype  = ltype;
+	data.adminuser = jm.base64encode(user);
+	data.adminpass = jm.base64encode(pass);
+	data.yanzm    = loginyzm;
+	js.bool		= true;
+	loginyzm = '';
+	js.ajax(url,data,function(a){
+		if(a.success){
+			get('myface').src=a.face;
+			btnobj.value='登录成功';
+			js.setoption('loginface', a.face);
+			var curl = '?d=reim&a=xina';
+			loginsuccess(a);
+			js.location(curl);
+		}else{
+			btnobj.value='登录';
+			js.msg('msg',a.msg);
+			btnobj.disabled=false;
+			if(a.shouji){
+				mobilejsho = a.mobile;
+				js.prompt('输入手机验证码','手机号：'+a.shouji+'&nbsp;<span><a class="zhu" href="javascript:;" onclick="getcodes(this)">[获取验证码]</a></span>',function(jg,txt){
+					if(jg=='yes' && txt){
+						loginyzm = txt;
+						loginsubmit();
+					}
+				});
+			}
+		}
+	},'post,json');
+}
+function loginsuccess(a){
+	$('#mindivshows').hide();
+	if(nwjsgui){
+		rewinheight(600, 900);
+	}
+}
+
+function getpassobj(){
+	return $('input[type=password]');
+}
+function changeauto(o){
+	var oi = '0';
+	if(o.checked)oi='1';
+	js.setoption('autologin', oi);
+}
+function winclose(){
+	nwjs.closebool=true;
+	nwjs.win.close();
+}
+
+function rewinheight(hei, wid){
+	var l = (screen.width-wid)*0.5;
+	var t = (screen.height-hei)*0.5-20;
+	nwjs.win.moveTo(parseInt(l),parseInt(t));
+	nwjs.win.resizeTo(wid,hei);
+}
+
+function getcodes(o1){
+	var da = {'mobile':mobilejsho,'device':device};
+	var o2 = $(o1).parent();
+	o2.html(js.getmsg('获取中...'));
+	js.ajax('api.php?m=yanzm',da,function(a){
+		if(a.success){
+			o2.html(js.getmsg('获取成功','green'));
+		}else{
+			o2.html(js.getmsg(a.msg));
+		}
+	},'post,json');
+}
+
+//获取验证码
+function getyzm(o1){
+	mobilejsho = form('adminmobile').value;
+	if(!mobilejsho){
+		js.msg('msg','请输入手机号');
+		form('adminmobile').focus();
+		return;
+	}
+	var da = {'mobile':mobilejsho,'device':device};
+	o1.value = '获取中...';
+	js.setmsg();
+	o1.disabled=true;
+	js.ajax('api.php?m=yanzm&a=glogin',da,function(a){
+		if(a.success){
+			o1.value = '获取成功';
+			js.msg('success', '验证码已发送到手机上');
+			dshitime(60, o1);
+		}else{
+			o1.value = '重新获取';
+			o1.disabled=false;
+			js.msg('msg',a.msg);
+		}
+	},'post,json');
+}
+
+function dshitime(sj,o1){
+	if(sj==0){
+		o1.disabled=false;
+		o1.value='重新获取';
+		return;
+	}
+	o1.disabled=true;
+	o1.value=''+sj+'';
+	setTimeout(function(){dshitime(sj-1, o1)},1000);
+}
+
+function changlogin(){
+	$('#loginview0').hide();
+	$('#loginview1').show();
+	form('logintype').value='1';
+}
+</script>
+</head>
+<body style="overflow:hidden;background:#f5f5f5">
+
+<div >
+
+<div style="height:30px;overflow:hidden;-webkit-app-region:drag;margin-right:30px;user-select:none;">&nbsp;</div>
+
+<div align="center" id="mindivshow" style="height:348px;overflow:hidden;">
+	<div id="mindivshows">
+	<div class="lmaisft">
+		<div id="topblank" style="height:5px;overflow:hidden"></div>
+		<div style="user-select:none;-webkit-user-select: none;" align="center"><img onclick="location.reload()" title="<?=URL?>" src="images/logo.png" id="myface" style="border-radius:50%;" align="absmiddle" height="80" width="80"></div>
+		<div class="blank10"></div>
+		<form style="padding:10px;" name="myform">
+			<?php if($loginyzm!=3){?>
+			<div id="loginview0">
+				<div>
+					<div><input type="text" onfocus="logifouct=true" class="input inputlog" onKeyUp="if(event.keyCode==13)getpassobj().focus()" placeholder="请输入用户名/姓名/手机号" id="adminuser" name="adminuser" ></div>
+				</div>
+				<div class="blank20"></div>
+				<div>
+					<div><input onfocus="logifouct=true" class="input inputlog" onKeyUp="if(event.keyCode==13)loginsubmit(1)" value="" type="password" placeholder="请输入密码"></div>
+				</div>
+				<div class="blank10"></div>
+				<div align="center">
+					<div style="width:190px" align="left"><label><input onclick="changeauto(this)" id="checkautologin" type="checkbox">下次自动登录</label><?php if($loginyzm>0){?>&nbsp;<a href="javascript:;" onclick="changlogin()">验证码登录</a><?php }?></div>
+				</div>
+			</div>
+			
+			<div id="loginview1" style="display:none">
+				<input type="hidden" name="logintype" value="0">
+			<?php }else{?>
+			<div id="loginview1">
+				<input type="hidden" name="logintype" value="1">
+			<?php }?>
+			
+				
+				<div>
+					<input type="text" class="input inputlog" onKeyUp="if(event.keyCode==13)get('adminmobileyzm').focus()" maxlength="11" name="adminmobile" placeholder="请输入手机号">
+				</div>
+				<div class="blank20"></div>
+				<div align="center">
+					<table><tr>
+					<td>
+					<input class="input" style="height:40px;width:130px;border-top-left-radius:5px;border-bottom-left-radius:5px" name="adminmobileyzm" id="adminmobileyzm" onKeyUp="if(event.keyCode==13)loginsubmit(1)" maxlength="6" placeholder="请输入验证码">
+					</td>
+					<td><input type="button" onclick="getyzm(this)" style="height:40px;width:90px;border-top-right-radius:5px;border-bottom-right-radius:5px" value="获取验证码" class="webbtn" ></td>
+					</tr></table>
+				</div>
+				
+			
+			</div>	
+			
+			<div class="blank20"></div>
+
+			<div align="center">
+				<input type="button" id="btn0" style="height:40px;width:190px;border-radius:5px;font-size:16px" onClick="loginsubmit(1)" class="btn" name="submitbtn" value="登录">
+				
+			</div>
+			<span id="msgview"></span>
+
+		</form>
+	
+	</div>
+	<div align="center" id="footerts" style="color:#888888;font-size:12px"></div>
+	</div>
+</div>
+
+
+</div>
+</body>
+</html>

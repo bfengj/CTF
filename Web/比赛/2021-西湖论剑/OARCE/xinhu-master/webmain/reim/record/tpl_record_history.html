@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>消息记录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="web/res/css/webimcss.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/perfectscrollbar/perfect-scrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/mode/menu/jquery-rockmenu.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/chat.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/nwjs.js"></script>
+<script type="text/javascript" src="web/res/mode/menu/jquery-rockmenu.js"></script>
+<script type="text/javascript" src="web/res/js/notify.js"></script>
+<script type="text/javascript" src="web/res/js/strformat.js"></script>
+<script type="text/javascript" src="js/reim_xina.js?<?=time()?>"></script>
+<script type="text/javascript" src="web/res/js/websocket.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/perfect-scrollbar.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+<style>
+<?php
+$col = getconfig('apptheme','#1389D3');
+$cola= c('image')->colorTorgb($col);
+echo 'body{--main-color:'.$col.'}.leftcls{background:'.$col.'}.webbtn{background:'.$col.'}.qipao .qipaocontright{background:rgba('.$cola[0].','.$cola[1].','.$cola[2].',0.4)}.qipao .qipaoright{border-color: transparent transparent transparent rgba('.$cola[0].','.$cola[1].','.$cola[2].',0.4)}';
+?>
+</style>
+<script>
+maincolor='<?=$col?>',adminname='',adminface='',video_bool=false,companynum='';
+date = js.now('Y-m-d');
+function initbody(){
+	reim.outgroup.outunum = js.getoption('outunum');
+	c.init();
+}
+var c = {
+	init:function(){
+		this.getsese();
+		$(window).resize(c.getsese);
+		var type = js.request('type');
+		var gid = js.request('gid');
+		reim.onlinearr	= {};
+		try{reim.onlinearr 	= opener.reim.onlinearr;}catch(e){}
+		$('#historylist').perfectScrollbar();
+		reshow(type,gid);
+	},
+	getsese:function(){
+		var he = winHb();
+		viewheight = he;
+		$('#viewzhulist').css('height',''+he+'px');
+		$('#historylist').css('height',''+he+'px');
+	}
+}
+function reshow(type,reid){
+	var num = ''+type+'_'+reid+'';
+	if(num==c.num)return;
+	c.num   = num;
+	
+	
+	reim.openchat(type,reid,'会话','images/noface.png');
+	reim.chatobj[num].dktype = true;
+	reim.chatobj[num].showtools();
+	var rece = reim.chatobj[num].receinfo;
+	reim.showhistorys({
+		'name':rece.name,
+		'type':type,
+		'receid':reid,
+		'receid':reid,
+		'stotal':0,
+		'face':rece.face,
+		'deptid':rece.deptid,
+		'cont':''
+	},true,true);
+	
+	//$('#toolsliao_'+num+'').remove();
+	$('#input_content_'+num+'').parent().parent().remove();
+	$('#chatsendbtn_'+num+'').parent().parent().remove();
+	$('#viewcontent_'+num+'').attr('resizeh',91);
+	reim.resize();
+}
+</script>
+</head>
+
+
+<body style="overflow:hidden;background:#f5f5f5">
+<table width="100%">
+<tr>
+	<td bgcolor="#ebebeb" style="border-right:1px #dddddd solid"><div style="width:220px;overflow:hidden;height:200px;position:relative" id="historylist"></div></td>
+	<td width="100%"><div id="viewzhulist" style="height:100px;overflow:hidden"></div></td>
+</tr>
+</table>
+
+</body>
+</html>

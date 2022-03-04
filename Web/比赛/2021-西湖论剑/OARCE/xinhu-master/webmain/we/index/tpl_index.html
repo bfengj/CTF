@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/jswx.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="js/jsmain.js"></script>
+<script type="text/javascript" src="webmain/we/index/tpl_index.mini.js?<?=time()?>"></script>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<style>
+html,body{overflow:hidden;background-color:#f1f1f1}
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';}';
+?>
+.weui_tabbar_icon{text-align:center;color:#888888;font-size:20px;overflow:hidden;;height:28px}
+.weui_tabbar_item{padding-top:2px;margin-bottom:5px;position:relative}
+.weui_media_box{padding:10px 15px}
+.weui_media_box.weui_media_appmsg .weui_media_hd {height:40px;width:40px;line-height:40px}
+.weui_media_box .weui_media_desc{height:20px;line-height:20px;padding-right:20px}
+.weui_bar_item_on .weui_tabbar_icon{color:<?=$maincolor?>}
+.weui_grid_icon{width:26px;height:26px;text-align:center;}
+.weui_grid_icon img{border-radius:6px}
+.weui_grid_icon i{font-size:26px}
+.weui_grid_icon span{position:absolute;top:5px;right:5px;}
+.weui_tabbar_item span{position:absolute;right:5px;top:2px}
+.weui_media_bd span{position:absolute;right:10px;top:15px}
+.weui_media_bd font{position:absolute;right:5px;top:40px;font-size:13px;color:#888888}
+.hd{padding:2em 0; text-align:center}
+.hd img{height:100px;width:100px;border-radius:50px}
+.weui_tabbar{position:fixed}
+
+.weui_media_box:before{left:0}
+.yingshright{position:absolute;right:0px;bottom:0px;display:block; width: 0;height: 0;border-bottom: 15px solid #dedede;border-left: 15px solid transparent;}
+.agentp{color:#888888;padding:5px;font-size:14px;margin-top:5px}
+.weui_daohang{display:inline-block;width:100%;background:#f1f1f1;}
+.weui_daohang span{height:50px;padding:0px 8px;display:block;line-height:50px; float:left;margin:0px;}
+.weui_daohang .jiantou{padding:0px;font-size:12px;color:#cccccc}
+.weui_grid_label{height:20px;overflow:hidden}
+</style>
+</head>
+<script>
+xhauthkey = '<?=$xhauthkey?>';
+maincolor = '<?=$maincolor?>';
+</script>
+<body scroll="no" style="overflow:hidden">
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header">
+		<div class="r-header-text" onclick="location.reload()" id="header_title">信呼</div>
+		<span onclick="RO.smenu()" class="r-position-right r-header-btn">＋</span>
+	</div>
+	<div class="blank50"></div>
+</div>
+<?php }?>
+
+
+<div id="mbody" class="r-touch" style="height:350px;position:relative;">
+	<div index="m" id="m_index0">
+		<div id="home_silder"></div>
+		<div id="hylidiv" style="margin-bottom:15px;display:none">
+		<div class="agentp">应用</div>
+		<div id="hyli" style="background:white" class="weui_grids"></div>
+		</div>
+		<div  class="weui_panel"><div id="historylist"></div></div>
+		<div id="hwu_tems" style="padding-top:50px;text-align:center;color:#cccccc">无会话消息</div>
+	</div>
+	
+	<div index="m" style="display:none" id="m_index1"></div>
+	<div index="m" style="background-color:white;display:none" id="m_index2">
+
+		<div class="weui_search_bar" id="s_bar">
+			<form onclick="RO.sus()" class="weui_search_outer" onsubmit="RO.slo();return false;">
+				<div class="weui_search_inner">
+					<i class="weui_icon_search"></i>
+					<input type="search" onblur="RO.bsor()" class="weui_search_input" id="s_inp" placeholder="搜索联系人" >
+					<a onclick="RO.scle()" class="weui_icon_clear"></a>
+				</div>
+				<label for="s_inp" class="weui_search_text" id="search_text">
+					<i class="weui_icon_search"></i>
+					<span>搜索联系人</span>
+				</label>
+			</form>
+			<a onclick="RO.sqx()" style="color:#1389D3" class="weui_search_cancel">取消</a>
+		</div>
+		
+		<div id="uslx" class="r-tab">
+			<div id="uslx_0" onclick="RO.cusr(0)" class="r-tab-item active">联系人<span id="userstotal">(0)</span></div>
+			<div id="uslx_1" onclick="RO.cusr(1)" class="r-tab-item">会话<span id="glists">(0)</span></div>
+			
+		</div>
+		
+		<div id="userlistdiv" temp="us" style="margin-top:0">
+			<div class="weui_daohang r-border-b" id="userdao">
+			</div>
+			<div class="weui_panel_bd">
+				<div id="list" class="weui_panel weui_panel_access"></div>
+				<div id="deptlist"></div>
+				<div id="sslst" class="weui_panel weui_panel_access"></div>
+			</div>	
+		</div>
+		<div class="weui_panel" temp="us" style="margin-top:0;display:none">
+			<div class="weui_panel_bd r-border-t">
+				<div class="weui_media_box weui_media_small_appmsg">
+					<div id="glist" class="weui_cells weui_cells_access"></div>
+				</div>
+			</div>
+		</div>
+		<div class="weui_panel" temp="us" style="margin-top:0;display:none"><div id="showdept"></div></div>
+	</div>
+
+	<div index="m" style="display:none"  id="m_index3">
+		<div style="margin-top:20px" class="weui_panel weui_panel_access">
+			<div class="weui_panel_bd">
+				<a href="javascript:;" onclick="RO.opu(adminid)" class="weui_media_box weui_media_appmsg">
+					<div class="weui_media_hd">
+						<img class="weui_media_appmsg_thumb" id="myface" src="images/logo.png">
+					</div>
+					<div class="weui_media_bd">
+						<h4 class="weui_media_title" id="my_mz"></h4>
+						<p style="font-size:14px;color:#888888"><label id="my_bm"></label></p>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="weui_cells weui_cells_access">
+			<div class="weui_cell">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p style="color:#888888">职位</p>
+				</div>
+				<span id="my_zw" class="weui_cell_right"></span>
+			</div>
+			<div class="weui_cell">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p style="color:#888888">我手机号</p>
+				</div>
+				<span id="my_sj" class="weui_cell_right">158****0000</span>
+			</div>
+			<div class="weui_cell">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p style="color:#888888">用户名</p>
+				</div>
+				<span id="my_yh" class="weui_cell_right"></span>
+			</div>
+		</div>
+		<div id="weixllq" class="weui_cells weui_cells_access">
+			<?php if($tplmess=='1'){?>
+			<div onclick="RO.bdwx(this)" class="weui_cell">
+				<div class="weui_cell_bd weui_cell_primary">
+					微信公众号
+				</div>
+				<span class="weui_cell_ft" id="bdwx">未绑定,点击绑定</span>
+			</div>
+			<?php }?>
+			
+			<?php if(ISMORECOM){?>
+			<div onclick="RO.chdw()" class="weui_cell">
+				<div class="weui_cell_bd weui_cell_primary">
+					切换单位
+				</div>
+				<p style="color:#888888;font-size:14px" id="nowc_div"></p>
+				<span class="weui_cell_ft"></span>
+			</div>
+			<?php }?>
+			<div onclick="RO.tbtx()" class="weui_cell">
+				<div class="weui_cell_bd weui_cell_primary">
+					同步微信头像
+				</div>
+				<span class="weui_cell_ft"></span>
+			</div>
+			
+		</div>
+		
+		<div class="weui_btn_area">
+			<input class="weui_btn weui_btn_warn" type="button" onclick="RO.tui()" value="退出登录">
+		</div>
+		<div style="height:10px"></div>
+	</div>
+</div>
+
+<div style="height:55px; overflow:hidden"></div>	
+<div id="footerdiv" style="height:55px;overflow:hidden;z-index:2" class="weui_tabbar">
+	<a href="javascript:;" id="tabnav0" onclick="RO.ctab(0)" class="weui_tabbar_item weui_bar_item_on">
+		<span id="stotal_ss0" class="badge"></span>
+		<div class="weui_tabbar_icon">
+			<i class="icon-comment-alt"></i>
+		</div>
+		<p class="weui_tabbar_label" style="margin-top:0">会话</p>
+	</a>
+	<a href="javascript:;" id="tabnav1" onclick="RO.ctab(1)" class="weui_tabbar_item">
+		<span id="stotal_ss1" class="badge"></span>
+		<div class="weui_tabbar_icon">
+			<i class="icon-th-large"></i>
+		</div>
+		<p class="weui_tabbar_label" style="margin-top:0">应用</p>
+	</a>
+	<a href="javascript:;" id="tabnav2" onclick="RO.ctab(2)" class="weui_tabbar_item">
+		<div class="weui_tabbar_icon">
+			<i class="icon-group"></i>
+		</div>
+		<p class="weui_tabbar_label" style="margin-top:0">联系人</p>
+	</a>
+	<a href="javascript:;" id="tabnav3" onclick="RO.smenu()" class="weui_tabbar_item">
+		<div class="weui_tabbar_icon">
+			<i class="icon-cog"></i>
+		</div>
+		<p class="weui_tabbar_label" style="margin-top:0">更多</p>
+	</a>
+</div>
+<script type="text/javascript" src="mode/plugin/jquery-rockdoupull.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rocksilder.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+</body>
+</html>

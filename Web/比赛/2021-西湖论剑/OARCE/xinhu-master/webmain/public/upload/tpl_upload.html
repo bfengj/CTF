@@ -1,0 +1,376 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" src="js/jquery.js"></script>
+<script language="javascript" src="js/js.js"></script>
+<title><?=$da['title']?></title>
+<script language="javascript">
+var callback= '<?=$params['callback']?>',
+	maxup	= <?=$params['maxup']?>,
+	uptype	= '<?=str_replace(',','|',$params['uptype'])?>',
+	thumbnail = '<?=$params['thumbnail']?>',
+	maxwidth  = '<?=$params['maxwidth']?>',
+	showid  	= '<?=$params['showid']?>',
+	upkey  	= '<?=$params['upkey']?>',
+	urlparams  	= <?=$params['urlparams']?>,
+	thumbtype  = '<?=$params['thumbtype']?>';//缩略图类型0可能去掉看不到的默认， 1整图缩略可以看到白
+var up={
+	filearr:[],
+	bool:false,
+	maxsize:<?=$params['maxsize']?>,
+	moi:0,
+	wcarr:[],
+	init:function()
+	{
+		if(typeof(FormData)=='undefined'){
+			$('body').prepend('<div style="color:red;padding:2px;border:1px #dddddd solid;margin:5px">对不起，您的浏览器不支持上传功能，请使用IE10+，火狐，Opera，谷歌浏览器</div>');
+		}else{
+			this.reader=true;
+		}
+		var bol	= true;
+		try{if(parent.js.uploadrand!=upkey){bol=false;}}catch(e){bol=false;}
+		if(!bol){
+			try{if(opener.js.uploadrand==upkey){bol=true;}}catch(e){}
+		}
+		if(!bol){
+			$('body').prepend('<div style="color:red;padding:2px;border:1px #dddddd solid;margin:5px">不正当访问本页面，不能操作</div>');
+			this.reader = false;
+		}
+		if(!this.reader){
+			get('addbtn').disabled=true;
+			get('clearbtn').disabled=true;
+			get('startbtn').disabled=true;
+		}
+		this.obj=$('#upfile');
+		var fmsg = '';
+		if(maxup!=0)fmsg=',最多可添加'+maxup+'个文件';
+		if(uptype!='*')fmsg+=',限制'+uptype+'类型';
+		if(fmsg!='')fmsg=fmsg.substr(1);
+		$('#footmsg').html(fmsg);
+		
+		window.addEventListener('drop', function(e) {
+			var files = e.dataTransfer;
+			up.change(files);
+		}, false);
+	},
+	add:function()
+	{
+		if(!this.reader||this.bool)return false;
+		if(maxup!=0){
+			if(this.gsize()>=maxup){
+				js.msg('msg','最多可添加'+maxup+'个文件');
+				return false;
+			}
+		}
+		document.myform.inputfile.click();
+		return false;
+	},
+	rand:function()
+	{
+		var rand	= ''+js.now('d_His')+''+parseInt(Math.random()*9999)+'';
+		return rand;
+	},
+	change:function(o){
+		this.objfile = o.files;
+		this.change1(0);
+	},
+	change1:function(oi)
+	{
+		var obja	= this.objfile;
+		if(maxup!=0){
+			if(this.gsize()>=maxup){
+				this.rexushow();
+				return false;
+			}
+		}
+
+		if(oi>=obja.length){
+			setTimeout('document.myform.reset()',500);
+			this.rexushow();
+			return false;
+		}
+		var file	= obja[oi];
+		
+		if(!file || file.name=='/'){
+			up.change1(oi+1);
+			return false;
+		}
+		
+		var olen	= this.filearr.length;
+		var filesize	= file.size;
+		var filesizecn	= js.formatsize(filesize);
+		var filename	= file.name;
+		var fileext		= filename.substr(filename.lastIndexOf('.')+1).toLowerCase();
+		var filetype	= file.type;
+		if(uptype!='*' && uptype!=''){
+			var uobo = true;
+			if(uptype=='image'){
+				if(filetype.indexOf('image')<0)uobo=false;
+			}else{
+				var auptsype	= '|'+uptype+'|';
+				if(auptsype.indexOf('|'+fileext+'|')<0)uobo=false;
+			}
+			if(!uobo){
+				var tstype = uptype;
+				if(tstype=='image')tstype='jpg,png,gif,bmp,jpeg';
+				js.msg('msg','['+filename+']文件类型不符合，请选择类型为['+tstype+']的文件');
+				up.change1(oi+1);
+				return false;
+			}
+		}
+		if(filesize>this.maxsize*1024*1024){
+			js.msg('msg','['+filename+']文件超过'+this.maxsize+' MB，当前文件大小'+filesizecn+'');
+			up.change1(oi+1);
+			return false;
+		}
+		
+		//回调的验证
+		<?php if($params['changeback']!=''){?>
+		try{
+			var tisr = parent.<?=$params['changeback']?>(file);
+			if(tisr && typeof(tisr)=='string'){
+				js.msg('msg',tisr);
+				up.change1(oi+1);
+				return false;
+			}
+		}catch(e){}
+		<?php }?>
+		
+		this.moi++;
+		for(var i=0;i<olen;i++){
+			if(this.filearr[i].filename==filename && this.filearr[i].filesize==filesize){
+				js.msg('msg','['+filename+']已添加，请不要选择重复文件!');
+				up.change1(oi+1);
+				return false;
+			}
+		}
+		
+		var arr={filename:filename,filesize:filesize,filesizecn:filesizecn,filetype:filetype,fileext:fileext,xu:this.moi,fileobj:file};
+		var noi = this.filearr.push(arr);
+		var fis= 'web/images/fileicons/'+js.filelxext(fileext)+'.gif';
+		var s='<div class="mdiv" upload="true">'+
+		'<div class="div01"><span>1. </span><img src="'+fis+'" width="16" height="16" align="absmiddle"> <font>'+filename+'</font>，<a onclick="up.editname('+(noi-1)+', this)" href="javascript:;">改名</a></div>'+
+		'<div class="div02">'+filesizecn+'</div>'+
+		'<div class="div03" id="updeng'+this.moi+'">初始化文件...</div>'+
+		'</div>';
+		if(get('upfilemsg'))$('#upfilemsg').remove();
+		this.obj.append(s);
+		$('#updeng'+up.moi+'').html('等待上传...<a href="javascript:" temp="del" onclick="return up.del(this,'+olen+')">×</a>');
+		setTimeout('up.change1('+(oi+1)+');',5);
+	},
+	editname:function(oi,o1){
+		var arr = this.filearr[oi];
+		if(!arr){
+			$(o1).remove();
+			return;
+		}
+		var nae = arr.filename.replace('.'+arr.fileext+'','');
+		js.prompt('改名','输入新的文件名称',function(jg,txt){
+			if(jg=='yes' && txt){
+				var nname = txt+'.'+arr.fileext+'';
+				up.filearr[oi].filename = nname;
+				$(o1).parent().find('font').html(nname);
+			}
+		}, nae);
+	},
+	del:function(o,oi)
+	{
+		$(o).parent().parent().remove();
+		this.filearr[oi]=false;
+		this.rexushow();
+		return false;
+	},
+	gsize:function()
+	{
+		var olen	= this.filearr.length;
+		var ol	= 0;
+		for(var i=0;i<olen;i++){
+			if(this.filearr[i])ol++;
+		}
+		return ol;
+	},
+	upload:function()
+	{
+		if(this.bool)return false;
+		var olen	= this.filearr.length;
+		this.uparr	= [];
+		var ol	= 0;
+		for(var i=0;i<olen;i++){
+			if(this.filearr[i]){
+				this.uparr.push(this.filearr[i]);
+				ol++;
+			}
+		}
+		if(ol==0){
+			js.msg('msg','请添加上传文件');
+			return false;
+		}
+		this.filearr=[];
+		get('addbtn').disabled=true;
+		get('quebtn').disabled=true;
+		get('clearbtn').disabled=true;
+		get('startbtn').disabled=true;
+		this.bool	= true;
+		$("a[temp='del']").remove();
+		$('#prou').show();
+		$('#proushow').html('等待上传('+ol+'/<font id="nowupspan">0</font>)[<font id="allbili">0%</font>]...');
+		$('#proudiv').css('width','0%');
+		this.start(0);
+		return false;
+	},
+	start:function(oi)
+	{
+		if(oi==this.uparr.length){
+			$('#proushow').html('<font color=white>上传完成</font>');
+			get('addbtn').disabled=false;
+			get('clearbtn').disabled=false;
+			get('startbtn').disabled=false;
+			get('quebtn').disabled=false;
+			this.bool	= false;
+			return false;
+		}
+		this.suarr		= this.uparr[oi];
+		this.suarr.xuoi = oi;
+		this.updengid= 'updeng'+this.suarr.xu+'';
+		$('#'+this.updengid+'').html('<font color=#ff6600>正在上传(<span id="bilishow">0</span>%)...</font>');
+		$('#nowupspan').html(oi+1);
+		this.jdt(0);
+		var xhr = new XMLHttpRequest();
+		urlparams.maxsize=up.maxsize;
+		if(uptype && uptype!='*')urlparams.uptype=uptype;
+		if(thumbnail)urlparams.thumbnail=thumbnail;
+		var url = js.getajaxurl('upfile','upload','public', urlparams);
+		xhr.open('POST', url, true); 
+		xhr.onreadystatechange = function(){
+		};
+		xhr.upload.addEventListener("progress", function(evt){
+			var loaded 	= evt.loaded;  
+			var tot 	= evt.total;  
+			var per 	= Math.floor(100*loaded/tot);
+			up.jdt(per);
+			$('#bilishow').html(per);
+		}, false);  
+		xhr.addEventListener("load", function(){
+			up.upsuccess(this.response, this.status);
+		}, false);  
+		xhr.addEventListener("error", function(){
+			$('#'+up.updengid+'').html('<font color=red>上传失败0</font>');
+		}, false); 
+		var fd = new FormData();  
+		fd.append('file', this.suarr.fileobj, this.suarr.filename); 
+		xhr.send(fd);
+	},
+	upsuccess:function(bstr, code){
+		var arr 	= this.suarr;
+		var o1s		= $('#'+up.updengid+'');
+		if(code!=200){
+			o1s.html('<font color=red>失败:'+code+'</font>');
+			js.msg('msg', bstr, 0);
+		}else{
+			o1s.html('<font color=green>上传成功</font>');
+			var result	= js.decode(bstr);
+			if(result.id){
+				up.wcarr.push({id:result.id,filename:arr.filename,filetype:arr.filetype,fileext:arr.fileext,filesize:arr.filesize,filesizecn:arr.filesizecn,filepath:result.filepath,thumbpath:result.thumbpath,width:result.width,height:result.height});
+			}else{
+				o1s.html('<font color=red>上传失败1,保存失败</font>');
+				js.msg('msg',result.msg, 0);
+			}
+		}
+		setTimeout('up.start('+(arr.xuoi+1)+')',5);
+	},
+	jdt:function(bl){
+		$('#allbili').html(bl+'%');
+		$('#proudiv').css('width',''+bl+'%');
+	},
+	unload:function(){
+		return false;
+	},
+	clear:function()
+	{
+		$('#prou').hide();
+		this.wcarr  =[];
+		this.filearr=[];
+		this.obj.html('');
+	},
+	rexushow:function(){
+		var o	= $('#upfile').find('span');
+		for(var i=0;i<o.length;i++){
+			o[i].innerHTML=''+(i+1)+'. ';
+		}
+	},
+	getsid:function(a){
+		var sid = '',i;
+		for(i=0;i<a.length;i++){
+			sid+=','+a[i].id+'';
+		}
+		if(sid!='')sid = sid.substr(1);
+		return sid;
+	},
+	okla:function(){
+		var sid = this.getsid(this.wcarr);
+		<?php if($callback!=''){?>try{parent.<?=$callback?>(this.wcarr,js.request('params1'), js.request('params2'), sid)}catch(e){}<?php }?>
+		if(showid!=''){
+			try{parent.js.downupshow(this.wcarr, showid);}catch(e){}
+			try{opener.js.downupshow(this.wcarr, showid);}catch(e){}
+		}
+		this.closeaa();
+	},
+	closeaa:function(){
+		window.close();
+		try{parent.js.tanclose('uploadwin')}catch(e){}
+	}
+}
+window.onbeforeunload=function(){
+	if(up.bool)return '文件正在上传，确定要关闭页面吗？';
+}
+
+document.ondragover=function(e){e.preventDefault();};
+document.ondrop=function(e){e.preventDefault();};
+
+</script>
+<style type="text/css">
+<?php
+$maincolor = getconfig('apptheme','#1389D3');
+?>
+.alert{ padding:1px 5px; border:1px #996 solid; background-color:#ffffff; color:<?=$maincolor?>}
+*{ font-size:14px;}
+.mdiv{ border-bottom:1px #cccccc solid;display:inline-block;width:100%}
+.mdiv div{ float:left; line-height:22px; overflow:hidden; padding:5px 3px}
+.div01{ width:55%;text-align:left;border-right:1px #cccccc solid;}
+.div02{ width:15%; text-align:center;border-right:1px #cccccc solid;}
+.div03{ width:25%;text-align:left}
+#prou{overflow:hidden; background-color:#ffffff; margin:5px 0px; border:1px #666 solid;padding:0px; text-align:left;font-size:12px; position:relative; height:18px;line-height:18px}
+#prou span{ left:5px; position:absolute; top:2px}
+#proudiv{ position:absolute; left:0px; top:0px; height:18px; overflow:hidden; background-color:<?=$maincolor?>;width:0%}
+button{ cursor:pointer}
+#footmsg{ text-align:left; padding:3px}
+.quebntha{position:fixed;right:10px;bottom:10px;}
+.webbtn{color:#ffffff;opacity:0.8; background-color:<?=$maincolor?>; padding:5px 8px; border:none; cursor:pointer;font-size:14px;outline:none;border-radius:5px}
+.webbtn:disabled{background-color:#aaaaaa; color:#eeeeee}
+.webbtn:hover{box-shadow:0px 0px 5px rgba(0,0,0,0.3);opacity:1}
+</style>
+</head>
+<body style="padding:1px" onLoad="up.init()">
+<center>
+<form name="myform" style="display:none"><input type="file" name="inputfile" id="inputfileid" <?php if($params['maxup']!=1)echo 'multiple';?> onChange="up.change(this)"></form>
+<div align="left" style="padding:3px"></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left"><button type="button" class="webbtn" id="addbtn" onClick="up.add()">＋添加文件</button>&nbsp; <button type="button" class="webbtn" id="clearbtn" onClick="up.clear()">－清除所有文件</button>&nbsp; <button type="button" class="webbtn" onClick="up.closeaa()">关闭</button></td>
+    <td align="right"><button type="button" class="webbtn" id="startbtn" onClick="up.upload()">开始上传</button></td>
+  </tr>
+</table>
+<div style="overflow:hidden; height:5px"></div>
+<div id="prou" style="display:none"><div id="proudiv"></div><span id="proushow">等待上传...</span></div>
+<div class="mdiv" style="background-color:#eeeeee">
+<div class="div01">文件名</div>
+<div class="div02">大小</div>
+<div class="div03">状态</div>
+</div>
+<div id="upfile"><div id="upfilemsg" style="padding:10px;font-size:16px;color:#888888">可拖动文件到空白区域</div></div>
+<div id="footmsg"></div>
+
+<div class="quebntha"><button type="button" disabled style="padding:5px 15px" class="webbtn" id="quebtn" onClick="up.okla()">确定</button></div>
+</center>
+</body>
+</html>

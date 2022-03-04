@@ -1,0 +1,56 @@
+<div id="mainbodyobjdse"></div>
+<div id="dayabc" style="height:24px;line-height:24px;overflow:hidden;font-size:12px;background-color:#d4e3f7;border-top:1px #dddddd solid;position:absolute;bottom:50px;left:0px;width:100%">空白为休息日</div>
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rockcalendar.js"></script>
+<script type="text/javascript" src="web/res/mode/calendar/jquery-rocklunar.js"></script>
+<script type="text/javascript">
+yingyonginit = function(){
+	monthobj = $('#mainbodyobjdse').rockcalendar({
+		height:yy.getheight(-25),headerbgcolor:'#dddddd',
+		selbgcolor:'#d4e3f7',
+		overShow:false,
+		bordercolor:'#dddddd',
+		changemonth:function(y, m){
+			var dt = ''+y+'年'+xy10(m)+'月';
+			setTimeout(function(){
+				yy.settitle(dt);
+			},10);
+			getpaibang(''+y+'-'+xy10(m)+'');
+		},
+		align:'left',
+		valign:'top',
+		renderer:function(day, s0, s1,s2,col1,col2){
+			var s = '<div><font color='+col1+'>'+s1+'</font><br><div style="font-size:11px;color:'+col2+'" id="day'+day+'">'+s2+'</div></div>';
+			return s;
+		}
+	});
+	var hei= yy.getheight(-25);
+	yy.showobj.css({'height':''+hei+'px'});
+}
+yy.clickevent=function(d){
+	if(d.url=='nowmonth')monthobj.nowmonth();
+	if(d.url=='prevmonth')monthobj.fanmonth(-1);
+	if(d.url=='refenxi')refenxiss();
+}
+var monthnow = '';
+function getpaibang(month){
+	monthnow = month;
+	$.get(js.getajaxurl('getmyanaykq','kaoqin','main', {month:month,uid:js.request('uid')}), function(strss){
+		var d1,s='',da=js.decode(strss);
+		for(d1 in da){
+			s=da[d1];
+			if(s!='')$('#day'+d1+'').html(s);
+		}
+		s='';var toarr = da['total'];
+		for(d1 in toarr)s+='，'+d1+':'+toarr[d1]+'';
+		if(s!='')s=s.substr(1);
+		$('#dayabc').html(s);
+	});
+}
+function refenxiss(){
+	js.loading('分析中...');
+	$.get(js.getajaxurl('reladanaymy','kaoqin','main', {month:monthnow,uid:js.request('uid')}), function(da){
+		getpaibang(monthnow);
+		js.unloading();
+	});
+}
+</script>

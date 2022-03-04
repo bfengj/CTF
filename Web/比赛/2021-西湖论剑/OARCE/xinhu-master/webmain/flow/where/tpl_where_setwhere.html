@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?></title>
+<link rel="stylesheet" href="<?=$da['p']?>/css/css.css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript">
+var farr = <?=json_encode($farr)?>;
+function adds(){
+	var i=get('selfields').value;
+	if(i=='')return;
+	var s='<div style="padding-left:50px">';
+	var a = farr[parseInt(i)];
+	s+='<font>'+a.fields+'</font><font>'+a.fieldstype+'</font><span>'+a.name+'</span>';
+	var o1= get('optssse');
+	var  val=o1.value,text=o1.options[o1.selectedIndex].text;;
+	s+=' <font>'+val+'</font><span>'+text+'</span>';
+	val = strreplace(get('selvalue').value);
+	s+=' <font>'+val+'</font><span>'+val+'</span>';
+	s+='<a onclick="$(this).parent().remove()">×</a></div>';
+	$('.list').append(s);
+}
+function changeopet(o1){
+	var  val=o1.value,text=o1.options[o1.selectedIndex].text;;
+	if(val=='')return;
+	$('.list').append('<div ><font>'+val+'</font><span>'+text+'</span><a onclick="$(this).parent().remove()">×</a></div>');
+	o1.value='';
+}
+function okla(){
+	var o = $('.list').find('div');
+	var s1='',s2='';
+	var sfe={d:'=',dy:'>',dyd:'>=',xy:'<',xyd:'<='};
+	for(var i=0;i<o.length;i++){
+		var o1=$(o[i]).find('font');
+		var o2=$(o[i]).find('span');
+		if(o1.length==1){
+			s1+=' '+$(o1[0]).text()+'';
+			s2+=' '+$(o2[0]).text()+'';
+		}else{
+			var ty = $(o1[1]).text(),val=$(o1[3]).text(),lx=$(o1[2]).text(),ftys=$(o1[0]).text();
+			s1+=" `"+ftys+"`";
+			if(lx=='like'){
+				s1+=" like '%"+val+"%'";
+			}else if(lx=='nlike'){
+				s1+=" not like '%"+val+"%'";
+			}else if(lx=='rlike'){
+				s1+=" like '%"+val+"'";
+			}else if(lx=='llike'){
+				s1+=" like '"+val+"%'";
+			}else if(lx=='null'){
+				s1+=" is null";
+			}else{
+				if(ty!='number')val="'"+val+"'";
+				s1+=" "+sfe[lx]+" "+val+"";
+			}
+			s2+=" "+$(o2[0]).text()+" "+$(o2[1]).text()+" "+$(o2[2]).text()+"";
+		}
+	}
+	if(s1=='')return;
+	var callback=js.request('callback');
+	s1=s1.substr(1);
+	s2=s2.substr(1);
+	try{parent[callback](s1,s2)}catch(e){}
+	try{parent.js.tanclose('setwherewin')}catch(e){}
+}
+</script>
+<style>
+.list span{float:left;display:block;padding-left:20px;height:20px;line-height:20px;margin-top:5px}
+.list div{padding:0px 10px;border-bottom:1px #f1f1f1 solid; position:relative;height:30px;overflow:hidden}
+.list div:hover{ background-color:#eeeeee}
+.list font{display:none}
+.list a{position:absolute;right:5px;top:5px;cursor:pointer}
+</style>
+</head>
+<body style="background:white">
+<div style="padding:10px; background-color:#f1f1f1"><table><tr>
+	<td>
+	<select onchange="changeopet(this)" class="inputs">
+		<option value="">无</option>
+		<option value="and">并且</option>
+		<option value="or">或者</option>
+		<option value="(">(</option>
+		<option value=")">)</option>
+	</select>
+	</td>
+	<td>&nbsp;</td>
+	<td>
+	<select id="selfields" style="width:140px" class="inputs">
+	<option value="">-字段-</option>
+	<?php
+	foreach($farr as $k=>$rs)echo '<option value="'.$k.'">'.$rs['name'].'</option>';
+	?>
+	</select>
+	</td>
+	<td>&nbsp;</td>
+	<td>
+	<select style="width:85px" id="optssse" class="inputs">
+		<option value="like">包含</option>
+		<option value="nlike">不包含</option>
+		<option value="d">等于</option>
+		<option value="dy">大于</option>
+		<option value="dyd">大于等于</option>
+		<option value="xy">小于</option>
+		<option value="xyd">小于等于</option>
+		<option value="rlike">右包含</option>
+		<option value="llike">左包含</option>
+		<option value="null">为空</option>
+	</select>
+	</td>
+	<td>&nbsp;</td>
+	<td>
+		<input id="selvalue" class="inputs" style="width:125px">
+	</td>
+	<td>&nbsp;</td>
+	<td>
+		<input value="添加" onclick="adds()" class="webbtn" type="button">
+	</td>
+</tr></table></div>
+<div class="list">
+</div>
+
+
+<div style="position:fixed;right:0px;bottom:0px; background-color:#f1f1f1;width:100%;padding:10px" align="right"><button type="button" class="webbtn" id="quebtn" onClick="okla()">确定</button></div>
+</body>
+</html>

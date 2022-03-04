@@ -1,0 +1,64 @@
+.imtitle{height:40px;line-height:40px;overflow:hidden;font-size:18px;text-align:left;border-bottom:1px #cccccc solid;color:white;font-weight:bold;background-color:#2C81C4}
+
+
+/*灰色渐变*/
+.gradienth{
+	background:#d2d5d9;
+	background:-moz-linear-gradient(top, #eef2f5, #e6eaed,#d2d5d9);
+	background:-webkit-linear-gradient(top,#eef2f5,#e6eaed,#d2d5d9);
+	background:-ms-linear-gradient(top, #eef2f5, #e6eaed,#d2d5d9);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eef2f5', centerColorstr='#e6eaed',endColorstr='#d2d5d9', GradientType='0'); /* IE8以下*/
+}
+
+.input{ height:24px; line-height:20px; border:1px #cccccc solid;padding:0px 5px; overflow:hidden;font-size:14px}
+.select{border-radius:5px; padding:0px 5px; background-color:#ffffff;border:1px #cccccc solid; height:32px; line-height:30px}
+.textarea{height:150px; width:97%;padding:5px;border-radius:5px; border:1px #cccccc solid}
+.input:hover,.textarea:hover,.select:hover,.inputs,.textareas{box-shadow:0px 0px 5px rgba(0,0,0,0.3); border:1px #368ED1 solid; color:#000000}
+
+/*聊天窗口，信息气泡样式position:relative;*/
+.ltcont{margin:0px 5px;padding:10px 0px}
+.ltcont .dt{font-size:12px;color:#888888;margin-bottom:3px}
+.qipao{}
+.qipao img{cursor:pointer;}
+.qipao a:link,.qipao a:visited{color:blue;TEXT-DECORATION:underline;}
+.qipao a:hover{color:red}
+.qipao name{font-size:12px}
+.qipao .qipaocont{
+	padding:5px 8px;
+	z-index:2;
+	text-align:left;
+	font-size:14px;
+	border:1px #dddddd solid;
+	background:#eeeeee;
+	word-wrap:break-word;
+	word-break:break-all;
+	white-space:normal;
+	table-layout:fixed;
+	line-height:20px;
+}
+.qipao:hover .qipaocont{box-shadow:0 0 5px rgba(0, 0, 0, 0.3);}
+
+.qipao .qipaoleft{  
+    width:16px;  
+    height:16px; 
+	overflow:hidden;
+	margin-top:2px;
+	z-index:1;
+}
+.qipao .qipaocontleft{
+	background:#D8EFE7;
+	border:1px #C8EBE4 solid;
+	color:#0a291e;
+}
+
+
+.qipao .qipaoright{   
+    width:16px;  
+    height:16px; 
+	overflow:hidden;
+	margin-top:2px;
+	z-index:1;
+}
+.qipao .qipaocontright{
+	background:#eeeeee;
+}

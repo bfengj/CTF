@@ -1,0 +1,66 @@
+/*聊天窗口，信息气泡样式*/
+.ltcont{margin:0px 5px;padding:10px 0px}
+.ltcont .dt{font-size:12px;color:#bbbbbb;margin-bottom:3px}
+.qipaoface{border-radius:6px}
+.qipao{}
+.qipao img{cursor:pointer;}
+.qipao a:link,.qipao a:visited{color:#1389D3;color:var(--main-color);TEXT-DECORATION:underline;}
+.qipao a:hover{color:red}
+.qipao name{font-size:12px}
+.qipao .qipaocont{
+	padding:10px 10px;
+	z-index:2;
+	text-align:left;
+	font-size:14px;
+	background:#ffffff;
+	word-wrap:break-word;
+	word-break:break-all;
+	white-space:normal;
+	table-layout:fixed;
+	line-height:20px;
+	border-radius:5px;
+}
+.qipao1:hover .qipaocont{box-shadow:0 0 5px rgba(0, 0, 0, 0.3);}
+
+.qipao .qipaoleft{  
+     width:0px;  
+    height:0px; 
+	overflow:hidden;
+	margin-top:5px;
+	border-width:8px;
+    border-style:solid;
+    border-color:transparent #e5e5e5 transparent transparent;
+	z-index:1;
+}
+.qipao .qipaocontleft{
+	background:#e5e5e5;
+	border:0px #e5e5e5 solid;
+}
+
+
+.qipao .qipaoright{   
+    width:0px;  
+    height:0px; 
+	overflow:hidden;
+	margin-top:5px;
+	border-width:8px;
+    border-style:solid;
+	
+    border-color:transparent transparent transparent #bbe2f7;
+	z-index:1;
+}
+
+.qipao .qipaocontright{
+	background:#bbe2f7;
+	border:0px #bbe2f7 solid
+}
+
+.qipao .qipaofile{
+	
+	width:44px;height:44px;background:#53B7ED;color:white;
+	border-radius:5px;line-height:44px;text-align:center;overflow:hidden;margin-right:10px
+}
+
+.progresscls{height:12px;overflow:hidden;line-height:12px;border:0px #eeeeee solid; position:relative;;width:99%;background-color:#f1f1f1;margin-top:3px}
+.progressclssse{background-color:#B0D6FC;height:12px;overflow:hidden;width:5%;position:absolute;z-index:0;left:0px;top:0px}
+.progressclstext{font-size:10px;color:#0556A8;height:12px;overflow:hidden;line-height:12px;text-align:left;position:absolute;z-index:1;left:5px;top:0px}

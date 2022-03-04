@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<link rel="stylesheet" type="text/css" href="webmain/css/webmain.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script src="js/rmb.js"></script>
+<script type="text/javascript">
+function prints(o1){
+	$(o1).remove();
+	window.print();
+}
+function initbody(){
+	
+}
+</script>
+<style>
+.borderdd td,.borderdd th{ height:30px;text-align:center;padding:0px 10px;font-size:12px;border:1px #000000 dashed;padding:10px 0px}
+</style>
+
+</head>
+<body>
+<style>
+</style>
+<div align="center" style="padding:10px 0px">
+	<div style="width:700px">
+	<table class="borderdd" width="100%" style="border-color:#000000;border-collapse: collapse;" border="0" >
+
+	<tr>
+	<?php
+	$oi = 0;
+	foreach($rows as $k=>$rs){
+		$oi++;
+		echo '<td width="20%"><div><img src="api.php?m=login&a=ewm&url='.$rs['url'].'" width="100px" height="100px"></div><div>'.$rs['num'].'</div></td>';
+		if($oi%5==0)echo '</tr><tr>';
+	}
+	?>
+	</td>
+	</table>
+	<div align="left"><a href="javascript:;" class="blue" onclick="prints(this)">[打印]</a>
+	</div>
+	</div>
+</div>
+</body>
+</html>

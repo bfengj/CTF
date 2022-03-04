@@ -1,0 +1,121 @@
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$da['title']?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/css/webimcss.css"/>
+<link rel="shortcut icon" href="images/adddk.png" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="web/res/js/nwjs.js"></script>
+<style>
+<?php
+$col = getconfig('apptheme','#1389D3');
+echo 'body{--main-color:'.$col.'}';
+?>
+</style>
+
+<script>
+maincolor = '<?=$col?>';
+var kqarr = <?=json_encode($kqarr)?>;
+js.servernow	= '<?=$da['now']?>';
+
+showkqdklist=function(a){
+	var sbarr = a.sbarr;
+	var s = '',i;
+	for(i=0;i<sbarr.length;i++){
+		s+='<div class="blank10"></div><div>'+sbarr[i].name+'('+sbarr[i].stime.substr(0,5)+'→'+sbarr[i].etime.substr(0,5)+')：'+sbarr[i].state+'</div>';
+	}
+	$('#daklistdtr').html(s);
+	var dkarr = a.dkarr;
+	var s = '',i,oi=1;
+	for(i=0;i<dkarr.length;i++){
+		s+=','+dkarr[i].dktime+'';
+		oi++;
+	}
+	if(s!='')s=s.substr(1);
+	$('#dktime').html(s);
+	get('dabtn').value='第'+oi+'次打卡';
+}
+function initbody(){
+	js.getsplit();
+	nwjs.init();
+	showkqdklist(kqarr);
+	
+	$('#dabtn').click(function(){
+		adddaka(this);
+	});
+	timeshowcishu = 0;
+	timeload();
+	setInterval('timeload()', 1000);
+}
+
+function timeload(){
+	var time = js.serverdt('Y年m月d日(星期W) H:i:s').split(' ');
+	$('#nowtimess').html(time[1]);
+	$('#nowtimess1').html(time[0]);
+	timeshowcishu++;
+	if(timeshowcishu==10){
+		var o = get('dabtn');
+		if(o.disabled)location.reload();
+	}
+}
+
+function adddaka(o){
+	var dacs = {};
+	o.disabled = true;o.value='打卡中...';
+	if(typeof(nwjs)=='object')dacs = nwjs.getipmac();
+	js.ajax('api.php?m=kaoqin&a=adddkjl',dacs, function(d){
+		if(d.code==200){
+			js.alert('打卡成功：'+d.data+'','', function(){
+				location.reload();
+			});
+			o.value = '打卡成功';
+			timeshowcishu=0;
+		}else{
+			js.msg('msg',d.msg);
+			o.disabled = false;
+			o.value='重试打卡';
+		}
+	},'get,json');//#EFF7FC
+}
+</script>
+</head>
+
+
+<body style="overflow:hidden;" scroll="no">
+
+
+
+ 
+  <div align="center" style="margin:15px;padding-top:30px;" id="mdiv" class="panel-body">
+	<table width="100%">
+	<tr>
+		<td width="190">
+		<div  align="center">
+			<div id="nowtimess" style="font-size:30px">17:16:23</div>
+			<div class="blank10"></div>
+			<div id="nowtimess1" style="color:#888888">2017年01月17日(星期三)</div>
+			<div class="blank10"></div>
+			<div><input type="button" id="dabtn" value="打卡" class="btn btn-success"> &nbsp; <button type="button" onclick="location.reload()" class="btn btn-default">刷新</button></div>
+		</div>
+		</td>
+		<td style="font-size:14px;padding:0px 10px">
+			<div class="wrap">今日打卡：<span id="dktime"></span></div>
+			<div class="blank10"></div>
+			<div id="daklistdtr">
+			<div class="blank10"></div>
+			<div>上班</div>
+			<div class="blank5"></div>
+			<div>下班</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+  </div>
+
+
+
+</body>
+</html>

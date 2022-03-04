@@ -1,0 +1,17 @@
+<script>
+var loadbo = [];
+//这个是点击选择卡事件回调
+js.ontabsclicks=function(ind,tid,o,ho){
+
+	//>=1说明从第2个选择卡读数据
+	if(ind>=1 && !loadbo[ind]){
+		var custid = o.attr('custid');//客户的id，也可以直接用mid
+		ho.html('<img src="images/mloading.gif">'); //设置转圈
+		//ajax读取内容
+		js.ajax(geturlact('getothernr'),{'custid':custid,'ind':ind},function(ret){
+			ho.html(ret);
+		});
+	}
+	loadbo[ind] = true;
+}
+</script>

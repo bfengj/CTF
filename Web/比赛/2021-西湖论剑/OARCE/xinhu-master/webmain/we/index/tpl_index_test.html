@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$da['title']?></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
+<style>
+
+</style>
+<script>
+function initbody(){
+
+	$(window).scroll(function(){
+		//var dd=$('body').scrollTop();
+		//js.debug(dd);
+	});
+	
+	var obj = document.body;
+	touch.on(obj, 'dragstart', function(e){
+		startyy = e.distanceY;
+		stime	 = e.timeStamp;
+		startyys = $('body').scrollTop();
+		
+		//js.debug(startyys);
+		js.debug(e);
+	});
+	
+	touch.on(obj, 'drag', function(e){
+		var hei = e.distanceY-startyy;
+		var o 	= $('#mainbody');
+		//var lef = startyys-hei;if(lef<0)lef=0;
+	});
+	
+	touch.on(obj, 'dragend', function(e){
+		var jg 	= e.timeStamp-stime;
+		var hudong = e.distanceY-startyy;
+		var hei = hudong>0 ? -1 : 1;
+		
+		//计算滑动速度
+		var hms = 300;
+		var jgs = (hms-jg)/0.2 * hei;
+		if(jg<hms){
+			var ass = $('#mainbody').scrollTop();
+			//$('#mainbody').animate({scrollTop:ass+jgs}, hms-jg+200);
+		}
+		
+		js.debug(''+jg+'-'+hei+':'+(300-jg)/0.5+'');
+		
+		setTimeout(function(){
+			
+			var heig = $('body').scrollTop() - startyys;
+			
+			
+			var s = '在时间：'+jg+',滑动：'+hudong+'，总滚动：'+heig+'';
+			js.debug(s);
+		},2000);
+	});
+}
+
+</script>
+</head>
+
+
+<body style="background-color:#eeeeee">
+<?php
+for($i=0;$i<=100; $i++)echo '<div style="padding:10px; border-bottom:1px #cccccc solid">测试'.$i.'</div>';
+?>
+
+
+</body>
+</html>

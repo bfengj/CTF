@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+</head>
+<body>
+<a href="/user/logout">log out</a><br>
+<p>Hello {{name}}, you are {{type}}, and you can {{privilege}} template! </p>
+<p>Use your {{weapon}} to explore Atlantis by entering the Stargate!</p>
+<br><br>
+update profile:<br>
+<form action="/user/index" method="post" enctype="application/x-www-form-urlencoded">
+    name:<input hidden name="key" value="name"><input name="value" type="text"> <button type="submit">submit</button><br>
+</form>
+<form action="/user/index" method="post" enctype="application/x-www-form-urlencoded">
+    weapon:<input hidden name="key" value="weapon"><input name="value" type="text"> <button type="submit">submit</button><br>
+</form>
+<form action="/user/index" method="post" enctype="application/x-www-form-urlencoded">
+    privilege:<input hidden name="key" value="privilege"><input name="value" type="text"> <button type="submit">submit</button><br>
+</form>
+
+</body>
+</html>

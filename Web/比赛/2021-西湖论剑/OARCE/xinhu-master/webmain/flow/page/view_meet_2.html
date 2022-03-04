@@ -1,0 +1,24 @@
+<span class="notitle"></span>
+<div style="padding-top:150px" align="center">
+	<div align="center" style="width:500px;">
+		<div align="center" style="height:230px;overflow:hidden"><img src="images/logo.png" id="erwmimg" width="230" width="230"></div>
+		<div style="color:#888888;font-size:12px">打开手机扫一扫签到</div>
+		<div style="font-size:20px;padding-top:20px">主题：{title}</div>
+		<div style="padding-top:30px">时间：{startdt} → {enddt}</div>
+	</div>
+</div>
+<script>
+//加载二维码
+function loaderm(){
+	js.ajax(geturlact('getpewm'),{
+		'mid' :mid
+	}, function(ret){
+		if(ret=='ok'){
+			get('erwmimg').src='api.php?m=login&a=ewm&url={ermurl}';
+		}else{
+			js.alert(ret);
+		}
+	});
+}
+loaderm();
+</script>

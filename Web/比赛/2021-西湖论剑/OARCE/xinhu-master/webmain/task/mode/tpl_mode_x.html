@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+<title><?=$da['pagetitle']?></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="webmain/css/cssm.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<?php 
+if($jswxsdk=='1')echo '<script type="text/javascript" src="js/jswxsdk.js"></script>'.chr(10).'';
+?>
+<script type="text/javascript" src="<?=$da['p']?>/task/mode/modeview.js?<?=$da['logintime']?>"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-rockmodels.js"></script>
+<script>
+var mid = '<?=$da['arr']['mid']?>',adminid='<?=$da['adminid']?>',admintoken='',modenum='<?=$da['arr']['modenum']?>',ismobile=1,receiptrs=<?=json_encode($da['arr']['receiptrs'])?>,isinput=0;
+js.changeuser=function(na,lx,tit, cans){
+	var can = {
+		'changetype':lx,
+		'titlebool':get('header_title'),
+		'idobj':get(na+'_id'),
+		'nameobj':get(na),
+		'onselect':function(sna,sid){
+			js.changeuser_after(this.formname,this,sna,sid);
+		}
+	};
+	var formname = get(na).name;
+	var bcar = js.changeuser_before(formname),i;
+	for(i in cans)can[i]=cans[i];
+	if(typeof(bcar)=='string' && bcar){js.msg('msg', bcar);return;}
+	if(typeof(bcar)=='object')for(i in bcar)can[i]=bcar[i];
+	can.formname = formname;
+	$('body').chnageuser(can);
+}
+function initApp(){
+	js.setapptitle('详情');
+}
+</script>
+<style>
+<?php
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';}';
+?>
+.stitle{padding:10px;border-bottom:0.5px #dddddd solid;font-size:16px;}
+.ydullist{display:inline-block;width:100%;}
+.ydullist li{float:left;width:16.6%;text-align:center;padding:5px 0px;font-size:12px;display:block;line-height:25px;padding-top:10px}
+.ydullist li:active{ background-color:#eeeeee}
+.ydullist li img,.faces{height:30px;width:30px;border-radius:50%}
+.ydullist li span{font-size:12px;color:#888888;}
+
+.pinglun td{padding:10px 0px}
+.pinglun .dt,.pinglun .act{font-size:12px;color:#888888;padding-top:5px}
+.pinglun .name{color:#555555}
+.pinglun tr{border-bottom: 1px solid #eeeeee;}
+.pinglun .sm{padding-top:8px;font-size:14px}
+.faces{margin-right:10px}
+.createtable{width:98%}
+.status{position: absolute;left:5px;top:5px;display:}
+td.tdys1{border:0.5px #e5e5e5 solid;text-align:center;padding:0px 5px}
+.divinput{padding:0px}
+.datesss{background:url(mode/icons/date.png) no-repeat right;cursor:pointer;}
+
+.statustext{position: absolute;right:5px;top:5px;width:60px;height:60px;overflow:hidden; border:2px red solid;border-radius:50%;font-size:16px;text-align:center;line-height:60px;color:red;transform:rotate(-45deg);-o-transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);}
+
+.btn-danger{background-color:#d9534f;}
+#contentshow img{max-width:100%}
+</style>
+
+</head>
+<body <?php if($da['arr']['isdefaultview']==0) echo 'style="background:white"';?>>
+
+
+<?php
+$cheikbo = false;
+if($showheader==1)echo '<div class="header" style="padding-top:'.$cenghei.'px" id="header_title"><span onclick="js.back()" class="header-back"></span>'.$da['title'].'</div><div style="height:'.($cenghei+50).'px;overflow:hidden"></div>';
+
+if($da['arr']['isdefaultview']==1)echo '<div onclick="c.changeshow(0)" class="r-subtitle">&nbsp;&nbsp;'.$da['arr']['modename'].'</div>';
+?>
+<div id="contentshow" class="padding10<?php if($da['arr']['isdefaultview']==1) echo ' r-border-t';?>" style="position:relative; background:white">
+	<?php
+	if($da['arr']['isflow']>0){
+		echo '<div class="statustext" style="color:'.$da['arr']['statuscolor'].';border-color:'.$da['arr']['statuscolor'].'">'.$da['arr']['statustext'].'</div>';
+	}
+	echo $da['arr']['contview']
+	?>
+</div>
+<div class="r-border-t"></div>
+<?php
+if($da['arr']['optmenu']){
+	$opsts = '<div class="padding10" align="center">';
+	foreach($da['arr']['optmenu'] as $pt1=>$ptrs){
+		if($pt1>0)$opsts.='&nbsp;&nbsp;';
+		$opsts.='<input onclick="c.optmenu(this)" class="webbtn radius5" optmenuid="'.$ptrs['optmenuid'].'" issm="'.$ptrs['issm'].'" style="background:'.$ptrs['color'].'" value="'.$ptrs['name'].'" type="button">';
+	}
+	$opsts.= '</div>';
+	echo $opsts;
+}
+
+//显示其他页面
+if($da['spagepath']!=''){
+	include_once($da['spagepath']);
+}
+
+//是否开评论了
+if($da['arr']['isplview']=='1'){
+?>
+<div class="r-subtitle">&nbsp;&nbsp;评论</div>
+<div class="r-border-t" style="background:white" >
+<div align="left" class="padding10">
+	<div align="left"><textarea class="inputs" id="pinglun_explain" style="width:98%;height:60px" placeholder="请输入评论内容"></textarea></div>
+	<div style="padding-top:5px">
+	<button class="webbtn" style="border-radius:5px" onclick="c.pinglun(this)" id="check_btn" type="button">
+	提交评论</button>
+	&nbsp;<span id="pinglun_spage"></span>
+	</div>	
+</div>	
+</div>
+<div class="r-border-t"></div>
+
+<?php
+}
+?>
+<div>
+	<?php 
+	if($da['arr']['isflow']>0 && $da['arr']['status'] != '1'){
+		$flowinfor = $da['arr']['flowinfor'];
+	?>
+	<div class="r-subtitle">&nbsp;&nbsp;流程信息</div>
+	<div class="r-border-t" style="background:white" >
+	
+		<div class="padding10" align="center">
+		<form name="myform" autocomplete="off">
+		<table border="0" width="100%" class="tabled1" style="border-collapse:collapse;" cellspacing="0" cellpadding="0">
+		<tr height="40" bgcolor="#E1F4F0">
+			<td class="tdys1"><div align="right" style="color:#555555">状态</div></td>
+			<td class="tdys1"><div align="left"><?=$flowinfor['nstatustext']?></div></td>
+		</tr>
+		<tr height="40">
+			<td class="tdys1" nowrap><div align="right" style="color:#555555">处理流程</div></td>
+			<td class="tdys1"><div align="left" style="padding:5px 0px"><?=$flowinfor['flowcoursestr']?></div></td>
+		</tr>
+		<?php
+		//判断是否可撤回
+		if($da['arr']['ischehui']>0){
+		?>
+		<tr height="40">
+			<td class="tdys1"><div align="right" style="color:#555555">撤回</div></td>
+			<td class="tdys1" style="padding:5px"><div align="left"><input class="webbtn" onclick="c.chehui(this)"  value="撤回上步我的处理" type="button"></div></td>
+		</tr>
+		<?php 
+		}
+		if($flowinfor['ischeck']==1){
+			$cheikbo = true;
+		?>
+		<tr height="40">
+			<td class="tdys1"><div align="right" style="color:#555555">当前处理</div></td>
+			<td class="tdys1"><div align="left"><?=$flowinfor['nowcourse']['name']?>(<?=$flowinfor['nowcourse']['nowcheckname']?>)</div></td>
+		</tr>
+		
+		<tr height="40">
+			<td class="tdys1" nowrap><div align="right" style="color:#555555"><font color=red>*</font>处理动作</div></td>
+			<td class="tdys1"><div align="left">
+			<?php
+			$s = '';
+			$tuiname = '';
+			foreach($flowinfor['courseact'] as $k=>$act){
+				if($k>0 && $act[0])$s.='<label><input name="check_status"  onclick="c.changecheck_status(this)" type="radio" value="'.$k.'">'.$act[0].'</label> &nbsp; ';
+				if($k==2)$tuiname = $act[0];
+			}
+			echo $s;
+			?>
+			</div></td>
+		</tr>
+		
+		<?php 
+		
+		?>
+		
+		<?php
+		//是否可抄送
+		if($flowinfor['ischao']==1 || $flowinfor['ischao']==2){
+		?>
+		<tr height="40">
+			<td class="tdys1"><div  align="right" style="color:#555555">抄送</div></td>
+			<td class="tdys1" style="padding:5px"><div align="left">
+			<input name="bzcslx" type="hidden" value="<?=$flowinfor['ischao']?>">
+			<table width="98%" cellpadding="0" border="0"><tr><td width="100%"><input placeholder="选择了抄送对应人" class="inputs" style="width:98%" id="bzchaosongname" readonly type="text" name="bzchaosongname"><input name="bzchaosongnameid" id="bzchaosongname_id" type="hidden"></td><td nowrap><a href="javascript:;" onclick="js.changeclear('bzchaosongname')" class="webbtn">×</a><a href="javascript:;" onclick="js.changeuser('bzchaosongname','changeusercheck','',{changerange:'<?=$flowinfor['ischaofwid']?>'})" class="webbtn">选择</a></td></tr></table>
+			</div></td>
+		</tr>	
+		<?php 
+		}
+		?>
+		
+		<input type="hidden" id="isqianming" value="<?=$flowinfor['nowcourse']['isqm']?>">
+		<?php 
+		//需要签名才显示
+		if((int)$flowinfor['nowcourse']['isqm']>0){
+		?>
+		<tr height="40">
+			<td class="tdys1"><div align="right" style="color:#555555">手写签名</div></td>
+			<td class="tdys1"><div id="qianmingshow" style="padding:5px 0px" align="left"><input type="button" onclick="c.qianming(this)" style="padding:2px" value="写签名">&nbsp;&nbsp;<input type="button" onclick="c.qianyin(this)" style="padding:2px" value="引用签名"></div></td>
+		</tr>
+		
+		<?php 
+		}
+		
+		
+		
+		//不通过退回是
+		if($tuiname != '' && $da['arr']['isflow']!=3){
+		?>
+		<tr style="display:none" id="tuihuidiv" height="40">
+			<td class="tdys1" nowrap><div align="right" style="color:#555555"><font color=red>*</font><?=$tuiname?>退回</div></td>
+			<td class="tdys1"><div align="left">
+			<select class="inputb" name="check_tuiid" style="width:99%"><option value="0">退回到提交人</option>
+			<?php 
+			if($flowinfor['tuicourse']){
+				$tstr = '<optgroup label="退回到步骤">';
+				foreach($flowinfor['tuicourse'] as $k=>$trs){
+					$tstr.='<option value="'.$trs['id'].'">'.$trs['name'].'('.$trs['checkname'].')</option>';
+				}
+				$tstr.='</optgroup>';
+				echo $tstr;
+			}
+			?>
+			</select>
+			</div></td>
+		</tr>
+		<?php
+		}
+		foreach($flowinfor['checkfields'] as $chef=>$chefv){
+		if($chefv['showinpus']==1){
+		?>
+		<tr>
+			<td class="tdys1"><div align="right" style="color:#555555"><?php if($chefv['isbt']=='1')echo '<font color=red>*</font>';?><span isbt="<?=$chefv['isbt']?>" fieidscheck="<?=$chef?>" fieldstype="<?=$chefv['fieldstype']?>"><?=$chefv['name']?></span></div></td>
+			<td class="tdys1" style="padding:5px;" ><div align="left"><?=$chefv['inputstr']?></div></td>
+		</tr>
+		<?php
+		}else if($chefv['showinpus']==2){
+			echo '<tr style="display:none"><td><span isbt="'.$chefv['isbt'].'" fieidscheck="'.$chef.'">'.$chefv['name'].'</span></td><td>'.$chefv['inputstr'].'</td></tr>';
+		}}
+		//是否可转办显示
+		if($flowinfor['iszhuanban']>0){
+		?>
+		
+		<tr style="display:none" id="zhuangdiv">
+			<td class="tdys1"><div  align="right" style="color:#555555">转给</div></td>
+			<td class="tdys1" style="padding:5px"><div align="left">
+			<table width="98%" cellpadding="0" border="0"><tr><td width="100%"><input placeholder="选择了就会转办给对应人" class="inputs" style="width:98%" id="zhuanbanname" readonly type="text" name="zhuanbanname"><input name="zhuanbannameid" id="zhuanbanname_id" type="hidden"></td><td nowrap><a href="javascript:;" onclick="js.changeclear('zhuanbanname')" class="webbtn">×</a><a href="javascript:;" onclick="js.changeuser('zhuanbanname','changeuser<?=$flowinfor['zbrangelx']?>','',{changerange:'<?=$flowinfor['zbrangeid']?>'})" class="webbtn">选择</a></td></tr></table>
+			</div></td>
+		</tr>
+		
+		<?php
+		}
+		if($flowinfor['ischange']==1){
+		?>
+		<tr style="display:none" id="nextxuandiv">
+			<td class="tdys1"><div  align="right" style="color:#555555"><font color=red>*</font>下一步处理人</div></td>
+			<td class="tdys1" style="padding:5px"><div align="left">
+			<table width="98%" cellpadding="0" border="0"><tr><td width="100%"><input placeholder="选择下一步[<?=$flowinfor['nextcourse']['name']?>]处理人" class="inputs" style="width:98%" id="nextname" readonly type="text" value="<?=$flowinfor['nextcourse']['checkname']?>" name="nextname"><input name="nextnameid" id="nextname_id" value="<?=$flowinfor['nextcourse']['checkid']?>" type="hidden"></td><td nowrap><a href="javascript:;" onclick="js.changeclear('nextname')" class="webbtn">×</a><a href="javascript:;" onclick="js.changeuser('nextname','changeusercheck','',{changerange:'<?=$flowinfor['nextcourse']['checktypeid']?>'})" class="webbtn">选择</a></td></tr></table>
+			</div></td>
+		</tr>
+		<?php }
+		$smlx = (int)$flowinfor['nowcourse']['smlx'];
+		$wjlx = (int)$flowinfor['nowcourse']['wjlx'];
+		echo '<tr style="display:none"><td><input name="check_smlx" value="'.$smlx.'"><input name="check_wjlx" value="'.$wjlx.'"></td></tr>';
+		if($smlx!=3){
+		?>
+		
+		<tr>
+			<td class="tdys1"><div  align="right" style="color:#555555"><?php if($smlx==1)echo '<font color=red>*</font>';?>说明</div></td>
+			<td class="tdys1" style="padding:5px"><div align="left"><textarea class="inputb" name="check_explain" style="width:95%;height:60px;"></textarea></div></td>
+		</tr>
+		
+		<?php
+		}
+		if($wjlx!=3){
+		?>
+		
+		<tr>
+			<td class="tdys1" nowrap><div  align="right" style="color:#555555"><?php if($wjlx==1)echo '<font color=red>*</font>';?>相关文件</div></td>
+			<td class="tdys1" style="padding:5px"><div align="left">
+				<input name="fileid" type="hidden">
+				<div id="filedivview" style="height:60px;overflow:auto;width:96%" class="inputb"></div>
+				<div id="filedivviewfile"><input style="width:150px" onchange="f.change(this)" type="file"></div>
+			</div></td>
+		</tr>
+		<?php
+		}
+		?>
+		
+		<tr>
+
+			<td class="tdys1" colspan="2" style="padding:10px 5px"><div align="center"><button class="webbtn" style="width:95%;border-radius:5px" onclick="check(0)" id="check_btn" type="button">提交处理</button><br><span id="msgview"></span></div></td>
+		</tr>
+		
+		<?php }?>
+		</table>
+		</form>
+		</div>
+		
+	</div>
+	<div class="r-border-t"></div>
+	
+
+
+
+
+	<?php
+	}
+
+	
+	
+	$logarr = $da['arr']['logarr'];
+	if($logarr && $da['arr']['isgbjl']==0){
+	$logcount= count($logarr);
+	?>
+	<div onclick="c.changeshow(0)" class="r-subtitle">&nbsp;&nbsp;处理记录(<?=$logcount?>) <img align="absmiddle" height="16" width="16" src="images/xiangyou1.png"> </div>
+	<div id="showrecord0" class="pinglun r-border-t" style="background:white;display:none">
+	<table width="100%">
+	<?php 
+	foreach($logarr as $k=>$rs){
+		$atrs =  ($logcount==$k+1) ? 'style="border:none"':'';
+		$s = '<tr '.$atrs.' valign="top">';
+		$s.= '<td align="right" width="50"><img src="'.$rs['face'].'" class="faces"></td>';
+		$s.= '<td>';
+		$s.= '<div class="name">'.$rs['name'].'<span class="act">['.$rs['actname'].']</span><font color="'.$rs['color'].'">'.$rs['statusname'].'</font><span class="dt">('.$rs['optdt'].')</span></div>';
+		if(!isempt($rs['explain']))$s.= '<div class="sm">'.$rs['explain'].'</div>';
+		$s.= '</td>';
+		$s.= '</tr>';
+		echo $s;
+	}
+	?>
+	</table>
+	</div>
+	<div class="r-border-t"></div>
+
+	<?php 
+	}
+	
+	
+	//是否关闭查阅记录
+	if($da['arr']['isgbcy']==0){
+	
+	?>
+	<div onclick="location.reload()"  class="r-subtitle">&nbsp;&nbsp;查阅记录(<?=count($da['arr']['readarr'])?>)</div>
+	<div class="r-border-t" style="background:white"><ul class="ydullist"><?php
+		foreach($da['arr']['readarr'] as $k=>$rs){
+			echo '<li onclick="showchayue(\''.$rs['optdt'].'\',\''.$rs['stotal'].'\')"><img src="'.$rs['face'].'" align="absmiddle"><br><span>'.$rs['name'].'</span></li>';
+		}
+	?></ul></div>
+	<div class="r-border-t"></div>
+	
+	<?php 
+		if($da['arr']['readunarr']){
+	?>
+	
+	<div onclick="location.reload()" class="r-subtitle">&nbsp;&nbsp;未查阅人员(<?=count($da['arr']['readunarr'])?>)</div>
+	<div class="r-border-t" style="background:white"><ul class="ydullist"><?php
+		foreach($da['arr']['readunarr'] as $k=>$rs){
+			if($k>=30)break;//最多显示30人
+			echo '<li ><img src="'.$rs['face'].'" align="absmiddle"><br><span>'.$rs['name'].'</span></li>';
+		}
+	?></ul></div>
+	<div class="r-border-t"></div>
+	
+	<?php 
+	}}
+	?>	
+</div>
+<?php
+if($cheikbo){
+?>
+<script type="text/javascript" src="web/res/js/jquery-changeuser.js"></script>
+<link rel="stylesheet" type="text/css" href="mode/plugin/css/jquery-rockdatepicker.css"/>
+<script type="text/javascript" src="mode/plugin/jquery-rockdatepicker.js"></script>
+<script type="text/javascript" src="mode/plugin/jquery-signature.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+<?php 
+if($flowinfor['checkfields'] && $da['inputjspath']!='')echo '<script type="text/javascript" id="modelujs" src="'.$da['inputjspath'].'"></script>';
+
+}?>
+</body>
+</html>

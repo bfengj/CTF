@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+
+<title><?=$mrs['title']?>_培训考试</title>
+<link rel="stylesheet" type="text/css" href="mode/bootstrap3.3/css/bootstrap_cerulean.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/webmain.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+
+<script type="text/javascript">
+var sid = <?=$ors['id']?>;
+var tkrows = <?=$tkrows?>;
+var kstime = <?=$mrs['kstime']?>;//分钟
+var c = {
+	start:function(o){
+		js.msg('wait','初始化中...');
+		o.disabled = true;
+		var url = this.geturl('initkaoshi');
+		js.ajax(url,{sid:sid},function(s){
+			if(s!='ok'){
+				o.disabled = false;
+				js.msg(msg, s);
+			}else{
+				location.reload();
+			}
+		});
+	},
+	geturl:function(act,cabs){
+		return js.getajaxurl(act,'mode_knowtraim|input','flow',cabs);
+	},
+	tims:0,
+	shijian:<?=$ors['kstime']?>,
+	init:function(){
+		if(!get('kaoshidiv'))return;
+		this.isover=false;
+		this.showtimu();
+		this.showtimes();
+	},
+	showtimes:function(){
+		var sj = this.shijian+1;
+		if(sj>kstime*60){
+			this.finifss();//时间到了
+			return;
+		}
+		var fz = Math.floor(sj/60);
+		var ms = sj%60;
+		$('#shijian').html(''+fz+'分'+ms+'秒');
+		this.shijian++;
+		setTimeout('c.showtimes()',1000);
+	},
+	showtimu:function(){
+		var len = tkrows.length;
+		if(this.tims>=len){
+			this.finifss();
+			return;
+		}
+		js.setmsg();
+		var oi  = this.tims+1;
+		if(len==oi){
+			get('btnssn').value='提交完成答题';
+		}
+		$('#showtotal').html(''+len+'/'+oi+'');
+		var d = tkrows[this.tims];
+		var ty1 = 'radio',ty2='单选';
+		if(d.type=='1'){
+			ty1 = 'checkbox';ty2='多选';
+		}
+		if(d.type=='2'){
+			ty2='判断';
+		}
+		var str = '<div>题目'+oi+'、<b>'+d.title+'</b><font style="font-size:12px" color="#888888">('+ty2+')</font></div>';
+		if(!isempt(d.content))str+='<div style="padding:10px">'+d.content+'</div>';
+		$('#titletm').html(str);
+		var arrs = ['ana','anb','anc','and','ane'],arrs1 = ['A','B','C','D','E'];
+		var s = '',v1;
+		for(var i=0;i<5;i++){
+			v1 = d[arrs[i]];
+			if(!isempt(v1))s+='<div><label><input name="changede[]" value="'+arrs1[i]+'" type="'+ty1+'"> '+arrs1[i]+'、'+v1+'</label></div>';
+		}
+		$('#titletcont').html(s);
+	},
+	nextbo:false,
+	next:function(o){
+		if(this.nextbo){
+			c.tims++;
+			c.showtimu();
+			this.nextbo=false;
+			return;
+		}
+		var len = tkrows.length,d,da,dy;
+		d = tkrows[this.tims];
+		da= js.getformdata();
+		dy= da.changede;
+		if(this.tims>=len){
+			this.finifss();
+			return;
+		}
+		if(dy==''){
+			js.msg('msg','还没选答案呢');
+			return;
+		}
+		o.disabled=true;
+		js.setmsg('处理中...');
+		dy=dy.replace(/\,/g,'');
+		this.nextbo=false;
+		var isover  = (this.tims+1>=len);
+		js.ajax(this.geturl('datitij'),{oi:this.tims,dy:dy,sid:sid,tid:d.id,sj:this.shijian},function(s){
+			o.disabled=false;
+			if(s=='ok'){
+				c.tims++;
+				c.showtimu();
+			}else{
+				js.setmsg(s);
+				c.nextbo=true;
+			}
+		},'get');
+		
+		
+		
+	},
+	isover:true,
+	finifss:function(){
+		this.isover=true;
+		get('btnssn').disabled=true;
+		js.setmsg('提交中...');
+		js.ajax(this.geturl('finfish'),{sid:sid,sj:this.shijian},function(s){
+			js.setmsg();
+			js.alert('答题结束得分：'+s+'');
+		},'get');
+	}
+};
+function initbody(){
+	c.init();
+}
+
+window.onbeforeunload=function(){
+	if(!c.isover)return '考试还没结束，不要离开本页面？';
+}
+</script>
+
+<style>
+.mborder{margin:10px;border:1px solid #cccccc;padding:20px;text-align:left}
+<?php 
+if(!$rock->ismobile()){
+	echo '.mborder{width:400px}';
+}
+?>
+</style>
+
+</head>
+<body>
+<div align="center">
+<div >
+	<div style="padding:20px;font-size:18px"><?=$mrs['title']?></div>
+<?php if($ors['isks']=='0' && isempt($ors['tkids'])){?>
+	<div class="mborder">
+		<div>状态：你还未开始答题考试</div><div class="blank5"></div>
+		<div>姓名：<?=$da['adminname']?></div><div class="blank5"></div>
+		<div>考试时间：<?=$mrs['kstime']?>分钟</div><div class="blank5"></div>
+		<div>单选题目：<?=$mrs['dsshu']?>题</div><div class="blank5"></div>
+		<div>多选题目：<?=$mrs['dxshu']?>题</div><div class="blank5"></div>
+		<div>判断题目：<?=$mrs['pdshu']?>题</div><div class="blank5"></div>
+		<div>总分：<?=$mrs['zfenshu']?>分</div><div class="blank10"></div>
+		<div align="center"><input type="button" onclick="c.start(this)" class="btn btn-success" value="开始考试"></div>
+	</div>
+<?php 
+}
+if(!isempt($ors['tkids'])){	
+?>
+	<div id="kaoshidiv">
+		<div class="mborder">
+			<div align="center">培训考试中(<span id="showtotal">5/1</span>)，已过：<span id="shijian">0分0秒</span></div>
+			<div class="blank10"></div>
+			
+			<div align="center" style="background-color:#f1f1f1;padding:5px">考试时间：<?=$mrs['kstime']?>分钟，总分：<?=$mrs['zfenshu']?>分</div>
+			<div class="blank10"></div>
+			
+			<div id="titletm">题目1、呵呵额和</div>
+			<form name="myform"><div id="titletcont"></div></form>
+			<div class="blank10"></div>
+			<div align="center"><input type="button" id="btnssn" onclick="c.next(this)" class="btn btn-success" value="下一题">&nbsp;<span id="msgview"></span></div>
+		</div>
+	</div>
+<?php
+}
+?>
+</div>
+</div>
+</body>
+</html>

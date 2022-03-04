@@ -1,0 +1,60 @@
+.clickable {
+  cursor: pointer;
+}
+
+.form-control-file {
+  display: none;
+}
+
+:root {
+  color-scheme: light;
+}
+
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #eeeeee -moz-use-text-color #ffffff;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 3% 0 !important;
+}
+
+#msgbox {
+  display: none;
+}
+
+.list-group {
+  max-height: 350px;
+}
+
+.toppadding {
+  padding-top: 20vh;
+}
+
+@media (max-width: 978px) {
+  .toppadding {
+    padding-top: 10vh;
+  }
+}
+
+@media (max-width: 512px) {
+  .toppadding {
+    padding-top: 20px;
+  }
+}
+
+button[type="submit"] {
+  min-width: 70px;
+}
+
+.button-group {
+  min-width: fit-content;
+}
+
+.everyday {
+  margin: 3%;
+  color: gray;
+}

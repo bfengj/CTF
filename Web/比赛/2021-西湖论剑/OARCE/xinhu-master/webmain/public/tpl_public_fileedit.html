@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>文档处理</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script>
+var id = '<?=$da['id']?>',otype='<?=$da['otype']?>';
+function initbody(){
+	var kei = 'fileid'+id+'';
+	var msg = sessionStorage.getItem(kei);
+	if(msg){
+		$('#zongmsgve').html('刚刚已经打开此文件<br><br><a href="javascript:;" onclick="js.reload()">重新进去</a>，<a href="javascript:;" onclick="js.back()">&lt;&lt;返回</a>');
+		sessionStorage.removeItem(kei,'');
+		return;
+	}
+	var url = 'api.php?m=upload&a=sendedit&id='+id+'&otype='+otype+'';
+	$.ajax({
+		type:'get',
+		url:url,
+		success:function(s){
+			var ret = js.decode(s);
+			if(ret.success){
+				var da = ret.data;
+				$('#msgview').html('跳转中...');
+				sessionStorage.setItem(kei,'trueabc');
+				js.location(da.url);
+			}else{
+				$('#msgview').html('<font color=red>'+ret.msg+'</font>');
+			}	
+		},
+		error:function(e){
+			$('#msgview').html(e.responseText);
+		}
+	});
+}
+</script>
+</head>
+<body style="padding:0px;margin:0px;">
+<div style="margin-top:20%" align="center" id="zongmsgve">
+<img src="images/mloading.gif" align="absmiddle">&nbsp;<span id="msgview">处理中...</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+
+
+/*边框样式*/
+.aui-border-t,
+.aui-border-b,
+.aui-border-l,
+.aui-border-r,
+.aui-border-tb,
+.aui-border {
+    position: relative;
+}
+.aui-border-t:after,
+.aui-border-b:after,
+.aui-border-l:after,
+.aui-border-r:after,
+.aui-border-tb:after,
+.aui-border:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    pointer-events: none;
+}
+.aui-border-l:after {
+    border-left: 1px solid #c8c7cc;
+}
+.aui-border-r:after {
+    border-right: 1px solid #c8c7cc;
+}
+.aui-border-t:after {
+    border-top: 1px solid #c8c7cc;
+}
+.aui-border-b:after {
+    border-bottom: 1px solid #c8c7cc;
+}
+.aui-border-tb:after {
+	border-top: 1px solid #c8c7cc;
+    border-bottom: 1px solid #c8c7cc;
+}
+.aui-border:after {
+    border:1px solid #c8c7cc;
+}
+.aui-border.aui-border-radius:after {
+    border-radius: 6px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+    .aui-border-t:after,
+    .aui-border-b:after,
+    .aui-border-l:after,
+    .aui-border-r:after,
+    .aui-border-tb:after,
+    .aui-border:after {
+        right: -100%;
+        bottom: -100%;
+        -webkit-transform: scale(0.5);
+    }
+}
+/*基础动画类*/
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+    }
+    50% {
+        -webkit-transform: rotate(180deg) scale(1);
+            transform: rotate(180deg) scale(1);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1);
+            transform: rotate(360deg) scale(1);
+    }
+}
+@-webkit-keyframes bounce {
+	0%, 100% {-webkit-transform: scale(0.0) }
+	50% {-webkit-transform: scale(1.0)}
+}
+@keyframes bounce {
+	0%, 100% {
+	-webkit-transform: scale(0.0);
+			transform: scale(0.0);
+	}
+	50% {
+	-webkit-transform: scale(1.0);
+			transform: scale(1.0);
+	}
+}
+@-webkit-keyframes fadeIn {
+    from { opacity: 0.3; }
+    to {  }
+}

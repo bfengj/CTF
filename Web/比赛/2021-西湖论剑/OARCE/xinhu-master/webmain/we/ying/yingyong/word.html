@@ -1,0 +1,334 @@
+<style>
+.progresscls{height:24px;overflow:hidden;line-height:24px;border:0px #eeeeee solid; position:relative;;width:100%;background-color:#f1f1f1;margin-top:3px}
+.progressclssse{background-color:#B0D6FC;height:24px;overflow:hidden;width:5%;position:absolute;z-index:0;left:0px;top:0px}
+.progressclstext{font-size:10px;color:#0556A8;height:24px;overflow:hidden;line-height:24px;text-align:left;position:absolute;z-index:1;left:5px;top:0px}
+.workheader span{float:left;display:block;padding:0px 10px; border-right:1px #dddddd solid;cursor:pointer;}
+.workheader span:active{background:#e1e1e1}
+</style>
+<script type="text/javascript">
+var cqids = '<?=$worcarr['ids']?>';
+yingyonginit = function(){
+	c.init();
+}
+yy.regetdata=function(){
+	c.getfile(0,0);
+}
+var c = {
+	typeid:0,
+	cqid:0,
+	ismanage:0,
+	isup:0,
+	uptype:'',
+	officebj:'',
+	init:function(){
+		c.getfile(0,0);
+		c.upobj = $.rockupload({
+			'inputfile' : 'wordupfile',
+			onchange:function(a){
+				c.onchange(a);
+			},
+			onprogress:function(a,bl){
+				c.onprogress(a,bl);
+			},
+			onsuccess:function(a,str){
+				c.onsuccess(a,str);
+			},
+			onerror:function(str){
+				js.msg('msg', str);
+				$('#progresstext_heheheh').html('<font color=red>上传失败</font>');
+			}
+		});
+	},
+	onchange:function(a){
+		$('#progresscls_hehehehsss').remove();
+		$('body').append('<div id="progresscls_hehehehsss" style="position:absolute;bottom:50px;" class="progresscls"><div id="progresscls_heheheh" class="progressclssse"></div><div class="progressclstext" id="progresstext_heheheh" >'+a.filename+','+a.filesizecn+'(0%)</div></div>');
+	},
+	onprogress:function(a,per){
+		$('#progresscls_heheheh').css('width',''+per+'%');
+		$('#progresstext_heheheh').html(''+a.filename+','+a.filesizecn+'('+per+'%)');
+	},
+	onsuccess:function(a,str){
+		var f = js.decode(str);
+		$('#progresstext_heheheh').html(''+a.filename+','+a.filesizecn+'，上传成功,保存中...');
+		var fileid = f.id;
+		js.ajax('word','savefile',{typeid:c.typeid,sid:fileid,cqid:this.cqid},function(a){
+			$('#progresscls_hehehehsss').remove();
+			js.msg('success',''+a.filename+'上传成功');
+			a.fileid=a.id;
+			a.name = a.filename;
+			$('#wordlisttable').append(c.showlist(a));
+		},'none');
+	},
+	create:function(){
+		js.wx.prompt('新建文件夹','请输入文件夹名称：',function(text){
+			if(!text){js.msg('msg','没有输入文件夹名称');return;}
+			js.ajax('word','createfolder',{name:text,typeid:c.typeid,cqid:c.cqid},function(a){
+				c.createshow(a);
+			});
+		});
+	},
+	createshow:function(a){
+		$('#wordlisttable').append(this.showlist(a));
+	},
+	up:function(){
+		c.upobj.click({'uptype':this.uptype});
+	},
+	
+	//切换分区
+	changfenqu:function(fq){
+		yy.sousoukey='';
+		yy.sqxs();
+		$('#workheader span:gt(0)').remove();
+		this.uptype = $(fq.options[fq.selectedIndex]).attr('uptype');
+		this.getfile(0, fq.value);
+	},
+	disabedgl:function(lx){
+		var clas = 'weui_navbar_item_disabled';
+		if(lx){
+			$('div[tempxu=2]').addClass(clas);
+		}else{
+			$('div[tempxu=2]').removeClass(clas);
+		}
+	},
+	disableup:function(lx){
+		var clas = 'weui_navbar_item_disabled';
+		if(lx){
+			$('div[tempxu=0]').addClass(clas);
+		}else{
+			$('div[tempxu=0]').removeClass(clas);
+		}
+	},
+	getfile:function(pid,cid,alx,padg){
+		this.typeid = pid;
+		this.cqid = cid;
+		this.disabedgl(true);
+		this.disableup(true);
+		if(!alx)alx='';
+		this.atype = alx;
+		if(!padg)padg=1;
+		this.page = padg;
+		get('cpselect').value = this.cqid;
+		js.ajax('word','getdata',{typeid:pid,cqid:this.cqid,cqids:cqids,atype:alx,page:padg,key:yy.sousoukey},function(a){
+			c.ismanage = a.ismanage;
+			c.isup = a.isup;
+			c.officebj = a.officebj;
+			if(a.ismanage==1)c.disabedgl(false);//有权限
+			if(a.isup==1)c.disableup(false);//有权限
+			c.data=[];
+			c.showdata(a);
+		},'mode');
+	},
+	reload:function(){
+		this.getfile(this.typeid,this.cqid,this.atype);
+	},
+	nextpage:function(){
+		this.getfile(this.typeid,this.cqid,this.atype,this.page+1);
+	},
+	showdata:function(a){
+		$('#showblank').remove();
+		var rows = a.rows;
+		var i,len=rows.length,s;
+		s='<table id="wordlisttable" style="width:100%; background-color:white">';
+		for(i=0;i<len;i++){
+			s+=c.showlist(rows[i]);
+		}
+		s+='</table>';
+		s+='<div style="margin-top:10px" class="showblank" id="showblank">共'+a.count+'条记录';
+		if(a.maxpage>1)s+=',当前'+a.maxpage+'/'+a.page+'页';
+		if(a.page<a.maxpage){
+			s+=', <a id="showblankss" onclick="c.nextpage(this)" href="javascript:;">点击加载</a>';
+		}
+		s+='</div>';
+		if(a.page<=1){
+			$('#mainbody_show').html(s);
+		}else{
+			$('#mainbody_show').append(s);
+		}
+	},
+	showlist:function(d){
+		if(!d.id)d.id=d.fileid;
+		if(!d.fileext)d.fileext='folder';
+		var oi = this.data.push(d),s1='';
+		var s='';
+		s+='<tr style="height:60px;border-top:1px #f1f1f1 solid" id="'+d.fileext+'_'+d.id+'" onclick="c.clicksse('+oi+',event,this)" >';
+		s1='<div id="filename_'+oi+'">'+d.name+'</div>';
+		if(d.fileid){
+			s1+='<div style="font-size:12px;color:#888888">大小：'+d.filesizecn+'';
+			if(!isempt(d.shate))s1+='，共享给：'+d.shate+'';
+			s1+='</div>';
+		}
+		if(d.fileext=='folder'){
+			s+='<td align="center" width="40"><img src="images/folder.png" height="24" width="24"></td><td>'+s1+'</td>';
+		}else{
+			var slx = d.fileext;
+			if(js.fileall.indexOf(','+slx+',')<0)slx='wz';
+			var fstr = 'web/images/fileicons/'+slx+'.gif';
+			if(d.thumbpath)fstr = d.thumbpath;
+			s+='<td align="center" width="40"><img src="'+fstr+'" height="16" width="16"></td><td>'+s1+'</td>';
+		}
+		s+='</tr>';
+		return s;
+	},
+	chentcolor:function(oi,e,o1){
+		if(this._olodwet)$(this._olodwet).css('background','');
+		$(o1).css('background','#f3f3f3');
+		this._olodwet = o1;
+	},
+	isoffice:function(ext){
+		var strs = ',doc,dot,wps,wpt,docx,dotx,docm,dotm,xls,xlt,et,xlsx,xltx,csv,xlsm,xltm,ppt,pptx,pptm,ppsx,ppsm,pps,potx,potm,dpt,dps,';
+		return strs.indexOf(','+ext+',')>=0;
+	},
+	clicksse:function(oi,e,o1){
+		this.chentcolor(oi,e,o1);
+		var d = this.data[oi-1];
+		this.tempoi = oi;
+		this.tempda = d;
+		var a = [{name:(d.fileext=='folder')?'打开':'下载',lx:0}];
+		if(d.fileext!='folder'){
+			a.push({name:'预览',lx:7});
+		}
+		if(this.ismanage==1){
+			a.push({name:'重命名',lx:1});
+			a.push({name:'删除',lx:4});
+			a.push({name:'共享给...',lx:5});
+			a.push({name:'移动',lx:2});
+			if(this.officebj=='1' && this.isoffice(d.fileext))a.push({name:'编辑',lx:8});
+		}
+		if(d.fileext!='folder'){
+			a.push({name:'转发给...',lx:6});
+		}
+		js.showmenu({data:a,onclick:function(d){c.clickmenuss(d)}});
+	},
+	clickmenuss:function(d){
+		var lx=d.lx;
+		if(lx==0)this.celdblckc(this.tempoi);
+		if(lx==1)this.cmmr();
+		if(lx==2)this.movesss();
+		if(lx==3)this.moveokzh();
+		if(lx==4)this.delfload();
+		if(lx==5)this.fenxiang();
+		if(lx==6)this.zhuanfagei();
+		if(lx==7)this.yulans();
+		if(lx==8)js.fileopt(this.tempda.fileid,2);
+	},
+	celdblckc:function(oi){
+		var d = this.data[oi-1];
+		if(d.fileext=='folder'){
+			var s = '<span onclick="c.clickheadeer('+d.id+', this)">'+d.name+'&gt;</span>';
+			$('#workheader').append(s);
+			this.getfile(d.id,d.cid);
+		}else{
+			js.fileopt(d.fileid,1);
+		}
+	},
+	yulans:function(){
+		var d = this.tempda;
+		js.fileopt(d.fileid,0);
+	},
+	clickheadeer:function(pid,o1){
+		var as = $('#workheader span');
+		var rb = false;
+		for(var i=0;i<as.length;i++){
+			if(rb)$(as[i]).remove();
+			if(o1==as[i])rb=true;
+		}
+		
+		c.getfile(pid,this.cqid);
+	},
+	cmmr:function(){
+		js.wx.prompt('重命名','请输入新的名称：',function(text){
+			if(!text){js.msg('msg','没有输入新的名称');return;}
+			if(c.tempda.name==text)return;
+			c.data[c.tempoi-1].name=text;
+			$('#filename_'+c.tempoi+'').html(text);
+			c.cmmrssok(text);
+		},this.tempda.name);
+	},
+	cmmrssok:function(txt){
+		var d={id:this.tempda.id,type:this.tempda.fileext,name:jm.base64encode(txt)};
+		js.ajax('word','rename',d,function(a){},'none');
+	},
+	movesss:function(){
+		$.selectdata({
+			title:'选择移动的分区/目录',
+			url:js.apiurl('word','moveget'),
+			checked:false,
+			onselect:function(sda,sna, sid){
+				js.ajax('word','movefile',{'cqid':sda.cqid,'typeid':sda.typeid,'ids':c.tempda.id},function(a){
+					js.msg('success','移动成功');
+					c.reload();
+				});
+			}
+		});
+	},
+
+	delfload:function(){
+		js.wx.confirm('确定要删除吗？',function(lx){
+			if(lx=='yes')c.delfloadok();
+		});
+	},
+	delfloadok:function(){
+		var d = this.tempda;
+		this.movedata=false;
+		js.ajax('word','delfile',{type:d.fileext,id:d.id},function(a){
+			$('#'+d.fileext+'_'+d.id+'').remove();
+			js.msg('success','删除成功');
+		});
+	},
+	fenxiang:function(){
+		$('body').chnageuser({
+			'changetype':'changedeptusercheck',
+			'title':'共享给...',
+			'titlebool':get('header_title'),
+			'onselect':function(sna,sid){
+				c.fenxiangok(sna,sid);
+			}
+		});
+	},
+	zhuanfagei:function(){
+		$('body').chnageuser({
+			'changetype':'changeusercheck',
+			'title':'转发给...',
+			'titlebool':get('header_title'),
+			'onselect':function(sna,sid){
+				c.zhuanfageiok(sna,sid);
+			}
+		});
+	},
+	zhuanfageiok:function(sna,sid){
+		var d  = this.tempda;
+		var ds = {'tuid':sid,'type':'user','cont':'','fileid':d.fileid};
+		js.ajax('reim','forward', ds, function(){
+			js.msg('success','已转发给【'+sna+'】')
+		});
+	},
+	fenxiangok:function(sna,sid){
+		var d = this.tempda;
+		js.ajax('word','shatefile',{type:d.fileext,ids:d.id,sid:sid,sna:sna},function(a){
+			if(sid==''){
+				js.msg('success','已取消共享');
+			}else{
+				js.msg('success','已共享给【'+sna+'】');
+			}
+			c.reload();
+		});
+	},
+	wfenxx:function(lx){
+		this.getfile(this.typeid,0, lx);
+	}
+};
+yy.clickevent=function(d){
+	if(d.url=='create')c.create();
+	if(d.url=='up')c.up();
+	if(d.url=='shate')c.wfenxx('shateall');	
+	if(d.url=='fxgw')c.wfenxx('shatewfx');	
+}
+yy.initScroll=function(){}
+</script>
+<div><select id="cpselect" onchange="c.changfenqu(this)" style="width:100%;border:none;height:40px;font-size:16px;padding:5px"><option uptype="" value="0">所有分区</option><?php
+foreach($worcarr['rows'] as $k=>$rs){
+	echo '<option uptype="'.$rs['uptype'].'" value="'.$rs['id'].'">'.$rs['name'].'</option>';
+}
+?></select></div>
+<div class="workheader" id="workheader" style="line-height:50px; background-color:#ffffff;overflow:hidden;border-top:1px #dddddd solid"><span onclick="c.clickheadeer(0, this)">顶级目录&gt;</span></div>
+<div id="mainbody_show"></div>

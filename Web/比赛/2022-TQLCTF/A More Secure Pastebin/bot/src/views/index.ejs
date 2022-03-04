@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>A More Secure Pastebin</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .clickable {
+            cursor: pointer;
+        }
+
+        .form-control-file {
+            display: none;
+        }
+
+        :root {
+            color-scheme: light;
+        }
+
+        hr {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #eeeeee -moz-use-text-color #ffffff;
+            border-style: solid none;
+            border-width: 1px 0;
+            margin: 3% 0 !important;
+        }
+
+        #msgbox {
+            display: none;
+        }
+
+        .list-group {
+            max-height: 350px;
+        }
+
+        .toppadding {
+            padding-top: 20vh;
+        }
+
+        @media (max-width: 978px) {
+            .toppadding {
+                padding-top: 10vh;
+            }
+        }
+
+        @media (max-width: 512px) {
+            .toppadding {
+                padding-top: 20px;
+            }
+        }
+
+        button[type="submit"] {
+            min-width: 70px;
+        }
+
+        .button-group {
+            min-width: fit-content;
+        }
+
+        .everyday {
+            margin: 3%;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container vh-100">
+        <div class="row toppadding">
+            <div class="col-md-10 mx-auto">
+                <div class="card border-primary bg-light mb-4 rounded-3">
+                    <div class="card-header">
+                        <ul class="nav justify-content-between">
+                            <li class="nav-item">
+                                <h3>A More Secure Pastebin</h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-start">
+                            <form action="/" method="POST">
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Your url"
+                                        aria-label="Your Paste url" aria-describedby="button-addon2" name="url" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="captcha">md5(?).substr(0,6) == <%= captcha %>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Captcha" aria-label="Captcha"
+                                        aria-describedby="button-addon2" name="captcha" id="captcha-input" />
+                                    <button class="btn btn-outline-primary" id="pow" onclick="calc()"
+                                        type="button">pow</button>
+                                    <input class="btn btn-outline-success" type="submit" />
+                                </div>
+                            </form>
+                            <div style="margin-top: 1%;">
+                                <p>
+                                    You can click the pow button to help you calculate the captcha! Take a cup of coffee and check your POC carefully. Good Luck.
+                                </p>
+                                <p>
+                                    If you take too long to calculate the md5, you can refresh the page to load a new captcha.
+                                </p>
+                                <p id="status"></p>
+                            </div>
+
+                        </div>
+                        <% if(typeof errors !='undefined' ){ %>
+                            <% errors.forEach(function(err){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= err.msg %>
+                                </div>
+                                <% }) %>
+                                    <% } %>
+                                        <% if(message.success){ %>
+                                            <div class="alert alert-success" role="alert">
+                                                <%= message.success %>
+                                            </div>
+                                            <%} %>
+                                                <% if(message.danger){ %>
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <%= message.danger %>
+                                                    </div>
+                                                    <%} %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calc() {
+            var captcha = document.getElementById('captcha').innerText.split(" == ")[1]
+            var num = 0
+            var t = setInterval(() => {
+                if (num > 5)
+                    num = 0
+                num++
+                var text = "calculating" + ".".repeat(num)
+                document.getElementById('status').innerText = text
+            }, 500);
+            const work = new Worker('/md5.js');
+            work.postMessage(captcha);
+            work.onmessage = (event) => {
+                document.getElementById("captcha-input").value = event.data
+                clearInterval(t);
+                document.getElementById('status').innerText = "Done!"
+            };
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title><?=$da['title']?></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="email=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<!--[if IE 7 ]><link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="webmain/css/reim.css" />
+<link rel="stylesheet" type="text/css" href="webmain/css/reim_index.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/mode/menu/jquery-rockmenu.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="web/res/js/jquery.1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/nwjs.js"></script>
+<script type="text/javascript" src="web/res/mode/menu/jquery-rockmenu.js"></script>
+<script type="text/javascript" src="web/res/js/notify.js"></script>
+<script type="text/javascript" src="js/reim.js"></script>
+<script type="text/javascript" src="web/res/js/websocket.js"></script>
+<script type="text/javascript" src="web/res/perfectscrollbar/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+js.servernow	= '<?=$da['now']?>';
+PROJECT			= '<?=$da['p']?>';
+adminip			= '<?=$da['ip']?>';
+systitle		= '<?=$da['title']?>';
+function globalbody(){
+	adminid		= '<?=$da['adminid']?>';
+	adminface	= '<?=$da['face']?>';
+	adminname	= '<?=$da['adminname']?>';
+	adminuser	= '<?=$da['adminuser']?>';
+	deptallname	= '<?=$da['my']['deptallname']?>';
+	adminranking= '<?=$da['my']['ranking']?>';
+}
+
+function initbody(){
+	reim.show();
+}
+function winfocus(){
+	window.focus();
+}
+</script>
+<style>
+.reim_main{width:auto}
+</style>
+</head>
+<body style="overflow:hidden;" scroll="no">
+<div id="reim_viewshow">
+
+</div>
+
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-rockupload.js"></script>
+</body>
+</html>

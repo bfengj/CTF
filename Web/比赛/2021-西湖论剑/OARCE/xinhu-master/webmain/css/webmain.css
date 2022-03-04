@@ -1,0 +1,196 @@
+*{font-family:微软雅黑,Verdana, Geneva, sans-serif;padding:0px;margin:0px;}
+body{--main-color:#1389D3;color:#222222;margin:0px;border:0;font-size:14px;-webkit-overflow-scrolling:touch;overflow-scrolling:touch;}
+td,button{ font-size:14px}
+a,c,.cursor{cursor:pointer;}
+p{text-indent:24pt;margin:10px 0px}
+ul,li,a{ list-style-type:none;}
+ul,li{padding:0px;margin:0px}
+.relative{position:relative}
+.zhu{ color:#ffffff}
+img{border:0}
+label{font-weight:normal}
+
+.wrap{word-wrap:break-word;word-break:break-all;white-space:normal;}
+
+select,input,textarea,button,a{ font-size:14px;resize: none;outline:none}
+
+.notsel{-moz-user-select: none;-o-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;cursor:default;}
+
+a.hui:link,a.hui:visited{color:#555555;TEXT-DECORATION:none;}
+a.hui:hover{TEXT-DECORATION:underline;color:red;}
+
+a.blue:link,a.blue:visited{color:blue;TEXT-DECORATION:none;}
+a.blue:hover{TEXT-DECORATION:underline;color:red;}
+
+a.red:link,a.red:visited{color:red;TEXT-DECORATION:underline;}
+a.red:hover{TEXT-DECORATION:underline;color:red;}
+
+.tishi{color:#888888;padding:10px 0px}
+
+.basetable td{padding:3px 5px; text-align:center}
+
+.font12{font-size:12px}
+.font14{font-size:14px}
+.font16{font-size:16px}
+
+.white{color:white;}
+a.white:link,a.white:visited{color:white;TEXT-DECORATION:none;}
+a.white:hover{TEXT-DECORATION:underline;color:white;}
+
+.blank1{ height:1px; overflow:hidden; border-bottom:1px #dddddd solid}
+.blank10{ height:10px; overflow:hidden}
+.blank5{ height:5px; overflow:hidden}
+.blank20{ height:20px; line-height:20px;overflow:hidden}
+.blank25{ height:25px; line-height:25px;overflow:hidden}
+.blank30{ height:30px; line-height:30px; overflow:hidden}
+.blank40{ height:40px; line-height:40px; overflow:hidden}
+.black{ width:960px}
+.body{padding:10px}
+
+.h1{ font-size:24px;font-weight:bold;}
+.h2{ font-size:20px;font-weight:bold;}
+
+.alert{ padding:10px 20px;border-radius:0px; text-align:center;box-shadow:0px 0px 10px rgba(0,0,0,0.2);}
+.alert_msg{ background-color:#fbe3cf;border:0px #f6a15d solid; color:#f86f00}
+.alert_success{ background-color:#e3f6d1;border:0px #78b146 solid;color:green}
+.alert_wait{ background-color:#f8f8f8;border:0px #cccccc solid;color:#555555}
+
+
+.inputs{height:30px;line-height:25px;background-color:white;padding:2px;width:95%; border:1px #dddddd solid}
+input.checkbox,input.radio{ border:none;padding:0;margin-right:5px; width:14px; height:14px}
+.icons{ height:14px; width:14px;}
+
+.icon{ height:14px; width:14px}
+
+.title{background:#157FCC; color:#ffffff; height:40px; line-height:40px; overflow:hidden; text-align:left;font-size:14px;}
+.title li{height:40px;overflow:hidden;float:left;width:50%}
+.htitle{background:#bcbcbc; color:#ffffff; height:40px; line-height:40px; overflow:hidden; text-align:left;font-size:14px;}
+
+.input,.select,.textarea{height:30px; line-height:30px; border:1px #cccccc solid; padding:2px 5px;font-size:14px;}
+.textarea{ line-height:26px;}
+.input:focus,input:focus,.textarea:focus{box-shadow:0px 0px 5px rgba(0,0,0,0.3); border:1px #0887CC solid;border:1px var(--main-color) solid; color:#000000}
+
+.box{box-shadow:0px 0px 5px rgba(0,0,0,0.3); border:1px #157FCC solid;}
+.boxs{box-shadow:0px 5px 20px rgba(0,0,0,0.3);}
+
+
+
+.danger{background-color:#C9302C}
+.success{background-color:#449D44}
+.info{background-color:#31B0D5}
+.red{background-color:#ff0000}
+.warning{background-color:#e7971f}
+.green{background-color:#32BC12}
+.huang{background-color:#ff6600}
+
+
+
+
+
+.menulistbg{width:30px;overflow:hidden;text-align:center;line-height:22px;color:white} 
+
+
+/*选择卡*/
+.tabsindex div:hover,.tabsindex td:hover{color:#000000}
+.tabsindex td{height:44px;overflow:hidden;line-height:44px;padding:0px 20px;color:#888888;cursor:pointer;position:relative;}
+.tabsindex span{font-size:12px;color:#aaaaaa;position:absolute;top:2px;right:2px;display:inline-block;height:16px;width:16px;line-height:14px;text-align:center;}
+.tabsindex span:hover{background-color:#e1e1e1;color:white;border-radius:50%}
+.tabsindex .active{background-color:white;color:#000000}
+.jtcls{height:44px;line-height:44px;overflow:hidden;width:14px;text-align:center;position:absolute;z-index:8;top:50px; background-color:#e1e1e1;right:0px;font-size:12px;cursor:pointer;color:#888888;display:none;top:0px}
+.jtcls:hover{background-color:#e5e5e5;color:#000000}
+
+
+
+
+.arrow-down{
+width: 0;
+height: 0;
+border-left: 10px solid transparent; /* 左边框的宽 */
+border-right: 10px solid transparent; /* 右边框的宽 */
+border-top: 10px solid #cccccc; /* 下边框的长度|高,以及背景色 */
+font-size: 0;
+line-height: 0;
+} 
+
+.bootstree ul{height:36px;overflow:hidden;border-top:1px #dedede solid}
+.bootstree ul li{height:35px;overflow:hidden;line-height:35px;float:left;border-right:1px #dedede solid}
+.bootstree ul li:last-child{border-right-width:0px}
+
+.bootstree ul:nth-of-type(even) {
+  background-color: rgba(255,255,255,0.1);
+}
+.bootstree ul:hover{background-color: #f5f5f5;color:#555555}
+
+.footmsg{text-align:left;color:#ff6600; padding:15px 0px;line-height:24px;font-size:12px}
+.form-control{padding:0px 5px;}
+
+
+.table > tbody > tr > td{padding:6px}
+.tdinput{padding:5px 0px;text-align:left;padding-right:15px}
+.inputtitle{text-align:center; background-color:#EDF7FC;line-height:30px;}
+.trb td,.trb th{border-right:1px #eeeeee solid}
+.trb td:last-child{border-right-width:0px}
+.trb th:last-child{border-right-width:0px}
+
+.form-select{
+	background:#dddddd;
+	background:-ms-linear-gradient(top, #f1f1f1, #dedede,#f1f1f1);
+	background:-moz-linear-gradient(top, #f1f1f1, #dedede,#f1f1f1);
+	background:-webkit-linear-gradient(top, #f1f1f1, #dedede,#f1f1f1);
+}
+.select-list .div01{padding:8px 10px;border-top:1px #eeeeee solid}
+.select-list .div01:hover{background-color:#E0F2FC}
+.select-list .div02{padding:8px 10px;border-top:1px #eeeeee solid;background-color:#E0F2FC}
+
+.jquery-calendar .tdtext{border:1px #eeeeee solid;padding:3px}
+.jquery-calendar .tdtext:hover{background-color:#f5f5f5}
+.jquery-calendar .thtext{border:1px #eeeeee solid; color:#26AA05; background-color:#EBF7D9;height:34px}
+
+#tishidivshow{width:280px;background-color:white;border-radius:5px;position:fixed;z-index:8;right:3px;bottom:3px}
+
+.overdiv{padding:5px 10px;cursor:pointer}
+.overdiv:hover{background-color:#E0F2FC}
+
+.floats{display:inline-block;width:100%}
+.floats li{float:left}
+.floats30{float:left;width:30%}
+.floats20{float:left;width:20%}
+.floats80{float:left;width:80%}
+.floats60{float:left;width:60%}
+.floats40{float:left;width:40%}
+.floats50{float:left;width:50%}
+.floats70{float:left;width:70%}
+.floatr20{float:right;width:20%}
+
+.datesss{background:url(../../mode/icons/date.png) no-repeat right;cursor:pointer}
+.divinput{padding:5px}
+.lurim{ text-align:right}
+
+
+
+/*图形样式*/
+.rf{position:absolute;background-color:#D2E9F7;border:1px #B8DAEF solid;color:#1389D3;text-align:center;max-width:150px;min-width:100px}
+.rf_nei{padding:5px 10px}
+.rf_ract{}
+.rf_yuan{border-radius:20%}
+.rf-text{font-size:14px;word-wrap:nowrap;height:20px;line-height:20px;overflow:hidden}
+.rf-texts{font-size:12px;color:#84BDE0;word-wrap:nowrap;height:20px;line-height:20px;overflow:hidden}
+
+.rf-txt{position:absolute;color:#1389D3}
+.rf-active{background-color:#60C2F7}
+
+/*箭头的*/
+.rf_shu{position:absolute;height:100px;border:none;width:12px;overflow:hidden;transform-origin:0px 0px;-webkit-transform-origin:0px 0px;-ms-transform-origin:0px 0px;-moz-transform-origin:0px 0px;}
+.rf_shu1{width:6px;height:94px;background-color:#C6E1F2;margin-left:3px}
+.rf_shu2{width:0px;height:0px; overflow:hidden;border-width:6px;border-style:solid;border-color:#C6E1F2 transparent transparent transparent;}
+
+.rf_shus{position:absolute;height:100px;border:none;width:6px;overflow:hidden;background-color:#C6E1F2}
+.rf_hens{position:absolute;height:6px;border:none;width:100px;overflow:hidden;background-color:#C6E1F2}
+
+
+a.webbtn:link,a.webbtn:visited,.webbtn{color:#ffffff;opacity:1; background-color:#336699;background-color:var(--main-color); padding:5px 10px; border:none; cursor:pointer;font-size:14px;border-radius:5px;white-space:nowrap;text-overflow:ellipsis;}
+a.webbtn-mini:link,a.webbtn-mini:visited,.webbtn-mini{font-size:12px;padding:3px 5px}
+a.webbtn-red:link,a.webbtn-red:visited,.webbtn-red{background-color:#d9534f}
+a.webbtn-white:link,a.webbtn-white:visited,.webbtn-white{background-color:white;border:1px #cccccc solid;color:black}
+.webbtn:disabled{background-color:#aaaaaa; color:#eeeeee}
+.webbtn:hover{box-shadow:0px 0px 5px rgba(0,0,0,0.3);opacity:0.8}

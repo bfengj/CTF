@@ -1,0 +1,103 @@
+*{font-family:微软雅黑,Verdana, Geneva, sans-serif;list-style-type:none;padding:0px;margin:0px;word-wrap:break-word;word-break:break-all;}
+body,html{color:#000000;margin:0px;border:0;font-size:14px}
+div,a,button{font-size:14px}
+a,.cursor{cursor:pointer;}
+p{text-indent:24pt; margin:5px 0px}
+input,textarea,a{resize: none;outline:none}
+.zhu{ color:#0572AD}
+.hui{ color:#888888}
+.red{ color:#ff0000}
+.blue{ color:blue}
+table{border-spacing:0;border-collapse: collapse;}
+a:link,a:visited{TEXT-DECORATION:none;color:#0572AD}
+a:hover{TEXT-DECORATION:none;color:red;}
+
+a.zhu{color:#1389D3}
+img{border:0}
+
+select,input,textarea,button,a{ font-size:14px;resize: none;outline:none}
+.touch{-webkit-overflow-scrolling:touch;overflow-scrolling:touch;}
+
+a.blue:link,a.blue:visited{color:blue;TEXT-DECORATION:none;}
+a.blue:hover{TEXT-DECORATION:underline;color:red;}
+
+a.red:link,a.red:visited{color:red;TEXT-DECORATION:underline;}
+a.red:hover{TEXT-DECORATION:underline;color:red;}
+
+a.a:link,a.a:visited{color:#0441b0;TEXT-DECORATION:underline;}
+a.a:hover{TEXT-DECORATION:underline;color:red;}
+
+
+.white{color:white;}
+a.white:link,a.white:visited{color:white;TEXT-DECORATION:none;}
+a.white:hover{TEXT-DECORATION:underline;color:white;}
+
+.blank1{ height:1px; overflow:hidden; border-bottom:1px #dddddd solid}
+.blank10{ height:10px; overflow:hidden}
+.blank20{ height:20px; overflow:hidden;line-height:20px}
+.blank5{ height:5px; overflow:hidden}
+.blank25{ height:25px; line-height:25px;overflow:hidden;}
+.blank30{ height:30px; line-height:30px; overflow:hidden}
+.blank40{ height:40px; line-height:40px; overflow:hidden}
+ul,li,a{ list-style-type:none}
+.h1{ font-size:24px;font-weight:bold;}
+.h2{ font-size:20px;font-weight:bold;}
+
+
+.inputs{height:28px; line-height:24px; border:1px #cccccc solid;padding:0px 2px; overflow:hidden;}
+input.checkbox,input.radio{ border:none;padding:0;margin-right:5px; width:16px; height:16px}
+.icons{ height:16px; width:16px; padding-right:3px}
+.icons:hover{box-shadow:0px 0px 5px rgba(0,0,0,0.3);}
+
+.barinput{padding:0px 2px;width:150px;height:23px}
+.icon{ height:16px; width:16px;margin-right:5px}
+
+.input,.select,.textarea{height:30px; line-height:28px; border:1px #cccccc solid; padding:0px 5px;font-size:14px;}
+.input:focus{box-shadow:0px 0px 5px rgba(0,0,0,0.3); border:1px #1389D3 solid; color:#000000}
+
+.btn{height:30px;line-height:20px; background-color:#1389D3;border:none;color:#f1f1f1;padding:3px 10px; cursor:pointer;opacity:1;}
+.btn:hover{opacity:0.8;color:#ffffff;}
+
+.webbtn:link,.webbtn:visited,.webbtn{color:#f1f1f1;background-color:#1389D3; padding:3px 8px; border:none; cursor:pointer;font-size:14px}
+.webbtn:hover{opacity:0.8;color:#ffffff;}
+
+.box{box-shadow:0px 0px 10px rgba(0,0,0,0.3);}
+.notsel{-moz-user-select: none;-o-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;cursor:default;}
+
+
+.title{background:#157FCC; color:#ffffff; height:40px; line-height:40px; overflow:hidden; text-align:left;font-size:14px;}
+
+
+.offline,.offline font{color:#888888}
+.offline img{filter:Alpha(Opacity=40);opacity:0.4;}
+
+.reimlabel{background-color:#93cdf2;color:white;padding:1px 2px;font-size:12px;border-radius:2px}
+.reimlabel1{background-color:#f9af7e;color:white;padding:1px 2px;font-size:12px;border-radius:2px}
+
+
+.gusertop .div01{height:24px;overflow:hidden;margin:7px 5px 5px 5px;float:left}
+.gusertop .div02{height:30px;overflow:hidden;margin:3px;font-size:14px;float:left;color:white;line-height:30px}
+.gusertop .div03{height:40px;overflow:hidden;float:right;color:white;line-height:40px;padding:0px 8px;cursor:pointer}
+.gusertop .div03:hover{ background-color:rgba(0,0,0,0.1)}
+
+.content{width:100%;height:100%;border:none;overflow:auto;padding:0px;font-size:14px;}
+.content:focus{border:0px #dddddd solid}
+
+
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 5px;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color:red;font-size:12px;
+  border-radius: 10px;
+}
+.badge:empty {
+  display: none;
+}

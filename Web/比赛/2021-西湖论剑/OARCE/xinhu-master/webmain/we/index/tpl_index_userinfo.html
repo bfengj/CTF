@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title><?=$arr['name']?></title>
+<link rel="stylesheet" type="text/css" href="mode/weui/weui.min.css"/>
+<link rel="stylesheet" type="text/css" href="web/res/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="webmain/css/rui.css">
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/base64-min.js"></script>
+<script type="text/javascript" src="web/res/js/jquery-imgview.js"></script>
+<?php
+if($web=='ding')echo '<script type="text/javascript" src="js/jsdd.js?'.time().'"></script>';
+?>
+<style>
+<?php 
+$maincolor = getconfig('apptheme','#1389D3');
+$maincolora= c('image')->colorTorgb($maincolor);
+$maincolors= ''.$maincolora[0].','.$maincolora[1].','.$maincolora[2].'';
+echo 'body{--main-color:'.$maincolor.';}';
+?>
+body,html{overflow:hidden}
+.hd{padding:2em 0; text-align:center;}
+.hd img{height:100px;width:100px;border-radius:50px}
+</style>
+<script>
+ismobile = 1,openbo=false;
+function initbody(){
+	//if(js.jssdkdingding)js.jssdkdingding(['biz.chat.chooseConversationByCorpId','biz.chat.openSingleChat','biz.chat.pickConversation']);
+}
+js.jssdkddcall=function(bo){
+	openbo = bo;
+}
+function gotochar(){
+	if(!openbo){
+		js.location('?m=chat&d=we&type=user&uid=<?=$arr['id']?>');
+	}else{
+		
+	}
+}
+function showface(o1){
+	$.imgview({url:o1.src,ismobile:true});
+}
+</script>
+</head>
+
+
+<body>
+<?php if($showheader==1){?>
+<div>
+	<div class="r-header">
+		<div class="r-header-text" id="header_title"><?=$arr['name']?></div>
+		<span onclick="js.back()" class="r-position-left r-header-btn"><i class="icon-chevron-left"></i></span>
+	</div>
+	<div class="blank50"></div>
+</div>
+<?php }?>
+
+
+<div>
+	
+	<div style="margin-top:20px" class="weui_panel weui_panel_access">
+		<div class="weui_panel_bd">
+			<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+				<div class="weui_media_hd">
+					<img class="weui_media_appmsg_thumb" onclick="showface(this)" src="<?=$arr['face']?>">
+				</div>
+				<div class="weui_media_bd">
+					<h4 class="weui_media_title"><?=$arr['name']?></h4>
+					<p style="font-size:14px;color:#888888">部门：<?=$arr['deptallname']?><br>职位：<?=$arr['ranking']?></p>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div style="height:10px"></div>
+	<p class="weui_cells_title">联系方式</p>
+	<div class="weui_cells weui_cells_access">
+		<a class="weui_cell">
+			<div class="weui_cell_bd weui_cell_primary">
+				<p style="color:#888888">性别</p>
+			</div>
+			<span style="color:#000000"><?=$arr['sex']?></span>
+		</a>
+		<a class="weui_cell" href="tel:<?=$arr['tel']?>">
+			<div class="weui_cell_bd weui_cell_primary">
+				<p style="color:#888888">电话</p>
+			</div>
+			<span style="color:#000000" class="weui_cell_ft"><?=$arr['tel']?></span>
+		</a>
+		<a class="weui_cell" href="tel:<?=$arr['mobile']?>">
+			<div class="weui_cell_bd weui_cell_primary">
+				<p style="color:#888888">手机号</p>
+			</div>
+			<span style="color:#000000" class="weui_cell_ft"><?=$arr['mobile']?></span>
+		</a>
+		<a class="weui_cell" href="mailto:<?=$arr['email']?>">
+			<div class="weui_cell_bd weui_cell_primary">
+				<p style="color:#888888">邮箱</p>
+			</div>
+			<span class="weui_cell_right"><?=$arr['email']?></span>
+		</a>
+		<?php if($da['adminid']=='1'){?>
+		<a class="weui_cell">
+			<div class="weui_cell_bd weui_cell_primary">
+				<p style="color:#888888">用户Id</p>
+			</div>
+			<span style="color:#000000"><?=$arr['id']?></span>
+		</a>
+		<?php }?>
+	</div>
+
+	
+	<div class="weui_btn_area">
+		<a onclick="gotochar()" class="weui_btn weui_btn_primary"><i class="icon-comment"></i> 发消息</a>
+	</div>
+	<div style="height:10px"></div>
+</div>
+
+
+
+</body>
+</html>
