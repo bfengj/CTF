@@ -48,6 +48,7 @@
 - [URLDNS链学习](./Web/java/Java反序列化/[Java反序列化]URLDNS链学习.md)
 - [JDBC反序列化漏洞学习](./Web/java/Java反序列化/JDBC反序列化漏洞学习.md)
 - [C3P0反序列化](./Web/java/Java反序列化/[Java反序列化]C3P0反序列化.md)
+- [AspectJWeaver反序列化](./Web/java/Java反序列化/[Java反序列化]AspectJWeaver反序列化.md)
 
 ### Java基础
 
@@ -146,6 +147,8 @@
 
 ## Writeup
 
+部分writeup可能没有列出。
+
 - [[2021东华杯]JK战队WP](./Web/writeup/[2021东华杯]JK战队WP.md)
 - [[WMCTF2020]Make_PHP_Great_Again](./Web/writeup/[WMCTF2020]Make_PHP_Great_Again.md)
 - [[WMCTF2021]Make_PHP_Great_Again_And_Again](./Web/writeup/[WMCTF2021]Make_PHP_Great_Again_And_Again.md)
@@ -188,7 +191,7 @@
 - [祥云杯2021-Web复现](./Web/writeup/祥云杯2021-Web复现.md)
 - [祥云杯2021-Web简单题wp](./Web/writeup/祥云杯2021-Web简单题wp.md)
 - [长城杯线下-Web-Work-复现](./Web/writeup/长城杯线下-Web-Work-复现.md)
-- 
+- [2022-工大抗疫-web-writeup](./Web/writeup/2022-工大抗疫-web-writeup.md)
 
 
 
