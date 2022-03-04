@@ -189,3 +189,5 @@ windows：
 ## 参考链接
 
 https://xz.aliyun.com/t/10659
+
+https://github.com/jas502n/Log4j2-CVE-2021-44228
