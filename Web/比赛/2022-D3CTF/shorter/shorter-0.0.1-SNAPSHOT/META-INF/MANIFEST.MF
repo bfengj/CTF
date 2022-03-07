@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Archiver-Version: Plexus Archiver
+Built-By: shorter
+Start-Class: web.challenge.shorter.ShorterApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Version: 2.3.7.RELEASE
+Created-By: Apache Maven 3.8.4
+Build-Jdk: 1.8.0_312
+Main-Class: org.springframework.boot.loader.JarLauncher
+

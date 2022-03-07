@@ -1,0 +1,18 @@
+spring:
+
+    datasource:
+    # jdbc:mysql://localhost:3306/test
+        url: jdbc:mysql://127.0.0.1:3306/d3ctf?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: d3ctf
+        password: vRogLuddzyNPDTasG7woQNVkCTL7jbSD
+        driver-class-name: com.mysql.jdbc.Driver
+
+#mybatis:
+#    mapper-locations: classpath:mapper/*.xml
+
+logging:
+    level:
+        com.dyq.mybatis.dao : debug
+
+server:
+    port: 8082

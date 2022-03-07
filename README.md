@@ -130,11 +130,18 @@
 - [Java外带](./Web/java/命令执行/Java外带.md)
 - [关闭RASP然后命令执行](./Web/java/命令执行/关闭RASP然后命令执行.md)
 
+### 表达式注入
+
+- [EL表达式注入](./Web/java/表达式注入/EL表达式注入.md)
+- [SpEL表达式注入](./Web/java/表达式注入/SpEL表达式注入.md)
+- [OGNL表达式注入](./Web/java/表达式注入/OGNL表达式注入.md)
+
 ### 题目
 
 - [[红明谷CTF2021]JavaWeb](./Web/java/题目/[红明谷CTF2021]JavaWeb/[红明谷CTF2021]JavaWeb.md)
 - [ezj4va[国赛总决赛复现]](./Web/java/题目/ezj4va[国赛总决赛复现]/2021-CISCN-fianl-ezj4va.md)
 - [SUSCTF2022的两个Java](./Web/java/题目/SUSCTF2022的两个Java/SUSCTF2022的两道Java复现.md)
+- [D3CTF non rce](./Web/java/题目/D3CTF-2021-non-rce/non-RCE.md)
 
 ## PHP
 
@@ -147,7 +154,7 @@
 
 ## Writeup
 
-部分writeup可能没有列出。
+部分writeup可能没有列出，从2021年下半年开始，因为很多WP都忘记更新到这里的目录了，而且现在wp目录有点乱，我也不知道哪些是没放上来的了。。。
 
 - [[2021东华杯]JK战队WP](./Web/writeup/[2021东华杯]JK战队WP.md)
 - [[WMCTF2020]Make_PHP_Great_Again](./Web/writeup/[WMCTF2020]Make_PHP_Great_Again.md)
