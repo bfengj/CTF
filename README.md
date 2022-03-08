@@ -199,6 +199,7 @@
 - [祥云杯2021-Web简单题wp](./Web/writeup/祥云杯2021-Web简单题wp.md)
 - [长城杯线下-Web-Work-复现](./Web/writeup/长城杯线下-Web-Work-复现.md)
 - [2022-工大抗疫-web-writeup](./Web/writeup/2022-工大抗疫-web-writeup.md)
+- [2022-D3CTF-web-writeup](./Web/writeup/2022-D^3CTF-Web-Writeup.md)
 
 
 
