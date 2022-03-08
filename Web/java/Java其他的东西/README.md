@@ -8,5 +8,4 @@
 
 
 
-- 2022.3.7 [java沙箱绕过](https://www.anquanke.com/post/id/151398)，其实就是绕过java security manager，咕了。。。一定要补啊
 - 
