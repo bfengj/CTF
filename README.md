@@ -32,6 +32,10 @@
 
 - [[Java-sec-code]PathTraversal学习](./Web/java/Java-sec-code/[Java-sec-code]PathTraversal学习.md)
 
+### XXE
+
+- [Java中的XXE](./Web/java/XXE/Java中的XXE.md)
+
 ### Java反序列化
 
 - [CommonsBeanutils1利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsBeanutils1利用链学习.md)
