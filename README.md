@@ -28,6 +28,10 @@
 - [fastjson学习](./Web/java/fastjson/[Java安全]fastjson学习.md)
 - [2022-卷王杯-happyFastjson](./Web/java/fastjson/2022-卷王杯-happyFastjson.md)
 
+### jackson
+
+- [Jackson反序列化基础知识](./Web/java/Jastjson/Jackson反序列化基础知识.md)
+
 ### Java-sec-code
 
 - [[Java-sec-code]PathTraversal学习](./Web/java/Java-sec-code/[Java-sec-code]PathTraversal学习.md)
