@@ -136,7 +136,7 @@
 ### tomcat
 
 - [Tomcat-Session反序列化](./Web/java/tomcat/Tomcat-Session反序列化学习.md)
-- 
+- [Tomcat的知识和trick](./Web/java/tomcat/Tomcat的知识和trick.md)
 
 ### 命令执行
 
@@ -160,6 +160,13 @@
 
 - [利用pearcmd.php从LFI到getshell](./Web/php/利用pearcmd.php从LFI到getshell.md)
 - [无需可控文件的LFI-RCE](./Web/php/[PHP]无需可控文件的LFI-RCE学习.md)
+
+
+
+## 提权
+
+- [pkexec提权](./Web/提权/pkexec提权/README.md)
+- [dirty-pipe提权](./Web/提权/dirty-pipe提权/README.md)
 
 ## Python
 
