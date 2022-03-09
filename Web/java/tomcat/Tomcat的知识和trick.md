@@ -21,7 +21,9 @@ ${pageContext.servletContext.classLoader.resources.context.manager.pathname=para
 ${sessionScope[param.b]=param.c}
 ```
 
-触发SESSION持久化也可以通过reload：
+触发SESSION持久化也可以通过reload
+
+## tomcat的reload
 
 1. Context reloadable 配置为 true（默认是 false）；
 2. /WEB-INF/classes/ 或者 /WEB-INF/lib/ 目录下的文件发生变化。
@@ -30,5 +32,24 @@ ${sessionScope[param.b]=param.c}
 
 具体利用参考RWCTF2022-DesperateCat
 
+还可以利用`Tomcat Context WatchedResource`：
+
+在 Tomcat 9 环境下，默认的 WatchedResource 包括：
+
+- WEB-INF/web.xml
+- WEB-INF/tomcat-web.xml
+- ${CATALINA_HOME}/conf/web.xml
+
+> Tomcat 会有后台线程去监控这些文件资源，在 Tomcat 开启 autoDeploy 的情况下（此值默认为 true，即默认开启 autoDeploy），一旦发现这些文件资源的 lastModified 时间被修改，也会触发 reload
 
 
+
+## 关于jar包META-INF/resources/的利用
+
+往jar包的`META-INF/resources/`下面写jsp马，然后放到`./WEB-INF/lib/`下面再触发reload，这个jsp马就可以被直接被访问到，这也是tomcat部署的一个知识了（之前docker tomcat部署的时候就遇到过这个）
+
+![image-20220309162846423](Tomcat的知识和trick.assets/image-20220309162846423.png)
+
+![image-20220309162855074](Tomcat的知识和trick.assets/image-20220309162855074.png)
+
+![image-20220309162904023](Tomcat的知识和trick.assets/image-20220309162904023.png)

@@ -184,7 +184,19 @@ flag{121a8166-c375-40f3-802a-1bdef43f18d2}
 
 ## 非预期
 
-直接往`./WEB-INF/lib/`下面写一个ascii范围在0-127的jar包，把jsp马放到jar包的`META-INF/resources/`下面即可通过WEB直接访问。
+直接往`./WEB-INF/lib/`下面写一个ascii范围在0-127的jar包，把jsp马放到jar包的`META-INF/resources/`下面，reload之后即可访问。
+
+这种reload借助的是`Tomcat Context WatchedResource`。
+
+在 Tomcat 9 环境下，默认的 WatchedResource 包括：
+
+- WEB-INF/web.xml
+- WEB-INF/tomcat-web.xml
+- ${CATALINA_HOME}/conf/web.xml
+
+> Tomcat 会有后台线程去监控这些文件资源，在 Tomcat 开启 autoDeploy 的情况下（此值默认为 true，即默认开启 autoDeploy），一旦发现这些文件资源的 lastModified 时间被修改，也会触发 reload
+
+这样也可以reload。
 
 具体可以参考回忆飘如雪师傅的文章：
 
