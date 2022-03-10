@@ -33,6 +33,13 @@
 - [Jackson反序列化基础知识](./Web/java/Jackson/Jackson反序列化基础知识.md)
 - [Jackson反序列化各种链子](./Web/java/Jackson/Jackson反序列化各种链子.md)
 
+
+
+### SnakeYaml
+
+- [SnakeYaml基础知识](./Web/java/SnakeYaml/SnakeYaml基础知识.md)
+- [SnakeYaml反序列化链](./Web/java/SnakeYaml/SnakeYaml反序列化链.md)
+
 ### Java-sec-code
 
 - [[Java-sec-code]PathTraversal学习](./Web/java/Java-sec-code/[Java-sec-code]PathTraversal学习.md)
@@ -62,38 +69,25 @@
 ### Java基础
 
 - [动态加载字节码](./Web/java/Java基础/[Java安全]动态加载字节码学习.md)
-
 - [ClassLoader](./Web/java/Java基础/Java-ClassLoader-学习笔记.md)
-
 - [IO流](./Web/java/Java基础/Java-IO流-学习笔记.md)
-
 - [JDBC](./Web/java/Java基础/Java-JDBC-学习笔记.md)
-
 - [RMI](./Web/java/Java基础/Java-RMI-学习笔记.md)
-
 - [动态代理](./Web/java/Java基础/Java-动态代理-学习笔记.md)
-
 - [命令执行](./Web/java/Java基础/Java-命令执行.md)
-
 - [序列化和反序列化](./Web/java/Java基础/Java-序列化和反序列化-学习笔记.md)
-
 - [反射](./Web/java/Java基础/Java反射学习笔记.md)
-
 - [集合](./Web/java/Java基础/Java集合学习笔记.md)
-
 - [Java基础学习笔记（一）](./Web/java/Java基础/Java基础学习笔记（一）.md)
-
 - [Java基础学习笔记（二）](./Web/java/Java基础/Java基础学习笔记（二）.md)
-
 - [Java基础学习笔记（三）](./Web/java/Java基础/Java基础学习笔记（三）.md)
-
 - [Java基础学习笔记（四）](./Web/java/Java基础/Java基础学习笔记（四）.md)
-
 - [Java基础学习笔记（五）](./Web/java/Java基础/Java基础学习笔记（五）.md)
-
 - [Java基础学习笔记（六）](./Web/java/Java基础/Java基础学习笔记（六）.md)
 
-  
+### SPI
+
+- [Java-SPI学习](./Web/java/SPI/Java-SPI学习.md)
 
 ### JNDI
 
