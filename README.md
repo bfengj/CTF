@@ -30,8 +30,8 @@
 
 ### jackson
 
-- [Jackson反序列化基础知识](./Web/java/Jackjson/Jackson反序列化基础知识.md)
-- [Jackson反序列化各种链子](./Web/java/Jackjson/Jackson反序列化各种链子.md)
+- [Jackson反序列化基础知识](./Web/java/Jackson/Jackson反序列化基础知识.md)
+- [Jackson反序列化各种链子](./Web/java/Jackson/Jackson反序列化各种链子.md)
 
 ### Java-sec-code
 
