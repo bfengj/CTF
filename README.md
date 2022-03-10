@@ -159,8 +159,8 @@
 - [[红明谷CTF2021]JavaWeb](./Web/java/题目/[红明谷CTF2021]JavaWeb/[红明谷CTF2021]JavaWeb.md)
 - [ezj4va[国赛总决赛复现]](./Web/java/题目/ezj4va[国赛总决赛复现]/2021-CISCN-fianl-ezj4va.md)
 - [SUSCTF2022的两个Java](./Web/java/题目/SUSCTF2022的两个Java/SUSCTF2022的两道Java复现.md)
-- [D3CTF non rce](./Web/java/题目/RWCTF2022-DesperateCat/non-RCE.md)
-- [DesperateCat](./Web/java/题目/D3CTF-2021-non-rce/RWCTF2022-DesperateCat-Writeup.md)
+- [D3CTF non rce](./Web/java/题目/D3CTF-2021-non-rce/non-RCE.md)
+- [DesperateCat](./Web/java/题目/RWCTF2022-DesperateCat/RWCTF2022-DesperateCat-Writeup.md)
 
 ## PHP
 
