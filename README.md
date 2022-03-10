@@ -31,6 +31,7 @@
 ### jackson
 
 - [Jackson反序列化基础知识](./Web/java/Jastjson/Jackson反序列化基础知识.md)
+- [Jackson反序列化各种链子](./Web/java/Jastjson/Jackson反序列化各种链子.md)
 
 ### Java-sec-code
 

