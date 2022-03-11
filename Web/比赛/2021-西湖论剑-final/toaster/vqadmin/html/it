@@ -1,0 +1,64 @@
+000 Menu Principale
+001 Domini 
+002 Visualizza Dominio 
+003 Aggiungi Dominio
+004 Cancella Dominio 
+005 Email Dominio
+006 Visualizza Email Dominio 
+007 Mostra Gli Utenti 
+008 Aggiungi Email Dominio
+009 Cancella Email Dominio
+010 Nome Dominio
+011 Password di Postmaster
+012 Opzioni
+013 Limite 
+014 Illimitato 
+015 Utente
+016 Forward
+017 Alias
+018 Autorisponditori
+019 Mailing Lists
+020 Indirizzi email
+021 Password
+022 Nome Completo
+023 Autenticazione Fallita
+024 vQadmin non poteva determinare il vostro username, questo
+025 significa che il vostro webserver è configurato impropriamente per funzionare 
+026 con questo cgi. Per i motivi di sicurezza, questo script
+027 non funzionerà senza il file htaccess di Apache. 
+028 Errore non ricoverabile
+029 Errore non ricoverabile durante l'elaborazione della vostra richiesta. 
+030 Contattare l'amministratore se questo continua. 
+031 Errore
+032 Errore durante l'inizializzazione dell'interfaccia.
+033 Modifica Dominio
+034 Utenti
+035 Directory
+036 ID Utente
+037 ID Gruppo
+038 Modifica Email Utente
+039 Spazio in byte
+040 Permessi
+041 Mostra Domini 
+042 Disabilita accesso pop 
+043 Disabilita accesso web
+044 Disabilita accesso imap
+045 Disabilita cambio password
+046 Rimbalza email 
+047 Disabilita email relay
+048 Amministratore dominio
+049 Disabilita accesso dialup
+050 0 disabilita questa opzione
+051 Orario ultima autenticazione
+052 Ultimo ip autenticato
+053 Mostra Domini
+054 Il nome dominio contiene:<BR>Lasciare vuoto per tutti i domini.
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Add Alias Domain
+060 Alias Domain Name
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

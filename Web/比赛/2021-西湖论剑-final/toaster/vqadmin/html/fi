@@ -1,0 +1,64 @@
+000 Päävalikko
+001 Domainit
+002 Katso domainia
+003 Lisää domain
+004 Poista domain 
+005 Sähköpostitunnukset
+006 Katso sähköpostitunnuksia
+007 Näytä käyttäjät
+008 Lisää sähköpostitunnus
+009 Poista sähköpostitunnus
+010 Domainnimi
+011 Postmasterin salasana
+012 Asetukset
+013 Rajoitus
+014 Rajoittamaton
+015 Tunnukset
+016 Uudelleenohjaukset
+017 Aliakset
+018 Automaattivastaajat
+019 Postituslistat
+020 Sähköpostiosoite
+021 Salasana
+022 Käyttäjän nimi
+023 Tunnistus epäonnistui
+024 vQadmin epäonnistui sinun käyttäjätunnuksesi tunnistamisessa mikä
+025 tarkoittaa sitä, että sinun www-serverisi on väärin säädetty ajamaan
+026 tätä CGI-ohjelmaa. Tietoturvasyistä tämä ohjelma ei toimi
+027 ilman Apachen htaccess listoja.
+028 Parantumaton virhe
+029 Parantumaton virhe tapahtui kesken sinun pyyntösi prosessointia.
+030 Ole hyvä ja ota yhteyttä ylläpitäjään, jos tämä virhe jatkuu pitenpään.
+031 Virhe
+032 virhe tapahtunut kesken käyttöliittymän latausta.
+033 Muokkaa domainia
+034 Käyttäjät
+035 Hakemisto
+036 Käyttäjä ID
+037 Ryhmä ID
+038 Muokkaa Email tunnusta
+039 Tilarajoitus tavuina
+040 Käyttöoikeudet
+041 Näytä domainit
+042 Poista pop-käyttö 
+043 Poista webmail-käyttö
+044 Poista imap-käyttö
+045 Poista salasanan vaihtaminen
+046 Palauta sähköposti takaisin lähettäjälle (bounce email)
+047 Poista sähköpostin lähetysoikeus tämän serverin kautta
+048 Domainin ylläpitäjä
+049 Poista soittosarjakäyttö
+050 0 poistaa tämän ominaisuuden kokonaan käytöstä
+051 Viimeisen tunnistuksen aika
+052 Viimeisen tunnistuksen IP-numero
+053 Näytä domainit
+054 Domain nimi sisältää:<br>Jätä kenttä tyhjäksi<br>nähdäksesi kaikki domainit.
+055 #f5f5f5
+056 #000000
+057 Verdana
+058 3
+059 Add Alias Domain
+060 Alias Domain Name
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

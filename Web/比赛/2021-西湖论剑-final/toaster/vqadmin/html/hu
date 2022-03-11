@@ -1,0 +1,66 @@
+000 Fõmenü
+001 Domének 
+002 Domén megtekintése
+003 Domén létrehozása
+004 Domén törlése 
+005 Postafiókok
+006 Postafiók megtekintése
+007 Felhasználók megtekintése
+008 Postafiók létrehozása
+009 Postafiók törlése
+010 Domén név
+011 Postamesteri jelszó
+012 Beállítások
+013 Korlát
+014 Korlátlan
+015 Fiókok
+016 Továbbítások
+017 Másodlagos címek
+018 Automatikus válaszok
+019 Levelezõlisták
+020 Postafiókok
+021 Jelszó
+022 Teljes név
+023 Sikertelen hitelesítés
+024 A program nem tudja meghatározni a felhasznalói nevet, vagyis
+025 a webszerver nem megfelelõen konfigurált, hogy ezzel a
+026 CGI-al fusson. Biztonsági okokból ez a kódrészlet
+027 Apache htaccess nélkül nem fog muködni.
+028 Visszaállíthatatlan hiba
+029 Visszaállíthatatlan hiba történt a kérés feldolgozása alatt
+030 Lépjen kapcsolatba az adminisztrátorral, ha ez folytatódik
+031 Hiba
+032 Hiba történt az illesztofelület betöltésekor
+033 Domén módosítása
+034 Felhasználók
+035 Könyvtár
+036 Felhasználó azonosító
+037 Csoport azonosító
+038 Postafiók módosítása
+039 Korlát byteokban
+040 Hozzáférések
+041 Domének megtekintése
+042 POP letiltása
+043 Webmail letiltása
+044 IMAP letiltása
+045 Jelszóváltoztatás letiltása
+046 Visszapattanó levél
+047 SMTP továbbítás letiltása
+048 Domén Adminisztrátor
+049 Telefonos hozzáférés letiltása
+050 0 beírásával tiltható
+051 Utolsó azonosítás ideje
+052 Utolsó azonosítás IP-je
+053 Domének megtekintése
+054 Domén név tartalmazza:<BR>Hagyja üressen az összes domén megjelenítéséhez.
+055 #807060
+056 #FFFFFF
+057 helvetica
+058 3
+059 Másodlagos domén hozzáadása
+060 Másodlagos domén
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File
+067 user: 
+068 permission:

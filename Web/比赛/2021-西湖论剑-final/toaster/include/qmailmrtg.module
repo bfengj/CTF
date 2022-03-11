@@ -1,0 +1,7 @@
+<!-- qmailmrtg.module -->
+<tr>
+        <td align="right" width="47%">MTA statistics</td>
+        <td width="6%">&nbsp;</td>
+        <td align="left" width=47%"><input type="button" value="qmailmrtg" class="inputs" onClick="location.href='/stats-toaster/';"></td>
+</tr>
+<!-- qmailmrtg.module -->

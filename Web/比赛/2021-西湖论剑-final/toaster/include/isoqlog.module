@@ -1,0 +1,7 @@
+<!-- isoqlog.module -->
+<tr>
+        <td align="right" width="47%">Usage Statistics per Domain</td>
+        <td width="6%">&nbsp;</td>
+        <td align="left" width=47%"><input type="button" value="isoqlog" class="inputs" onClick="location.href='/qlogs-toaster/';"></td>
+</tr>
+<!-- isoqlog.module -->

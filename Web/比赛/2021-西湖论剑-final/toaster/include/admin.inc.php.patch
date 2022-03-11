@@ -1,0 +1,13 @@
+--- admin.inc.php	2019-08-11 10:22:59.289323626 -0600
++++ admin.inc.php.new	2019-08-11 10:25:54.937480871 -0600
+@@ -12,8 +12,8 @@
+ 		$fd = fopen ( $file, "r" ) ;
+ 		$contents = fread ( $fd, filesize( $file ) ) ;
+ 		fclose ( $fd ) ;
+-		$contents = ereg_replace("\n", "", $contents ) ;
+-		$contents = ereg_replace("\r", "", $contents ) ;
++		$contents = preg_replace("\n", "", $contents ) ;
++		$contents = preg_replace("\r", "", $contents ) ;
+ 		return $contents;
+ 	} else {
+ 		return false;

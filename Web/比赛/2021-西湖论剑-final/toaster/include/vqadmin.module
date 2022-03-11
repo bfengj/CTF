@@ -1,0 +1,7 @@
+<!-- vqadmin.module -->
+<tr>
+        <td align="right" width="47%">Add and edit Virtual domains</td>
+        <td width="6%">&nbsp;</td>
+        <td align="left" width="47%"><input type="button" value="vqadmin" class="inputs" onClick="location.href='/mail/vqadmin/toaster.vqadmin';"></td>
+</tr>
+<!-- vqadmin.module -->

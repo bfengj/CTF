@@ -1,0 +1,64 @@
+000 Hoofdmenu
+001 Domeinen
+002 Bekijk Domein
+003 Domein Toevoegen
+004 Domein Verwijderen
+005 Email Accounts
+006 Bekijk Email Account
+007 Toon Gebruikers
+008 Email Account Toevoegen
+009 Email Account Verwijderen
+010 Domein Naam
+011 Postmaster Password
+012 Opties
+013 Maximaal aantal
+014 Ongelimiteerd
+015 Accounts
+016 Forwards
+017 Aliases
+018 Automatisch Beantwoorden
+019 Mailing Lijsten
+020 Email Adres
+021 Password
+022 Volledige Naam
+023 Authenticatie Fout
+024 vQadmin was niet in staat uw gebruikersnaam te vinden hetgeen
+025 betekent dat uw webserver onjuist geconfigureerd is om dit CGI script
+026 te draaien. Om veiligheidsredenen is het gebruik van htaccess
+027 een vereiste. Zonder htaccess zal het script niet werken.
+028 Onherstelbare Fout
+029 Een onherstelbare fout is opgetreden tijdens het uitvoeren van uw verzoek.
+030 Neem contact op met uw systeembeheerder als dit probleem zich blijft voordoen.
+031 Fout
+032 Er is een fout opgetreden bij het initialiseren van de interface.
+033 Domein Wijzigen
+034 Gebruikers
+035 Directorie
+036 User ID
+037 Group ID
+038 Email Account Wijzigen
+039 Quota in bytes
+040 Rechten
+041 Domeinen Lijst
+042 Weiger pop toegang 
+043 Weiger web toegang
+044 Weiger imap toegang
+045 Weiger het veranderen van password
+046 Bounce email 
+047 Weiger email relay 
+048 Domein Beheer
+049 Weiger dialup (inbel) toegang
+050 Met het invoeren van 0 zet u deze functie uit
+051 Laatst ingelogd (tijd)
+052 Laatst ingelogd (ip)
+053 Domeinen Lijst
+054 Zoeken:
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Toevoegen Alias Domein
+060 Domein Naam Alias
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

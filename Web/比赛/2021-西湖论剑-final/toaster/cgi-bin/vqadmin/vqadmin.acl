@@ -1,0 +1,46 @@
+#
+# Access List Definitions
+# vol@inter7.com
+#
+
+#
+# Default group contains permissions for all users
+# not listed under any groups
+#
+# If the default group is not defined, users not
+# listed under any other groups will have no
+# permissions.
+#
+# Examples follow...
+#
+
+default - ...
+
+#
+# Access permissions:
+#
+# V View user information
+# I View domain information
+# M Modify user information
+# U Modify domain information
+# C Create user
+# A Create domain
+# D Delete user
+# X Delete domain
+#
+# These features will still appear in the HTML templates
+# if the user doesn't have access to them, however, they will
+# get a permission denied error if they try to make use of
+# them.
+#
+
+tech VI tech1user
+admin VIMUDCA admin1user
+
+#
+# An asterisk in the features field specifies that you
+# want all users in this group to have access to
+# all features.
+#
+
+senior * admin

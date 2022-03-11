@@ -1,0 +1,68 @@
+000 VqAdmin Main Menu
+001 Domains 
+002 View Domain
+003 Add Domain
+004 Delete Domain 
+005 Email Accounts
+006 View Email Account
+007 Show Users
+008 Add Email Account
+009 Delete Email Account
+010 Domain Name
+011 Postmaster Password
+012 Options
+013 Limit
+014 Unlimited
+015 Accounts
+016 Forwards
+017 Aliases
+018 Autoresponders
+019 Mailing Lists
+020 Email Address
+021 Password
+022 Full Name
+023 Authentication Failed
+024 vQadmin was unable to determine your username, which
+025 means your webserver is improperly configured to run
+026 with this CGI.  For security reasons, this script
+027 will not run without Apache htaccess lists.
+028 Unrecoverable Error
+029 An unrecoverable error occured while processing your request.
+030 Please contact the administrator if this continues.
+031 Error
+032 error occured while initiating the interface.
+033 Modify Domain
+034 Users
+035 Directory
+036 User ID
+037 Group ID
+038 Modify Email Account
+039 Quota in bytes
+040 Permissions
+041 List Domains
+042 Disable pop access 
+043 Disable web access
+044 Disable imap access
+045 Disable change password
+046 Bounce email 
+047 Disable email relay 
+048 Domain Administrator
+049 Disable dialup access
+050 0 disables this feature
+051 Last authentication time
+052 Last authentication ip
+053 List Domains
+054 Search string:
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Add Alias Domain
+060 Alias Domain Name
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File
+067 user: 
+068 permission:
+069 Disable SpamAssassin
+

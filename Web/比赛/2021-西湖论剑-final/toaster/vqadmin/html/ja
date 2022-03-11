@@ -1,0 +1,64 @@
+000 Main VqAdmin Menu
+001 ドメイン 
+002 ドメインを見る
+003 ドメインの追加
+004 ドメインの削除 
+005 Email アカウント
+006 Email アカウントを表示
+007 ユーザーを表示
+008 Email アカウントの追加
+009 Email アカウントの削除
+010 ドメイン名
+011 Postmaster パスワード
+012 オプション
+013 制限
+014 制限無し
+015 アカウント
+016 転送
+017 エリアス
+018 自動返信
+019 メーリングリスト
+020 Email アドレス
+021 パスワード
+022 フルネーム
+023 承認に失敗しました
+024 vQadmin was unable to determine your username, which
+025 means your webserver is improperly configured to run
+026 with this CGI.  For security reasons, this script
+027 will not run without Apache htaccess lists.
+028 Unrecoverable Error
+029 An unrecoverable error occured while processing your request.
+030 Please contact the administrator if this continues.
+031 エラー
+032 error occured while initiating the interface.
+033 ドメインの修正
+034 ユーザー
+035 ディレクトリ
+036 ユーザーID
+037 グループID
+038 Email　アカウントの修正
+039 容量制限(byte)
+040 Permissions
+041 ドメインの表示
+042 popアクセスを禁止する
+043 webアクセスを禁止する
+044 imapアクセスを禁止する
+045 パスワード変更を禁止する
+046 Bounce email 
+047 email relayを禁止する
+048 ドメイン管理者
+049 ダイアルアップによるアクセスを禁止する
+050 0 disables this feature
+051 Last authentication time
+052 Last authentication ip
+053 ドメインの表示
+054 Domain name contains:<BR>Leave blank for all domains.
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Add Alias Domain
+060 Alias Domain Name
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

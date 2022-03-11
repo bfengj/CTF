@@ -1,0 +1,61 @@
+000 VqAdmin Menúncipal
+001 Dominios
+002 Ver Dominio
+003 Añr Dominio
+004 Borrar Dominio
+005 Cuentas de Correo
+006 Ver Cuenta de Correo
+007 Mostrar Usuarios
+008 Añr Cuenta de Correo
+009 Borrar Cuenta de Correo
+010 Nombre de Dominio
+011 Contraseñe Postmaster
+012 Opciones
+013 Limitada
+014 Ilimitada
+015 Cuentas
+016 Reenvios
+017 Alias
+018 Autorespondedores
+019 Listas de Correo
+020 Direccióe Correo
+021 Contraseñ22 Nombre Completo
+023 Autentificacióallida
+024 vQadmin no pudo determinar su nombre de usuario, lo que
+025 significa que su servidor web se encuentra incorrectamente
+026 configurado para ejecutar este CGI. Por razones de seguridad, este
+027 script no se ejecutaráin una autentificaciórevia con Apache htaccess.
+028 Error Irrecuperable
+029 Un error irrecuperable ocurrióentras se procesaba su petició030 Por favor contacte con el administrador si el problema persiste.
+031 Error
+032 Ocurrió error mientras se iniciaba la interfaz.
+033 Modificar Dominio
+034 Usuarios
+035 Directorio
+036 ID de Usuario
+037 ID de Grupo
+038 Modificar Cuenta de Correo
+039 Cuota en bytes
+040 Permisos
+041 Lista de Dominios
+042 Deshabilitar acceso pop
+043 Deshabilitar acceso web
+044 Deshabilitar acceso imap
+045 Deshabilitar cambiar contraseñ46 Saltar correo
+047 Deshabilitar reenvio de correo
+048 Administrador de Dominio
+049 Deshabilitar acceso a travéde modem
+050 0 deshabilita esta opció51 Hora de la úa autentificació52 IP de la úa autentificació53 Listar Dominios
+054 Cadena de búda:
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Añr Alias de Dominio
+060 Nombre de Alias de Dominio
+061 Ficheros de Control de Qmail
+062 Modificar Fichero de Control
+063 Modificar Fichero
+067 usuario:
+068 permisos:
+069 Propietario de Dominio

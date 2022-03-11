@@ -1,0 +1,65 @@
+00 Menu Principal
+001 Domínios 
+002 Ver Domínio
+003 Adicionar Domínio
+004 Remover Domínio
+005 Contas de Email
+006 Ver Conta de Email
+007 Mostrar Usuários 
+008 Adicionar Conta de Email
+009 Remover Conta de Email
+010 Nome do Domínio
+011 Senha do Postmaster
+012 Opções
+013 Limite
+014 Ilimitado
+015 Contas
+016 Redirecionamento
+017 Apelidos
+018 Auto Resposta
+019 Listas de distribuição 
+020 Endereço de Email
+021 Senha 
+022 Nome Completo
+023 Autenticação Falhou
+024 O vQadmin não conseguiu deterninar o seu nome de usuário, 
+025 o que significa que seu servidor web não esta configurado propriamente para
+rodar
+026 este CGI. Por razoes de segurança, este programa
+027 não ira funcionar sem autenticação via apache.
+028 Erro irrecuperável
+029 Um erro irrecuperável ocorreu no processamento de seu pedido.
+030 Por favor contate o adminstrador se isto continuar.
+031 Erro
+032 Ocorreu um erro ao iniciar a interface.
+033 Modificar Domínio
+034 Usuários
+035 Diretorio
+036 ID do Usuário
+037 ID do Grupo
+038 Modificar Conta de Email
+039 Quota em bytes
+040 Permissões
+041 Mostrar Domínios
+042 Desabilitar acesso ao pop
+043 Desabilitar acesso web
+044 Desabilitar acesso imap
+045 Desabilitar trocar senha
+046 Devolver Emails
+047 Desabilitar envio de email 
+048 Administrador do Domínio
+049 Desabilitar acesso discado
+050 0 Desabilita esta função 
+051 Data do último acesso 
+052 IP no último acesso 
+053 Mostrar Domínios
+054 O nome do domínio contém:<BR>Deixe em branco para todos os doínios.
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Add Alias Domain
+060 Alias Domain Name
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

@@ -1,0 +1,64 @@
+000 Menu principal
+001 Domaines
+002 Modifier un Domaine
+003 Nouveau Domaine
+004 Détruire un Domaine
+005 Comptes E-mail
+006 Voir les comptes E-mail
+007 Voir les utilisateurs
+008 Nouveau compte E-mail
+009 Détruire un compte E-mail
+010 Nom de domaine
+011 Mot de passe Postmaster
+012 Options
+013 Limites
+014 illimité
+015 Comptes
+016 Redirections
+017 Alias
+018 Auto-respondeurs
+019 listes de diffusion
+020 Adresse E-mail
+021 Mot de passe
+022 Nom complet
+023 Authentication Failed
+024 VQadmin n'arrive pas à déterminer votre nom d'utilisateur,
+025 il semblerait que le serveur web soit mal configuré
+026 pour ce CGI. Pour des raisons de sécurité, ce script
+027 ne fonctionne pas sans une htaccess list Apache.
+028 Erreur fatale
+029 Une erreur fatale c'est produite lors du traitement de votre requète.
+030 Contacter l'administrateur si cela ce reproduit
+031 Erreur
+032 erreur lors de l'initialisation de l'interface.
+033 Modifier le domaine
+034 Utilisateurs
+035 Répertoire
+036 ID utilisateur
+037 ID groupe
+038 Modifier le compte E-mail
+039 Quota en octets
+040 Permissions
+041 Liste de domaines
+042 Désactiver l'accès POP
+043 Désactiver l'accès WEB
+044 Désactiver l'accès IMAP
+045 Désactiver le changement de mot de passe
+046 Rejet d'E-mail
+047 Désactiver le relai E-mail
+048 Administrateur du domaine
+049 Désactiver l'accès dialup
+050 0 désactiver cette option
+051 Heure de la dernière connection
+052 Adresse IP de la dernière connection
+053 Listes des domaines
+054 Contenu du nom de domaine:<br>Laisser blanc pour tous
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Nouveau Alias Domaine
+060 Alias Nom de domaine
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

@@ -1,0 +1,64 @@
+000 Hauptmen&uuml;
+001 Domains 
+002 Domaindaten anzeigen
+003 Neue Domain hinzuf&uuml;gen
+004 L&ouml;sche Domain 
+005 Email Postf&auml;cher
+006 Zeige einzelnes Postfach
+007 Zeige Postf&auml;cher
+008 Mail-Postfach hinzuf&uuml;gen
+009 Mail-Postfach l&ouml;schen
+010 Domain Name
+011 Postmaster Passwort
+012 Optionen
+013 Limit
+014 unbegrenzt
+015 Postf&auml;cher
+016 Forwards (Weiterleitungen)
+017 Aliases
+018 Autoresponder (automat. Antwort)
+019 Mailinglisten
+020 E-Mail-Adresse
+021 Passwort
+022 Name
+023 Authentifizierungsfehler
+024 vQadmin konnte Ihren Benutzernamen nicht ermitteln.
+025 Das heisst, dass ihr Webserver dieses CGI-Skript nicht 
+026 ausf&uuml;hren kann.  Aus Sicherheitsgr&uuml;nden 
+027 funktioniert dieses Script nicht ohne die Apache htaccess Funktionen.
+028 schwerer Fehler
+029 Ein schwerer Fehler ist w&auml;hrend Ihrer Anfrage aufgetreten.
+030 Bitte melden Sie es dem Administrator, falls dieses erneut auftritt.
+031 Fehler
+032 Ein Fehler trat beim Initialisieren der Oberfl&auml;che auf.
+033 bearbeite Domain
+034 Benutzer
+035 Verzeichnis
+036 User ID
+037 Group ID
+038 Modifiziere Postfach
+039 Quota in Byte
+040 Zugriffsrechte
+041 Zeige alle Domains
+042 POP3-Zugriff sperren 
+043 Webzugriff sperren
+044 IMAP-Zugriff sperren
+045 Passwort&auml;nderung verhindern
+046 Bounce E-Mail 
+047 E-Mail-Relaying abschalten 
+048 Domain Administration
+049 Dialup-Zugriff sperren
+050 0 deaktiviert diese Funktion
+051 Letzte Authentifizierung (Datum)
+052 Zuletzt verwendete IP-Adresse
+053 Zeige alle Domains
+054 Domainname enth&auml;lt:<BR>Leeres Feld belassen, um alle Domains anzuzeigen.
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Add Alias Domain
+060 Alias Domain Name
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

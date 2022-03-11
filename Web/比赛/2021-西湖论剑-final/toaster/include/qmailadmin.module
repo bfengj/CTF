@@ -1,0 +1,7 @@
+<!-- qmailadmin.module -->
+<tr>
+        <td align="right" width="47%">Edit Users, mailing lists, forwarders</td>
+        <td width="6%">&nbsp;</td>
+        <td align="left" width="47%"><input type="button" value="qmailadmin" class="inputs" onClick="location.href='/qmailadmin';"></td>
+</tr>
+<!-- qmailadmin.module -->

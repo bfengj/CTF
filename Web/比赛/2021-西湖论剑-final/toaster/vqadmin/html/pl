@@ -1,0 +1,64 @@
+000 Menu Glówne
+001 Domeny 
+002 Poka¿ domenê
+003 Dodaj domenê
+004 Skasuj domenê 
+005 Konta email
+006 Poka¿ konta email
+007 Poka¿ u¿ytkowników
+008 Dodaj konto email
+009 Skasuj konto email
+010 Nazwa domeny
+011 Has³o dla Postmaster-a
+012 Opcje
+013 Limit
+014 Bez limitu
+015 Konta
+016 Przekierowania
+017 Aliasy
+018 Autoodpowiedzi
+019 Listy mailingowe
+020 Adres email
+021 Has³o
+022 Pe³ne imiê
+023 Autoryzacja niepowiod³a siê
+024 vQadmin nie mo¿e rozpoznaæ twojej nazwy u¿ytkownika, co
+025 znaczy ¿e twój serwer www jest nieodpowiednio skonfigurowany
+026 do obs³ugi CGI.  Dla bezpieczeñstwa, ten skrypt
+027 nie uruchomi siê bez list htaccess Apacha.
+028 B³ad
+029 Wyst¹pi³ b³¹d podczas przetwarzania twojego zapytania.
+030 Proszê skontaktowaæ siê z administratorem, je¿eli to bêdzie sie powtarzaæ.
+031 B³¹d
+032 wyst¹pi³ b³¹d w trakcie inicjalizacji interfejsu.
+033 Modyfikuj domenê
+034 U¿ytkownicy
+035 Katalog
+036 ID U¿ytkownika
+037 ID Grupy
+038 Modyfikuj konto email
+039 Quota w bajtach
+040 Prawa dostêpu
+041 Lista domen
+042 Wy³¹cz dostêp pop 
+043 Wy³¹cz dostêp web
+044 Wy³¹cz dostêp imap
+045 Wy³¹cz mo¿liwo?æ zmiany has³a
+046 Odbij pocztê
+047 Wy³¹cz przekazywanie emailów 
+048 Administrator domeny
+049 Wy³¹cz dostêp dialup
+050 0 wy³¹cza t¹ opcjê
+051 Czas ostatniej autoryzacji
+052 Adres IP ostatniej autoryzacji
+053 Wy?wietl domeny
+054 Szukaj ci¹gu:
+055 #000066
+056 #FFFFFF
+057 Verdana
+058 3
+059 Dodaj alias domeny
+060 Alias nazwy domeny
+061 Qmail Control Files
+062 Modify Control File
+063 Modify File

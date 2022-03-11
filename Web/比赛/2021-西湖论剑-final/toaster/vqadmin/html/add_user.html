@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Qmail Toaster Admin</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="/scripts/styles.css" type="text/css" />
+<script language="JavaScript" src="/scripts/javascripts.js"></script>
+<script language="JavaScript">
+<!--
+
+function CheckFormAddUser(form) {
+	
+	var numErrors = '' ;
+	var errors = '' ;
+		
+	if (!isValidEmail(form.eaddr.value)) {
+		errors += 'Please type a valid EMAIL ADDRESS.\n';
+		numErrors++;
+	}
+	
+	if (!isValidLength(form.cpass.value, 2, 30)) {
+		errors += 'Please type the USER PASSWORD.\n';
+		numErrors++;
+	}
+	
+	if (!isValidLength(form.fname.value, 2, 30)) {
+		errors += 'Please type the user FULL NAME.\n';
+		numErrors++;
+	}
+	
+	if (!isValidLength(form.quota.value, 2, 30)) {
+		errors += 'Please type the user QUOTA.\n';
+		numErrors++;
+	}
+
+	if (numErrors) {
+		errors = 'Attention! ' + ((numErrors > 1) ? 'Theese' : 'This') + ' error' + ((numErrors > 1) ? 's' : '') + ' ' + ((numErrors > 1) ? 'were' : 'was') + ' detected :\n\n' + errors + '\n';
+       		alert(errors);
+         	return false;
+  	}
+  
+  	return true;
+	
+}
+
+-->
+</script>
+</head>
+<body text="#000000" vlink="#004400" alink="#ff0000" link="#007700" bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/images-toaster/background.gif">
+<FORM METHOD="POST" ACTION="/mail/vqadmin/toaster.vqadmin" onSubmit="return CheckFormAddUser(this);">
+  <center>
+    <table width="750" border="0" cellpadding="0" cellspacing="0">
+      <tbody> 
+      <tr> 
+        <td width="203"><a href="http://www.qmail.org/"><img height="163" alt="logo" src="/images-toaster/kl-qmail-w.gif" width="200" border="0"></a> 
+        </td>
+        <td align="center" valign="middle"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody> 
+            <tr align="center" valign="middle"> 
+              <td> 
+                <h1><font color="#006600"><b>Qmail Toaster Admin</b></font></h1>
+              </td>
+            </tr>
+            </tbody> 
+          </table>
+        </td>
+      </tr>
+      <tr align="right"> 
+        <td colspan="2"><b><a href="/mail/vqadmin/toaster.vqadmin">VQADMIN</a> | <a href="/admin-toaster/">TOASTER 
+          ADMIN</a></b></td>
+      </tr>
+      <tr> 
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr> 
+        <td colspan="2" bgcolor="#007700"><b><font color="#ffffff">#-008:</font></b> 
+        </td>
+      </tr>
+      <tr> 
+        <td colspan="2"><br>
+          <!-- THE REAL PAGE --> 
+          <table border="0" cellspacing="0" cellpadding="3" width="100%">
+            <tr> 
+              <td align="right" width="47%">#-020</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="TEXT" NAME="eaddr" SIZE="30" VALUE="$-UA" class="inputs">
+              </td>
+	      </tr>
+	      <tr> 
+		      <td align="right" width="47%">#-021</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+		      <INPUT TYPE="TEXT" NAME="cpass" SIZE="30" VALUE="$-UO" class="inputs">
+              </td>
+            </tr>
+            <tr> 
+		    <td align="right" width="47%">#-039</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="TEXT" NAME="quota" SIZE="30" VALUE="$-UQ" class="inputs">
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-022</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="TEXT" NAME="fname" SIZE="30" VALUE="$-UN" class="inputs">
+                <INPUT TYPE="HIDDEN" NAME="nav" VALUE="add_user">
+              </td>
+	      </tr>
+          </table>
+          <br>
+        </td>
+      </tr>
+      <tr> 
+        <td colspan="2" bgcolor="#007700"><b><font color="#ffffff">#-040:</font></b> 
+        </td>
+      </tr>
+      <tr> 
+        <td colspan="2"><br>
+          <table border="0" cellspacing="0" cellpadding="3" width="100%">
+            <tr> 
+              <td align="right" width="47%">#-042</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="udisable" $-UP>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-043</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="uweb" $-UW>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-044</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="uimap" $-UI>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-045</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="upassc" $-UC>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-046</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="ubounce" $-UB>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-047</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="urelay" $-US>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">#-048</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="CHECKBOX" NAME="urelay" $-UK>
+              </td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">&nbsp;</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%">&nbsp;</td>
+            </tr>
+            <tr> 
+              <td align="right" width="47%">&nbsp;</td>
+              <td width="6%">&nbsp;</td>
+              <td align="left" width=47%"> 
+                <INPUT TYPE="SUBMIT" NAME="Submit" VALUE="#-008" class="inputs">
+              </td>
+            </tr>
+          </table>
+          <br>
+          <!-- THE REAL PAGE --> </td>
+      </tr>
+      </tbody> 
+    </table>
+    <br>
+    <i><a href="http://www.qmailtoaster.com" target="_blank">Qmail Toaster &copy 2005</a></i><br>
+  </center>
+</form>
+</body>
+</html>
+
+

@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>#-062 %-U (%-G)</title>
+      <link href="/images/vqadmin/vqadmin.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div align="center"><b>%-W</b><br>
+#-062  %-U (%-G)</div>
+<b>#-062</b>
+<hr>
+<form method="POST" action="/cgi-bin/vqadmin/vqadmin.cgi">
+<input type="HIDDEN" name="nav" value="modify_file"> 
+<input type="HIDDEN" name="file_name" value=$-NM> 
+<input type="HIDDEN" name="rws" value=$-RW> 
+<input type="HIDDEN" name="cls" value=$-CL> 
+<br>
+$-NM<br>
+<textarea name="tarea" rows=$-RW cols=$-CL wrap="soft">$-CF</textarea>
+<br>
+<input type="submit" name="Submit" value="#-063" title="#-063">
+</form>
+<form method="POST" action="/cgi-bin/vqadmin/vqadmin.cgi">
+<input type="HIDDEN" name="nav" value="delete_file"> 
+<input type="HIDDEN" name="file_name" value=$-NM> 
+<input type="submit" name="delete_file" value="Set to Default" title="delete">
+<br>
+<hr>
+<a href="/cgi-bin/vqadmin/vqadmin.cgi" title="#-000">#-000</a><br><br>
+%-V
+</body></html>

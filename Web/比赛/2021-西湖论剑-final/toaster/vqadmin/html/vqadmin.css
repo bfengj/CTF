@@ -1,0 +1,76 @@
+A	{
+	background-color: transparent;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+ul {
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+
+A:hover {
+	background-color: transparent;
+        background-color : #5555EE;
+        color : #FFFFFF;
+	text-decoration: none;
+}
+
+BODY {
+        margin : 10px 0px 0px 10px;
+        background-color : #5255F6;
+        color : #FFFFFF;
+	font: normal normal normal 12pt/normal Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+HR {
+	background-color: transparent;
+	color: #008080;
+	height: 1px;
+}
+
+input {
+	font: normal normal normal 12pt/normal "Courier New", Courier, monospace;
+	color: #000000;
+}
+
+TD {
+	font: normal normal normal 12pt/normal Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+TH {
+	font: normal normal normal 12pt/normal Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+.clsDisabled {
+	background-color: #FFFFFF;
+	color: #999999;
+}
+
+.clsInfo {
+	font-style: italic;
+}
+
+.clsLabel{
+	font-weight: bold;
+	text-align: left;
+}
+
+.clsLabelR {
+	font-weight: bold;
+	text-align: right;
+}
+
+.clsMessage {
+	background-color: transparent;
+	color: #FF0000;
+	font-size: 12pt;
+	font-style: italic;
+}
+textarea {
+font: normal normal normal 12pt/normal "Courier New", Courier, monospace;
+	
+}
