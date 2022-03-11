@@ -8,7 +8,7 @@ public class Flag implements Serializable {
     public String flag;
     public static final Flag flagInstance;
     static {
-        flagInstance = new Flag(System.getProperty("flag"));
+        flagInstance = new Flag("flag{test}");
     }
     public boolean create = true;
 

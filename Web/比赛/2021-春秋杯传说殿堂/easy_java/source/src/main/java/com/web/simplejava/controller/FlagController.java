@@ -19,9 +19,11 @@ public class FlagController {
 
     @RequestMapping("/flag")
     public String getFlag(@RequestBody byte[] bytes) throws IOException, ClassNotFoundException {
+        System.out.println(new String(bytes));
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         try {
             Flag flag = (Flag) new ObjectInputStream(byteArrayInputStream).readObject();
+            System.out.println(flag);
         }catch (Exception e){
         }
         return "get your flag";
