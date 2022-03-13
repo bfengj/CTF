@@ -28,7 +28,6 @@
 ### fastjson
 
 - [fastjson学习](./Web/java/fastjson/[Java安全]fastjson学习.md)
-- [2022-卷王杯-happyFastjson](./Web/java/fastjson/2022-卷王杯-happyFastjson.md)
 
 ### jackson
 
@@ -160,6 +159,7 @@
 - [D3CTF non rce](./Web/java/题目/D3CTF-2021-non-rce/non-RCE.md)
 - [RW2022-DesperateCat](./Web/java/题目/RWCTF2022-DesperateCat/RWCTF2022-DesperateCat-Writeup.md)
 - [2021-春秋杯传说殿堂-easy_java](./Web/java/题目/2021-春秋杯传说殿堂-easy_java/README.md)
+- [2022-卷王杯-happyFastjson](./Web/java/题目/2022-卷王杯-happyFastjson/2022-卷王杯-happyFastjson.md)
 
 ## PHP
 
