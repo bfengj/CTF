@@ -7,6 +7,7 @@
 - 2022.3.3 [Java 反序列化漏洞（六） - AspectJWeaver/Jython/JavassistWeld/JBossInterceptors](https://su18.org/post/ysoserial-su18-6/)
 - 2022.3.7 [Java安全之ROME反序列化利用分析](https://www.yuque.com/jinjinshigekeaigui/qskpi5/cz1um4)，补充了rome的另一条链。
 - 2022.3.10 增加了C3P0的JNDI和hex序列化字节加载器。
+- 2022.3.14 补充了CC7。
 
 ## 待填的坑
 

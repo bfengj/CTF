@@ -58,6 +58,7 @@
 - [CommonsCollections3利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsCollections3利用链学习.md)
 - [CommonsCollections5利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsCollections5利用链学习.md)
 - [CommonsCollections6利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsCollections6利用链学习.md)
+- [CommonsCollections7利用链学习](./Web/java/Java反序列化/[Java反序列化]CommonsCollections7利用链.md)
 - [JDK7u21反序列化链学习](./Web/java/Java反序列化/[Java反序列化]JDK7u21反序列化链学习.md)
 - [rome反序列化学习](./Web/java/Java反序列化/[Java反序列化]rome反序列化学习.md)
 - [Shiro反序列化学习(一)](./Web/java/Java反序列化/[Java反序列化]Shiro反序列化学习(一).md)
