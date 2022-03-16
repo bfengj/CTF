@@ -255,8 +255,6 @@ InputStream in = Runtime.getRuntime().exec(command).getInputStream();
 
 因此也可以通过`ProcessBuilder`来实现命令执行。
 
-## 
-
 根据调用链，命令执行的方式就是创建`ProcessBuilder`对象的时候传入的参数是要执行的命令，然后调用`start`方法即可命令执行。
 
 先看一下`ProcessBuilder`类的构造器：
@@ -286,7 +284,7 @@ InputStream in = Runtime.getRuntime().exec(command).getInputStream();
     }
 ```
 
-## 
+
 
 ## 非反射命令执行
 

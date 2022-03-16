@@ -254,6 +254,7 @@
 - [Laravel-Debug-mode-RCE](./Web/漏洞复现/Laravel-Debug-mode-RCE（CVE-2021-3129-漏洞复现.md)
 - [pkexec提权](./Web/漏洞复现/pkexec提权)
 - [Clash-For-Windows-Rce](./Web/漏洞复现/Clash-For-Windows-Rce.md)
+- [redis-Lua沙盒逃逸rce-CVE-2022-0543](./Web/漏洞复现/redis-Lua沙盒逃逸rce-CVE-2022-0543.md)
 
 # BlockChain
 

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+License: Apache Software License, Version 2.0
+BuildInfo-Revision: unknown
+BuildInfo-User: 15997
+Terracotta-Name: quartz
+BuildInfo-URL: unknown
+BuildInfo-Host: DESKTOP-C25SBOE
+Terracotta-Description: Enterprise Job Scheduler
+Terracotta-ProjectStatus: Supported
+BuildInfo-Timestamp: 20220316-193110
+

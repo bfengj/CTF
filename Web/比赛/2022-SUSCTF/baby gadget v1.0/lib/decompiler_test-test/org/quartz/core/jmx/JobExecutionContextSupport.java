@@ -1,0 +1,63 @@
+package org.quartz.core.jmx;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.management.openmbean.CompositeData;
+import javax.management.openmbean.CompositeDataSupport;
+import javax.management.openmbean.CompositeType;
+import javax.management.openmbean.OpenDataException;
+import javax.management.openmbean.OpenType;
+import javax.management.openmbean.SimpleType;
+import javax.management.openmbean.TabularData;
+import javax.management.openmbean.TabularDataSupport;
+import javax.management.openmbean.TabularType;
+import org.quartz.JobExecutionContext;
+import org.quartz.SchedulerException;
+
+public class JobExecutionContextSupport {
+   private static final String COMPOSITE_TYPE_NAME = "JobExecutionContext";
+   private static final String COMPOSITE_TYPE_DESCRIPTION = "Job Execution Instance Details";
+   private static final String[] ITEM_NAMES = new String[]{"schedulerName", "triggerName", "triggerGroup", "jobName", "jobGroup", "jobDataMap", "calendarName", "recovering", "refireCount", "fireTime", "scheduledFireTime", "previousFireTime", "nextFireTime", "jobRunTime", "fireInstanceId"};
+   private static final String[] ITEM_DESCRIPTIONS = new String[]{"schedulerName", "triggerName", "triggerGroup", "jobName", "jobGroup", "jobDataMap", "calendarName", "recovering", "refireCount", "fireTime", "scheduledFireTime", "previousFireTime", "nextFireTime", "jobRunTime", "fireInstanceId"};
+   private static final OpenType[] ITEM_TYPES;
+   private static final CompositeType COMPOSITE_TYPE;
+   private static final String TABULAR_TYPE_NAME = "JobExecutionContextArray";
+   private static final String TABULAR_TYPE_DESCRIPTION = "Array of composite JobExecutionContext";
+   private static final String[] INDEX_NAMES;
+   private static final TabularType TABULAR_TYPE;
+
+   public static CompositeData toCompositeData(JobExecutionContext jec) throws SchedulerException {
+      try {
+         return new CompositeDataSupport(COMPOSITE_TYPE, ITEM_NAMES, new Object[]{jec.getScheduler().getSchedulerName(), jec.getTrigger().getKey().getName(), jec.getTrigger().getKey().getGroup(), jec.getJobDetail().getKey().getName(), jec.getJobDetail().getKey().getGroup(), JobDataMapSupport.toTabularData(jec.getMergedJobDataMap()), jec.getTrigger().getCalendarName(), jec.isRecovering(), jec.getRefireCount(), jec.getFireTime(), jec.getScheduledFireTime(), jec.getPreviousFireTime(), jec.getNextFireTime(), jec.getJobRunTime(), jec.getFireInstanceId()});
+      } catch (OpenDataException var2) {
+         throw new RuntimeException(var2);
+      }
+   }
+
+   public static TabularData toTabularData(List<JobExecutionContext> executingJobs) throws SchedulerException {
+      List<CompositeData> list = new ArrayList();
+      Iterator i$ = executingJobs.iterator();
+
+      while(i$.hasNext()) {
+         JobExecutionContext executingJob = (JobExecutionContext)i$.next();
+         list.add(toCompositeData(executingJob));
+      }
+
+      TabularData td = new TabularDataSupport(TABULAR_TYPE);
+      td.putAll((CompositeData[])list.toArray(new CompositeData[list.size()]));
+      return td;
+   }
+
+   static {
+      ITEM_TYPES = new OpenType[]{SimpleType.STRING, SimpleType.STRING, SimpleType.STRING, SimpleType.STRING, SimpleType.STRING, JobDataMapSupport.TABULAR_TYPE, SimpleType.STRING, SimpleType.BOOLEAN, SimpleType.INTEGER, SimpleType.DATE, SimpleType.DATE, SimpleType.DATE, SimpleType.DATE, SimpleType.LONG, SimpleType.STRING};
+      INDEX_NAMES = new String[]{"schedulerName", "triggerName", "triggerGroup", "jobName", "jobGroup", "fireTime"};
+
+      try {
+         COMPOSITE_TYPE = new CompositeType("JobExecutionContext", "Job Execution Instance Details", ITEM_NAMES, ITEM_DESCRIPTIONS, ITEM_TYPES);
+         TABULAR_TYPE = new TabularType("JobExecutionContextArray", "Array of composite JobExecutionContext", COMPOSITE_TYPE, INDEX_NAMES);
+      } catch (OpenDataException var1) {
+         throw new RuntimeException(var1);
+      }
+   }
+}

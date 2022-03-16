@@ -1,0 +1,26 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0
+                              http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+
+    <id>jar-with-dependencies</id>
+
+    <!--指明打包方式-->
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/</outputDirectory>
+            <useProjectArtifact>true</useProjectArtifact>
+            <unpack>true</unpack>
+            <scope>runtime</scope>
+            <!--这里以排除 storm 环境中已经提供的 storm-core 为例，演示排除 Jar 包-->
+            <excludes>
+                <exclude>org.apache.storm:storm-core</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>
