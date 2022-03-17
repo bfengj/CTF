@@ -53,6 +53,10 @@
 
 - [[Java-sec-code]PathTraversal学习](./Web/java/Java-sec-code/[Java-sec-code]PathTraversal学习.md)
 
+### 模板注入
+
+- [Thymeleaf 模板注入](./Web/java/模板注入/Thymeleaf/README.md)
+
 ### XXE
 
 - [Java中的XXE](./Web/java/XXE/Java中的XXE.md)
