@@ -172,6 +172,7 @@
 - [RW2022-DesperateCat](./Web/java/题目/RWCTF2022-DesperateCat/RWCTF2022-DesperateCat-Writeup.md)
 - [2021-春秋杯传说殿堂-easy_java](./Web/java/题目/2021-春秋杯传说殿堂-easy_java/README.md)
 - [2022-卷王杯-happyFastjson](./Web/java/题目/2022-卷王杯-happyFastjson/2022-卷王杯-happyFastjson.md)
+- [Code-Breaking-Puzzles-javacon](./Web/java/题目/Code-Breaking-Puzzles-javacon/README.md)
 
 ## PHP
 

