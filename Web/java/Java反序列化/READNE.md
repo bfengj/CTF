@@ -8,6 +8,7 @@
 - 2022.3.7 [Java安全之ROME反序列化利用分析](https://www.yuque.com/jinjinshigekeaigui/qskpi5/cz1um4)，补充了rome的另一条链。
 - 2022.3.10 增加了C3P0的JNDI和hex序列化字节加载器。
 - 2022.3.14 补充了CC7。
+- 2022.3.18 [Java反序列化数据绕WAF之加大量脏数据](https://mp.weixin.qq.com/s/wvKfe4xxNXWEgtQE4PdTaQ)
 
 ## 待填的坑
 

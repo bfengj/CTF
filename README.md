@@ -79,6 +79,7 @@
 - [JDBC反序列化漏洞学习](./Web/java/Java反序列化/JDBC反序列化漏洞学习.md)
 - [C3P0反序列化](./Web/java/Java反序列化/[Java反序列化]C3P0反序列化.md)
 - [AspectJWeaver反序列化](./Web/java/Java反序列化/[Java反序列化]AspectJWeaver反序列化.md)
+- [Java反序列化数据绕WAF之加大量脏数据](./Web/java/Java反序列化/Java反序列化数据绕WAF之加大量脏数据.md)
 
 ### Java基础
 
@@ -110,6 +111,8 @@
 - [绕过高版本JDK的JNDI注入](./Web/java/JNDI/[Java安全]绕过高版本JDK的JNDI注入学习.md)
 
 ### shiro
+
+shiro似乎是之前记的，有点问题。。。。
 
 - [Shiro反序列化学习(一)](./Web/java/shiro/[Java反序列化]Shiro反序列化学习(一).md)
 - [Shiro反序列化学习(二)](./Web/java/shiro/[Java反序列化]Shiro反序列化学习(二).md)
