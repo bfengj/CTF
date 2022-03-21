@@ -1,0 +1,1 @@
+<?php (empty($_GET["env"])) ? highlight_file(__FILE__) : putenv($_GET["env"]) && system('echo hfctf2022');?>

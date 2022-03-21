@@ -9,6 +9,10 @@
 - 2022.3.10 增加了C3P0的JNDI和hex序列化字节加载器。
 - 2022.3.14 补充了CC7。
 - 2022.3.18 [Java反序列化数据绕WAF之加大量脏数据](https://mp.weixin.qq.com/s/wvKfe4xxNXWEgtQE4PdTaQ)
+- 2022.3.21 [Hessian 反序列化及相关利用链](https://paper.seebug.org/1131/)
+- 2022.3.21 [dubbo源码浅析：默认反序列化利用之hessian2](https://www.anquanke.com/post/id/197658)
+
+
 
 ## 待填的坑
 

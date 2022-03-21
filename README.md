@@ -80,6 +80,7 @@
 - [C3P0反序列化](./Web/java/Java反序列化/[Java反序列化]C3P0反序列化.md)
 - [AspectJWeaver反序列化](./Web/java/Java反序列化/[Java反序列化]AspectJWeaver反序列化.md)
 - [Java反序列化数据绕WAF之加大量脏数据](./Web/java/Java反序列化/Java反序列化数据绕WAF之加大量脏数据.md)
+- [Hessian反序列化](./Web/java/Java反序列化/Hessian反序列化.md)
 
 ### Java基础
 
@@ -180,6 +181,7 @@ shiro似乎是之前记的，有点问题。。。。
 - [2021-春秋杯传说殿堂-easy_java](./Web/java/题目/2021-春秋杯传说殿堂-easy_java/README.md)
 - [2022-卷王杯-happyFastjson](./Web/java/题目/2022-卷王杯-happyFastjson/2022-卷王杯-happyFastjson.md)
 - [Code-Breaking-Puzzles-javacon](./Web/java/题目/Code-Breaking-Puzzles-javacon/README.md)
+- [2022-HFCTF-ezchain](./Web/java/题目/2022-HFCTF-ezchain/README.md)
 
 ## PHP
 

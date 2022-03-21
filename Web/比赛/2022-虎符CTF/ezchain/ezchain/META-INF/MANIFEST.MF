@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: waderwu
+Build-Jdk: 1.8.0_211
+Main-Class: com.ctf.ezchain.Index
+

