@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/brick/varexporter" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-skeleton-installer" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-validator" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-servicemanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-mvc" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-stdlib" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-view" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-modulemanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-json" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-config" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-development-mode" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-escaper" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-http" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-uri" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-router" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-loader" />
+      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-component-installer" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-log" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-hydrator" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-form" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-filter" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-inputfilter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-db" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-i18n" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-serializer" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.3">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+</project>

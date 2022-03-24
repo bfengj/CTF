@@ -249,6 +249,8 @@ shiro似乎是之前记的，有点问题。。。。
 - [长城杯线下-Web-Work-复现](./Web/writeup/长城杯线下-Web-Work-复现.md)
 - [2022-工大抗疫-web-writeup](./Web/writeup/2022-工大抗疫-web-writeup.md)
 - [2022-D3CTF-web-writeup](./Web/writeup/2022-D^3CTF-Web-Writeup.md)
+- [2022-红明谷-Web-Writeup](./Web/writeup/2022-红明谷-Web-Writeup.md)
+- [2022-HFCTF-Writeup](./Web/writeup/2022-HFCTF-Writeup.md)
 
 
 

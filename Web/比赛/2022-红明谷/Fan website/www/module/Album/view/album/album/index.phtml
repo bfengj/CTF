@@ -1,0 +1,28 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = '胡千 De Albums';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('album', ['action' => 'add']) ?>">Add new album</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($albums as $album) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($album->title) ?></td>
+            <td><?= $this->escapeHtml($album->artist) ?></td>
+            <td>
+                <a href="<?= $this->url('album', ['action' => 'edit', 'id' => $album->id]) ?>">Edit</a>
+                <a href="<?= $this->url('album', ['action' => 'delete', 'id' => $album->id]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

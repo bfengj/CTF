@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/module/Album/src" isTestSource="false" packagePrefix="Album\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Application/src" isTestSource="false" packagePrefix="Application\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Application/test" isTestSource="true" packagePrefix="ApplicationTest\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webimpress/safe-writer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/brick/varexporter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-skeleton-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-servicemanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-mvc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-stdlib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-view" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-modulemanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-json" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-eventmanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-development-mode" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-escaper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-uri" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-router" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-loader" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/container-interop/container-interop" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-component-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-hydrator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-form" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-inputfilter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-db" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-i18n" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-serializer" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
