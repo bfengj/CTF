@@ -407,3 +407,8 @@ String同理：
 ![image-20220321202222978](Hessian反序列化.assets/image-20220321202222978.png)
 
 但是Hessian有自己的反序列化处理方式，导致了`_tfactory`为null，最后不能实现动态加载字节码。2022年HFCTF就考察了这个，不过可以利用`SignedObject`类的`getObject`二次反序列化来实现动态加载字节码。
+
+
+
+
+
