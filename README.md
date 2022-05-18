@@ -57,6 +57,15 @@
 
 - [[Java-sec-code]PathTraversal学习](./Web/java/Java-sec-code/[Java-sec-code]PathTraversal学习.md)
 
+### JBOSS
+
+- [CVE-2017-12149](./Web/java/JBOSS/CVE-2017-12149/README.md)
+
+### F5 big
+
+- [CVE-2021-22986](./Web/java/F5/CVE-2021-22986/README.md)
+- [CVE-2022-1388](./Web/java/F5/CVE-2022-1388/README.md)
+
 ### 模板注入
 
 - [Thymeleaf 模板注入](./Web/java/模板注入/Thymeleaf/README.md)
