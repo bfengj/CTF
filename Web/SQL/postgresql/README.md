@@ -130,7 +130,7 @@ select * from users where id = -1 or 1=(select 123 from PG_SLEEP(5))
 select * from users where id = -1 union select 1,(select case when 1=2 then 'a' else 'b' end),'3' --
 ```
 
-postgresql中没有`if`，用的是`case then xxx then xxx else xxx end`。
+postgresql中没有`if`，用的是`case when xxx then xxx else xxx end`。
 
 ## 文件操作
 
