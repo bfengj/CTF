@@ -1,0 +1,16 @@
+1/10/2018 15:43	[MAIN_THREAD]	** STARTING - ARK AD RECYCLE BIN MANAGER v1.2.2 **
+1/10/2018 15:43	[MAIN_THREAD]	Validating settings...
+1/10/2018 15:43	[MAIN_THREAD]	Error: Access is denied
+1/10/2018 15:43	[MAIN_THREAD]	Exiting with error code 5
+2/10/2018 15:56	[MAIN_THREAD]	** STARTING - ARK AD RECYCLE BIN MANAGER v1.2.2 **
+2/10/2018 15:56	[MAIN_THREAD]	Validating settings...
+2/10/2018 15:56	[MAIN_THREAD]	Running as user CASCADE\ArkSvc
+2/10/2018 15:56	[MAIN_THREAD]	Moving object to AD recycle bin CN=Test,OU=Users,OU=UK,DC=cascade,DC=local
+2/10/2018 15:56	[MAIN_THREAD]	Successfully moved object. New location CN=Test\0ADEL:ab073fb7-6d91-4fd1-b877-817b9e1b0e6d,CN=Deleted Objects,DC=cascade,DC=local
+2/10/2018 15:56	[MAIN_THREAD]	Exiting with error code 0	
+8/12/2018 12:22	[MAIN_THREAD]	** STARTING - ARK AD RECYCLE BIN MANAGER v1.2.2 **
+8/12/2018 12:22	[MAIN_THREAD]	Validating settings...
+8/12/2018 12:22	[MAIN_THREAD]	Running as user CASCADE\ArkSvc
+8/12/2018 12:22	[MAIN_THREAD]	Moving object to AD recycle bin CN=TempAdmin,OU=Users,OU=UK,DC=cascade,DC=local
+8/12/2018 12:22	[MAIN_THREAD]	Successfully moved object. New location CN=TempAdmin\0ADEL:f0cc344d-31e0-4866-bceb-a842791ca059,CN=Deleted Objects,DC=cascade,DC=local
+8/12/2018 12:22	[MAIN_THREAD]	Exiting with error code 0

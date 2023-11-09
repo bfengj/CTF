@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: evilpod
+spec:
+  containers:
+  - image: nginx:1.14.2
+    name: container
+    volumeMounts:
+    - mountPath: /mnt
+      name: test-volume
+  volumes:
+  - name: test-volume
+    hostPath:
+      path: /

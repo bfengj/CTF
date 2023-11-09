@@ -1,0 +1,7 @@
+# FTP
+
+```shell
+put
+get
+```
+
