@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Implementation-Title: anyfileread
+Implementation-Version: 0.0.1-SNAPSHOT
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+Start-Class: cc.saferoad.SpringbootApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Build-Jdk-Spec: 1.8
+Spring-Boot-Version: 2.7.0
+Created-By: Maven JAR Plugin 3.2.2
+Main-Class: org.springframework.boot.loader.JarLauncher
+

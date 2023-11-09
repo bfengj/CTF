@@ -1,0 +1,37 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/log4j-to-slf4j-2.17.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/logback-core-1.2.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/log4j-api-2.17.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-web-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jackson-core-2.13.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jackson-module-parameter-names-2.13.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-jcl-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/tomcat-embed-websocket-9.0.64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/slf4j-api-1.7.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-beans-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/logback-classic-1.2.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-webmvc-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/commons-io-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jackson-databind-2.13.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/tomcat-embed-core-9.0.64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-boot-autoconfigure-2.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jackson-datatype-jsr310-2.13.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jackson-annotations-2.13.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-context-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jul-to-slf4j-1.7.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jakarta.annotation-api-1.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/snakeyaml-1.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-boot-2.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-boot-jarmode-layertools-2.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-expression-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/jackson-datatype-jdk8-2.13.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-aop-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/spring-core-5.3.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BOOT-INF/lib/tomcat-embed-el-9.0.64.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

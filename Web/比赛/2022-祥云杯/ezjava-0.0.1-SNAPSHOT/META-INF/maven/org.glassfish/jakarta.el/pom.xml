@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 1997, 2018 Oracle and/or its affiliates and others.
+    All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.eclipse.ee4j</groupId>
+        <artifactId>project</artifactId>
+        <version>1.0.5</version>
+    </parent>
+
+    <groupId>org.glassfish</groupId>
+    <artifactId>jakarta.el</artifactId>
+    <version>3.0.3</version>
+    
+    <name>Jakarta Expression Language 3.0</name>
+    <description>
+        Jakarta Expression Language provides a specification document, API, reference implementation and TCK 
+        that describes an expression language for Java applications.
+    </description>
+    <url>https://projects.eclipse.org/projects/ee4j.el</url>
+
+    <properties>
+        <!-- the bundle build number must be the same as the maven number -->
+        <bundle.version>3.0.3</bundle.version>
+        <!-- The most current api version -->
+        <spec.version>3.0</spec.version>
+        <extensionName>javax.el</extensionName>
+        <bundle.symbolicName>com.sun.el.javax.el</bundle.symbolicName>
+        <vendorName>Oracle Corporation</vendorName>
+        <findbugs.version>2.5.2</findbugs.version>
+        <findbugs.exclude>${project.basedir}/exclude.xml</findbugs.exclude>
+        <findbugs.threshold>High</findbugs.threshold>
+    </properties>
+    
+    <developers>
+        <developer>
+            <id>yaminikb</id>
+            <name>Yamini K B</name>
+            <organization>Oracle Corporation</organization>
+            <organizationUrl>http://www.oracle.com/</organizationUrl>
+        </developer>
+    </developers>
+
+    <contributors>
+        <contributor>
+            <name>Kin-man Chung</name>
+        </contributor>
+    </contributors>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/eclipse-ee4j/el-ri/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>EPL 2.0</name>
+            <url>http://www.eclipse.org/legal/epl-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+        <license>
+            <name>GPL2 w/ CPE</name>
+            <url>https://www.gnu.org/software/classpath/license.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <mailingLists>
+        <mailingList>
+            <name>Jakarta Expression Language mailing list</name>
+            <post>el-dev@eclipse.org</post>
+            <subscribe>https://dev.eclipse.org/mailman/listinfo/el-dev</subscribe>
+            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/el-dev</unsubscribe>
+            <archive>https://dev.eclipse.org/mhonarc/lists/el-dev</archive>
+        </mailingList>
+    </mailingLists>
+    
+    <scm>
+        <connection>scm:git:https://github.com/eclipse-ee4j/el-ri.git</connection>
+        <developerConnection>
+            scm:git:git@github.com:eclipse-ee4j/el-ri.git
+        </developerConnection>
+        <url>https://github.com/eclipse-ee4j/el-ri</url>
+        <tag>HEAD</tag>
+    </scm>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>api/src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>impl/src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>LICENSE.md</include>
+                    <include>NOTICE.md</include>
+                </includes>
+                <targetPath>META-INF</targetPath>
+            </resource>
+        </resources>
+    
+        <plugins>
+            <!-- Use this to include both the api and impl sources -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>api/src/main/java</source>
+                                <source>impl/src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- 
+                Configure maven-bundle-plugin to generate OSGi manifest. 
+                
+                Please note: we use the manifest goal only and not the bundle goal. 
+                The bundle goal can lead to very surprising results if the package names are not correctly specified. 
+                So, we use the jar plugin to generate the jar. 
+            -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.3</version>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+                        <Bundle-Description>
+                            Expression Language ${spec.version} API and Implementation
+
+                        </Bundle-Description>
+                        <Bundle-Version>${bundle.version}</Bundle-Version>
+                        <Extension-Name>${extensionName}</Extension-Name>
+                        <Specification-Version>${spec.version}</Specification-Version>
+                        <Specification-Vendor>${vendorName}</Specification-Vendor>
+                        <Implementation-Version>${project.version}</Implementation-Version>
+                        <Implementation-Vendor>${vendorName}</Implementation-Vendor>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- Adds the manifest file created by the org.apache.felix:maven-bundle-plugin -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+            
+            <!-- Restricts the Java version to 1.7 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+
+            <!-- Creates the source jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version> 2.2.1 </version>
+                <configuration>
+                    <includePom>true</includePom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Creates the javadoc jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <source>1.7</source>
+                            <sourcepath>api/src;impl/src</sourcepath>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
+                            <links>
+                                <link>https://javaee.github.io/javaee-spec/javadocs/</link>
+                            </links>
+                            <groups>
+                                <group>
+                                    <title>Jakarta Expression Language 3.0 API and Implementation</title>
+                                    <packages>com.sun.el</packages>
+                                </group>
+                            </groups>
+                            <bottom> Copyright (c) 2013 Oracle and/or its affiliates. All Rights Reserved. Use is subject to license terms. </bottom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- Use ant to manually invoke javacc, as this required is very infrequently <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>javacc-maven-plugin</artifactId> 
+                <version>2.6</version> <executions> <execution> <id>jjtree-javacc</id> <goals> <goal>jjtree-javacc</goal> </goals> <configuration> <sourceDirectory>src/main/java/com/sun/el/parser</sourceDirectory> 
+                <outputDirectory>src/main/java/com/sun/el/parser</outputDirectory> </configuration> </execution> </executions> </plugin> -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs.version}</version>
+                <configuration>
+                    <threshold>${findbugs.threshold}</threshold>
+                    <excludeFilterFile>${findbugs.exclude}</excludeFilterFile>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.7.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.7.1</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <forkMode>never</forkMode>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs.version}</version>
+                <configuration>
+                    <threshold>${findbugs.threshold}</threshold>
+                    <excludeFilterFile>${findbugs.exclude}</excludeFilterFile>
+                </configuration>
+            </plugin>
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <excludePackageNames>com.sun.el.parser</excludePackageNames>
+                    <sourceFileExcludes>
+                        <sourceFileExclude>**/parser/*.java</sourceFileExclude>
+                    </sourceFileExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+   
+</project>

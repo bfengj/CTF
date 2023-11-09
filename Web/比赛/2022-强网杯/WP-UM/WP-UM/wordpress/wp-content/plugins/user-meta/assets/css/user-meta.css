@@ -1,0 +1,497 @@
+
+.um_hidden {
+    display:none;
+}
+
+.um_label_top {
+    display: block;
+    font-weight: bold; 
+}
+
+.um_label_left {
+    display: inline;
+    font-weight: bold;
+    float: left;
+    width: 140px;
+    margin-right: 10px;   
+}
+
+.um_label_right {
+    display: inline;
+    font-weight: bold;
+    float:right;
+    width: 140px;
+    margin-left: 10px;      
+}
+
+.um_label_inline {
+    display: inline;
+    font-weight: bold;  
+}
+
+.um_left_margin {
+    margin-left: 150px;
+}
+
+.um_half_width {
+    float: left;
+    width: 50%;
+}
+
+.um_inline {
+    display: inline;
+}
+
+.um_field_container.um_inline label.um_label_inline {
+	margin-right: 10px;
+}
+
+.um_field_container.um_inline span.um_description {
+    margin-left: 10px;
+}
+
+.um_get_button {    
+    width: 150px;
+    height: 43px;
+    background-image: url('../images/button.png');
+}
+
+#um_fields_container {
+    /*padding: 2%;
+    border: 2px dotted #fff09f;
+    background: #fffef5;    */
+}
+
+.um_input {
+    width: 300px;
+}
+
+input[type='checkbox'].um_input,input[type='radio'].um_input {
+    width: auto;
+}
+
+.um_segment {
+    display: inline-block;
+    width: 33%;
+    padding-bottom: 20px;
+}
+
+.um_field_selecor {
+    display: inline-block;
+    width: 48%;
+    margin: 1% !important;
+    /*padding: 2% !important;*/
+    text-align: center;
+}
+
+.um_add_button {
+    cursor: pointer;
+}
+
+.um_left {
+    float: left;
+}
+
+.um_right {
+    float: right;
+}
+
+.um_clear {
+    clear:both;
+}
+
+.um_block_title {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.um_required {
+    color: red;
+}
+
+.um_selected_fields {
+    /*background-color: blue;*/
+    width: 50%;
+    min-height: 300px;
+    height:  auto;
+}
+
+.um_availabele_fields {
+    /*background-color: red;*/
+    width: 40%;
+    height: 300px;
+}
+
+.um_dropme {
+    padding: 5px;
+    border: 2px dotted #fff09f;
+    background: #fffef5;
+    overflow: auto;
+}
+
+.um_dropme div {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    cursor: move;
+}
+
+.um_highlight {
+    padding: 5px;
+    border: 2px dotted #5b6967;
+}
+
+.um_block_title {
+    margin: 0 auto;
+    display: block;
+}
+
+.um_description {
+    font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    text-align: left;
+    font-style: normal;    
+}
+
+/**
+* Commented since 1.4
+#um_resetpassword_form {
+    border: 1px solid gray;
+    padding: 15px 0px 0px 185px;
+    background: aliceblue;
+    clear: both;
+}
+
+#um_resetpassword_form h2 {
+    font-size: 25px;
+    color: blue;
+}*/
+
+.um_import_div {
+    padding-left: 40px;   
+    background: url(../images/um_line.png) repeat-y left;
+    min-height: 170px;
+}
+
+.placeholder {
+    color: #aaa;
+}
+
+.um_field_container {
+    margin: 10px 0;
+}
+
+.um_button {
+    margin: 10px 0;
+}
+
+.ui-progressbar-value {
+    background-image: url( '../images/pbar-ani.gif' );
+}
+
+.um_shadow_box {
+	color: #555;
+	border-color: #cccccc;
+	background: #f7f7f7;
+	-webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0,0,0,.08);
+	box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0,0,0,.08);
+ 	vertical-align: top;
+}
+
+.um_remove_file span {
+    background: url('../images/trash.png') no-repeat left center;
+    min-width: 27px;
+    min-height: 30px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+/** pf **/
+
+.pf_trash {
+    float: right;
+    background: url('../images/trash.png') no-repeat center center;
+    width: 27px;
+    height: 30px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.pf_label {
+    display: block;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.pf_loading {
+    background:url(../images/pf_loading.gif) no-repeat;
+    margin:  10px; 
+}
+
+.pf_loading_fb {
+    background:url(../images/pf_loading.gif) no-repeat;
+    margin:  10px; 
+}
+
+.pf_required {
+    color: red;
+}
+
+.pf_divider {
+    margin: 10px 0; 
+    background-color: #fff; 
+    height: 1px; 
+    overflow: hidden; 
+    border-top: 1px solid #E6E6E6; 
+    border-bottom: 1px solid #fff; 
+    clear: both;
+}
+
+/* Various Message */
+.pf_info, .pf_success, .pf_warning, .pf_error, .pf_validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.pf_info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('../images/info.png');
+}
+
+.pf_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
+}
+
+.pf_warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('../images/warning.png');
+}
+
+.pf_error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../images/error.png');
+}
+
+.pf_validation {
+    color: #D63301;
+    background-color: #FFCCBA;
+    background-image: url('../images/validation.png');
+}
+/* End Various Message */
+
+
+/* timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+/* End timepicker */
+
+/* Password strength */
+.password_strength {
+    margin: 0 5px;
+	padding: 0 5px;
+	display: inline-block;
+}
+    
+.password_strength_1 { background-color: #fcb6b1; }
+.password_strength_2 { background-color: #fccab1; }
+.password_strength_3 { background-color: #fcfbb1; }
+.password_strength_4 { background-color: #dafcb1; }
+.password_strength_5 { background-color: #bcfcb1; }
+/* End Password strength */
+
+.pf_left {
+    float: left;
+}
+
+.pf_right {
+    float: right;
+}
+
+.pf_width_10 {
+    width: 10%;
+    padding: 2px;    
+}
+
+.pf_width_20 {
+    width: 20%;
+    padding: 2px;    
+}
+
+.pf_width_25 {
+    width: 25%; 
+}
+
+.pf_width_30 {
+    width: 30%;
+    padding: 2px;    
+}
+
+.pf_width_40 {
+    width: 40%;
+    padding: 2px;    
+}
+
+.pf_width_50 {
+    width: 50%;
+    padding: 2px;    
+}
+
+.pf_width_60 {
+    width: 60%;
+    padding: 2px;    
+}
+
+.pf_width_70 {
+    width: 70%;
+    padding: 2px;    
+}
+
+.pf_width_73 {
+    width: 73%;
+    padding: 2px;    
+}
+
+.pf_width_75 {
+    width: 75%;
+    padding: 2px;    
+}
+
+.pf_width_80 {
+    width: 80%;
+    padding: 2px;    
+}
+
+
+.pf_blure {
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+/** 1.1.7rc1 **/
+.panel .panel-heading {
+    cursor: pointer;
+}
+
+.um_field_single .panel-heading {
+    cursor: move;
+}
+
+.um_field_single .panel-heading .panel-title i {
+    cursor: pointer;
+}
+
+.panel .panel-heading .panel-title i {
+    float:right;
+}
+
+.um_pills.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: #999 !important;
+}
+
+ul.multiselect-container > li {
+    margin-bottom: 0 !important;
+}
+
+#um_fields_selectors .panel-body .btn-default {
+    background-color: #f5f5f5;
+}
+
+#um_fields_selectors .panel-body .btn-info {
+    color: #333;
+    background-color: #d9edf7;
+}
+
+.um_selector_options .um_plusminus_rows_holder .um_plusminus_row:hover { 
+    background-color: #f5f5f5;
+    cursor: move;
+}
+
+.um_ribbon {
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    text-align: right;
+}
+
+.um_ribbon span {
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    width: 100px;
+    display: block;
+    background: #79A70A;
+    background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px;
+    left: -21px;
+}
+
+.um_ribbon span::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid #79A70A;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #79A70A;
+}
+
+.um_ribbon span::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid #79A70A;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #79A70A;
+}
+
+/******************************/
+/******* Admin side css *******/
+/******************************/
+#um_admin_content {
+	width: 73%;
+	float: left;
+}
+
+#um_admin_sidebar {
+	width: 25%;
+	float: right;
+}
+
+/**
+* Bootstrap 3 added font-weight: 700 for the lebel,
+* This class allows setting lebel on normal size.
+* @since 2.3
+*/
+.um_admin_normal_label label {
+	font-weight: 400;
+}

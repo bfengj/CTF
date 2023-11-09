@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ez_java
+  freemarker:
+    template-loader-path: file:/app/templates,classpath:/templates/
+    suffix: .ftl
+    cache: false
+    charset: UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    settings:
+      new_builtin_class_resolver: safer

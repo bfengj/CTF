@@ -1,0 +1,17 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico">
+<title>您的浏览器不受支持</title>
+<script type="text/javascript">
+	var userAgent = navigator.userAgent; 
+	var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+	if(!isIE){
+		window.location.href="/page/login.php"
+	}
+</script>
+</head>
+<body style="margin:0;padding:0">
+<img src="/images/noie.jpg" width="100%" height="100%" />
+</body>
+</html>

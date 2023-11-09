@@ -1,0 +1,48 @@
+[
+    {
+        "name": "user-meta/html",
+        "version": "1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/khaledsaikat/html-form.git",
+            "reference": "86455086ac6b97d90e7becc7508907f035156c56"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/khaledsaikat/html-form/zipball/86455086ac6b97d90e7becc7508907f035156c56",
+            "reference": "86455086ac6b97d90e7becc7508907f035156c56",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2020-01-18T11:14:22+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/wp.php"
+            ],
+            "psr-4": {
+                "UserMeta\\Html\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Khaled Hossain",
+                "homepage": "http://khaledsaikat.com"
+            }
+        ],
+        "description": "PHP class for html form builder",
+        "homepage": "https://github.com/khaledsaikat/html-form",
+        "keywords": [
+            "form",
+            "html"
+        ]
+    }
+]

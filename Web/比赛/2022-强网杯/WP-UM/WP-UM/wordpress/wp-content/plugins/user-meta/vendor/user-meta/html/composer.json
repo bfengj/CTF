@@ -1,0 +1,21 @@
+{
+    "name": "user-meta/html",
+    "type": "library",
+    "description": "PHP class for html form builder",
+    "keywords": ["html", "form"],
+    "homepage": "https://github.com/khaledsaikat/html-form",
+    "license": "MIT",
+    "authors": [{
+        "name": "Khaled Hossain",
+        "homepage": "http://khaledsaikat.com"
+    }],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UserMeta\\Html\\": "src/"
+        },
+        "files": ["src/wp.php"]
+    }
+}

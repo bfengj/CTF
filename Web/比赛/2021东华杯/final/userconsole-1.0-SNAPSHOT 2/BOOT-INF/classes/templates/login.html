@@ -1,0 +1,88 @@
+
+<!DOCTYPE HTML>
+<!--<base th:href="@{/}">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>5guser webconsole</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link rel="stylesheet" th:href="@{css/style.css}" type="text/css" media="all" />
+	<link rel="stylesheet" th:href="@{css/fontawesome-all.css}">
+
+</head>
+
+<body>
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<h1>5guser webconsole</h1>
+	<div class="sub-main-w3">
+		<form action="/login" method="post">
+			<h2>Login Now
+				<i class="fa fa-long-arrow-down"></i>
+			</h2>
+			<div class="form-style-agile">
+				<label>
+					<i class="fa fa-user"></i>
+					Username
+				</label>
+				<input placeholder="Username" name="username" type="text" value="" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fa fa-unlock-alt"></i>
+					Password
+				</label>
+				<input placeholder="Password" name="password" type="password" required="">
+			</div>
+			<!-- checkbox -->
+			<div class="wthree-text">
+				<ul>
+					<li>
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>Stay Signed In</span>
+						</label>
+					</li>
+					<li>
+						<a href="#">Forgot Password?</a>
+					</li>
+				</ul>
+			</div>
+			<!-- //checkbox -->
+			<input type="submit" value="Log In">
+		</form>
+	</div>
+	<!-- //content -->
+
+	<!-- copyright -->
+	<div class="footer">
+		<p>Copyright &copy; 2022.CTF All rights reserved.</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Jquery -->
+	<script th:src="@{js/jquery-3.3.1.min.js}"></script>
+	<!-- //Jquery -->
+
+	<!-- effect js -->
+	<script th:src="@{js/canva_moving_effect.js}"></script>
+	<!-- //effect js -->
+
+</body>
+
+</html>

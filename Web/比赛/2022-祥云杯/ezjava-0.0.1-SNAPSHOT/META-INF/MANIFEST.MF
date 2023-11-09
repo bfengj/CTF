@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Archiver-Version: Plexus Archiver
+Built-By: 
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+Start-Class: com.ctf.ezjava.EzjavaApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Version: 2.6.1
+Created-By: Apache Maven
+Build-Jdk: 1.8.0_66
+Main-Class: org.springframework.boot.loader.JarLauncher
+

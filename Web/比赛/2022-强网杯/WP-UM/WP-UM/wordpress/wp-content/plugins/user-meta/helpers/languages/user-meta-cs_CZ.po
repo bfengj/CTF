@@ -1,0 +1,5596 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: User Meta Pro 2.4\n"
+"Report-Msgid-Bugs-To: https://user-meta.com/contact-us/\n"
+"POT-Creation-Date: 2021-09-04 22:52:54+00:00\n"
+"PO-Revision-Date: 2020-04-19 13:27+0200\n"
+"Last-Translator: Pavel Vítek <dr.cryo@gmail.com>\n"
+"Language-Team: Pavel Vítek <dr.cryo@gmail.com>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n"
+"+9)%10>3 ? 2 : 1;\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: addons/author-box/controllers/InitController.php:41
+#: addons/author-box/controllers/MetaBoxController.php:72
+msgid "Yes"
+msgstr ""
+
+#: addons/author-box/controllers/InitController.php:42
+#: addons/author-box/controllers/MetaBoxController.php:73
+msgid "No"
+msgstr ""
+
+# @ user-meta
+#: addons/author-box/controllers/InitController.php:45
+#, fuzzy
+msgid "Plain"
+msgstr "Čistý text"
+
+# @ user-meta
+#: addons/author-box/controllers/InitController.php:48
+#: legacylib/models/LibArrayModel.php:35 models/SupportArrayModel.php:332
+#: views/pro/settings/backendProfile.php:28
+msgid "Display Name"
+msgstr "Zobrazované jméno"
+
+# @ user-meta
+#: addons/author-box/controllers/InitController.php:49
+#, fuzzy
+msgid "First+Last Name"
+msgstr "Křestní jméno"
+
+#: addons/author-box/controllers/InitController.php:52
+msgid "After Post"
+msgstr ""
+
+#: addons/author-box/controllers/InitController.php:53
+msgid "Before Post"
+msgstr ""
+
+#: addons/author-box/controllers/MetaBoxController.php:53
+msgid "UMP Author Box"
+msgstr ""
+
+#: addons/author-box/controllers/MetaBoxController.php:78
+msgid "Show Author Box"
+msgstr ""
+
+# @ user-meta
+#: addons/author-box/models/FieldOptions.php:20
+#: models/SupportArrayModel.php:352 views/pro/settings/backendProfile.php:46
+msgid "Biographical Info"
+msgstr "Životopis"
+
+#: addons/author-box/resources/views/modalBody.php:23
+msgid "Assign Field (from Shared Fields) to each Author Box Fields"
+msgstr ""
+
+# @ user-meta
+#: addons/author-box/resources/views/modalBody.php:28
+#, fuzzy
+msgid "Author Description Field"
+msgstr "Popis"
+
+# @ user-meta
+#: addons/author-box/resources/views/modalBody.php:37
+#, fuzzy
+msgid "Author Designation Field"
+msgstr "Přiřazování polí"
+
+# @ user-meta
+#: addons/author-box/resources/views/modalBody.php:46
+#, fuzzy
+msgid "Show Email Address"
+msgstr "Nesprávná e-mailová adresa"
+
+#: addons/author-box/resources/views/modalBody.php:55
+msgid "Show Contact No"
+msgstr ""
+
+# @ user-meta
+#: addons/author-box/resources/views/modalBody.php:67
+#, fuzzy
+msgid "Contact No. Field"
+msgstr "Hlavička Kontaktní údaje"
+
+#: addons/author-box/resources/views/modalBody.php:77
+msgid "Show Portfolio Link"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:89
+msgid "Portfolio URL Field"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:99
+msgid "Show Facebook Link"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:111
+msgid "Facebook Profile URL Field"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:121
+msgid "Show LinkedIn Link"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:133
+msgid "LinkedIn Profile URL Field"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:143
+msgid "Show Twitter Link"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:155
+msgid "Twitter Profile URL Field"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:169
+msgid "Author Box Theme"
+msgstr ""
+
+# @ user-meta
+#: addons/author-box/resources/views/modalBody.php:178
+#, fuzzy
+msgid "Author Box Position"
+msgstr "Umístění nadpisu"
+
+#: addons/author-box/resources/views/modalBody.php:187
+msgid "Show Author Box in Posts"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:196
+msgid "Show Author Box in Pages"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:205
+msgid "Author Name Type"
+msgstr ""
+
+#: addons/author-box/resources/views/modalBody.php:214
+msgid "Show Recent Posts"
+msgstr ""
+
+# @ user-meta
+#: addons/override-email/resources/views/modalBody.php:6
+#, fuzzy
+msgid "Override default user registration email."
+msgstr "Zpráva o zápisu"
+
+#: addons/override-email/resources/views/modalBody.php:13
+msgid "Override default reset password email."
+msgstr ""
+
+#: addons/restrict-content/controllers/RestrictContentController.php:39
+msgid "UMP Restrict Content"
+msgstr ""
+
+# @ user-meta
+#: addons/restrict-content/controllers/RestrictContentController.php:87
+#: addons/restrict-content/resources/views/modalBody.php:25
+#: addons/restrict-content/resources/views/modalBody.php:27
+#, fuzzy
+msgid "You don't have permission to access this content!"
+msgstr "Nemáte potřebná práva k přístupu na tento profil."
+
+# @ user-meta
+#: addons/restrict-content/controllers/RestrictContentController.php:89
+#: addons/restrict-content/resources/views/modalBody.php:34
+#: addons/restrict-content/resources/views/modalBody.php:36
+#, fuzzy
+msgid "You must be logged in to view this content!"
+msgstr "Uživatel se k úpravě profilu musí nejprve přihlásit"
+
+#: addons/restrict-content/models/PostMetaBox.php:37
+msgid "All"
+msgstr ""
+
+# @ user-meta
+#: addons/restrict-content/models/PostMetaBox.php:38
+#, fuzzy
+msgid "Logged In User Only"
+msgstr "Nadpis pro přihlášené uživatele:"
+
+# @ user-meta
+#: addons/restrict-content/models/PostMetaBox.php:39
+#, fuzzy
+msgid "Logged Out User Only"
+msgstr "Nadpis pro přihlášené uživatele:"
+
+#: addons/restrict-content/resources/views/metaBox.php:13
+msgid "Display Contents To"
+msgstr ""
+
+#: addons/restrict-content/resources/views/metaBox.php:24
+msgid "Hide Contents From"
+msgstr ""
+
+#: addons/restrict-content/resources/views/modalBody.php:16
+msgid "Show User Meta Login Form In Appropriate Places"
+msgstr ""
+
+#: addons/restrict-content/resources/views/modalBody.php:19
+msgid "(Display the form when login is needed to access content)"
+msgstr ""
+
+#: addons/restrict-content/resources/views/modalBody.php:23
+msgid "Access Denied Text"
+msgstr ""
+
+# @ user-meta
+#: addons/restrict-content/resources/views/modalBody.php:32
+#, fuzzy
+msgid "Only For Logged In User Text"
+msgstr "Nadpis pro přihlášené uživatele:"
+
+# @ user-meta
+#: addons/user-list/models/DisplayList.php:101
+#: controllers/pro/UsersImportController.php:59
+#: models/SupportArrayModel.php:384 models/pro/AjaxProModel.php:152
+msgid "Avatar"
+msgstr "Avatar"
+
+# @ user-meta
+#: addons/user-list/models/DisplayList.php:102
+#, fuzzy
+msgid "User"
+msgstr "Už. jméno"
+
+# @ user-meta
+#: addons/user-list/models/DisplayList.php:103
+#: legacylib/models/LibArrayModel.php:37 models/SupportArrayModel.php:342
+#: views/pro/settings/backendProfile.php:25
+msgid "First Name"
+msgstr "Křestní jméno"
+
+# @ user-meta
+#: addons/user-list/models/DisplayList.php:104
+#: legacylib/models/LibArrayModel.php:38 models/SupportArrayModel.php:347
+#: views/pro/settings/backendProfile.php:26
+msgid "Last Name"
+msgstr "Příjmení"
+
+#: addons/user-list/resources/views/modalBody.php:27
+msgid "Select Public Profile Page (for individual users):"
+msgstr ""
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:37
+#, fuzzy
+msgid "Public profile page should contain public profile shortcode like:"
+msgstr "Stránka profilu by měla obsahovat zkratky jako: %s"
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:44
+#, fuzzy
+msgid "Basic Shortcode:"
+msgstr "Vložit zkratku"
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:59
+#, fuzzy
+msgid "Option"
+msgstr "možností"
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:60
+#, fuzzy
+msgid "Default"
+msgstr "Výchozí role"
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:61
+#: legacylib/models/LibArrayModel.php:39
+#: models/classes/builder/FieldBuilder.php:118
+msgid "Description"
+msgstr "Popis"
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:64
+#, fuzzy
+msgid "caption"
+msgstr "možností"
+
+#: addons/user-list/resources/views/modalBody.php:65
+#: addons/user-list/resources/views/modalBody.php:77
+#: addons/user-list/resources/views/modalBody.php:83
+msgid "null"
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:66
+msgid "Caption of the user table. No caption by default."
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:67
+#: addons/user-list/resources/views/modalBody.php:73
+#: addons/user-list/resources/views/modalBody.php:79
+#: addons/user-list/resources/views/modalBody.php:85
+msgid "Example:"
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:70
+msgid "role"
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:71
+msgid "all"
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:72
+msgid "Filter users by role, write multiple roles with comma separation."
+msgstr ""
+
+# @ user-meta
+#: addons/user-list/resources/views/modalBody.php:76
+#, fuzzy
+msgid "fields"
+msgstr "Pole"
+
+#: addons/user-list/resources/views/modalBody.php:78
+msgid ""
+"Fields to display in the user table. Write multiple shared fields ID with "
+"comma separation. Without this option user list contains default fields."
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:82
+msgid "link-field"
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:84
+msgid ""
+"Only applicable if fields option is applied. Pick fields id (with comma "
+"separation) that will contain the user public proflie link."
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:94
+msgid "Add Column (UMP Shared Field) to Backend User List"
+msgstr ""
+
+#: addons/user-list/resources/views/modalBody.php:103
+msgid "Exclude Default Column from Backend User List"
+msgstr ""
+
+# @ user-meta
+#: addons/woocommerce/controllers/AccountDetailsController.php:73
+#: addons/woocommerce/controllers/CheckOutController.php:167
+#: addons/woocommerce/controllers/RegistrationFormController.php:74
+#, fuzzy
+msgid "%s is a required field."
+msgstr "%s je vyžadován"
+
+# @ user-meta
+#: addons/woocommerce/controllers/CheckOutController.php:205
+#: addons/woocommerce/controllers/CheckOutController.php:230
+#, fuzzy
+msgid "Extra Data"
+msgstr "Počátek"
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:17
+#, fuzzy
+msgid "Billing First Name"
+msgstr "Křestní jméno"
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:18
+#, fuzzy
+msgid "Billing Last Name"
+msgstr "Příjmení"
+
+#: addons/woocommerce/models/WooFields.php:19
+msgid "Billing Company Name"
+msgstr ""
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:20
+#, fuzzy
+msgid "Billing Country"
+msgstr "Země"
+
+#: addons/woocommerce/models/WooFields.php:21
+msgid "Billing Street Address 1"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:22
+msgid "Billing Street Address 2"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:23
+msgid "Billing Town/City"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:24
+msgid "Billing District"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:25
+msgid "Billing Postcode/ZIP"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:26
+msgid "Billing Phone"
+msgstr ""
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:27
+#, fuzzy
+msgid "Billing Email address"
+msgstr "Nesprávná e-mailová adresa"
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:34
+#, fuzzy
+msgid "Shipping First Name"
+msgstr "Křestní jméno"
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:35
+#, fuzzy
+msgid "Shipping Last Name"
+msgstr "Příjmení"
+
+#: addons/woocommerce/models/WooFields.php:36
+msgid "Shipping Company Name"
+msgstr ""
+
+# @ user-meta
+#: addons/woocommerce/models/WooFields.php:37
+#, fuzzy
+msgid "Shipping Country"
+msgstr "Země"
+
+#: addons/woocommerce/models/WooFields.php:38
+msgid "Shipping Street Address 1"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:39
+msgid "Shipping Street Address 2"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:40
+msgid "Shipping Town/City"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:41
+msgid "Shipping District"
+msgstr ""
+
+#: addons/woocommerce/models/WooFields.php:42
+msgid "Shipping Postcode/ZIP"
+msgstr ""
+
+#: addons/woocommerce/resources/views/checkout.php:12
+msgid "WooCommerce Checkout Fields (after customer details)"
+msgstr ""
+
+#: addons/woocommerce/resources/views/checkout.php:19
+msgid ""
+"Add User Meta shared fields after customer details in WooCommerce Checkout "
+"Page."
+msgstr ""
+
+#: addons/woocommerce/resources/views/checkout.php:21
+msgid "WooCommerce Checkout Fields (before shipping fields)"
+msgstr ""
+
+#: addons/woocommerce/resources/views/checkout.php:28
+msgid ""
+"Add User Meta shared fields before shipping fields in WooCommerce Checkout "
+"Page."
+msgstr ""
+
+#: addons/woocommerce/resources/views/checkout.php:30
+msgid "WooCommerce Checkout Fields (before order review)"
+msgstr ""
+
+#: addons/woocommerce/resources/views/checkout.php:37
+msgid ""
+"Add User Meta shared fields before order review in WooCommerce Checkout Page."
+msgstr ""
+
+# @ user-meta
+#: addons/woocommerce/resources/views/modalBody.php:12
+#, fuzzy
+msgid "WC Profile"
+msgstr "Profil"
+
+# @ user-meta
+#: addons/woocommerce/resources/views/modalBody.php:15
+#, fuzzy
+msgid "WC Registration"
+msgstr "Zápis"
+
+# @ user-meta
+#: addons/woocommerce/resources/views/modalBody.php:17
+#, fuzzy
+msgid "WC Checkout"
+msgstr "Zaškrtávací pole"
+
+#: addons/woocommerce/resources/views/profile.php:12
+msgid "WooCommerce Account Fields"
+msgstr ""
+
+#: addons/woocommerce/resources/views/profile.php:18
+msgid "Add User Meta shared Fields to WooCommerce Account Details Page."
+msgstr ""
+
+# @ user-meta
+#: addons/woocommerce/resources/views/registration.php:12
+#, fuzzy
+msgid "WooCommerce Registration Fields"
+msgstr "Zpráva o zápisu"
+
+#: addons/woocommerce/resources/views/registration.php:18
+msgid "Add User Meta shared Fields to WooCommerce Registration Page."
+msgstr ""
+
+# @ user-meta
+#: controllers/AdminPagesController.php:71 models/SupportArrayModel.php:48
+#: models/SupportModel.php:397 views/forms/editForm.php:38
+#: views/pro/exportImport/exportImportUm.php:28
+msgid "Settings"
+msgstr "Nastavení"
+
+# @ user-meta
+#: controllers/LoginController.php:51 controllers/LoginController.php:57
+msgid "Please set %s!"
+msgstr "Prosím nastavte %s!"
+
+# @ user-meta
+#: controllers/LoginController.php:51 views/settings/loginSettingsPro.php:27
+msgid "Reset Password Page"
+msgstr "Stránka obnovy hesla"
+
+# @ user-meta
+#: controllers/LoginController.php:57
+#: views/pro/settings/registrationSettingsPro.php:57
+msgid "Email verification page"
+msgstr "Stránka e-mailového ověření"
+
+# @ user-meta
+#: controllers/PreloadsController.php:116 models/SupportArrayModel.php:813
+#: models/classes/FormsListTable.php:43
+#: views/pro/settings/redirectionSettings.php:32
+msgid "Profile"
+msgstr "Profil"
+
+# @ user-meta
+#: controllers/PreloadsController.php:169
+#, fuzzy
+msgid ""
+"There is a new version of %1$s available. Visit <a href=\"%2$s\">Plugins</a> "
+"page to update the plugin."
+msgstr ""
+"Je dostupná aktualizace <strong>%1$s</strong>. <a href=\"%2$s\">aktualizovat "
+"automaticky.</a>"
+
+#: controllers/PreloadsController.php:209
+msgid ""
+"Hey Good Person! It's been a while you are using User Meta plugin. We would "
+"love to know your experience so far."
+msgstr ""
+
+#: controllers/PreloadsController.php:212
+msgid "Loving it so far"
+msgstr ""
+
+#: controllers/PreloadsController.php:213
+msgid "It's okay but could be better"
+msgstr ""
+
+#: controllers/PreloadsController.php:214
+msgid "Not liking it"
+msgstr ""
+
+#: controllers/PreloadsController.php:217
+msgid "Already Provided Feedback"
+msgstr ""
+
+#: controllers/PreloadsController.php:218
+msgid "Remind Me Later"
+msgstr ""
+
+#: controllers/PreloadsController.php:219
+msgid "Never Show Me This"
+msgstr ""
+
+#: controllers/PreloadsController.php:224
+msgid ""
+"Perfect! We're really happy that you are loving the plugin. It would be so "
+"amazing and supportive for us if you kindly let others know why you like "
+"User Meta plugin by leaving a review. Your constructive opinion is really "
+"important and would be massively appreciated by us!"
+msgstr ""
+
+#: controllers/PreloadsController.php:228
+msgid "Leave Review"
+msgstr ""
+
+#: controllers/PreloadsController.php:233
+msgid ""
+"We really appreciate your opinion and we would love to get your feedback so "
+"we can improve the plugin and make it better."
+msgstr ""
+
+#: controllers/PreloadsController.php:237
+#: controllers/PreloadsController.php:246
+msgid "Provide Feedback"
+msgstr ""
+
+#: controllers/PreloadsController.php:242
+msgid ""
+"We're really sorry to hear that. If you're having some issues with the "
+"plugin please contact us at <a href = \"mailto: support@user-meta.com"
+"\">support[at]user-meta.com</a> or can can create a topic on our <a href=\"%s"
+"\" target=\"_blank\">support forum</a> and we will try and help you out "
+"ASAP. Also, if you have some ideas on how we can make the plugin better or "
+"want to tell why you dislike the plugin please provide a feedback. Your "
+"constructive opinion is really important and would be massively appreciated "
+"by us!"
+msgstr ""
+
+# @ user-meta
+#: controllers/PreloadsController.php:295
+msgid "Security check"
+msgstr "Bezpečnostní kontrola"
+
+# @ user-meta
+#: controllers/SettingsController.php:48
+msgid "Settings successfully saved."
+msgstr "Nastavení bylo v pořádku uloženo."
+
+# @ user-meta
+#: controllers/ShortcodesController.php:217
+#, fuzzy
+msgid "This shortcode is only supported on pro version. Get %s"
+msgstr "Tato funkce je podporována pouze ve verzi Pro. Získejte jí na %s"
+
+# @ default
+#: controllers/VersionUpdateController.php:494
+msgid ""
+"Some texts of UserMetaPro have been updated. If you are using your site in "
+"any other languages than english, please update your translation."
+msgstr ""
+"Některé texty User Meta Pro byly upraveny. Pakliže na Vaší stránce používáte "
+"jiný jazyk, než angličtinu, aktualizujte si překlady."
+
+# @ user-meta
+#: controllers/VersionUpdateController.php:495
+msgid "Dismiss"
+msgstr "Storno"
+
+# @ user-meta
+#: controllers/pro/EmailNotificationController.php:206
+#: controllers/pro/EmailNotificationController.php:212
+msgid "Email verification url: %s"
+msgstr "URL e-mailového potvrzení: %s"
+
+# @ user-meta
+#: controllers/pro/EmailNotificationController.php:209
+#: controllers/pro/EmailNotificationController.php:214
+msgid "Activation url: %s"
+msgstr "Aktivační URL: %s"
+
+# @ user-meta
+#: controllers/pro/EmailNotificationController.php:228
+#, fuzzy
+msgid ""
+"To reset your password, please visit the following address: \\r\\n\\r\\n %s"
+msgstr ""
+"Obnovení Vašeho hesla proveďte na adrese: \\r\n"
+"\\r\n"
+" %s"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:69
+#: controllers/pro/UserActivationController.php:75
+#: controllers/pro/UserActivationController.php:205
+#: controllers/pro/UserActivationController.php:372
+#: controllers/pro/UserActivationController.php:425
+msgid "Activate"
+msgstr "Aktivovat"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:78
+#: controllers/pro/UserActivationController.php:83
+#: controllers/pro/UserActivationController.php:205
+#: controllers/pro/UserActivationController.php:430
+msgid "Deactivate"
+msgstr "Odvolat"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:165
+msgid "Active"
+msgstr "Aktivní"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:166
+msgid "Inactive"
+msgstr "Odvolaný"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:167
+msgid "Pending"
+msgstr "Čekající"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:168
+msgid "Pending Approval"
+msgstr "Čekající na aktivaci"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:169
+msgid "Pending Email Verification"
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:331
+msgid "Not an admin account!"
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:335
+msgid "User does not exists."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:352
+msgid "User %s registered on your site."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:353
+msgid "Approve Now"
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:354
+msgid "or"
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:355
+msgid "Deny"
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:357
+msgid "User %s is already approved and active."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:371
+msgid "User %s has been approved but still needs email verification."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:372
+msgid "now without verifying email."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:374
+msgid "User %s is has been approved."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:377
+msgid "User %s is has been approved and active."
+msgstr ""
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:424
+msgid "New user %s registered on your site."
+msgstr "Na Vaši stránce se zapsal nový uživatel %s."
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:429
+msgid "User %s is already activated."
+msgstr "Uživatel %s je již aktivovaný."
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:436
+msgid "activated"
+msgstr "aktivován(o)"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:438
+msgid "deactivated"
+msgstr "odvolán(o)"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:441
+msgid "%1$s users have been %2$s"
+msgstr "%1$s uživatelů bylo %2$s"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:443
+msgid "User has been %s"
+msgstr "Uživatel byl %s"
+
+# @ user-meta
+#: controllers/pro/UserActivationController.php:447
+msgid "No user updated"
+msgstr "Beze změny"
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:21
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Ke vstupu na tuto stránku nemáte bohužel potřebná práva."
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:41
+msgid "Something went wrong!"
+msgstr "Něco se pokazilo!"
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:93
+msgid "CSV file is not found for import!"
+msgstr "Soubor CSV k importu nenalezen!"
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:95
+msgid "Error occurred while importing."
+msgstr "Při importu nastala chyba."
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:99
+msgid "Email should be selected as one of the fields."
+msgstr "E-mail by měl být zvolen jako jedno z polí."
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:102
+msgid "Username should be selected as one of the fields."
+msgstr "Už. jméno by mělo být zvoleno jako jedno z polí."
+
+# @ user-meta
+#: controllers/pro/UsersImportController.php:105
+msgid "Both Email and Username should be selected as any of the fields."
+msgstr "Jak e-mail, tak už. jméno by měly být zvoleny jako jedny z polí."
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:30 models/SupportArrayModel.php:308
+#: models/SupportArrayModel.php:549 views/pro/settings/backendProfile.php:24
+msgid "Username"
+msgstr "Už. jméno"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:31
+#: views/pro/settings/backendProfile.php:33
+msgid "E-mail"
+msgstr "E-mail"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:32 models/SupportArrayModel.php:318
+#: models/SupportArrayModel.php:789 views/pro/settings/activationForm.php:53
+msgid "Password"
+msgstr "Heslo"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:33
+msgid "Nicename"
+msgstr "Celé jméno"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:34 models/SupportArrayModel.php:327
+#: views/pro/settings/backendProfile.php:34
+msgid "Website"
+msgstr "Web. stránky"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:36 models/SupportArrayModel.php:337
+#: views/pro/settings/backendProfile.php:27
+msgid "Nickname"
+msgstr "Přezdívka"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:40 models/SupportArrayModel.php:357
+msgid "Registration Date"
+msgstr "Datum zápisu"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:41 models/SupportArrayModel.php:362
+msgid "Role"
+msgstr "Role"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:42
+msgid "Jabber"
+msgstr "Jabber"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:43
+msgid "Aim"
+msgstr "Aim"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:44
+msgid "Yim"
+msgstr "Yim"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:76
+msgid "Afghanistan"
+msgstr "Afghánistán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:77
+msgid "Albania"
+msgstr "Albánie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:78
+msgid "Algeria"
+msgstr "Algerie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:80
+msgid "American Samoa"
+msgstr "Americká Samoa"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:81
+msgid "Andorra"
+msgstr "Andorra"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:82
+msgid "Angola"
+msgstr "Angola"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:83
+msgid "Anguilla"
+msgstr "Anguilla"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:85
+msgid "Antarctica"
+msgstr "Antarktída"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:86
+msgid "Antigua and Barbuda"
+msgstr "Antigua a Barbuda"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:87
+msgid "Argentina"
+msgstr "Argentina"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:88
+msgid "Armenia"
+msgstr "Arménie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:89
+msgid "Aruba"
+msgstr "Aruba"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:90
+msgid "Australia"
+msgstr "Austrálie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:91
+msgid "Austria"
+msgstr "Rakousko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:92
+msgid "Azerbaijan"
+msgstr "Azerbajdžán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:93
+msgid "Bahamas"
+msgstr "Bahamy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:94
+msgid "Bahrain"
+msgstr "Bahrajn"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:95
+msgid "Bangladesh"
+msgstr "Bangladéš"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:96
+msgid "Barbados"
+msgstr "Barbados"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:97
+msgid "Belarus"
+msgstr "Bělorusko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:98
+msgid "Belgium"
+msgstr "Belgie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:99
+msgid "Belize"
+msgstr "Beliza"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:100
+msgid "Benin"
+msgstr "Benin"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:101
+msgid "Bermuda"
+msgstr "Bermudy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:102
+msgid "Bhutan"
+msgstr "Bhutan"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:103
+msgid "Bolivia"
+msgstr "Bolívie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:104
+msgid "Bosnia and Herzegovina"
+msgstr "Bosna a Hercegovina"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:105
+msgid "Botswana"
+msgstr "Botswana"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:107
+msgid "Bouvet Island"
+msgstr "Ostrov Bouvet"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:108
+msgid "Brazil"
+msgstr "Brazílie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:109
+msgid "British Indian Ocean Territory"
+msgstr "Britské indickooceánské území"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:110
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:111
+msgid "Bulgaria"
+msgstr "Bulharsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:112
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:113
+msgid "Burundi"
+msgstr "Burundi"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:114
+msgid "Cambodia"
+msgstr "Kambodža"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:115
+msgid "Cameroon"
+msgstr "Kameron"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:116
+msgid "Canada"
+msgstr "Kanada"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:117
+msgid "Cape Verde"
+msgstr "Cape Verde"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:118
+msgid "Cayman Islands"
+msgstr "Kajmanské ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:119
+msgid "Central African Republic"
+msgstr "Středoafrická republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:120
+msgid "Chad"
+msgstr "Čad"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:121
+msgid "Chile"
+msgstr "Čile"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:122
+msgid "China"
+msgstr "Čína"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:123
+msgid "Christmas Island"
+msgstr "Vánoční ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:124
+msgid "Cocos (Keeling) Islands"
+msgstr "Ostrovy Cocos (Keeling)"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:125
+msgid "Colombia"
+msgstr "Kolumbie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:126
+msgid "Comoros"
+msgstr "Comoros"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:127
+msgid "Congo"
+msgstr "Kongo"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:128
+msgid "Congo, the Democratic Republic of the"
+msgstr "Demokratická republika Kongo"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:129
+msgid "Cook Islands"
+msgstr "Cookovy ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:130
+msgid "Costa Rica"
+msgstr "Kostarika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:131
+msgid "Cote D'Ivoire"
+msgstr "Cote D'Ivoire"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:132
+msgid "Croatia"
+msgstr "Chorvatsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:133
+msgid "Cuba"
+msgstr "Kuba"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:135
+#, fuzzy
+msgid "Curacao"
+msgstr "Makao"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:136
+msgid "Cyprus"
+msgstr "Kypr"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:137
+msgid "Czech Republic"
+msgstr "Česká republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:138
+msgid "Denmark"
+msgstr "Dánsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:139
+msgid "Djibouti"
+msgstr "Djibouti"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:140
+msgid "Dominica"
+msgstr "Dominika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:141
+msgid "Dominican Republic"
+msgstr "Dominikánská republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:142
+msgid "Ecuador"
+msgstr "Ekvádor"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:143
+msgid "Egypt"
+msgstr "Egypt"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:144
+msgid "El Salvador"
+msgstr "El Salvador"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:145
+msgid "Equatorial Guinea"
+msgstr "Rovníková Guinea"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:146
+msgid "Eritrea"
+msgstr "Eritrea"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:147
+msgid "Estonia"
+msgstr "Estónsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:148
+msgid "Ethiopia"
+msgstr "Etiopie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:149
+msgid "Falkland Islands (Malvinas)"
+msgstr "Falklandy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:150
+msgid "Faroe Islands"
+msgstr "Faerské ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:151
+msgid "Fiji"
+msgstr "Fidži"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:152
+msgid "Finland"
+msgstr "Finsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:153
+msgid "France"
+msgstr "Francie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:155
+msgid "French Guiana"
+msgstr "Francouzká Guyana"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:156
+msgid "French Polynesia"
+msgstr "Francouzská Polynézie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:157
+msgid "French Southern Territories"
+msgstr "Francouzská jižní území"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:158
+msgid "Gabon"
+msgstr "Gabon"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:159
+msgid "Gambia"
+msgstr "Gambie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:160
+msgid "Georgia"
+msgstr "Gruzie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:161
+msgid "Germany"
+msgstr "Německo"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:162
+msgid "Ghana"
+msgstr "Ghana"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:163
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:164
+msgid "Greece"
+msgstr "Řecko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:165
+msgid "Greenland"
+msgstr "Grónsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:166
+msgid "Grenada"
+msgstr "Grenada"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:167
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:168
+msgid "Guam"
+msgstr "Guam"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:169
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: legacylib/models/LibArrayModel.php:171
+msgid "Guernsey"
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:172
+msgid "Guinea"
+msgstr "Guinea"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:173
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:174
+msgid "Guyana"
+msgstr "Guyana"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:175
+msgid "Haiti"
+msgstr "Haiti"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:177
+msgid "Heard Island and Mcdonald Islands"
+msgstr "Heraldské a McDonaldovy ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:178
+msgid "Holy See (Vatican City State)"
+msgstr "Vatikán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:179
+msgid "Honduras"
+msgstr "Honduras"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:180
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:181
+msgid "Hungary"
+msgstr "Maďarsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:182
+msgid "Iceland"
+msgstr "Island"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:183
+msgid "India"
+msgstr "Indie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:184
+msgid "Indonesia"
+msgstr "Indonésie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:185
+msgid "Iran, Islamic Republic of"
+msgstr "Íránská islámská republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:186
+msgid "Iraq"
+msgstr "Irák"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:187
+msgid "Ireland"
+msgstr "Irsko"
+
+#: legacylib/models/LibArrayModel.php:189
+msgid "Isle of Man"
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:190
+msgid "Israel"
+msgstr "Israel"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:191
+msgid "Italy"
+msgstr "Itálie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:192
+msgid "Jamaica"
+msgstr "Jamajka"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:193
+msgid "Japan"
+msgstr "Japonsko"
+
+#: legacylib/models/LibArrayModel.php:195
+msgid "Jersy"
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:196
+msgid "Jordan"
+msgstr "Jordán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:197
+msgid "Kazakhstan"
+msgstr "Kazachstán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:198
+msgid "Kenya"
+msgstr "Keňa"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:199
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: legacylib/models/LibArrayModel.php:201
+msgid "Kosovo"
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:202
+msgid "Korea, Democratic People's Republic of"
+msgstr "Korejská demokratická republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:203
+msgid "Korea, Republic of"
+msgstr "Korejská republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:204
+msgid "Kuwait"
+msgstr "Kuwajt"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:205
+msgid "Kyrgyzstan"
+msgstr "Kyrgystán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:206
+msgid "Lao People's Democratic Republic"
+msgstr "Laoská lidově demokratická republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:207
+msgid "Latvia"
+msgstr "Lotyšsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:208
+msgid "Lebanon"
+msgstr "Libanon"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:209
+msgid "Lesotho"
+msgstr "Lesotho"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:210
+msgid "Liberia"
+msgstr "Libérie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:211
+msgid "Libyan Arab Jamahiriya"
+msgstr "Lybie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:212
+msgid "Liechtenstein"
+msgstr "Lichtenštejnsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:213
+msgid "Lithuania"
+msgstr "Litva"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:214
+msgid "Luxembourg"
+msgstr "Lucemburg"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:215
+msgid "Macao"
+msgstr "Makao"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:216
+msgid "Macedonia, the Former Yugoslav Republic of"
+msgstr "Makedónie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:217
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:218
+msgid "Malawi"
+msgstr "Malawi"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:219
+msgid "Malaysia"
+msgstr "Malajsie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:220
+msgid "Maldives"
+msgstr "Maledivy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:221
+msgid "Mali"
+msgstr "Mali"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:222
+msgid "Malta"
+msgstr "Malta"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:223
+msgid "Marshall Islands"
+msgstr "Marshallovy ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:225
+msgid "Martinique"
+msgstr "Martinik"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:226
+msgid "Mauritania"
+msgstr "Mauritánie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:227
+msgid "Mauritius"
+msgstr "Maurícius"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:228
+msgid "Mayotte"
+msgstr "Mayotte"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:229
+msgid "Mexico"
+msgstr "Mexico"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:230
+msgid "Micronesia, Federated States of"
+msgstr "Mikronésie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:231
+msgid "Moldova, Republic of"
+msgstr "Moldavsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:232
+msgid "Monaco"
+msgstr "Monako"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:233
+msgid "Mongolia"
+msgstr "Mongolsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:235
+#, fuzzy
+msgid "Montenegro"
+msgstr "Srbsko a Černá Hora"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:236
+msgid "Montserrat"
+msgstr "Montserrat"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:237
+msgid "Morocco"
+msgstr "Maroko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:238
+msgid "Mozambique"
+msgstr "Mosambik"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:239
+msgid "Myanmar"
+msgstr "Myanmar"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:240
+msgid "Namibia"
+msgstr "Namibie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:241
+msgid "Nauru"
+msgstr "Nauru"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:242
+msgid "Nepal"
+msgstr "Nepál"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:243
+msgid "Netherlands"
+msgstr "Nizozemí"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:244
+msgid "Netherlands Antilles"
+msgstr "Nizozemské Antily"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:245
+msgid "New Caledonia"
+msgstr "Nová Kaledonie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:246
+msgid "New Zealand"
+msgstr "Nový Zéland"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:247
+msgid "Nicaragua"
+msgstr "Nikaragua"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:248
+msgid "Niger"
+msgstr "Niger"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:249
+msgid "Nigeria"
+msgstr "Nigérie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:250
+msgid "Niue"
+msgstr "Niue"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:251
+msgid "Norfolk Island"
+msgstr "Norfolkské ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:252
+msgid "Northern Mariana Islands"
+msgstr "Severní Mariany"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:253
+msgid "Norway"
+msgstr "Norsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:254
+msgid "Oman"
+msgstr "Omán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:255
+msgid "Pakistan"
+msgstr "Pákistán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:256
+msgid "Palau"
+msgstr "Palau"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:257
+msgid "Palestinian Territory, Occupied"
+msgstr "Okupované území Palestiny"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:258
+msgid "Panama"
+msgstr "Panama"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:259
+msgid "Papua New Guinea"
+msgstr "Papua Nová Guinea"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:260
+msgid "Paraguay"
+msgstr "Paraguay"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:261
+msgid "Peru"
+msgstr "Peru"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:262
+msgid "Philippines"
+msgstr "Filipíny"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:263
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:264
+msgid "Poland"
+msgstr "Polsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:265
+msgid "Portugal"
+msgstr "Portugalsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:266
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:267
+msgid "Qatar"
+msgstr "Qatar"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:268
+msgid "Reunion"
+msgstr "Reunion"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:269
+msgid "Romania"
+msgstr "Rumunsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:270
+msgid "Russian Federation"
+msgstr "Rusko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:271
+msgid "Rwanda"
+msgstr "Rwanda"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:273
+#, fuzzy
+msgid "Saint Barthelemy"
+msgstr "Svatá Helena"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:274
+msgid "Saint Helena"
+msgstr "Svatá Helena"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:275
+msgid "Saint Kitts and Nevis"
+msgstr "Svatý Kryštof a Nevis"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:276
+msgid "Saint Lucia"
+msgstr "Svatá Lucie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:277
+msgid "Saint Pierre and Miquelon"
+msgstr "Svatý Pierre a Miquelon"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:278
+msgid "Saint Vincent and the Grenadines"
+msgstr "Svatý Vincenc a Grenadiny"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:279
+msgid "Samoa"
+msgstr "Samoa"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:280
+msgid "San Marino"
+msgstr "San Marino"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:281
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome a Principe"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:282
+msgid "Saudi Arabia"
+msgstr "Saudská Arábie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:283
+msgid "Senegal"
+msgstr "Senegal"
+
+#: legacylib/models/LibArrayModel.php:287
+msgid "Serbia"
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:288
+msgid "Seychelles"
+msgstr "Sejšely"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:289
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:290
+msgid "Singapore"
+msgstr "Singapur"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:292
+#, fuzzy
+msgid "Sint Marteen"
+msgstr "Svatá Helena"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:293
+msgid "Slovakia"
+msgstr "Slovensko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:294
+msgid "Slovenia"
+msgstr "Slovinsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:295
+msgid "Solomon Islands"
+msgstr "Šalamounovy ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:296
+msgid "Somalia"
+msgstr "Somálsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:297
+msgid "South Africa"
+msgstr "Jižní Afrika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:298
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Jižní Georgie a Jižní Sandwichovy ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:299
+msgid "Spain"
+msgstr "Španělsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:300
+msgid "Sri Lanka"
+msgstr "Srí Lanka"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:301
+msgid "Sudan"
+msgstr "Súdán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:302
+msgid "Suriname"
+msgstr "Surinam"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:303
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard a Jan Mayen"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:304
+msgid "Swaziland"
+msgstr "Svazijsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:305
+msgid "Sweden"
+msgstr "Švédsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:306
+msgid "Switzerland"
+msgstr "Švýcarsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:307
+msgid "Syrian Arab Republic"
+msgstr "Syrská arabská republika"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:308
+msgid "Taiwan, Province of China"
+msgstr "Tchaj-wan"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:309
+msgid "Tajikistan"
+msgstr "Tádžikistán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:310
+msgid "Tanzania, United Republic of"
+msgstr "Sjednocená republika Tanzanie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:311
+msgid "Thailand"
+msgstr "Thajsko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:312
+msgid "Timor-Leste"
+msgstr "Timor-Leste"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:313
+msgid "Togo"
+msgstr "Togo"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:314
+msgid "Tokelau"
+msgstr "Tokelau"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:315
+msgid "Tonga"
+msgstr "Tonga"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:316
+msgid "Trinidad and Tobago"
+msgstr "Trinidad a Tobago"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:317
+msgid "Tunisia"
+msgstr "Tunisko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:318
+msgid "Turkey"
+msgstr "Turecko"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:319
+msgid "Turkmenistan"
+msgstr "Turkmenistán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:320
+msgid "Turks and Caicos Islands"
+msgstr "Ostrovy Turks a Caicos"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:321
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:322
+msgid "Uganda"
+msgstr "Uganda"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:323
+msgid "Ukraine"
+msgstr "Ukrajina"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:324
+msgid "United Arab Emirates"
+msgstr "Spojené arabské emiráty"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:325
+msgid "United Kingdom"
+msgstr "Velká Británie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:326
+msgid "United States"
+msgstr "Spojené státy americké"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:328
+msgid "United States Minor Outlying Islands"
+msgstr "Odlehlé ostrovy Spojených států amerických"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:329
+msgid "Uruguay"
+msgstr "Uruguay"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:330
+msgid "Uzbekistan"
+msgstr "Uzbekistán"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:331
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:332
+msgid "Venezuela"
+msgstr "Venezuela"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:333
+msgid "Vietnam"
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:334
+msgid "Virgin Islands, British"
+msgstr "Britské Panenské ostrovy"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:335
+msgid "Virgin Islands, U.S."
+msgstr ""
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:336
+msgid "Wallis and Futuna"
+msgstr "Wallis a Futuna"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:337
+msgid "Western Sahara"
+msgstr "Západní Sahara"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:338
+msgid "Yemen"
+msgstr "Jemen"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:339
+msgid "Zambia"
+msgstr "Zambie"
+
+# @ user-meta
+#: legacylib/models/LibArrayModel.php:340
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+# @ user-meta
+#: legacylib/models/LibBuiltinFunctionsModel.php:24
+#: models/classes/ResetPassword.php:108
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr ""
+"<strong>CHYBA</strong>: Zadejte přihlašovací jméno nebo e-mailovou adresu."
+
+# @ user-meta
+#: legacylib/models/LibBuiltinFunctionsModel.php:44
+#: models/classes/ResetPassword.php:127
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr "<strong>CHYBA</strong>: Nesprávné přihlašovací údaje."
+
+# @ user-meta
+#: legacylib/models/LibBuiltinFunctionsModel.php:105
+msgid "Password reset is not allowed for this user"
+msgstr "Tento uživatel si nemůže heslo obnovit."
+
+#: legacylib/models/LibBuiltinFunctionsModel.php:131
+msgid "Could not save password reset key to database."
+msgstr ""
+
+# @ user-meta
+# @ default
+#: legacylib/models/LibWPSupportsModel.php:30
+#: legacylib/models/LibWPSupportsModel.php:41
+#: legacylib/models/LibWPSupportsModel.php:72
+msgid "Security check: admin only"
+msgstr "Bezpečnostní kontrola: pouze správce"
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:114
+msgid "No role defined"
+msgstr "Nebyla zvolena role"
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:226
+msgid "No file upload field found!"
+msgstr "Pole pro nahrání souboru nenalezeno!"
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:234
+msgid "File is empty."
+msgstr "Soubor je prázdný."
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:237
+#: models/classes/FileUploader.php:156 models/classes/FileUploader.php:193
+msgid "Server error. Upload directory is not writable."
+msgstr "Chyba serveru. Adresář pro nahrávání není zapisovatelný."
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:240
+msgid "File %s is too large."
+msgstr "Soubor %s je příliš velký."
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:257
+#: models/classes/FileUploader.php:175 models/classes/FileUploader.php:220
+msgid "File %1$s has an invalid extension, it should be one of %2$s."
+msgstr "Soubor %1$s nemá správnou koncovku, která by měla být %2$s."
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:269
+#: models/classes/FileUploader.php:242 models/classes/FileUploader.php:323
+msgid "Uploaded file could not be saved."
+msgstr "Nahraný soubor nebylo možné uložit."
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:269
+#: models/classes/FileUploader.php:242 models/classes/FileUploader.php:323
+msgid "The upload was cancelled due to server error"
+msgstr "Nahrávání bylo zrušeno chybou na serveru"
+
+# @ user-meta
+#: legacylib/models/LibWPSupportsModel.php:332
+msgid "Redirecting..."
+msgstr "Přesměrovávám..."
+
+# @ user-meta
+#: models/AjaxModel.php:70
+msgid "%s already taken"
+msgstr "%s již existuje"
+
+#: models/AjaxModel.php:106
+msgid "Permission denied."
+msgstr ""
+
+# @ user-meta
+#: models/AjaxModel.php:154
+msgid "License has been withdrawn"
+msgstr "Licence byla odvolána"
+
+# @ user-meta
+#: models/AjaxModel.php:224 models/pro/AjaxProModel.php:13
+msgid "Error occurred while updating"
+msgstr "Při nahrávání došlo k chybě"
+
+# @ user-meta
+#: models/AjaxModel.php:230 models/pro/AjaxProModel.php:21
+msgid "Successfully saved."
+msgstr "V pořádku uloženo."
+
+# @ user-meta
+#: models/MethodsModel.php:29
+msgid "Please provide a name of action type."
+msgstr "Zadejte prosím název druhu akce."
+
+# @ user-meta
+#: models/MethodsModel.php:32
+msgid "Sorry. type=\"%s\" is not valid."
+msgstr "Typ=\"%s\" není platný."
+
+# @ user-meta
+#: models/MethodsModel.php:61 models/MethodsModel.php:87
+msgid "No user found!."
+msgstr "Žádní už. nenalezeni!"
+
+# @ user-meta
+#: models/MethodsModel.php:63
+msgid "You do not have permission to access user profile."
+msgstr "Nemáte potřebná práva k přístupu na tento profil."
+
+# @ user-meta
+#: models/MethodsModel.php:78
+msgid "You have already registered. See your <a href=\"%s\">profile</a>"
+msgstr "Jste již zapsán, zobrazte si <a href=\"%s\">Váš profil</a>"
+
+# @ user-meta
+#: models/MethodsModel.php:80
+msgid "User registration is currently not allowed."
+msgstr "Zápis uživatelů je aktuálně zakázaný."
+
+# @ user-meta
+#: models/MethodsModel.php:111
+msgid "Please provide a form name."
+msgstr "Prosím zadejte název formuláře."
+
+# @ user-meta
+#: models/MethodsModel.php:116 models/SupportModel.php:49
+#: models/classes/Login.php:73 models/classes/UserInsert.php:652
+msgid "Form \"%s\" is not found."
+msgstr "Formulář \"%s\" nenalezen."
+
+# @ user-meta
+#: models/SupportArrayModel.php:13 models/SupportModel.php:391
+#: models/classes/FormsListTable.php:15 views/forms/formsEditorPage.php:8
+#: views/pro/exportImport/exportImportUm.php:25
+msgid "Forms"
+msgstr "Formuláře"
+
+# @ user-meta
+#: models/SupportArrayModel.php:14
+#, fuzzy
+msgid "Forms Editor | User Meta"
+msgstr "Editor formulářů"
+
+# @ user-meta
+#: models/SupportArrayModel.php:20 models/SupportModel.php:394
+#: models/classes/builder/FormBuilder.php:317
+#: views/fields/fieldsEditorPage.php:10
+msgid "Shared Fields"
+msgstr ""
+
+#: models/SupportArrayModel.php:21
+msgid "Fields Editor | User Meta"
+msgstr ""
+
+# @ user-meta
+#: models/SupportArrayModel.php:27 views/pro/exportImport/exportImportUm.php:26
+msgid "Email Notifications"
+msgstr "E-mailové upozornění"
+
+# @ user-meta
+#: models/SupportArrayModel.php:28
+#, fuzzy
+msgid "Email Notifications | User Meta"
+msgstr "E-mailové upozornění"
+
+# @ user-meta
+#: models/SupportArrayModel.php:34
+#: views/pro/exportImport/importExportPage.php:8
+msgid "Export & Import"
+msgstr "Export a import"
+
+# @ user-meta
+#: models/SupportArrayModel.php:35
+#, fuzzy
+msgid "Export & Import | User Meta"
+msgstr "Export a Import User Meta Pro"
+
+#: models/SupportArrayModel.php:41
+msgid "Add-ons"
+msgstr ""
+
+# @ user-meta
+#: models/SupportArrayModel.php:42
+#, fuzzy
+msgid "Add-ons | User Meta"
+msgstr "Přidat zkratku User Meta"
+
+#: models/SupportArrayModel.php:49
+msgid "Settings | User Meta"
+msgstr ""
+
+#: models/SupportArrayModel.php:55
+msgid "Pro Features"
+msgstr ""
+
+#: models/SupportArrayModel.php:56
+msgid "Pro Features | User Meta"
+msgstr ""
+
+# @ user-meta
+#: models/SupportArrayModel.php:313 models/SupportArrayModel.php:550
+#: views/pro/settings/activationForm.php:44
+msgid "Email"
+msgstr "E-mail"
+
+# @ user-meta
+#: models/SupportArrayModel.php:390
+msgid "New Blog"
+msgstr "Nový blog"
+
+# @ user-meta
+#: models/SupportArrayModel.php:397
+msgid "Textbox"
+msgstr "Textové pole"
+
+# @ user-meta
+#: models/SupportArrayModel.php:402
+msgid "Paragraph"
+msgstr "Odstavec"
+
+# @ user-meta
+#: models/SupportArrayModel.php:407
+msgid "Rich Text"
+msgstr "Formátovaný text"
+
+# @ user-meta
+#: models/SupportArrayModel.php:412
+msgid "Hidden Field"
+msgstr "Skryté pole"
+
+# @ user-meta
+#: models/SupportArrayModel.php:417
+msgid "Drop Down"
+msgstr "Rozbalovací pole"
+
+# @ user-meta
+#: models/SupportArrayModel.php:422
+msgid "Select One (radio)"
+msgstr "Výběr jedné možnosti"
+
+# @ user-meta
+#: models/SupportArrayModel.php:427
+msgid "Checkbox"
+msgstr "Zaškrtávací pole"
+
+# @ user-meta
+#: models/SupportArrayModel.php:432
+msgid "Multi Select"
+msgstr "Vícenásobný výběr"
+
+# @ user-meta
+#: models/SupportArrayModel.php:437
+msgid "Date / Time"
+msgstr "Datum / čas"
+
+# @ user-meta
+#: models/SupportArrayModel.php:442
+msgid "File Upload"
+msgstr "Nahrání souboru"
+
+# @ user-meta
+#: models/SupportArrayModel.php:447
+msgid "Phone Number"
+msgstr "Tel. číslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:452
+msgid "Number"
+msgstr "Číslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:457
+msgid "URL"
+msgstr "URL"
+
+# @ user-meta
+#: models/SupportArrayModel.php:462
+msgid "Country"
+msgstr "Země"
+
+# @ user-meta
+#: models/SupportArrayModel.php:469
+msgid "Image URL"
+msgstr "URL obrázku"
+
+#: models/SupportArrayModel.php:474
+msgid "Consent"
+msgstr ""
+
+#: models/SupportArrayModel.php:479
+msgid "Social Link"
+msgstr ""
+
+#: models/SupportArrayModel.php:484
+msgid "Video Link"
+msgstr ""
+
+# @ user-meta
+#: models/SupportArrayModel.php:496
+msgid "Page Heading"
+msgstr "Nadpis stránky"
+
+# @ user-meta
+#: models/SupportArrayModel.php:501
+msgid "Section Heading"
+msgstr "Nadpis sekce"
+
+# @ user-meta
+#: models/SupportArrayModel.php:506 views/pro/email/mailForm.php:24
+#: views/pro/email/singleEmailForm.php:33 views/settings/generalSettings.php:40
+msgid "HTML"
+msgstr "HTML"
+
+# @ user-meta
+#: models/SupportArrayModel.php:511
+msgid "Captcha"
+msgstr "Captcha"
+
+# @ user-meta
+#: models/SupportArrayModel.php:551
+msgid "Username or Email"
+msgstr "Už. jméno nebo e-mail"
+
+# @ user-meta
+#: models/SupportArrayModel.php:650
+msgid "[%s] Password Reset"
+msgstr "[%s] Obnova hesla"
+
+# @ user-meta
+#: models/SupportArrayModel.php:651
+#, fuzzy
+msgid "Someone has requested a password reset for the following account:"
+msgstr "Někdo požádal o obnovu hesla k následujícímu účtu:"
+
+# @ user-meta
+#: models/SupportArrayModel.php:651
+#, fuzzy
+msgid "Site Name: %s"
+msgstr "Název stránky"
+
+# @ user-meta
+#: models/SupportArrayModel.php:651
+msgid "Username: %s"
+msgstr "Už. jméno: %s"
+
+# @ user-meta
+#: models/SupportArrayModel.php:651
+#, fuzzy
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+"Pakliže tento jste tento požadavek nevyvolali, prosím ignorujte tuto zprávu."
+
+# @ user-meta
+#: models/SupportArrayModel.php:651
+msgid "To reset your password, visit the following address:"
+msgstr "K obnově hesla navštivte tuto stránku:"
+
+# @ user-meta
+#: models/SupportArrayModel.php:695
+msgid "Please Wait..."
+msgstr "Prosím o strpení..."
+
+#: models/SupportArrayModel.php:696
+msgid "Saving"
+msgstr ""
+
+#: models/SupportArrayModel.php:697
+msgid "Saved"
+msgstr ""
+
+#: models/SupportArrayModel.php:698
+msgid "Not Saved"
+msgstr ""
+
+# @ user-meta
+#: models/SupportArrayModel.php:702
+msgid "Upload"
+msgstr "Nahrát"
+
+# @ user-meta
+#: models/SupportArrayModel.php:703
+msgid "Drop files here to upload"
+msgstr "Sem přesuňte soubory k nahrání"
+
+# @ user-meta
+#: models/SupportArrayModel.php:704 views/pro/settings/activationForm.php:66
+msgid "Cancel"
+msgstr "Storno"
+
+# @ user-meta
+#: models/SupportArrayModel.php:705
+msgid "Failed"
+msgstr "Selhalo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:706
+msgid "%1$s has invalid extension. Only %2$s are allowed."
+msgstr "%1$s má nesprávnou příponu. Povoleny jsou pouze %2$s."
+
+# @ user-meta
+#: models/SupportArrayModel.php:707
+msgid "%1$s is too large, maximum file size is %2$s."
+msgstr "%1$s je příliš velký, povolená velikost je %2$s."
+
+# @ user-meta
+#: models/SupportArrayModel.php:708
+msgid "%s is empty, please select files again without it."
+msgstr "%s je prázdný, vyberte soubory znovu."
+
+# @ user-meta
+#: models/SupportArrayModel.php:709
+#, fuzzy
+msgid "Confirm to remove?"
+msgstr "Kliknutím odstranit"
+
+# @ user-meta
+#: models/SupportArrayModel.php:712
+msgid "Too weak"
+msgstr "Příliš slabé"
+
+# @ user-meta
+#: models/SupportArrayModel.php:713
+msgid "Weak password"
+msgstr "Slabé heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:714
+msgid "Normal strength"
+msgstr "Vyhovující"
+
+# @ user-meta
+#: models/SupportArrayModel.php:715
+msgid "Strong password"
+msgstr "Bezpečné heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:716
+msgid "Very strong password"
+msgstr "Velice bezpečné heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:719
+msgid "* This field is required"
+msgstr "* Toto je povinné pole"
+
+# @ user-meta
+#: models/SupportArrayModel.php:720
+msgid "* Please select an option"
+msgstr "* Vyberte z možností"
+
+# @ user-meta
+#: models/SupportArrayModel.php:721
+msgid "* This checkbox is required"
+msgstr "* Toto zaškrtávací pole je povinné"
+
+# @ user-meta
+#: models/SupportArrayModel.php:722
+msgid "* Minimum "
+msgstr "* Alespoň"
+
+# @ user-meta
+#: models/SupportArrayModel.php:723
+msgid "* Maximum "
+msgstr "* Nejvýše"
+
+# @ user-meta
+#: models/SupportArrayModel.php:724
+msgid " characters allowed"
+msgstr " znaků povoleno"
+
+# @ user-meta
+#: models/SupportArrayModel.php:725
+msgid "* Minimum value is "
+msgstr "* Nejmenší hodnota je "
+
+# @ user-meta
+#: models/SupportArrayModel.php:726
+msgid "* Maximum value is "
+msgstr "* Nejvyšší hodnota je "
+
+# @ user-meta
+#: models/SupportArrayModel.php:727
+msgid "* Date prior to "
+msgstr "* Datum před "
+
+# @ user-meta
+#: models/SupportArrayModel.php:728
+msgid "* Date past "
+msgstr "* Datum po "
+
+# @ user-meta
+#: models/SupportArrayModel.php:729
+msgid " options allowed"
+msgstr " možností povoleno"
+
+# @ user-meta
+#: models/SupportArrayModel.php:730
+msgid "* Please select "
+msgstr "* Prosím vyberte "
+
+# @ user-meta
+#: models/SupportArrayModel.php:731
+msgid " options"
+msgstr "možností"
+
+# @ user-meta
+#: models/SupportArrayModel.php:732
+msgid "* Fields do not match"
+msgstr "* Pole se neshodují"
+
+# @ user-meta
+#: models/SupportArrayModel.php:733
+msgid "* Invalid phone number"
+msgstr "* Nesprávné telefonní číslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:734
+msgid "* Invalid email address"
+msgstr "* Nesprávná e-mailová adresa"
+
+# @ user-meta
+#: models/SupportArrayModel.php:735
+msgid "* Not a valid integer"
+msgstr "* Není celé číslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:736
+msgid "* Not a valid number"
+msgstr "* Není platné číslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:737
+msgid "* Invalid date, must be in YYYY-MM-DD format"
+msgstr "* Nesprávný zápis, datum musí být ve formátu RRRR-MM-DD"
+
+# @ user-meta
+#: models/SupportArrayModel.php:738
+msgid "* Invalid time, must be in hh:mm:ss format"
+msgstr "* Nesprávný zápis, čas musí být ve formátu hh:mm:ss"
+
+# @ user-meta
+#: models/SupportArrayModel.php:739
+msgid "* Invalid datetime, must be in YYYY-MM-DD hh:mm:ss format"
+msgstr ""
+"* Nesprávný zápis, datum včetně času musí být ve formátu RRRR-MM-DD hh:mm:ss"
+
+# @ user-meta
+#: models/SupportArrayModel.php:740
+msgid "* Invalid IP address"
+msgstr "* Nesprávná IP adresa"
+
+# @ user-meta
+#: models/SupportArrayModel.php:741
+msgid "* Invalid URL"
+msgstr "* Nesprávný URL"
+
+# @ user-meta
+#: models/SupportArrayModel.php:742
+msgid "* Invalid field"
+msgstr "* Chybné pole"
+
+# @ user-meta
+#: models/SupportArrayModel.php:743
+msgid "* Numbers only"
+msgstr "* Pouze čísla"
+
+# @ user-meta
+#: models/SupportArrayModel.php:744
+msgid "* Letters only"
+msgstr "* Pouze písmena"
+
+# @ user-meta
+#: models/SupportArrayModel.php:745
+msgid "* No special characters allowed"
+msgstr "* Nejsou povolené žádné zvláštní znaky"
+
+# @ user-meta
+#: models/SupportArrayModel.php:746
+msgid "* This user is already taken"
+msgstr "* Tento uživatel již existuje"
+
+# @ user-meta
+#: models/SupportArrayModel.php:788 models/SupportArrayModel.php:791
+#: models/classes/LoginWidget.php:91 views/generateForm.php:146
+#: views/settingsPage.php:33
+msgid "Login"
+msgstr "Přihlášení"
+
+# @ user-meta
+#: models/SupportArrayModel.php:790
+msgid "Remember me"
+msgstr "Pamatuj si mě"
+
+# @ user-meta
+#: models/SupportArrayModel.php:792
+msgid "Both username and email are required"
+msgstr "Už. jméno i heslo jsou povinné"
+
+# @ user-meta
+#: models/SupportArrayModel.php:793 models/classes/Login.php:200
+msgid "<strong>ERROR</strong>: Invalid %s."
+msgstr "<strong>CHYBA</strong>: Nesprávné %s."
+
+# @ user-meta
+#: models/SupportArrayModel.php:794
+msgid "Login successfuly"
+msgstr "Úspěšné přihlášení"
+
+# @ user-meta
+#: models/SupportArrayModel.php:795
+msgid "Don't have an account? <a href=\"%s\">Sign up</a>"
+msgstr "Máte již účet? <a href=\"%s\">Přihlaste se</a>"
+
+# @ user-meta
+#: models/SupportArrayModel.php:797
+msgid "Lost Password"
+msgstr "Obnova hesla"
+
+# @ user-meta
+#: models/SupportArrayModel.php:798
+msgid "Lost your password?"
+msgstr "Zapomněli jste heslo?"
+
+# @ user-meta
+#: models/SupportArrayModel.php:799
+msgid ""
+"Please enter your username or email address. You will receive a link to "
+"reset your password via email."
+msgstr ""
+"Zadejte prosím Vaše už. jméno nebo e-mail. Zašleme Vám zprávu s odkazem, jak "
+"si obnovit heslo."
+
+# @ user-meta
+#: models/SupportArrayModel.php:800
+msgid "Username or E-mail"
+msgstr "Už. jméno nebo e-mail"
+
+# @ user-meta
+#: models/SupportArrayModel.php:801
+msgid "Get New Password"
+msgstr "Získat nové heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:803 models/SupportArrayModel.php:804
+#: models/SupportArrayModel.php:808
+msgid "Reset Password"
+msgstr "Obnova hesla"
+
+# @ user-meta
+#: models/SupportArrayModel.php:805
+msgid "Enter your new password below."
+msgstr "Níže napište Vaše nové heslo."
+
+# @ user-meta
+#: models/SupportArrayModel.php:806
+msgid "New password"
+msgstr "Nové heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:807
+msgid "Confirm new password"
+msgstr "Potvrďte nové heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:809
+msgid "The passwords do not match."
+msgstr "Hesla nesouhlasí."
+
+# @ user-meta
+#: models/SupportArrayModel.php:810
+msgid "Your password has been reset."
+msgstr "Vaše heslo bylo obnoveno."
+
+# @ user-meta
+#: models/SupportArrayModel.php:811
+#, fuzzy
+msgid "Invalid Pattern!"
+msgstr "Chybný parametr"
+
+# @ user-meta
+#: models/SupportArrayModel.php:814 models/SupportArrayModel.php:815
+msgid "Please login to access your profile."
+msgstr "K přístupu na Váš profil se nejprve přihlaste."
+
+# @ user-meta
+#: models/SupportArrayModel.php:816
+msgid "Profile successfully updated."
+msgstr "Profil byl úspěšně upraven."
+
+# @ user-meta
+#: models/SupportArrayModel.php:818 models/classes/FormsListTable.php:44
+#: views/settingsPage.php:40
+msgid "Registration"
+msgstr "Zápis"
+
+# @ user-meta
+#: models/SupportArrayModel.php:819
+msgid ""
+"We have sent you a verification link to your email. Please complete your "
+"registration by clicking the link."
+msgstr ""
+"Do Vaší e-mailové schránky jsme zaslali ověřovací odkaz. Dokončete zápis "
+"kliknutím na tento odkaz."
+
+# @ user-meta
+#: models/SupportArrayModel.php:820
+msgid ""
+"We have sent you a verification link to your email. Please verify your email "
+"by clicking the link and wait for admin approval."
+msgstr ""
+"Do Vaší e-mailové schránky jsme zaslali ověřovací zprávu. Potvrďte Vaši "
+"adresu kliknutím na obdržený odkaz a vyčkejte ověření Vašeho zápisu."
+
+# @ user-meta
+#: models/SupportArrayModel.php:821
+msgid "Your email is successfully verified. Please wait for admin approval."
+msgstr "Váš e-mail byl úspěšně ověřen, vyčkejte na schválení správcem."
+
+# @ user-meta
+#: models/SupportArrayModel.php:822
+msgid "Please wait until an admin approves your account."
+msgstr "Prosím vyčkejte na schválení Vašeho účtu správcem."
+
+# @ user-meta
+#: models/SupportArrayModel.php:823
+msgid ""
+"Your email is successfully verified and the account has been activated. <a "
+"href=\"%s\">Login now</a>"
+msgstr ""
+"Váš e-mail byl úspěšně ověřen a účet aktivován. <a href=\"%s\">Přihlaste se</"
+"a>"
+
+# @ user-meta
+#: models/SupportArrayModel.php:824
+msgid "Registration successfully completed."
+msgstr "Zápis proběhl úspěšně."
+
+# @ user-meta
+#: models/SupportArrayModel.php:826
+msgid "Validation"
+msgstr "Ověření"
+
+# @ user-meta
+#: models/SupportArrayModel.php:827
+#: models/classes/generate/ValidationRule.php:106
+msgid "Invalid %s"
+msgstr "Nesprávné %s"
+
+# @ user-meta
+#: models/SupportArrayModel.php:828
+msgid "%s is required"
+msgstr "%s je vyžadován"
+
+# @ user-meta
+#: models/SupportArrayModel.php:829
+msgid "Invalid email address"
+msgstr "Nesprávná e-mailová adresa"
+
+# @ user-meta
+#: models/SupportArrayModel.php:830
+msgid "%s does not match"
+msgstr "%s nesouhlasí"
+
+# @ user-meta
+#: models/SupportArrayModel.php:831
+msgid "Please provide valid current password"
+msgstr "Prosím zadejte aktuálně platné heslo"
+
+# @ user-meta
+#: models/SupportArrayModel.php:832
+msgid "Current %s is required"
+msgstr "Je vyžadováno současné %s"
+
+# @ user-meta
+#: models/SupportArrayModel.php:833
+#, fuzzy
+msgid "%1$s: Please select at least %2$s options"
+msgstr "* Vyberte z možností"
+
+# @ user-meta
+#: models/SupportArrayModel.php:834
+#, fuzzy
+msgid "%1$s: Maximum %2$s options allowed"
+msgstr " možností povoleno"
+
+# @ user-meta
+#: models/SupportArrayModel.php:837
+msgid "Misc"
+msgstr "Ostatní"
+
+# @ user-meta
+#: models/SupportArrayModel.php:838
+msgid "User is not member of this site."
+msgstr "Uživatel není členem této stránky."
+
+# @ user-meta
+#: models/SupportArrayModel.php:839
+msgid "User already activated"
+msgstr "Uživatel je již aktivní"
+
+# @ user-meta
+#: models/SupportArrayModel.php:840
+msgid "<strong>ERROR:</strong> your account is inactive"
+msgstr "<strong>CHYBA:</strong> Váš účet není aktivní"
+
+# @ user-meta
+#: models/SupportArrayModel.php:841
+msgid "<strong>ERROR:</strong> your account is not yet activated."
+msgstr "<strong>CHYBA:</strong> Váš účet ještě nebyl aktivován."
+
+# @ user-meta
+#: models/SupportArrayModel.php:842
+msgid "Please verify your email address."
+msgstr ""
+
+# @ user-meta
+#: models/SupportArrayModel.php:843
+msgid "Check your e-mail for the confirmation link."
+msgstr "Zkontrolujte si svoji e-mailovou schránku."
+
+# @ user-meta
+#: models/SupportArrayModel.php:844
+msgid "Email not found"
+msgstr "E-mail nenalezen"
+
+# @ user-meta
+#: models/SupportArrayModel.php:845
+#, fuzzy
+msgid "Captcha validation failed. Please try again."
+msgstr "Omlouváme se, ale platnost klíče již vypršela."
+
+# @ user-meta
+#: models/SupportArrayModel.php:846
+msgid "Sorry, that key does not appear to be valid."
+msgstr "Omlouváme se, ale zadaný klíč nevypadá správně."
+
+# @ user-meta
+#: models/SupportArrayModel.php:847
+msgid "Sorry, that key has expired. Please try again."
+msgstr "Omlouváme se, ale platnost klíče již vypršela."
+
+# @ user-meta
+#: models/SupportArrayModel.php:848
+msgid "Invalid parameter"
+msgstr "Chybný parametr"
+
+# @ user-meta
+#: models/SupportArrayModel.php:884
+msgid "Reset password"
+msgstr "Obnova hesla"
+
+#: models/SupportHtmlModel.php:11
+msgid ""
+"<strong>Step 1.</strong> Create a form and populate it with fields by %s "
+"page."
+msgstr ""
+
+#: models/SupportHtmlModel.php:12
+msgid ""
+"<strong>Step 2.</strong> Write shortcode to your page or post. Shortcode (e."
+"g.): %s"
+msgstr ""
+
+# @ user-meta
+#: models/SupportHtmlModel.php:13
+msgid "Visit Plugin Site"
+msgstr "Navštívit stránku pluginu"
+
+#: models/SupportHtmlModel.php:22
+msgid "Get pro version for:"
+msgstr ""
+
+# @ user-meta
+#: models/SupportHtmlModel.php:23
+#, fuzzy
+msgid "Login, registration and profile widget."
+msgstr "Zobrazuje formuláře registrace, profilu nebo přihlášení jako widget"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:24
+#, fuzzy
+msgid "Add extra fields to backend profile."
+msgstr "Další pole v administračním profilu"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:25
+#, fuzzy
+msgid "Role based user redirection on login, logout and registratioin."
+msgstr "Nastavte přesměrování po přihlášení, odhlášení a zápisu"
+
+#: models/SupportHtmlModel.php:26
+msgid ""
+"User activatation/deactivation, Admin approval on new user registration."
+msgstr ""
+
+#: models/SupportHtmlModel.php:27
+msgid "Customize email notification with including extra field's data."
+msgstr ""
+
+#: models/SupportHtmlModel.php:29
+msgid "Advanced fields for creating profile/registration form."
+msgstr ""
+
+#: models/SupportHtmlModel.php:30
+msgid "Fight against spam by Captcha."
+msgstr ""
+
+#: models/SupportHtmlModel.php:31
+msgid "Split your form into multiple page by using Page Heading."
+msgstr ""
+
+# @ user-meta
+#: models/SupportHtmlModel.php:32
+#, fuzzy
+msgid "Group fields using Section Heading."
+msgstr "Nadpis sekce"
+
+#: models/SupportHtmlModel.php:33
+msgid "Allow user to upload their file by File Upload."
+msgstr ""
+
+#: models/SupportHtmlModel.php:34
+msgid "Country Dropdown for country selection."
+msgstr ""
+
+#: models/SupportHtmlModel.php:35
+msgid "Use Custom Field to build custom input field."
+msgstr ""
+
+#: models/SupportHtmlModel.php:36
+msgid "Use free add-ons."
+msgstr ""
+
+# @ user-meta
+#: models/SupportHtmlModel.php:38
+#, fuzzy
+msgid "Get %s"
+msgstr "Současné %s"
+
+#: models/SupportHtmlModel.php:49
+msgid "See live demo of %s"
+msgstr ""
+
+#: models/SupportHtmlModel.php:50 models/SupportHtmlModel.php:85
+msgid "Live Demo"
+msgstr ""
+
+# @ user-meta
+#: models/SupportHtmlModel.php:60
+#, fuzzy
+msgid "Profile shortcode"
+msgstr "Vložit zkratku"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:61
+#, fuzzy
+msgid "Registration shortcode"
+msgstr "Datum zápisu"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:62
+#, fuzzy
+msgid "Profile / Registration"
+msgstr "Zápis"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:63
+#, fuzzy
+msgid "Public profile"
+msgstr "Profil"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:64
+#, fuzzy
+msgid "Login shortcode"
+msgstr "Vložit zkratku"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:66
+#, fuzzy
+msgid "Field shortcode"
+msgstr "Vložit zkratku"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:67
+#, fuzzy
+msgid "Field content shortcode"
+msgstr "Vložit zkratku"
+
+# @ user-meta
+#: models/SupportHtmlModel.php:70
+msgid "Read More"
+msgstr "Více informací"
+
+#: models/SupportHtmlModel.php:79
+msgid "Documentation"
+msgstr ""
+
+#: models/SupportHtmlModel.php:80
+msgid "Video Tutorials"
+msgstr ""
+
+#: models/SupportHtmlModel.php:82
+msgid "Forums"
+msgstr ""
+
+#: models/SupportHtmlModel.php:83
+msgid "Add Ons"
+msgstr ""
+
+#: models/SupportHtmlModel.php:101
+msgid "Satisfied using the plugin?"
+msgstr ""
+
+#: models/SupportHtmlModel.php:102
+msgid "Rate us now!"
+msgstr ""
+
+# @ user-meta
+#: models/classes/Field/Captcha.php:218
+#, fuzzy
+msgid "Please set \"Site key\" and \"Secret key\" for the Captcha field"
+msgstr ""
+"Prosím nastavte veřejný a soukromý klíč na stránce User Meta >> Nastavení"
+
+# @ user-meta
+#: models/classes/Field/Multiple.php:42 models/classes/Field/Multiple.php:46
+msgid "Retype %s"
+msgstr "Kontrola %s"
+
+# @ user-meta
+#: models/classes/Field/PageHeading.php:53 views/generateForm.php:114
+msgid "Previous"
+msgstr "Předechozí"
+
+# @ user-meta
+#: models/classes/Field/PageHeading.php:60
+msgid "Next"
+msgstr "Další"
+
+# @ user-meta
+#: models/classes/Field/Password.php:55 models/classes/Field/Password.php:58
+msgid "Current %s"
+msgstr "Současné %s"
+
+# @ user-meta
+#: models/classes/Field/Password.php:77 models/classes/Field/Password.php:80
+msgid "New %s"
+msgstr "Nové %s"
+
+# @ user-meta
+#: models/classes/Field/pro/Blogname.php:41
+msgid "Site Name"
+msgstr "Název stránky"
+
+# @ user-meta
+#: models/classes/Field/pro/Blogname.php:41
+msgid "Site Domain"
+msgstr "Doména stránky"
+
+# @ user-meta
+#: models/classes/Field/pro/Blogname.php:56
+msgid "Site Title "
+msgstr "Nadpis stránky"
+
+# @ user-meta
+#: models/classes/Field/pro/Blogname.php:79
+msgid "Site registration has been disabled."
+msgstr "Zápis byl na stránce zakázán."
+
+# @ user-meta
+#: models/classes/Field/pro/SocialLink.php:37
+#, fuzzy
+msgid "Invalid %s URL"
+msgstr "Nesprávné %s"
+
+# @ user-meta
+#: models/classes/File.php:145 views/pro/exportImport/exportForm.php:157
+msgid "Remove"
+msgstr "Odstranit"
+
+# @ user-meta
+#: models/classes/FileUploader.php:159 models/classes/FileUploader.php:198
+msgid "No files were uploaded."
+msgstr "Nebyly nahrány žádné soubory."
+
+# @ user-meta
+#: models/classes/FileUploader.php:163 models/classes/FileUploader.php:204
+msgid "File is empty"
+msgstr "Soubor je prázdný"
+
+# @ user-meta
+#: models/classes/FileUploader.php:167
+#, fuzzy
+msgid "File is too large. Maximum allowed file size is %s"
+msgstr "%1$s je příliš velký, povolená velikost je %2$s."
+
+#: models/classes/FileUploader.php:171
+msgid ""
+"Server error. Please increase value of post_max_size and upload_max_filesize"
+msgstr ""
+
+# @ user-meta
+#: models/classes/FileUploader.php:209
+msgid "File is too large"
+msgstr "Soubor je příliš velký"
+
+# @ user-meta
+#: models/classes/FormWidget.php:21
+msgid "User Meta Form"
+msgstr "Formulář User Meta"
+
+# @ user-meta
+#: models/classes/FormWidget.php:23
+msgid "Show user registration, profile or login form as widget"
+msgstr "Zobrazuje formuláře registrace, profilu nebo přihlášení jako widget"
+
+# @ user-meta
+#: models/classes/FormWidget.php:73
+msgid "type=\"%s\" is invalid."
+msgstr "typ=\"%s\" je neplatný."
+
+# @ user-meta
+#: models/classes/FormWidget.php:127 models/classes/LoginWidget.php:97
+msgid "Guest Title:"
+msgstr "Nadpis pro návštěvníky:"
+
+# @ user-meta
+#: models/classes/FormWidget.php:130 models/classes/LoginWidget.php:100
+msgid "Only guest users can see this title"
+msgstr "Tento nadpis uvidí pouze návštěvníci."
+
+# @ user-meta
+#: models/classes/FormWidget.php:136 models/classes/LoginWidget.php:106
+msgid "Logged-In User Title:"
+msgstr "Nadpis pro přihlášené uživatele:"
+
+# @ user-meta
+#: models/classes/FormWidget.php:139 models/classes/LoginWidget.php:109
+msgid "Only logged-in users can see this title"
+msgstr "Tento nadpis uvidí pouze přihl. uživatelé."
+
+# @ user-meta
+#: models/classes/FormWidget.php:145
+msgid "Action Type:"
+msgstr "Druh akce:"
+
+# @ user-meta
+#: models/classes/FormWidget.php:153
+msgid "Form Name:"
+msgstr "Název formuláře:"
+
+# @ user-meta
+#: models/classes/FormWidget.php:161
+msgid "Diff (optional):"
+msgstr "Rozdíl (volitelný):"
+
+# @ user-meta
+#: models/classes/FormWidget.php:164
+msgid "For showing role based on user profile"
+msgstr "Ke zobrazení role založené na už. profilu."
+
+# @ user-meta
+#: models/classes/FormsListTable.php:14
+#, fuzzy
+msgid "Form"
+msgstr "Formuláře"
+
+#: models/classes/FormsListTable.php:24
+msgid "Delete"
+msgstr ""
+
+#: models/classes/FormsListTable.php:30
+msgid "Edit"
+msgstr ""
+
+#: models/classes/FormsListTable.php:31
+msgid "Duplicate"
+msgstr ""
+
+# @ user-meta
+#: models/classes/FormsListTable.php:95
+msgid "Form Name"
+msgstr "Název formuláře"
+
+# @ user-meta
+#: models/classes/FormsListTable.php:96
+#, fuzzy
+msgid "Shortcode"
+msgstr "Vložit zkratku"
+
+# @ user-meta
+#: models/classes/FormsListTable.php:194
+#, fuzzy
+msgid "Form \"%s\" is duplicated to \"%s\"."
+msgstr "Formulář \"%s\" nenalezen."
+
+# @ user-meta
+#: models/classes/FormsListTable.php:212
+#, fuzzy
+msgid "Form \"%s\" is deleted."
+msgstr "Formulář \"%s\" nenalezen."
+
+# @ user-meta
+#: models/classes/Login.php:203
+msgid ""
+"<strong>ERROR</strong>: Incorrect Password. <a href=\"%s\" title=\"Password "
+"Lost and Found\">Lost your password</a>?"
+msgstr ""
+"<strong>CHYBA</strong>: Nesprávné heslo. <a href=\"%s\" title=\"Ztráty a "
+"nálezy\">Zapomněli jste heslo</a>?"
+
+# @ user-meta
+#: models/classes/LoginWidget.php:21
+msgid "User Meta Login"
+msgstr "Přihlášení User Meta"
+
+# @ user-meta
+#: models/classes/LoginWidget.php:23
+msgid "Login Widget"
+msgstr "Widget s přihlášením"
+
+# @ user-meta
+#: models/classes/LoginWidget.php:115
+msgid "Hide this widget when viewing login page"
+msgstr "Skrývat tento widget na stránce přihlášení"
+
+# @ user-meta
+#: models/classes/ResetPassword.php:33
+msgid "Password reset is currently not allowed."
+msgstr "Obnova hesla je v současné době zakázána."
+
+# @ user-meta
+#: models/classes/ResetPassword.php:160
+#, fuzzy
+msgid "The email could not be sent."
+msgstr "Nahraný soubor nebylo možné uložit."
+
+# @ user-meta
+#: models/classes/ResetPassword.php:160
+#, fuzzy
+msgid "Possible reason: your host may have disabled the mail() function."
+msgstr ""
+"Nepodařilo se odeslat e-mail. Možná Váš hosting nemá povolenou funkci mail()."
+
+# @ user-meta
+# @ default
+#: models/classes/RouteResponse.php:67
+#, fuzzy
+msgid "Security check: Empty target"
+msgstr "Bezpečnostní kontrola: pouze správce"
+
+# @ user-meta
+# @ default
+#: models/classes/RouteResponse.php:92
+#, fuzzy
+msgid "Security check: Empty nonce"
+msgstr "Bezpečnostní kontrola: pouze správce"
+
+# @ user-meta
+# @ default
+#: models/classes/RouteResponse.php:96
+#, fuzzy
+msgid "Security check: Nonce missmatch"
+msgstr "Bezpečnostní kontrola: pouze správce"
+
+# @ user-meta
+# @ default
+#: models/classes/RouteResponse.php:114
+#, fuzzy
+msgid "Security check: Admin only"
+msgstr "Bezpečnostní kontrola: pouze správce"
+
+# @ user-meta
+# @ default
+#: models/classes/RouteResponse.php:126
+#, fuzzy
+msgid "Security check: Invalid admin referer"
+msgstr "Bezpečnostní kontrola: pouze správce"
+
+# @ user-meta
+#: models/classes/UserInsert.php:92
+msgid "Action type is empty"
+msgstr "Chybí druh akce"
+
+# @ user-meta
+#: models/classes/UserInsert.php:114
+msgid "Invalid user!"
+msgstr ""
+
+# @ user-meta
+#: models/classes/UserInsert.php:135
+msgid "Form name is empty"
+msgstr "Chybí název formuláře"
+
+# @ user-meta
+#: models/classes/UserInsert.php:382
+msgid "Cannot create a user with an empty login name and empty email"
+msgstr "Nemohu vytvořit uživatele s prázdným přihlašovacím jménem či e-mailem"
+
+# @ user-meta
+#: models/classes/UserInsert.php:523
+msgid "User must be logged in to update profile"
+msgstr "Uživatel se k úpravě profilu musí nejprve přihlásit"
+
+# @ user-meta
+#: models/classes/UserInsert.php:656
+msgid "No field to update"
+msgstr "Nic k aktualizaci"
+
+# @ user-meta
+#: models/classes/UserInsert.php:673
+msgid "No data to update"
+msgstr "Žádná data k aktualizaci"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:97
+#: models/classes/builder/FieldBuilder.php:98
+msgid "Field Label"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:102
+msgid "Label Position"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:104
+msgid "Top"
+msgstr "Nahoře"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:105
+msgid "Left"
+msgstr "Vlevo"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:106
+msgid "Right"
+msgstr "Vpravo"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:107
+msgid "Inline"
+msgstr "Na řádku"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:109
+msgid "Hidden"
+msgstr "Skryté"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:114
+#: models/classes/builder/FieldBuilder.php:475
+#: views/pro/email/emailNotificationPage.php:235
+msgid "Placeholder"
+msgstr "Zástupce"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:119
+msgid "Field's Description"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:123
+msgid "Unique identification key for field"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:124
+msgid "Unique identification key for field (required)."
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:127
+#: models/classes/builder/FieldBuilder.php:128
+msgid "Default Value"
+msgstr "Výchozí hodnota"
+
+#: models/classes/builder/FieldBuilder.php:129
+msgid "Use this value when user doesn't have any stored value"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:133
+msgid "Field Options"
+msgstr "Možnosti pole"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:138
+msgid "Input Class"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:139
+msgid "Specify custom class name for input"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:142
+msgid "Field Container Class"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:143
+msgid "Custom class name for field container"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:147
+msgid "Field Container Style"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:148
+msgid "Custom css style for field container"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:151
+msgid "Field Size"
+msgstr "Velikost pole"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:155
+msgid "Field Height"
+msgstr "Výška pole"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:159
+msgid "Max Char"
+msgstr "Počet znaků"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:160
+msgid "Maximum allowed character"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:164
+msgid "Allowed Extension"
+msgstr "Povolená rozšíření"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:169
+msgid "Role Selection Type"
+msgstr "Druh výběru rolí"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:178
+msgid "Type Selection"
+msgstr "Výběr druhů"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:181
+msgid "Date"
+msgstr "Datum"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:182
+msgid "Time"
+msgstr "Čas"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:183
+msgid "Date and Time"
+msgstr "Datum a čas"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:187
+msgid "Date Format"
+msgstr "Formát data"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:191
+msgid "Year Range"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:196
+msgid "Save meta value by"
+msgstr "Uložit meta jako"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:198
+msgid "Country Code"
+msgstr "Zkratka země"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:199
+msgid "Country Name"
+msgstr "Název země"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:205
+msgid "Maximum Number"
+msgstr "Nejvyšší číslo"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:209
+msgid "Minimum Number"
+msgstr "Nejnižší číslo"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:214
+msgid "Intervals for number input"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:221
+#, fuzzy
+msgid "Maximum File Size (KB)"
+msgstr "Největší soubor"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:267
+msgid "Error Text"
+msgstr "Chybový text"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:271
+msgid "Retype Label"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:272
+msgid "Label for retype field"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:276
+#, fuzzy
+msgid "reCaptcha Version"
+msgstr "Vzhled reCAPTCHA"
+
+#: models/classes/builder/FieldBuilder.php:280
+msgid "Version 3 (invisible)"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:284
+#, fuzzy
+msgid "Version 2 (visible)"
+msgstr "Verze: %s"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:290
+#, fuzzy
+msgid "Site Key (V3)"
+msgstr "Název stránky"
+
+#: models/classes/builder/FieldBuilder.php:291
+#: models/classes/builder/FieldBuilder.php:301
+msgid ""
+"reCAPTCHA site key is required for using Captcha validation. Get keys for "
+"free from the Captcha Link below"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:295
+msgid "Secret Key (V3)"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:296
+#: models/classes/builder/FieldBuilder.php:306
+msgid ""
+"reCAPTCHA secret key is required for using Captcha validation. Get keys for "
+"free from the Captcha Link below"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:300
+#, fuzzy
+msgid "Site Key (V2)"
+msgstr "Název stránky"
+
+#: models/classes/builder/FieldBuilder.php:305
+msgid "Secret Key (V2)"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:311
+msgid "reCaptcha Theme"
+msgstr "Vzhled reCAPTCHA"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:313
+msgid "Light"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:314
+msgid "Dark"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:319
+#, fuzzy
+msgid "reCaptcha Type"
+msgstr "Vzhled reCAPTCHA"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:321
+#, fuzzy
+msgid "Image"
+msgstr "URL obrázku"
+
+#: models/classes/builder/FieldBuilder.php:322
+msgid "Audio"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:326
+#, fuzzy
+msgid "reCaptcha Language"
+msgstr "Vzhled reCAPTCHA"
+
+#: models/classes/builder/FieldBuilder.php:327
+#: models/classes/builder/FieldBuilder.php:328
+msgid "(e.g. en) Leave blank for auto detection"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:332
+#, fuzzy
+msgid "Get reCaptcha Keys"
+msgstr "Vzhled reCAPTCHA"
+
+#: models/classes/builder/FieldBuilder.php:333
+msgid "Captcha Sign Up / Dashboard"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:335
+#, fuzzy
+msgid ""
+"User Meta Pro uses reCAPTCHA as Captcha field. reCAPTCHA site key and secret "
+"key are required for using Captcha validation.Get these keys for free."
+msgstr ""
+"<p>User Meta Pro používá reCAPTCHA pro ověřování. K fungování reCAPTCHA je "
+"třeba zadat jeho veřejný a soukromý klíč. Tyto klíče jsou zdarma a získáte "
+"je <a href='http://www.google.com/recaptcha/whyrecaptcha' "
+"target='_blank'>zde</a>.</p>"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:340
+msgid "Resize Image"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:345
+msgid "Retype Email"
+msgstr "Kontrola e-mailu"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:350
+msgid "Retype Password"
+msgstr "Kontrola hesla"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:355
+#, fuzzy
+msgid "Link Type"
+msgstr "Druh akce"
+
+#: models/classes/builder/FieldBuilder.php:357
+msgid "Facebook"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:358
+msgid "Twitter"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:359
+msgid "LinkedIn"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:360
+#: views/pro/settings/backendProfile.php:38
+msgid "Google+"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:361
+msgid "Instagram"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:362
+msgid "Skype ID"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:363
+#: models/classes/builder/FieldBuilder.php:371
+msgid "YouTube"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:364
+msgid "SoundCloud"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:369
+#, fuzzy
+msgid "Video Type"
+msgstr "Druh pole"
+
+#: models/classes/builder/FieldBuilder.php:372
+msgid "Vimeo"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:378
+#: models/classes/builder/FieldBuilder.php:426
+msgid "Required"
+msgstr "Povinné"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:379
+msgid "Admin Only"
+msgstr "Pouze admin"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:380
+msgid "Non-Admin Only"
+msgstr "Kromě admina"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:381
+msgid "Read-Only for all user"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:382
+msgid "Read-Only for non admin"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:383
+msgid "Unique"
+msgstr "Jedinečné"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:384
+msgid "Only on Registration Page"
+msgstr "Pouze na stránce zápisu"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:386
+msgid "Disable AJAX upload"
+msgstr "Zakázat nahrávání pomocí AJAX"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:387
+msgid "Hide default avatar"
+msgstr "Skrývat výchozího avatara"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:388
+msgid "Crop Image"
+msgstr "Ořezávat obrázek"
+
+# @ user-meta
+# @ default
+#: models/classes/builder/FieldBuilder.php:390
+msgid "Line Break"
+msgstr "Nový řádek"
+
+# @ user-meta
+# @ default
+#: models/classes/builder/FieldBuilder.php:391
+msgid "Allow integer only"
+msgstr "Povolit pouze celá čísla"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:394
+msgid "Force to change username"
+msgstr "Vynutit změnu už. jména"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:395
+msgid "Show password strength meter"
+msgstr "Zobrazovat měřič síly hesla"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:396
+msgid "Current password is required"
+msgstr "Vyžadováno současné heslo"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:397
+msgid "Show Divider"
+msgstr "Zobrazovat oddělovač"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:398
+msgid "Use Rich Text"
+msgstr "Používat formátovaný text"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:399
+msgid "Make this field as shared"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:400
+msgid "Advanced mode"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:432
+#, fuzzy
+msgid "Minimum checkboxes required (Optional)"
+msgstr "* Toto zaškrtávací pole je povinné"
+
+#: models/classes/builder/FieldBuilder.php:433
+msgid "Minimum number of required checkbox"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:434
+msgid "Minimum numbers of checkboxes must be checked (default is 1)"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:442
+msgid "Maximum allowed checkboxes (Optional)"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:443
+msgid "Maximum number of allowed checkboxes"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:444
+msgid ""
+"Maximum numbers of checkboxes can be checked (leave blank for unlimited)"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:501
+msgid "Content"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:518
+msgid "Value"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:542
+msgid "Field Type"
+msgstr "Druh pole"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:609
+msgid "Allowed Roles"
+msgstr "Povolené role"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:636
+msgid "Default Role"
+msgstr "Výchozí role"
+
+# @ user-meta
+#: models/classes/builder/FieldBuilder.php:638
+msgid "Should be one of the Allowed Roles"
+msgstr "Měla by být jednou z povolených rolí"
+
+#: models/classes/builder/FieldBuilder.php:1367
+msgid "Basic"
+msgstr ""
+
+#: models/classes/builder/FieldBuilder.php:1368
+msgid "Advanced"
+msgstr ""
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:100
+msgid "Submit Button Title"
+msgstr "Text v poli Odeslat"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:101
+#: models/classes/builder/FormBuilder.php:109
+msgid "Keep blank for default value"
+msgstr "Nechejte prázdné pro výchozí"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:104
+msgid "Submit Button Class"
+msgstr "Třída pole Odeslat"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:105
+msgid "Assign class to submit button"
+msgstr "Přiřadí CSS třídu tlačítku Odeslat"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:108
+msgid "Form Class"
+msgstr "Třída formuláře"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:113
+msgid "Do not use AJAX submit"
+msgstr "Tlačítko Nepoužívat AJAX"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:281
+#, fuzzy
+msgid "WordPress Default Fields"
+msgstr "Skrýt výchozí pole Wordpress"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:283
+#, fuzzy
+msgid "Basic Fields"
+msgstr "Pole"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:284
+#, fuzzy
+msgid "Advanced Fields"
+msgstr "Dostupná pole"
+
+# @ user-meta
+#: models/classes/builder/FormBuilder.php:285
+#, fuzzy
+msgid "Formatting Fields"
+msgstr "Importovat pole"
+
+#: models/classes/generate/FormGenerate.php:302
+msgid "Captcha library is not installed"
+msgstr ""
+
+# @ user-meta
+#: models/classes/generate/ValidationRule.php:101
+msgid "%1$s: \"%2$s\" already taken"
+msgstr "%1$s: \"%2$s\" již existuje"
+
+# @ user-meta
+#: models/pro/AjaxProModel.php:64 models/pro/AjaxProModel.php:68
+msgid "Something went wrong. File has not been uploaded"
+msgstr "Něco se pokazilo - soubor nebyl nahrán."
+
+# @ user-meta
+#: models/pro/AjaxProModel.php:83 models/pro/AjaxProModel.php:111
+msgid "Nothing to import!"
+msgstr "Nic nebylo vloženo!"
+
+# @ user-meta
+#: models/pro/AjaxProModel.php:109 views/pro/exportImport/importStep3.php:20
+msgid "Import completed."
+msgstr "Import byl dokončen."
+
+# @ user-meta
+#: models/pro/MultisiteUserInsertModel.php:135
+msgid "Congratulations! Your new site, %s, is almost ready."
+msgstr "Blahopřejeme, Vaše stránka %s je téměř připravena!"
+
+# @ user-meta
+#: models/pro/MultisiteUserInsertModel.php:136
+msgid ""
+"But, before you can start using your site, <strong>you must activate it</"
+"strong>."
+msgstr "Před jejím používáním ji však musíte <strong>aktivovat</strong>."
+
+# @ user-meta
+#: models/pro/MultisiteUserInsertModel.php:137
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr ""
+"Zkontrolujte si Vaši e-mailovou schránku <strong>%s</strong> a klikněte na "
+"zaslaný odkaz."
+
+# @ user-meta
+#: models/pro/MultisiteUserInsertModel.php:138
+msgid ""
+"If you do not activate your site within two days, you will have to sign up "
+"again."
+msgstr ""
+"Pakliže neaktivujete svoji stránku během dvou dní, budete se muset znovu "
+"přihlásit."
+
+# @ user-meta
+#: models/pro/ProAuthModel.php:8
+msgid ""
+"Please enter your license information to <a href=\"%s\">activate User Meta "
+"Pro</a>."
+msgstr ""
+"K aktivaci User Meta Pro zadejte prosím Vaše <a href=\"%s\">licenční "
+"informace</a>."
+
+# @ user-meta
+#: models/pro/SupportProModel.php:74
+#, fuzzy
+msgid "Updated data:"
+msgstr "Upravit přihlášení"
+
+# @ user-meta
+#: models/pro/SupportProModel.php:75
+#, fuzzy
+msgid "Previous data:"
+msgstr "Předechozí"
+
+# @ user-meta
+#: models/pro/SupportProModel.php:81
+#, fuzzy
+msgid "Updated password"
+msgstr "Nové heslo"
+
+# @ user-meta
+#: models/pro/SupportProModel.php:296
+msgid "Send email to all admin"
+msgstr "Poslat zprávu všem správcům"
+
+# @ user-meta
+#: models/pro/SupportProModel.php:305
+msgid "Send email only, when user's data has been modified"
+msgstr ""
+
+# @ user-meta
+#: models/pro/SupportProModel.php:313
+msgid "Disable this notification"
+msgstr "Skryj toto upozornění"
+
+#: views/fields/fieldsEditorPage.php:11
+msgid "Click field from right side panel for creating a new field"
+msgstr ""
+
+# @ user-meta
+#: views/fields/fieldsEditorPage.php:36 views/forms/editForm.php:47
+#: views/forms/editForm.php:72 views/pro/email/emailNotificationPage.php:192
+#: views/settingsPage.php:91
+msgid "Save Changes"
+msgstr "Uložit změny"
+
+# @ user-meta
+#: views/fields/optionsSelection.php:45
+#, fuzzy
+msgid "Options"
+msgstr "možností"
+
+# @ user-meta
+#: views/forms/conditionalPanel.php:18
+msgid "Enable Conditional Logic"
+msgstr ""
+
+# @ user-meta
+#: views/forms/editForm.php:15
+#, fuzzy
+msgid "Form \"%s\" is not found. You can create a new form."
+msgstr "Formulář \"%s\" nenalezen."
+
+# @ user-meta
+#: views/forms/editForm.php:23
+#, fuzzy
+msgid "Form Name*"
+msgstr "Název formuláře"
+
+#: views/forms/editForm.php:28
+msgid "Enter unique form name"
+msgstr ""
+
+#: views/forms/editForm.php:37
+msgid "Form Builder"
+msgstr ""
+
+#: views/forms/formsEditorPage.php:9
+msgid "Add New"
+msgstr ""
+
+# @ user-meta
+#: views/forms/formsEditorPage.php:30
+#: views/pro/exportImport/importExportPage.php:39 views/settingsPage.php:105
+msgid "Get started"
+msgstr ""
+
+# @ user-meta
+#: views/forms/formsEditorPage.php:35
+#, fuzzy
+msgid "Shortcodes"
+msgstr "Vložit zkratku"
+
+#: views/forms/formsEditorPage.php:36
+msgid "Useful Links"
+msgstr ""
+
+#: views/forms/formsEditorPage.php:37
+#: views/pro/email/emailNotificationPage.php:236
+#: views/pro/exportImport/importExportPage.php:43 views/settingsPage.php:107
+msgid "Rate Us"
+msgstr ""
+
+# @ user-meta
+#: views/generateForm.php:21
+msgid "Form is not found."
+msgstr "Formulář nenalezen."
+
+# @ user-meta
+#: views/generateForm.php:24
+msgid "Fields are not found."
+msgstr "Pole nenalezeny."
+
+# @ user-meta
+#: views/generateForm.php:27
+msgid "Fields were saved incorrectly."
+msgstr "Pole byla uložena nesprávně."
+
+# @ user-meta
+#: views/generateForm.php:142 views/pro/settings/activationForm.php:75
+msgid "Update"
+msgstr "Uložit"
+
+# @ user-meta
+#: views/generateForm.php:144
+msgid "Register"
+msgstr "Zápis"
+
+# @ user-meta
+#: views/metaBox.php:4
+msgid "Click to remove"
+msgstr "Kliknutím odstranit"
+
+# @ user-meta
+#: views/metaBox.php:12
+msgid "Click to toggle"
+msgstr "Přepněte kliknutím"
+
+# @ user-meta
+#: views/pro/addons/addonsPage.php:11
+#, fuzzy
+msgid "User Meta Pro Add-ons"
+msgstr "User Meta Pro"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:7
+#, fuzzy
+msgid "E-mail Notifications"
+msgstr "Upozornění e-mailem"
+
+#: views/pro/email/emailNotificationPage.php:8
+msgid "Click panel title to expand"
+msgstr ""
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:26
+msgid "This e-mail will be sent to new user after registration."
+msgstr "Tato zpráva bude zaslána novým uživatelům po zápisu."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:27
+#: views/pro/email/emailNotificationPage.php:56
+#: views/pro/email/emailNotificationPage.php:84
+#: views/pro/email/emailNotificationPage.php:99
+#: views/pro/email/emailNotificationPage.php:114
+#: views/pro/email/emailNotificationPage.php:129
+#: views/pro/email/emailNotificationPage.php:167
+msgid "User Notification"
+msgstr "Upozornění uživatele"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:32
+#: views/pro/email/emailNotificationPage.php:43
+#: views/pro/email/emailNotificationPage.php:71
+msgid "Use placeholder %s if needed."
+msgstr "Pokud bude třeba, použijte zástupce %s."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:37
+msgid "This e-mail will be sent to admin after new user registration."
+msgstr "Tato zpráva bude zaslána správci po zápisu nového uživatele."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:38
+#: views/pro/email/emailNotificationPage.php:66
+#: views/pro/email/emailNotificationPage.php:152
+#: views/pro/email/emailNotificationPage.php:177
+msgid "Admin Notification"
+msgstr "Upozornění správce"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:46
+msgid "User Registration E-mail"
+msgstr "Zpráva o zápisu"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:53
+msgid "This email will be sent to user after email is verified."
+msgstr "Tato zpráva bude odeslána uživateli po ověření jeho e-mailové adresy."
+
+#: views/pro/email/emailNotificationPage.php:54
+msgid ""
+"To activate this email, go to <strong>User Meta >> Settings >> Registration</"
+"strong> and checked either \"Need email verification\" or \"Need both email "
+"verification and admin approval\"\n"
+"                    "
+msgstr ""
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:65
+msgid "This email will be sent to admin after user email is verified."
+msgstr "Tato zpráva bude odeslána správci po ověření uživatelovy adresy."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:74
+msgid "After email is verified"
+msgstr "Po ověření e-mailové adresy"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:80
+msgid ""
+"This e-mail will be sent to user when an admin approves his/her account."
+msgstr ""
+
+#: views/pro/email/emailNotificationPage.php:81
+msgid ""
+"To activate this email, go to <strong>User Meta >> Settings >> Registration</"
+"strong> and checked either \"Need admin approval\" or \"Need both email "
+"verification and admin approval\"\n"
+"                    "
+msgstr ""
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:91
+msgid "Admin Approval E-mail"
+msgstr ""
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:97
+msgid "This e-mail will be sent to user upon activation."
+msgstr "Tato zpráva bude zaslána uživateli po jeho aktivaci."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:106
+msgid "User Activation E-mail"
+msgstr "Zpráva o aktivaci"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:112
+msgid "This e-mail will be sent to user upon deactivation."
+msgstr "Tato zpráva bude zaslána uživateli po jeho odvolání."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:121
+msgid "User Deactivation E-mail"
+msgstr "Zpráva o odvolání"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:127
+msgid "This e-mail will be sent to user when requested to reset password."
+msgstr "Tato zpráva bude odeslána uživateli, žádajícího o obnovu hesla."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:134
+msgid "Use placeholder %s or it will included automatically."
+msgstr "Použijte zkratku %s, jinak bude vložena automaticky."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:137
+msgid "Lost Password E-mail"
+msgstr "Zpráva o obnově hesla"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:151
+msgid "This e-mail will be sent to admin when user reset their password."
+msgstr "Tato zpráva bude zaslána správci, jakmile je uživateli obnoveno heslo."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:159
+msgid "Reset Password E-mail"
+msgstr "Zpráva o obnově hesla (správce)"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:166
+msgid ""
+"This e-mail will be sent to user when they update their front-end profile."
+msgstr "Tato zpráva bude zaslána uživateli, jakmile si změní svůj profil."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:176
+msgid ""
+"This e-mail will be sent to admin when user update their front-end profile."
+msgstr ""
+"Tato zpráva bude zaslána správci, jakmile si nějaký uživatel změní svůj "
+"profil."
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:184
+msgid "Profile Update E-mail"
+msgstr "Zpráva o změně profilu"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:205
+msgid "Site Placeholder"
+msgstr "Zástupce stránky"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:214
+msgid "User Placeholder"
+msgstr "Zástupce uživatele"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:226
+msgid "Custom Field"
+msgstr "Vlastní pole"
+
+# @ user-meta
+#: views/pro/email/emailNotificationPage.php:229
+msgid ""
+"Placeholder will be replaced with the relevant value when used in email "
+"subject or body."
+msgstr ""
+"Zkratka, použitá v těle nebo předmětu zprávy, bude nahrazena patřičnou "
+"hodnotou."
+
+# @ user-meta
+#: views/pro/email/mailForm.php:7 views/pro/email/singleEmailForm.php:22
+msgid "From E-mail"
+msgstr "Z e-mailu"
+
+# @ user-meta
+#: views/pro/email/mailForm.php:15 views/pro/email/singleEmailForm.php:13
+msgid "From Name"
+msgstr "Z jména"
+
+# @ user-meta
+#: views/pro/email/mailForm.php:23 views/pro/email/singleEmailForm.php:32
+#: views/settings/generalSettings.php:39
+msgid "Plain Text"
+msgstr "Čistý text"
+
+# @ user-meta
+#: views/pro/email/mailForm.php:28 views/pro/email/singleEmailForm.php:37
+msgid "E-mail Format"
+msgstr "Formát e-mailu"
+
+# @ user-meta
+#: views/pro/email/mailForm.php:36 views/pro/email/singleEmailForm.php:46
+msgid "Subject"
+msgstr "Předmět"
+
+# @ user-meta
+#: views/pro/email/mailForm.php:44 views/pro/email/singleEmailForm.php:54
+msgid "Body"
+msgstr "Zpráva"
+
+# @ user-meta
+#: views/pro/email/mailForm.php:52
+msgid "Disable Notification"
+msgstr "Vypnout upozornění"
+
+# @ user-meta
+#: views/pro/email/singleEmailForm.php:15
+#: views/pro/email/singleEmailForm.php:24
+#: views/pro/email/singleEmailForm.php:39 views/settings/generalSettings.php:51
+#: views/settings/generalSettings.php:59 views/settings/textSettings.php:7
+msgid "(Leave blank to use default)"
+msgstr "(Ponechejte prázdné pro výchozí)"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:11
+msgid "Fields for export (Drag from available fields)"
+msgstr "Pole k exportu (přetáhněte z dostupných)"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:12
+#: views/pro/settings/backendProfile.php:111
+msgid "Available Fields"
+msgstr "Dostupná pole"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:44
+msgid "Meta Key"
+msgstr "Meta klíč"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:51
+msgid "Drag all fields"
+msgstr "Přetáhnout všechna"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:77
+msgid "Exclude Roles"
+msgstr "Vynechat role"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:87
+msgid "Start Date"
+msgstr "Počátek"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:95
+msgid "End Date"
+msgstr "Konec"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:103
+msgid "Order By"
+msgstr "Řadit dle"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:119
+msgid "Order"
+msgstr "Pořadí"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:134
+msgid "Save Only"
+msgstr "Pouze uložit"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:142
+msgid "Export Only"
+msgstr "Pouze exportovat"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:150
+msgid "Save & Export"
+msgstr "Uložit a expotovat"
+
+# @ user-meta
+#: views/pro/exportImport/exportForm.php:170
+#, fuzzy
+msgid "User Export (ID:%s)"
+msgstr "Export uživatelů (%s)"
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:13
+msgid "Export UMP"
+msgstr "Export UMP"
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:16
+msgid "Fields"
+msgstr "Pole"
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:27
+msgid "User Export Templates"
+msgstr "Šablony exportu uživatelů"
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:50
+msgid "Export"
+msgstr "Export"
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:60
+msgid "Import UMP"
+msgstr "Import UMP"
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:61
+msgid "Upload exported txt file to import."
+msgstr "Nahrát exportovaný textový soubor k importu."
+
+# @ user-meta
+#: views/pro/exportImport/exportImportUm.php:69
+msgid "Export & Import User Meta Pro"
+msgstr "Export a Import User Meta Pro"
+
+# @ user-meta
+#: views/pro/exportImport/importExportPage.php:31
+msgid "New User Export Template"
+msgstr "Nová šablona exportu uživatelů"
+
+# @ user-meta
+#: views/pro/exportImport/importStep1.php:7
+msgid "First row of csv file will be treated as field name."
+msgstr ""
+
+# @ user-meta
+#: views/pro/exportImport/importStep1.php:8
+msgid "Fields should be separated by comma and enclosed with double quotation."
+msgstr ""
+
+# @ user-meta
+#: views/pro/exportImport/importStep1.php:10
+msgid "Upload <strong>CSV</strong> file only."
+msgstr "Nahrajte pouze <strong>CSV</strong> soubor."
+
+# @ user-meta
+#: views/pro/exportImport/importStep1.php:20
+#: views/pro/exportImport/importStep2.php:117
+msgid "User Import"
+msgstr "Import uživatelů"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:14
+msgid "Identify Uniquely"
+msgstr "Jedinečnost v"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:20
+msgid "By Email"
+msgstr "e-mailu"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:21
+msgid "By Username"
+msgstr "už. jméně"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:22
+msgid "By Both Email & Username"
+msgstr "v obojím"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:28
+msgid "CSV Header"
+msgstr "Hlavička CSV"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:29
+msgid "Assigning Field"
+msgstr "Přiřazování polí"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:31
+msgid "Sample Data"
+msgstr "Ukázková data"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:44
+msgid "Field Name"
+msgstr "Název pole"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:65
+msgid "User Role :"
+msgstr "Už. role:"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:73
+msgid "Overwrite existing users."
+msgstr "Přepsat existující už."
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:81
+msgid "Send email to new user."
+msgstr "Poslat zprávu novým uživatelům."
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:90
+msgid " Add custom field to %s (if not already added)"
+msgstr "Přidat vlastní pole k %s (pokud již nebylo přidáno)"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:99
+msgid "<strong>Multisite:</strong> Add existing users to this site."
+msgstr ""
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:107
+#: views/pro/exportImport/importUmStep2.php:94
+msgid "Import"
+msgstr "Import"
+
+# @ user-meta
+#: views/pro/exportImport/importStep2.php:121
+msgid "User Import Status"
+msgstr "Stav už. importu"
+
+# @ user-meta
+#: views/pro/exportImport/importStep3.php:21
+msgid "Close"
+msgstr ""
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:23
+msgid "Import Fields"
+msgstr "Importovat pole"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:29
+msgid "Replace all existing fields"
+msgstr "Nahradit všechna stávající pole"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:30
+msgid "Add only new fields"
+msgstr "Přidat pouze nová pole"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:31
+msgid "Do not import any fields"
+msgstr "Nevkládat žádná pole"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:38
+msgid "Import Forms"
+msgstr "Import formulářů"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:44
+msgid "Replace all existing forms"
+msgstr "Nahradit všechny stávající formuláře"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:45
+msgid "Add only new forms"
+msgstr "Přidat pouze nové formuláře"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:46
+msgid "Do not import any forms"
+msgstr "Nevkládat žádné formuláře"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:53
+msgid "Import Email Notifications"
+msgstr "Import e-mailových upozornění"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:59
+msgid "Replace all existing email templates"
+msgstr "Nahradit všechny stávající šablony"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:60
+msgid "Do not import any email template"
+msgstr "Nevkládat žádné e-mailové šablony"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:67
+msgid "Import user export template"
+msgstr "Import šablon už. exportů"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:73
+msgid "Replace all existing export templates"
+msgstr "Nahradit všechny stávající šablony"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:74
+msgid "Add only new export template"
+msgstr "Přidat pouze nové šablony"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:75
+msgid "Do not import any export template"
+msgstr "Nevkládat žádné nové šablony"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:82
+msgid "Import Settings"
+msgstr "Nastavení importu"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:88
+msgid "Replace all existing UMP settings"
+msgstr "Nahradit všechno stávající nastavení UMP"
+
+# @ user-meta
+#: views/pro/exportImport/importUmStep2.php:89
+msgid "Do not import any settings"
+msgstr "Nevkládat žádné nové nastavení"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:8
+msgid "Version: %s"
+msgstr "Verze: %s"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:12
+msgid "Your license is validated. %s is Installed and active"
+msgstr "Vaše licence byla schválena. %s je nainstalovaný a aktivní"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:14
+msgid "Update Credentials"
+msgstr "Upravit přihlášení"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:21
+msgid "Enter your email and password for %s"
+msgstr "Zadejte Váš e-mail a heslo k %s"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:23
+msgid "Withdraw License"
+msgstr "Odvolat licenci"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:30
+msgid "Enter your email and password for %s to activate the pro version."
+msgstr "Zadejte Váš e-mail a heslo k %s pro aktivaci verze Pro."
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:32
+msgid "Enter your email and password for %s for upgrade to pro version."
+msgstr "Zadejte Váš e-mail a heslo k %s pro aktualizaci na verzi Pro."
+
+#: views/pro/settings/activationForm.php:40
+msgid "FAQ / Help"
+msgstr ""
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:75
+msgid "Validate"
+msgstr "Ověřit"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:82
+msgid "Click to upgrade to Pro!"
+msgstr "Klikněte pro povýšení na verzi Pro!"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:89
+msgid ""
+"This will withdraw license from all sites under the network. Are you sure "
+"you want to withdraw pro license from all sites?"
+msgstr ""
+"Toto odvolá licence ze všech Vašich stránek v síti. Opravdu si přejete "
+"odvolat licenci ze všech síťových stránek?"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:91
+msgid "Are you sure you want to withdraw pro license from this site?"
+msgstr "Jste si jistí, že chcete odvolat Pro licenci této stránky?"
+
+# @ user-meta
+#: views/pro/settings/activationForm.php:101
+msgid "User Meta Pro Account Information"
+msgstr "Informace k účtu User Meta Pro"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:15
+msgid "Personal Options Heading"
+msgstr "Hlavička Osobní volby"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:16
+msgid "Visual Editor"
+msgstr "Přehledný editor"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:17
+msgid "Admin Color Scheme"
+msgstr "Barevné schéma správce"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:18
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové zkratky"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:19
+msgid "Toolbar"
+msgstr "Lišta nástrojů"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:23
+msgid "Name Heading"
+msgstr "Hlavička Jméno"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:32
+msgid "Contact Info Heading"
+msgstr "Hlavička Kontaktní údaje"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:35
+msgid "AIM"
+msgstr "AIM"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:36
+msgid "Yahoo IM"
+msgstr "Yahoo IM"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:37
+msgid "Jabber / Google Talk"
+msgstr "Jabber / Google Talk"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:39
+msgid "Twitter username"
+msgstr ""
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:40
+msgid "Facebook profile URL"
+msgstr ""
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:41
+msgid "Google Profile URL"
+msgstr ""
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:45
+msgid "About Yourself Heading"
+msgstr "Hlavička O mně"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:47
+msgid "New Password"
+msgstr "Nové heslo"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:51
+msgid "Hide WordPress default fields"
+msgstr "Skrýt výchozí pole Wordpress"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:52
+msgid ""
+"Select fields from below, which you need to hide from backend profile page"
+msgstr "Níže vyberte pole, která chcete skrýt z administračního profilu"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:108
+msgid "Extra fields in backend profile"
+msgstr "Další pole v administračním profilu"
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:109
+msgid ""
+"Add extra fields to backend profile. drag from available fields block to "
+"backend profile block"
+msgstr ""
+"Přidejte další pole do administračního profilu jejich přetažením z "
+"dostupných polí."
+
+# @ user-meta
+#: views/pro/settings/backendProfile.php:110
+msgid "Fields in backend profile (Drag from available fields)"
+msgstr "Pole v administračním profilu (přetáhněte je z dostupných)"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:10
+msgid "User Redirection Settings"
+msgstr "Nastavení přesměrování už."
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:12
+msgid "Disable redirection feature"
+msgstr "Zakázat přesměrování"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:20
+msgid "Set redirection on login, logout and registration"
+msgstr "Nastavte přesměrování po přihlášení, odhlášení a zápisu"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:27
+msgid "No Redirection"
+msgstr "Bez přesměrování"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:28
+msgid "Default (<em>Use default redirection</em>)"
+msgstr "Výchozí (<em>Použít výchozí přesměrování</em>)"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:29
+msgid "Same URL (<em>Same url, that was submitted</em>)"
+msgstr "Stejné URL (<em>URL, ze kterého už. přišel</em>)"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:30
+msgid "Referer (<em>Send the user back to the page where they come from</em>)"
+msgstr "Referer (<em>Odešle uživatele na stránku, ze které přišel</em>)"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:31
+msgid "Home"
+msgstr "Domů"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:33
+msgid "Dashboard"
+msgstr "Nástěnka"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:34
+#: views/settings/loginSettings.php:12
+msgid "Login Page"
+msgstr "Stránka přihlášení"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:35
+msgid "<em> (Include http:// with url)</em>"
+msgstr "<em> (Vkládejte http:// do URL)</em>"
+
+#: views/pro/settings/redirectionSettings.php:70
+#: views/pro/settings/redirectionSettings.php:101
+#: views/pro/settings/redirectionSettings.php:131
+msgid "Page:"
+msgstr ""
+
+#: views/pro/settings/redirectionSettings.php:74
+#: views/pro/settings/redirectionSettings.php:105
+#: views/pro/settings/redirectionSettings.php:135
+msgid "None"
+msgstr ""
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:79
+#: views/pro/settings/redirectionSettings.php:110
+#: views/pro/settings/redirectionSettings.php:140
+#, fuzzy
+msgid "Custom url:"
+msgstr "Vlastní URL:"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:88
+msgid "Login Redirection"
+msgstr "Přesměrování po přihlášení"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:118
+msgid "Logout Redirection "
+msgstr "Přesměrování po odhlášení"
+
+# @ user-meta
+#: views/pro/settings/redirectionSettings.php:148
+msgid "Registration Redirection"
+msgstr "Přesměrování po zápisu"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:12
+msgid "User auto activation."
+msgstr "Auto. aktivace uživatelů"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:12
+msgid "User will be activated automatically after registration"
+msgstr "Uživatelé budou aktivováni automaticky ihned po zápisu"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:13
+msgid "Need email verification."
+msgstr "Vyžadovat ověření e-mailu."
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:13
+msgid ""
+"A verification link will be sent to user email. User must verify the link to "
+"activate their account"
+msgstr ""
+"Uživateli bude zaslán ověřovací odkaz. K aktivaci jej uživatel musí navštívit"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:14
+msgid "Need admin approval."
+msgstr "Vyžadovat schválení správcem"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:14
+msgid "Admin needs to approve the new user"
+msgstr "Aktivace uživatele bude vyžadovat zásah správce"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:15
+msgid "Need both email verification and admin approval."
+msgstr "Vyžadovat jak ověření e-mailu, tak správcem."
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:15
+msgid ""
+"A verification link will be sent to user email. User must verify the link to "
+"activate their account and an admin needs to approve the account"
+msgstr ""
+"Uživateli bude zaslán ověřovací odkaz, na který musí kliknout. Zároveň jej "
+"musí schválit i správce."
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:38
+msgid "User Activation"
+msgstr "Aktivace uživatele"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:48
+msgid "Auto login after registration"
+msgstr "Auto. přihl. po zápisu"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:52
+msgid "If checked, user will be automatically logged in after registration."
+msgstr "Je-li povoleno, uživatel bude ihned po zápisu také přihlášen."
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:77
+msgid "Email verification will not work until a page is selected here!"
+msgstr "E-mailové ověření nebude pracovat, dokud zde nezvolíte stránku!"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:78
+msgid ""
+"This is the page a user will be redirected to when they want to verify their "
+"email address."
+msgstr ""
+"Jedná se o stránku, kam bude uživatel přesměrován, pokud si bude přát ověřit "
+"svoji e-mailovou adresu."
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:83
+msgid "Multisite Registration"
+msgstr "Zápis na více stránek"
+
+# @ user-meta
+#: views/pro/settings/registrationSettingsPro.php:88
+msgid ""
+"Allow user registration if user already exists in any of the other sites in "
+"the network"
+msgstr ""
+"Povolit uživateli zápis v případě, že je již zapsán na jiné stránce v rámci "
+"sítě."
+
+#: views/proAdsPage.php:6
+msgid "More features on Pro version"
+msgstr ""
+
+# @ user-meta
+#: views/settings/generalSettings.php:10
+msgid "Profile Page Selection"
+msgstr "Výběr stránky profilu"
+
+# @ user-meta
+#: views/settings/generalSettings.php:25
+#, fuzzy
+msgid "Show profile link to <a href=\"%s\">Users</a> administration page."
+msgstr ""
+"V profilu zobrazovat odkaz na <a href=\"%s\">uživatelskou administraci</a>."
+
+# @ user-meta
+#: views/settings/generalSettings.php:31
+msgid "Profile page should contain shortcode like: %s"
+msgstr "Stránka profilu by měla obsahovat zkratky jako: %s"
+
+# @ user-meta
+#: views/settings/generalSettings.php:43
+msgid "E-mail Sender Setting"
+msgstr "Nastavení odesílatele e-mailů"
+
+# @ user-meta
+#: views/settings/generalSettings.php:45
+msgid "Set default email sender information"
+msgstr "Nastavte výchozí informace o odesílateli e-mailových zpráv"
+
+# @ user-meta
+#: views/settings/generalSettings.php:48
+msgid "From Name:"
+msgstr "Od (jméno):"
+
+# @ user-meta
+#: views/settings/generalSettings.php:56
+msgid "From Email:"
+msgstr "Od (e-mail):"
+
+# @ user-meta
+#: views/settings/generalSettings.php:64
+msgid "Email Format:"
+msgstr "Formát zprávy:"
+
+# @ user-meta
+#: views/settings/loginSettings.php:32
+msgid "Login page should contain shortcode like: %s"
+msgstr "Na přihlašovací stránce by se měly nacházet zkratky jako: %s"
+
+# @ user-meta
+#: views/settings/loginSettings.php:35
+msgid "Disable default login url (%s)"
+msgstr "Zakázat výchozí URL přihlášení (%s)"
+
+# @ user-meta
+#: views/settings/loginSettings.php:44
+msgid "Disable wp-login.php and redirect to front-end login page %s"
+msgstr "Zakáže wp-login.aspx a přesměruje uživatele na přihlašovací stránku %s"
+
+# @ user-meta
+#: views/settings/loginSettings.php:53
+msgid "Login Form"
+msgstr "Přihlašovací formulář"
+
+# @ user-meta
+#: views/settings/loginSettings.php:57
+msgid "Disable lost password feature"
+msgstr "Zakázat obnovu hesla"
+
+# @ user-meta
+#: views/settings/loginSettings.php:65
+msgid "Hide registration link"
+msgstr "Skrýt odkaz pro zápis"
+
+# @ user-meta
+#: views/settings/loginSettings.php:73
+msgid "Disable AJAX submit"
+msgstr "Zakázat AJAX"
+
+# @ user-meta
+#: views/settings/loginSettingsPro.php:16
+msgid "User login by"
+msgstr "Už. přihl. dle"
+
+# @ user-meta
+#: views/settings/loginSettingsPro.php:47
+msgid ""
+"Please select any page for resetting password as your default login url is "
+"disabled!"
+msgstr ""
+"Jelikož je výchozí přihlášení zakázáno, zvolte jakoukoli stránku pro obnovu "
+"hesla!"
+
+# @ user-meta
+#: views/settings/loginSettingsPro.php:48
+msgid ""
+"This is the page a user will be redirected to when they want to retrieve/"
+"reset their password."
+msgstr ""
+"Na tuto stránku bude přesměrován uživatel, který si přeje obnovit své heslo."
+
+# @ user-meta
+#: views/settings/loginSettingsPro.php:55
+msgid "Logged in user profile settings"
+msgstr "Nastavení profilu přihl. uživatelů"
+
+# @ user-meta
+#: views/settings/loginSettingsPro.php:80
+msgid "Multisite"
+msgstr "Více stránek"
+
+# @ user-meta
+#: views/settings/loginSettingsPro.php:85
+msgid "Prevent user login if user is not member of current site."
+msgstr "Znemožnit uživateli přihlášení, pokud není členem této stránky."
+
+# @ user-meta
+#: views/settings/registrationSettings.php:8
+msgid "User registration page"
+msgstr "Stránka zápisu uživatele"
+
+# @ user-meta
+#: views/settings/textSettings.php:6
+msgid "Custom text for front-end"
+msgstr "Vlastní text pro veřejnou část"
+
+# @ user-meta
+#: views/settingsPage.php:8
+#, fuzzy
+msgid "User Meta Pro Settings"
+msgstr "Nastavení User Meta"
+
+# @ user-meta
+#: views/settingsPage.php:8
+msgid "User Meta Settings"
+msgstr "Nastavení User Meta"
+
+# @ user-meta
+#: views/settingsPage.php:25
+msgid "General"
+msgstr "Hlavní"
+
+# @ user-meta
+#: views/settingsPage.php:51
+msgid "Redirection"
+msgstr "Přesměrování"
+
+# @ user-meta
+#: views/settingsPage.php:58
+msgid "Backend Profile"
+msgstr "Správcovský profil"
+
+# @ user-meta
+#: views/settingsPage.php:71
+msgid "Text"
+msgstr "Text"
+
+#. Description of the plugin/theme
+msgid "A well-designed, feature-rich, and easy to use user management plugin."
+msgstr ""
+
+# @ user-meta
+#, fuzzy
+#~ msgid "Exclude"
+#~ msgstr "Vynechat role"
+
+# @ user-meta
+#~ msgid "Incorrect captcha code"
+#~ msgstr "Nesprávný CAPTCHA kód"
+
+# @ user-meta
+#~ msgid "reCAPTCHA Settings"
+#~ msgstr "Nastavení reCAPTCHA"
+
+# @ user-meta
+#~ msgid ""
+#~ "reCAPTCHA is a free CAPTCHA service that helps to digitize books, "
+#~ "newspapers and old time radio shows."
+#~ msgstr ""
+#~ "reCAPTCHA je svobodná CAPTCHA služba, která pomáhá snímat knížky, noviny "
+#~ "a staré rádiové pořady."
+
+# @ user-meta
+# @ default
+#~ msgid "Invalid key"
+#~ msgstr "Nesprávný klíč"
+
+# @ user-meta
+#~ msgid "User Meta Forms Editor"
+#~ msgstr "Editor formulářů User Meta"
+
+# @ user-meta
+#~ msgid "User Meta Fields Editor"
+#~ msgstr "Editor polí User Meta"
+
+# @ user-meta
+#~ msgid "E-mail Notification"
+#~ msgstr "Upozornění e-mailem"
+
+# @ user-meta
+#~ msgid "Field Title"
+#~ msgstr "Nadpis pole"
+
+# @ user-meta
+#~ msgid "Field Description"
+#~ msgstr "Popis pole"
+
+# @ user-meta
+#~ msgid "Read Only for all user"
+#~ msgstr "Viditelné pro všechny"
+
+# @ user-meta
+#~ msgid "Read Only for non admin"
+#~ msgstr "Viditelné všem, kromě admina"
+
+# @ user-meta
+#~ msgid "CSS Class"
+#~ msgstr "Třída CSS"
+
+# @ user-meta
+#~ msgid "CSS Style"
+#~ msgstr "Styl CSS"
+
+# @ user-meta
+#~ msgid "Date, Time or Date & Time"
+#~ msgstr "Datum, čas nebo datum a čas"
+
+# @ user-meta
+#~ msgid "Max File Size"
+#~ msgstr "Největší soubor"
+
+# @ user-meta
+#~ msgid "(in KB. Default: 1024KB)"
+#~ msgstr "(v kB. Výchozí: 1024 kB)"
+
+# @ user-meta
+#~ msgid "Image Width (px)"
+#~ msgstr "Šířka obrázku (px)"
+
+# @ user-meta
+#~ msgid "(For Image Only. e.g. 640)"
+#~ msgstr "(Pouze pro obrázky. např. 640)"
+
+# @ user-meta
+#~ msgid "Image Height (px)"
+#~ msgstr "Výška obrázku (px)"
+
+# @ user-meta
+#~ msgid "(For Image Only. e.g. 480)"
+#~ msgstr "(Pouze pro obrázky, např. 480)"
+
+# @ user-meta
+#~ msgid "Image Size (px) width/height"
+#~ msgstr "Velikost obrázku (šířka/výška v px)"
+
+# @ user-meta
+#~ msgid "(Default 96)"
+#~ msgstr "(Výchozí 96)"
+
+# @ user-meta
+#~ msgid "Regex"
+#~ msgstr "Regexp"
+
+# @ user-meta
+#~ msgid "e.g.: %s"
+#~ msgstr "např.: %s"
+
+# @ user-meta
+#~ msgid "Default: Invalid field"
+#~ msgstr "Výchozí: Chybné pole"
+
+# @ user-meta
+#~ msgid "Red"
+#~ msgstr "Červený"
+
+# @ user-meta
+#~ msgid "White"
+#~ msgstr "Bílý"
+
+# @ user-meta
+#~ msgid "Black Glass"
+#~ msgstr "Černé sklo"
+
+# @ user-meta
+#~ msgid "Clean"
+#~ msgstr "Čistý"
+
+# @ user-meta
+#~ msgid ""
+#~ "By default, <strong>Required</strong> and <strong>Unique</strong> "
+#~ "validation will be will be applied on this field. <strong>Read Only</"
+#~ "strong> will be applied conditionally."
+#~ msgstr ""
+#~ "Standardně bude na tomto poli provedena kontrola na <strong>vyplnění</"
+#~ "strong> a <strong>jedinečnost</strong>. Podmínečně je možné aplikovat i "
+#~ "přístup <strong>pouze ke čtení</strong>."
+
+# @ user-meta
+#~ msgid ""
+#~ "By default, <strong>Required</strong> and <strong>Unique</strong> "
+#~ "validation will be applied on this field."
+#~ msgstr ""
+#~ "Standardně bude na tomto poli provedena kontrola na <strong>vyplnění</"
+#~ "strong> a <strong>jedinečnost</strong>."
+
+# @ user-meta
+#~ msgid ""
+#~ "<strong>Required</strong> validation will be applied automatically when "
+#~ "password field is being used for registration."
+#~ msgstr ""
+#~ "Pokud se pole použije při zápisu, bude kontrolováno jeho "
+#~ "<strong>vyplnění</strong>."
+
+# @ user-meta
+#~ msgid "New Field"
+#~ msgstr "Nové pole"
+
+# @ user-meta
+#~ msgid "(Give a name to your form)"
+#~ msgstr "(Zvolte vhodné jméno formuláře)"
+
+# @ user-meta
+#~ msgid "Fields in your form (Drag from available fields)"
+#~ msgstr "Pole na formuláři (přetáhněte je z dostupných)"
+
+# @ user-meta
+#~ msgid "Drag fields from right block to left block to add them to your form."
+#~ msgstr "Pole do formuláře přidáte jejich přetažením zprava doleva."
+
+# @ user-meta
+#~ msgid "Assign class to form tag"
+#~ msgstr "Přiřadí CSS třídu ke značce <form>"
+
+# @ user-meta
+#~ msgid "New Form"
+#~ msgstr "Nový formulář"
+
+# @ user-meta
+#~ msgid "3 steps to get started"
+#~ msgstr "3 kroky jak začít"
+
+# @ user-meta
+#~ msgid ""
+#~ "Please provide reCaptcha public and private keys in User Meta %s page"
+#~ msgstr ""
+#~ "Prosím zadejte veřejný a soukromý klíč pro reCAPTCHA na stránce User Meta "
+#~ "%s"
+
+# @ user-meta
+#~ msgid "Please set public and private keys in User Meta >> Settings Page"
+#~ msgstr ""
+#~ "Prosím nastavte veřejný a soukromý klíč na stránce User Meta >> Nastavení"
+
+# @ user-meta
+#~ msgid "Reset password page"
+#~ msgstr "Stránka obnovy hesla"
+
+# @ user-meta
+#~ msgid ""
+#~ "This is the page a user will be redirected to when they want to reset "
+#~ "their password."
+#~ msgstr ""
+#~ "Jedná se o stránku, kam bude uživatel přesměrován, pokud si bude chtít "
+#~ "obnovit heslo."
+
+# @ user-meta
+#~ msgid ""
+#~ "This is the page a user will be redirected to when they want to verify "
+#~ "their email address (if needed)."
+#~ msgstr ""
+#~ "Jedná se o stránku, kam bude uživatel přesměrován, pokud si bude přát "
+#~ "ověřit svoji e-mailovou adresu (pokud třeba)."
+
+# @ user-meta
+#~ msgid "Use role based user profile (advanced)"
+#~ msgstr "Použít profil založený na rolích (pokročilé)"
+
+# @ user-meta
+#~ msgid "Assign form to user role. Leave blank for using default form"
+#~ msgstr "Přiřaďte formulář k roli. Ponechejte prázdné pro výchozí formulář"
+
+# @ user-meta
+#~ msgid "Optional"
+#~ msgstr "Volitelně"
+
+# @ user-meta
+#~ msgid "All form keys are required!"
+#~ msgstr "Povinné jsou všechny klíče formuláře!"
+
+# @ user-meta
+#~ msgid "Form key should be unique. \"%s\" is duplicated!"
+#~ msgstr "Klíč formuláře by měl být jedinečný. \"%s\" je zdvojený!"
+
+# @ user-meta
+#~ msgid "Form Successfully saved."
+#~ msgstr "Formulář byl úspěšně uložen."
+
+# @ user-meta
+#~ msgid "Get pro version from %s to use this feature."
+#~ msgstr "Tato funkce vyžaduje verzi Pro, navštivte %s."
+
+# @ user-meta
+#~ msgid "reCAPTCHA Public Key"
+#~ msgstr "Veřejný klíč reCAPTCHA"
+
+# @ user-meta
+#~ msgid "reCAPTCHA Private Key"
+#~ msgstr "Soukromý klíč reCAPTCHA"
+
+# @ user-meta
+#~ msgid "Email Notification"
+#~ msgstr "Upozornění e-mailem"
+
+# @ user-meta
+#~ msgid "Get License"
+#~ msgstr "Získat licenci"
+
+# @ user-meta
+#~ msgid "description"
+#~ msgstr "popis"

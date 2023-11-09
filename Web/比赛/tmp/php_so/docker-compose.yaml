@@ -1,0 +1,7 @@
+version: "2"
+services:
+  debug:
+    build: .
+    restart: always
+    ports:
+      - "28719:80"

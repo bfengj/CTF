@@ -1,0 +1,192 @@
+<?php
+//检查登录状态
+    session_start();
+    if(!isset($_SESSION['user'])){die('请登录！！！');}
+include_once("../config.php");
+        $juese = $_SESSION['juese'];
+        $sql="select value from juese where id='$juese'";
+        $requ=mysqli_query($con,$sql);
+        $rs=mysqli_fetch_array($requ);
+        $value=explode(",",$rs['value']);
+        if (in_array('17',$value)== false) 
+        {
+        die('您没有权限访问该页面！！！');
+        }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+	<link rel="stylesheet" href="/js/lay-module/soulTable.css" media="all">
+	<link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+            </div>
+        </script>
+		<script type="text/html" id="switchTpl">
+		  <input type="checkbox" name="zt" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="Changezt" {{ d.status == 1 ? 'checked' : '' }}>
+		</script>
+        <script type="text/html" id="currentTableBar">
+			<i lay-event="edit" title="编辑" class="fa fa-pencil"></i>
+			&nbsp;&nbsp;
+			<i lay-event="repass" title="重置密码" class="fa fa-key"></i>
+        </script>
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+    </div>
+</div>
+<script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+
+
+    layui.use(['form', 'table','soulTable'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+			soulTable = layui.soulTable,
+            table = layui.table;
+
+        table.render({
+            elem: '#currentTableId',
+            url: '../action.php?mode=getuserlist',
+            toolbar: '#toolbarDemo',
+            defaultToolbar: ['filter', 'exports', 'print', {
+                title: '提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }]
+			,height:'full-200'
+        ,overflow: {
+            type: 'tips'
+            ,hoverTime: 300 // 悬停时间，单位ms, 悬停 hoverTime 后才会显示，默认为 0
+            ,color: 'white' // 字体颜色
+            ,bgColor: 'blue' // 背景色
+            ,minWidth: 100 // 最小宽度
+            ,maxWidth: 500 // 最大宽度
+        }
+	  ,rowDrag: {trigger: 'row', done: function(obj) {
+			//拖拽行
+			// 完成时（松开时）触发
+			// 如果拖动前和拖动后无变化，则不会触发此方法
+			console.log(obj.row) // 当前行数据
+			console.log(obj.cache) // 改动后全表数据
+			console.log(obj.oldIndex) // 原来的数据索引
+			console.log(obj.newIndex) // 改动后数据索引
+		}},	
+
+            cols: [[
+                //{type: "checkbox", width: 50, fixed: "left"},
+                {field: 'id', width: 80, title: 'ID', sort: true, align: "center"},
+                {field: 'name', width: 200, title: '名称', align: "center"},
+				{field: 'juese', width: 200, title: '角色', align: "center"},
+				{field: 'qxbm', width: 200, title: '权限部门', align: "center"},
+                {field: 'status', width: 100, title: '状态', sort: true, templet: '#switchTpl', align: "center"},
+				{width: 120, title: '操作', toolbar: '#currentTableBar', align: "center"}
+            ]],
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 10,
+            page: true
+			
+			
+			  ,autoColumnWidth: {
+			  	//列宽自动化，cols 中设置的 width 将失效
+				//init: true
+			  }
+			  ,filter: {
+				items:['column','data','clearCache'] // 加入了清除缓存按钮
+				,cache: true //增加缓存功能，（会导致单元格编辑失效）
+				,bottom: false //隐藏底部
+			  }
+			  ,done: function () {
+				soulTable.render(this)
+			  }
+			  
+			  
+        });
+		
+        table.on('tool(currentTableFilter)', function (obj) {
+            var id = obj.data.id;
+			console.log(id);
+            if (obj.event === 'edit') {
+                var index = layer.open({
+                    title: '编辑用户',
+                    type: 2,
+                    shade: 0.2,
+                    maxmin:true,
+                    shadeClose: true,
+                    area: ['50%', '70%'],
+                    content: '/page/edituser.php?id='+id,
+                });
+				/*
+                $(window).on("resize", function () {
+                    layer.full(index);
+                });
+				*/
+                return false;
+            } else if (obj.event === 'repass') {
+                layer.confirm('确定重置'+obj.data.name+'密码？', function (index) {
+					$.post("../action.php",{mode:"chengeuserpassword",id:id},function(result){
+						console.log(result);
+						var r=JSON.parse(result);
+						if(r.status==1){
+							layer.alert('重置成功,密码：111111。');
+						}else{
+							layer.alert('重置失败或用户当前密码为初始密码。');
+							table.reload('currentTableId', {
+								url: '../action.php?mode=getuserlist'
+							});
+						}
+					})
+					//layer.close(index);
+                });
+            }
+        });
+
+        /**
+         * toolbar监听事件
+         */
+        table.on('toolbar(currentTableFilter)', function (obj) {
+            if (obj.event === 'add') {  // 监听添加操作
+                var index = layer.open({
+                    title: '添加用户',
+                    type: 2,
+                    shade: 0.2,
+                    maxmin:true,
+                    shadeClose: true,
+                    area: ['50%', '50%'],
+                    content: '/page/addyh.php',
+                });
+                $(window).on("resize", function () {
+                    layer.full(index);
+                });
+            }
+        });
+		form.on('switch(Changezt)', function(obj){
+			$.post("../action.php",{mode:"chengeyhzt",id:this.value,zhi:obj.elem.checked},function(result){
+				console.log(result);
+				var r=JSON.parse(result);
+				if(r.status==1){
+					layer.tips('修改成功', obj.othis);
+				}else{
+					layer.tips('修改失败', obj.othis);
+					table.reload('currentTableId', {
+						url: '../action.php?mode=getuserlist'
+					});
+				}
+			})
+		});
+    });
+</script>
+</body>
+</html>

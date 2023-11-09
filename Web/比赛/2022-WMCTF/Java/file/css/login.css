@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body_bg{
+    background: #000 url(../images/logo.png) no-repeat  center/cover fixed;
+}
+.body_bg .content{
+    width: 30%;
+    margin: 0 auto;
+    background-color: aliceblue;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    padding-bottom: 32px;
+
+    position: relative;
+
+}
+.body_bg .content .title{
+    background-color: #B87333;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.3em;
+    font-weight: normal;
+    color: #fff;
+
+}
+.body_bg .content .form_all{
+    margin-top:10px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.body_bg .content .form_all .title_word{
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.body_bg .content .form_all .input_box{
+    height: 30px;
+}
+.body_bg .content .form_all .input_box .input_1{
+    height: 30px;
+    outline: none;
+    width: 100%;
+    border: 1px solid #B87333;
+    text-indent: 10px;
+    font-size: 1.1em;
+}
+.body_bg .content .form_all .input_box .input_1:hover{
+    box-shadow: 3px 3px 5px #B87333;
+}
+.body_bg .content .form_all .login{
+    margin-top:30px;
+    height: 30px;
+}
+.body_bg .content .form_all .login input{
+    width: 100%;
+
+    background-color: #B87333;
+    border-color: #B87333;
+    color: #fff;
+
+    text-align: center;
+
+    border: 1px solid transparent;
+    font-weight: 900;
+    font-size: 1.2em;
+    height: 36px;
+    line-height: 34px;
+}
+.blank_1{
+    height: 20px;
+}

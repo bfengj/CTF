@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<antlib>
+	<typedef 
+		name="iajc" 
+		classname="org.aspectj.tools.ant.taskdefs.AjcTask"
+		uri="aspectjtools:/aspectj.org"
+		/>
+	<typedef 
+		name="ajc" 
+		classname="org.aspectj.tools.ant.taskdefs.Ajc10"
+		uri="aspectjtools:/aspectj.org"
+		/>
+</antlib>

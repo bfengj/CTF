@@ -1,0 +1,737 @@
+# Translation of Themes - Twenty Twenty-One in Chinese (China)
+# This file is distributed under the same license as the Themes - Twenty Twenty-One package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-03-18 15:04:20+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Themes - Twenty Twenty-One\n"
+
+#. Description of the theme
+#, gp-priority: high
+msgid "Twenty Twenty-One is a blank canvas for your ideas and it makes the block editor your best brush. With new block patterns, which allow you to create a beautiful layout in a matter of seconds, this theme’s soft colors and eye-catching — yet timeless — design will let your work shine. Take it for a spin! See how Twenty Twenty-One elevates your portfolio, business website, or personal blog."
+msgstr "二〇二一是您的创意的空白画布，它使区块编辑器成为您的最佳选择。借助新的拼块图案，您可以在几秒钟内创建漂亮的布局，该主题柔和的色彩和醒目的（但永恒）的设计将使您的作品熠熠生辉。快来体验一下吧！了解“二〇二一”如何提升您的作品集，企业网站或个人博客。"
+
+#. Theme Name of the theme
+#: inc/block-patterns.php:24
+#, gp-priority: high
+msgid "Twenty Twenty-One"
+msgstr "二〇二一"
+
+#: inc/template-tags.php:241
+msgid "Older <span class=\"nav-short\">posts</span>"
+msgstr "较早<span class=\"nav-short\">文章</span>"
+
+#: inc/template-tags.php:230
+msgid "Newer <span class=\"nav-short\">posts</span>"
+msgstr "较新<span class=\"nav-short\">文章</span>"
+
+#: classes/class-twenty-twenty-one-customize-notice-control.php:40
+#: classes/class-twenty-twenty-one-dark-mode.php:178
+msgid "https://wordpress.org/support/article/twenty-twenty-one/#dark-mode-support"
+msgstr "https://wordpress.org/support/article/twenty-twenty-one/#dark-mode-support"
+
+#. translators: %s: Twenty Twenty-One support article URL.
+#: classes/class-twenty-twenty-one-dark-mode.php:177
+msgid "Dark Mode is a device setting. If a visitor to your site requests it, your site will be shown with a dark background and light text. <a href=\"%s\">Learn more about Dark Mode.</a>"
+msgstr "深色模式是一项设备设置。如果访问者的设备像此站点发出要求，您的站点将显示为深色背景和浅色文字。<a href=\"%s\">了解有关深色模式的更多信息。</a>"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:181
+msgid "Dark Mode can also be turned on and off with a button that you can find in the bottom corner of the page."
+msgstr "还可以使用页面右下角的按钮来打开和关闭深色模式。"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:380
+msgid "This website uses LocalStorage to save the setting when Dark Mode support is turned on or off.<br> LocalStorage is necessary for the setting to work and is only used when a user clicks on the Dark Mode button.<br> No data is saved in the database or transferred."
+msgstr "当开启或关闭深色模式支持时，本网站使用LocalStorage来保存设置。<br>LocalStorage是设置工作所必需的，只有当用户点击深色模式按钮时才会使用。<br>数据库中不会保存任何数据，也不会传输任何数据。"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:379
+msgid "Suggested text:"
+msgstr "建议的文本："
+
+#: classes/class-twenty-twenty-one-dark-mode.php:378
+msgid "Twenty Twenty-One uses LocalStorage when Dark Mode support is enabled."
+msgstr "启用深色模式支持时，二〇二一主题使用LocalStorage。"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:188
+msgid "Dark Mode support"
+msgstr "支持深色模式"
+
+#: classes/class-twenty-twenty-one-customize-notice-control.php:41
+msgid "Learn more about Dark Mode."
+msgstr "了解更多关于深色模式的信息。"
+
+#: classes/class-twenty-twenty-one-customize-notice-control.php:39
+msgid "To access the Dark Mode settings, select a light background color."
+msgstr "要访问深色模式设置，请选择浅色背景颜色。"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:134
+msgid "Colors & Dark Mode"
+msgstr "颜色和深色模式"
+
+#: inc/template-tags.php:77
+msgctxt "Label for sticky posts"
+msgid "Featured post"
+msgstr "精选文章"
+
+#: inc/template-functions.php:424
+msgctxt "Post password form"
+msgid "Submit"
+msgstr "提交"
+
+#: inc/template-functions.php:424
+msgctxt "Post password form"
+msgid "Password"
+msgstr "密码"
+
+#: inc/template-functions.php:183
+msgctxt "Added to posts and pages that are missing titles"
+msgid "Untitled"
+msgstr "无标题"
+
+#: inc/block-patterns.php:131
+msgctxt "Block pattern sample content"
+msgid "Cambridge, MA, 02139"
+msgstr "北京市东城区，100000"
+
+#: inc/block-patterns.php:131
+msgctxt "Block pattern sample content"
+msgid "123 Main Street"
+msgstr "东长安街1号"
+
+#: inc/block-patterns.php:131
+msgctxt "Block pattern sample content"
+msgid "123-456-7890"
+msgstr "123-456-7890"
+
+#: inc/block-patterns.php:131
+msgctxt "Block pattern sample content"
+msgid "example@example.com"
+msgstr "example@example.com"
+
+#: classes/class-twenty-twenty-one-customize.php:138
+msgctxt "Customizer control"
+msgid "Background color"
+msgstr "背景颜色"
+
+#. translators: %s: WordPress Version.
+#: inc/back-compat.php:42 inc/back-compat.php:61 inc/back-compat.php:86
+msgid "This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade."
+msgstr "此主题需要WordPress 5.3或更高版本。您正在运行版本%s。请升级。"
+
+#. translators: %: Page number.
+#: image.php:48 template-parts/content/content-page.php:36
+#: template-parts/content/content-single.php:30
+#: template-parts/content/content.php:36
+msgid "Page %"
+msgstr "第%页"
+
+#: functions.php:187
+msgctxt "Font size"
+msgid "XXXL"
+msgstr "XXXL"
+
+#: functions.php:181
+msgctxt "Font size"
+msgid "XXL"
+msgstr "XXL"
+
+#: functions.php:175
+msgctxt "Font size"
+msgid "XL"
+msgstr "XL"
+
+#: functions.php:169
+msgctxt "Font size"
+msgid "L"
+msgstr "L"
+
+#: functions.php:163
+msgctxt "Font size"
+msgid "M"
+msgstr "M"
+
+#: functions.php:157
+msgctxt "Font size"
+msgid "S"
+msgstr "S"
+
+#: functions.php:151
+msgctxt "Font size"
+msgid "XS"
+msgstr "XS"
+
+#: comments.php:85
+msgid "Leave a comment"
+msgstr "发表评论"
+
+#. translators: %s: Comment count number.
+#: comments.php:39
+msgctxt "Comments title"
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "%s条评论"
+
+#: comments.php:34
+msgid "1 comment"
+msgstr "1条评论"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:334
+msgid "On"
+msgstr "开启"
+
+#: classes/class-twenty-twenty-one-dark-mode.php:331
+msgid "Off"
+msgstr "关闭"
+
+#. translators: %s: On/Off
+#: classes/class-twenty-twenty-one-dark-mode.php:321
+msgid "Dark Mode: %s"
+msgstr "深色模式：%s"
+
+#: inc/template-functions.php:422
+msgid "This content is password protected. Please enter a password to view."
+msgstr "此内容受密码保护。请输入密码查看。"
+
+#: inc/menu-functions.php:34
+msgid "Open menu"
+msgstr "打开菜单"
+
+#: inc/block-patterns.php:121
+msgid "&#8220;Reading&#8221; by Berthe Morisot"
+msgstr "《阅读》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:98
+msgid "&#8220;Self portrait&#8221; by Berthe Morisot"
+msgstr "《自画像》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:98
+msgid "&#8220;Daffodils&#8221; by Berthe Morisot"
+msgstr "《黄水仙》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:86 inc/block-patterns.php:121
+#: inc/starter-content.php:43
+msgid "&#8220;Roses Trémières&#8221; by Berthe Morisot"
+msgstr "《蜀葵》（作者：贝尔特·莫里索）"
+
+#: inc/template-functions.php:424
+msgctxt "Post password form"
+msgid "Enter"
+msgstr "提交"
+
+#: inc/starter-content.php:128
+msgctxt "Theme starter content"
+msgid "Check out the Support Forums"
+msgstr "查看支持论坛"
+
+#: inc/starter-content.php:122
+msgctxt "Theme starter content"
+msgid "Read the Theme Documentation"
+msgstr "阅读主题文档"
+
+#: inc/starter-content.php:112
+msgctxt "Theme starter content"
+msgid "Need help?"
+msgstr "需要帮助？"
+
+#: inc/starter-content.php:97
+msgctxt "Theme starter content"
+msgid "Twenty Twenty-One also includes an overlap style for column blocks. With a Columns block selected, open the \"Styles\" panel within the Editor sidebar. Choose the \"Overlap\" block style to try it out."
+msgstr "二〇二一还包括列区块的重叠样式。选定列区块后，打开编辑器侧栏中的“样式”面板。选择“重叠”区块样式进行尝试。"
+
+#: inc/starter-content.php:93
+msgctxt "Theme starter content"
+msgid "Overlap columns"
+msgstr "重叠列"
+
+#: inc/starter-content.php:87
+msgctxt "Theme starter content"
+msgid "Twenty Twenty-One includes stylish borders for your content. With an Image block selected, open the \"Styles\" panel within the Editor sidebar. Select the \"Frame\" block style to activate it."
+msgstr "二〇二一包含您内容的时尚边框。选择图像区块后，打开编辑器侧栏中的“样式”面板。选择“框架”区块样式以将其激活。"
+
+#: inc/starter-content.php:83
+msgctxt "Theme starter content"
+msgid "Frame your images"
+msgstr "框住您的图像"
+
+#: inc/starter-content.php:77
+msgctxt "Theme starter content"
+msgid "Block patterns are pre-designed groups of blocks. To add one, select the Add Block button [+] in the toolbar at the top of the editor. Switch to the Patterns tab underneath the search bar, and choose a pattern."
+msgstr "区块版面配置是预先设计的一组区块。要添加一个区块版面配置，请在编辑器顶部的工具栏中选择“添加区块”按钮[+]。切换到搜索栏下方的模式标签，然后选择一种模式。"
+
+#: inc/starter-content.php:73
+msgctxt "Theme starter content"
+msgid "Add block patterns"
+msgstr "添加区块版面配置"
+
+#: inc/starter-content.php:30 inc/starter-content.php:33
+msgctxt "Theme starter content"
+msgid "Create your website with blocks"
+msgstr "创建您的网站与区块"
+
+#: inc/block-patterns.php:121
+msgid "Reading"
+msgstr "阅读"
+
+#: inc/block-patterns.php:121
+msgid "Young Woman in Mauve"
+msgstr "身着淡紫色衣服的年轻女子"
+
+#: inc/block-patterns.php:121
+msgid "The Garden at Bougival"
+msgstr "布吉瓦花园"
+
+#: inc/block-patterns.php:121
+msgid "In the Bois de Boulogne"
+msgstr "在布洛涅河畔"
+
+#: inc/block-patterns.php:121
+msgid "Villa with Orange Trees, Nice"
+msgstr "橙树别墅，美好"
+
+#: inc/block-patterns.php:121
+msgid "Roses Trémières"
+msgstr "蜀葵"
+
+#: inc/block-patterns.php:110
+msgid "&#8220;Villa with Orange Trees, Nice&#8221; by Berthe Morisot"
+msgstr "《橙树别墅，美好》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:110
+msgid "Beautiful gardens painted by Berthe Morisot in the late 1800s"
+msgstr "贝尔特·莫里索在19世纪末所画的美丽花园"
+
+#: inc/block-patterns.php:110 inc/block-patterns.php:121
+msgid "&#8220;The Garden at Bougival&#8221; by Berthe Morisot"
+msgstr "《布吉瓦花园》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:86 inc/block-patterns.php:121
+#: inc/starter-content.php:61
+msgid "&#8220;Young Woman in Mauve&#8221; by Berthe Morisot"
+msgstr "《身着淡紫色衣服的年轻女子》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:86 inc/block-patterns.php:121
+#: inc/starter-content.php:51
+msgid "&#8220;In the Bois de Boulogne&#8221; by Berthe Morisot"
+msgstr "《在布洛涅河畔》（作者：贝尔特·莫里索）"
+
+#: inc/block-patterns.php:74
+msgid "Berthe Morisot<br>(French, 1841-1895)"
+msgstr "贝特·莫里索<br>（法国人，1841-1895）"
+
+#: inc/block-patterns.php:74
+msgid "Playing in the Sand"
+msgstr "在沙地上玩耍"
+
+#: inc/block-patterns.php:74
+msgid "&#8220;Playing in the Sand&#8221; by Berthe Morisot"
+msgstr "《在沙地上玩耍》（作者：贝尔特·莫里索）"
+
+#. translators: %s: Parent post.
+#: image.php:61
+msgid "Published in %s"
+msgstr "发表于%s"
+
+#: classes/class-twenty-twenty-one-customize.php:108
+msgid "Summary"
+msgstr "摘要"
+
+#: classes/class-twenty-twenty-one-customize.php:85
+msgid "Excerpt Settings"
+msgstr "摘要设置"
+
+#: inc/block-styles.php:98
+msgid "Thick"
+msgstr "加粗"
+
+#: classes/class-twenty-twenty-one-customize.php:106
+msgid "On Archive Pages, posts show:"
+msgstr "在归档页上，文章显示："
+
+#. translators: %s: Author name.
+#: template-parts/post/author-bio.php:31
+msgid "View all of %s's posts."
+msgstr "查看%s的所有文章。"
+
+#. translators: %s: Author name.
+#: inc/template-tags.php:49 template-parts/post/author-bio.php:19
+msgid "By %s"
+msgstr "作者：%s"
+
+#: template-parts/content/content-none.php:61
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "我们似乎找不到您要找的内容。或许搜索功能会有所帮助。"
+
+#: template-parts/content/content-none.php:56
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "抱歉，没有符合您搜索条件的结果。请换其它关键词再试。"
+
+#. translators: %s: Link to WP admin new post page.
+#: template-parts/content/content-none.php:43
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr "准备好发布您的第一篇文章了吗？请从<a href=\"%s\">这里</a>开始。"
+
+#: single.php:40
+msgid "Previous post"
+msgstr "上一篇文章"
+
+#: single.php:39
+msgid "Next post"
+msgstr "下一篇文章"
+
+#. translators: %s: Parent post link.
+#: single.php:25
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
+msgstr "<span class=\"meta-nav\">发布于</span><span class=\"post-title\">%s</span>"
+
+#: searchform.php:26
+msgctxt "submit button"
+msgid "Search"
+msgstr "搜索"
+
+#: searchform.php:24
+msgid "Search&hellip;"
+msgstr "搜索&hellip;"
+
+#. translators: %d: The number of search results.
+#: search.php:33
+msgid "We found %d result for your search."
+msgid_plural "We found %d results for your search."
+msgstr[0] "我们为您的搜索找到了%d项结果。"
+
+#. translators: %s: Search term.
+#: search.php:21 template-parts/content/content-none.php:22
+msgid "Results for \"%s\""
+msgstr "“%s”的搜索结果"
+
+#. translators: %s: List of tags.
+#: inc/template-tags.php:116 inc/template-tags.php:158
+msgid "Tagged %s"
+msgstr "标签：%s"
+
+#. translators: %s: List of categories.
+#: inc/template-tags.php:107 inc/template-tags.php:149
+msgid "Categorized as %s"
+msgstr "分类：%s"
+
+#. translators: Used between list items, there is a space after the comma.
+#: functions.php:654
+msgid ", "
+msgstr "、"
+
+#. translators: %s: Post title. Only visible to screen readers.
+#: image.php:70 image.php:95 inc/template-tags.php:92 inc/template-tags.php:133
+#: template-parts/content/content-page.php:48
+msgid "Edit %s"
+msgstr "编辑%s"
+
+#. translators: %s: Post title. Only visible to screen readers.
+#: inc/template-functions.php:138
+msgid "Continue reading %s"
+msgstr "继续阅读%s"
+
+#: inc/block-styles.php:71
+msgid "Dividers"
+msgstr "分隔线"
+
+#: inc/block-styles.php:62
+msgid "Frame"
+msgstr "框架"
+
+#: inc/block-styles.php:35 inc/block-styles.php:44 inc/block-styles.php:53
+#: inc/block-styles.php:80 inc/block-styles.php:89
+msgid "Borders"
+msgstr "边框"
+
+#: inc/block-styles.php:26
+msgid "Overlap"
+msgstr "重叠"
+
+#: inc/block-patterns.php:130
+msgctxt "Block pattern description"
+msgid "A block with 3 columns that display contact information and social media links."
+msgstr "一个有3列的区块，显示联系信息和社交媒体链接。"
+
+#: inc/block-patterns.php:128
+msgid "Contact information"
+msgstr "联系信息"
+
+#: inc/block-patterns.php:120
+msgctxt "Block pattern description"
+msgid "A list of projects with thumbnail images."
+msgstr "带有缩略图的项目列表。"
+
+#: inc/block-patterns.php:118
+msgid "Portfolio list"
+msgstr "作品列表"
+
+#: inc/block-patterns.php:109
+msgctxt "Block pattern description"
+msgid "An overlapping columns block with two images and a text description."
+msgstr "重叠的列区块包含两个图像和一个文本描述。"
+
+#: inc/block-patterns.php:106
+msgid "Overlapping images and text"
+msgstr "重叠图像和文字"
+
+#: inc/block-patterns.php:97
+msgctxt "Block pattern description"
+msgid "A media & text block with a big image on the left and a smaller one with bordered frame on the right."
+msgstr "一个媒体和文本块，左边是一个大图片，右边是一个小图片和边框。"
+
+#: inc/block-patterns.php:94
+msgid "Two images showcase"
+msgstr "两位画师展示"
+
+#: inc/block-patterns.php:85
+msgctxt "Block pattern description"
+msgid "Three images inside an overlapping columns block."
+msgstr "重叠的列区块内的三个图像。"
+
+#: inc/block-patterns.php:82
+msgid "Overlapping images"
+msgstr "重叠图像"
+
+#: inc/block-patterns.php:73
+msgctxt "Block pattern description"
+msgid "A Media & Text block with a big image on the left and a heading on the right. The heading is followed by a separator and a description paragraph."
+msgstr "一个媒体和文本块，左边是一张大图片，右边是一个标题。标题后面有一个分隔符和一段描述。"
+
+#: inc/block-patterns.php:70
+msgid "Media and text article title"
+msgstr "媒体和文字文章标题"
+
+#: inc/block-patterns.php:62
+msgid "example@example.com"
+msgstr "example@example.com"
+
+#: inc/block-patterns.php:62
+msgid "Dribbble"
+msgstr "Dribbble"
+
+#: inc/block-patterns.php:62
+msgid "Instagram"
+msgstr "Instagram"
+
+#: inc/block-patterns.php:62
+msgid "Twitter"
+msgstr "Twitter"
+
+#: inc/block-patterns.php:62
+msgid "Let&#8217;s Connect."
+msgstr "现在就开始。"
+
+#: inc/block-patterns.php:61
+msgctxt "Block pattern description"
+msgid "A huge text followed by social networks and email address links."
+msgstr "巨大的文字后面是社交网络和邮箱地址链接。"
+
+#: inc/block-patterns.php:58
+msgid "Links area"
+msgstr "链接区域"
+
+#: inc/block-patterns.php:50
+msgid "A new portfolio default theme for WordPress"
+msgstr "一个全新的WordPress作品集默认主题"
+
+#: inc/block-patterns.php:47
+msgid "Large text"
+msgstr "大字文本"
+
+#: image.php:83
+msgctxt "Used before full size attachment link."
+msgid "Full size"
+msgstr "原始尺寸"
+
+#. translators: %s: Publish date.
+#: inc/template-tags.php:29
+msgid "Published %s"
+msgstr "发布日期：%s"
+
+#: comments.php:61 image.php:45 inc/template-tags.php:224
+#: template-parts/content/content-page.php:33
+#: template-parts/content/content-single.php:27
+#: template-parts/content/content.php:33
+msgid "Page"
+msgstr " "
+
+#: template-parts/header/site-nav.php:19
+msgid "Close"
+msgstr "关闭"
+
+#: template-parts/header/site-nav.php:16
+msgid "Menu"
+msgstr "菜单"
+
+#: functions.php:76 inc/starter-content.php:154
+#: template-parts/header/site-nav.php:13
+msgid "Primary menu"
+msgstr "主菜单"
+
+#: header.php:26
+msgid "Skip to content"
+msgstr "跳至内容"
+
+#: functions.php:363
+msgid "Add widgets here to appear in your footer."
+msgstr "在这里添加小工具以显示在您的页脚中。"
+
+#: functions.php:361
+msgid "Footer"
+msgstr "页脚"
+
+#: functions.php:309
+msgid "Red to purple"
+msgstr "红色至紫色"
+
+#: functions.php:304
+msgid "Purple to red"
+msgstr "紫色至红色"
+
+#: functions.php:299
+msgid "Yellow to red"
+msgstr "黄色至红色"
+
+#: functions.php:294
+msgid "Red to yellow"
+msgstr "红色至黄色"
+
+#: functions.php:289
+msgid "Yellow to green"
+msgstr "黄色至绿色"
+
+#: functions.php:284
+msgid "Green to yellow"
+msgstr "绿色至黄色"
+
+#: functions.php:279
+msgid "Yellow to purple"
+msgstr "黄色至紫色"
+
+#: functions.php:274
+msgid "Purple to yellow"
+msgstr "紫色至黄色"
+
+#: functions.php:263
+msgid "White"
+msgstr "白色"
+
+#: functions.php:258
+msgid "Yellow"
+msgstr "黄色"
+
+#: functions.php:253
+msgid "Orange"
+msgstr "橙色"
+
+#: functions.php:248
+msgid "Red"
+msgstr "红色"
+
+#: functions.php:243
+msgid "Purple"
+msgstr "紫色"
+
+#: functions.php:238
+msgid "Blue"
+msgstr "蓝色"
+
+#: functions.php:233
+msgid "Green"
+msgstr "绿色"
+
+#: functions.php:228
+msgid "Gray"
+msgstr "灰色"
+
+#: functions.php:223 inc/block-styles.php:107
+msgid "Dark gray"
+msgstr "深灰"
+
+#: functions.php:218
+msgid "Black"
+msgstr "黑色"
+
+#: functions.php:186
+msgid "Gigantic"
+msgstr "巨大"
+
+#: functions.php:180
+msgid "Huge"
+msgstr "特大"
+
+#: functions.php:174
+msgid "Extra large"
+msgstr "超大"
+
+#: functions.php:168
+msgid "Large"
+msgstr "大号"
+
+#: functions.php:162
+msgid "Normal"
+msgstr "正常"
+
+#: functions.php:156
+msgid "Small"
+msgstr "小号"
+
+#: functions.php:150
+msgid "Extra small"
+msgstr "超小"
+
+#. translators: %s: WordPress.
+#: footer.php:67
+msgid "Proudly powered by %s."
+msgstr "自豪地采用%s。"
+
+#: footer.php:24 functions.php:77 inc/starter-content.php:165
+msgid "Secondary menu"
+msgstr "次要菜单"
+
+#: comments.php:78
+msgid "Comments are closed."
+msgstr "评论已关闭。"
+
+#: comments.php:70
+msgid "Newer comments"
+msgstr "较新评论"
+
+#: comments.php:66
+msgid "Older comments"
+msgstr "较早评论"
+
+#: classes/class-twenty-twenty-one-customize.php:109
+msgid "Full text"
+msgstr "全文"
+
+#: classes/class-twenty-twenty-one-customize.php:75
+msgid "Display Site Title & Tagline"
+msgstr "显示站点标题和副标题"
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "看起来在这个位置找不到任何东西。您可以尝试搜索？"
+
+#: 404.php:16 template-parts/content/content-none.php:30
+msgid "Nothing here"
+msgstr "什么都没有"
+
+#. Author URI of the theme
+#: footer.php:68
+#, gp-priority: low
+msgid "https://wordpress.org/"
+msgstr "https://cn.wordpress.org/"
+
+#. Author of the theme
+#, gp-priority: low
+msgid "the WordPress team"
+msgstr "WordPress团队"
+
+#. Theme URI of the theme
+#, gp-priority: low
+msgid "https://wordpress.org/themes/twentytwentyone/"
+msgstr "https://cn.wordpress.org/themes/twentytwentyone/"

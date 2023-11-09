@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="w&m" />
+    <!-- https://wm-team.cn/ -->
+    <title>easyjava</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body class="body_bg">
+<div class="content">
+    <div class="title">Welcome to W&MCTF.</div>
+
+    <form class="form_all" method="POST" action="file">
+        <div class="title_word">U R L</div>
+        <div class="input_box">
+            <input name="url" id="url" type="text" class="input_1"/>
+        </div>
+        <div class="blank_1"></div>
+        <div class="title_word">Verification code</div>
+        <div class="input_box">
+            <input name="Vcode" type="text" id="Vcode" class="input_1"/>
+        </div>
+        <div class="title_word"></div>
+        <div class="input_box">
+            <img src="verifyCode" id="Code" style="cursor:pointer" title="Unclear?Change another one." onclick=changeRandomCodeImg() />
+        </div>
+        <div class="login">
+            <input type="submit" value="go" onclick="send()" />
+        </div>
+        <br/>
+    </form>
+
+</div>
+</body>
+<script>
+    $(function() {
+        $(window).on('load resize',function(){
+            var w_height = $(window).height();
+            var w_width = $(".content").height();
+            //alert(w_height/2-w_width/2);
+            $('.content').css({'top':w_height/2-w_width/2+'px'},100);
+        });
+    });
+    function changeRandomCodeImg() {
+        $("#Code").prop("src", "verifyCode?tm=" + new Date().getMilliseconds());
+    };
+    function send() {
+        var datas = { "url" : $('#url').val(),"Vcode": $('#Vcode').val()};
+        $.ajax({
+            type: "POST",//method
+            dataType:"text",
+            contentType: "application/x-www-form-urlencoded",
+            url: "file" ,//url
+            data: datas,
+            success: function (result) {
+                console.log(result)
+            },
+            error : function() {
+                console.log("something wrong");
+            }
+        });
+    }
+</script>
+</html>
+

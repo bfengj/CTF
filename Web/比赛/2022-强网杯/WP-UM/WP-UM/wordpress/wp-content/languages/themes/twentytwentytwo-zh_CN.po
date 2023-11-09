@@ -1,0 +1,130 @@
+# Translation of Themes - Twenty Twenty-Two in Chinese (China)
+# This file is distributed under the same license as the Themes - Twenty Twenty-Two package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-01-26 16:47:47+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Themes - Twenty Twenty-Two\n"
+
+#. Theme Name of the theme
+#, gp-priority: high
+msgid "Twenty Twenty-Two"
+msgstr "Twenty Twenty-Two"
+
+#: inc/block-patterns.php:17
+msgid "Featured"
+msgstr "特色"
+
+#: inc/block-patterns.php:18
+msgid "Footers"
+msgstr "页脚"
+
+#: inc/block-patterns.php:19
+msgid "Headers"
+msgstr "页眉"
+
+#: inc/block-patterns.php:20
+msgid "Query"
+msgstr "查询"
+
+#: inc/block-patterns.php:21
+msgid "Pages"
+msgstr "分页"
+
+#: inc/patterns/footer-about-title-logo.php:13 inc/patterns/footer-blog.php:13
+msgid "About us"
+msgstr "关于我们"
+
+#: inc/patterns/footer-about-title-logo.php:17 inc/patterns/footer-blog.php:17
+msgid "We are a rogue collective of bird watchers. We’ve been known to sneak through fences, climb perimeter walls, and generally trespass in order to observe the rarest of birds."
+msgstr "我们是一群无聊的观鸟者。 众所周知，为了观察最稀有的鸟类，我们会偷偷穿过栅栏，爬上围墙，通常，我们会擅自闯入。"
+
+#: inc/patterns/footer-blog.php:6
+msgid "Blog footer"
+msgstr "博客页脚"
+
+#: inc/patterns/footer-blog.php:23 inc/patterns/general-featured-posts.php:10
+msgid "Latest posts"
+msgstr "最新文章"
+
+#: inc/patterns/footer-blog.php:31
+#: inc/patterns/page-sidebar-blog-posts-right.php:74
+msgid "Categories"
+msgstr "分类"
+
+#. Translators: WordPress link.
+#: inc/patterns/footer-blog.php:49 inc/patterns/footer-dark.php:17
+#: inc/patterns/footer-default.php:17 inc/patterns/footer-logo.php:17
+#: inc/patterns/footer-navigation.php:19
+#: inc/patterns/footer-query-images-title-citation.php:34
+#: inc/patterns/footer-query-title-citation.php:32
+msgid "Proudly powered by %s"
+msgstr "自豪地采用 %s"
+
+#: inc/patterns/footer-blog.php:50 inc/patterns/footer-dark.php:18
+#: inc/patterns/footer-default.php:18 inc/patterns/footer-logo.php:18
+#: inc/patterns/footer-navigation.php:20
+#: inc/patterns/footer-query-images-title-citation.php:35
+#: inc/patterns/footer-query-title-citation.php:33
+msgid "https://wordpress.org"
+msgstr "https://cn.wordpress.org"
+
+#: inc/patterns/footer-default.php:6
+msgid "Default footer"
+msgstr "默认页脚"
+
+#: inc/patterns/footer-about-title-logo.php:6
+msgid "Footer with text, title, and logo"
+msgstr "带文字、标题和 logo 的页脚"
+
+#: inc/patterns/footer-dark.php:6
+msgid "Dark footer with title and citation"
+msgstr "带标题和引文的深色页脚"
+
+#: inc/patterns/footer-navigation-copyright.php:6
+msgid "Footer with navigation and copyright"
+msgstr "带导航和版权的信息页脚"
+
+#: inc/patterns/footer-navigation-copyright.php:20
+#: inc/patterns/footer-social-copyright.php:24
+msgid "© Site Title"
+msgstr "© 站点标题"
+
+#: inc/patterns/footer-query-images-title-citation.php:6
+msgid "Footer with query, featured images, title, and citation"
+msgstr "带有查询、特色图片、标题和引文的页脚"
+
+#: inc/patterns/footer-query-title-citation.php:6
+msgid "Footer with query, title, and citation"
+msgstr "带有查询、标题和引文的页脚"
+
+#: inc/patterns/footer-social-copyright.php:6
+msgid "Footer with social links and copyright"
+msgstr "带有社交链接和版权的信息页脚"
+
+#: inc/patterns/general-divider-dark.php:6
+msgid "Divider with image and color (dark)"
+msgstr "带图片和颜色的分隔线（深色）"
+
+#: inc/patterns/general-image-with-caption.php:10
+msgid "Hummingbird illustration"
+msgstr "蜂鸟图"
+
+#: inc/patterns/general-image-with-caption.php:11
+msgid "Hummingbird"
+msgstr "蜂鸟"
+
+#. Author of the theme
+#, gp-priority: low
+msgid "the WordPress team"
+msgstr "WordPress团队"
+
+#. Author URI of the theme
+#, gp-priority: low
+msgid "https://wordpress.org/"
+msgstr "https://cn.wordpress.org/"

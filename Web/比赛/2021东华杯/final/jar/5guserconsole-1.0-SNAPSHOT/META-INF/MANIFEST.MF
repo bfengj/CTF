@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: feng
+Start-Class: com.app.controller.StartApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Version: 2.0.0.RELEASE
+Created-By: Apache Maven 3.6.3
+Build-Jdk: 1.8.0_332
+Main-Class: org.springframework.boot.loader.JarLauncher
+

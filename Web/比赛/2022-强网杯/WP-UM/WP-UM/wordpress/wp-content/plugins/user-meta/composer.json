@@ -1,0 +1,44 @@
+{
+  "name": "user-meta/user-meta",
+  "description": "User management plugin for WordPress",
+  "authors": [
+    {
+      "name": "Khaled Hossain",
+      "email": "support@user-meta.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "5.6.0"
+    }
+  },
+  "require": {
+    "php": ">=5.6.0",
+    "user-meta/html": "^1.1"
+  },
+  "require-dev": {
+    "curl/curl": "^1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "UserMeta\\Field\\": [
+        "models/classes/Field/",
+        "models/classes/Field/pro"
+      ],
+      "UserMeta\\": [
+        "models/classes/builder/",
+        "models/classes/generate/",
+        "models/classes/",
+        "models/classes/pro/"
+      ]
+    },
+    "files": [
+      "legacylib/Framework.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "UserMeta\\": "tests/classes/"
+    }
+  }
+}

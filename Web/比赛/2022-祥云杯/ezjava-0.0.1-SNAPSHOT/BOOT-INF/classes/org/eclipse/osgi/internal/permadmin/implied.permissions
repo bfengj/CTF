@@ -1,0 +1,52 @@
+########################################################################
+# Copyright (c) 2003, 2010 IBM Corporation and others.
+# All rights reserved. This program and the accompanying materials 
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#     IBM Corporation - initial API and implementation
+########################################################################
+
+# Lines beginning with '#' or '//' are comments
+#
+# This file contains the implied permissions to be granted
+# to all bundles. This file must be UTF8 encoded.
+#
+# In this file, FilePermissions with relative names are
+# mapped to an individual bundle's data directory.
+#
+# The permissions are listed one per
+# line in PermissionInfo encoded format.
+# See org.osgi.service.permissionadmin.PermissionInfo
+
+(java.util.PropertyPermission "java.vendor" "read")
+(java.util.PropertyPermission "java.specification.version" "read")
+(java.util.PropertyPermission "line.separator" "read")
+(java.util.PropertyPermission "java.class.version" "read")
+(java.util.PropertyPermission "java.specification.name" "read")
+(java.util.PropertyPermission "java.vendor.url" "read")
+(java.util.PropertyPermission "java.vm.version" "read")
+(java.util.PropertyPermission "os.name" "read")
+(java.util.PropertyPermission "os.arch" "read")
+(java.util.PropertyPermission "os.version" "read")
+(java.util.PropertyPermission "java.version" "read")
+(java.util.PropertyPermission "java.vm.specification.version" "read")
+(java.util.PropertyPermission "java.vm.specification.name" "read")
+(java.util.PropertyPermission "java.specification.vendor" "read")
+(java.util.PropertyPermission "java.vm.vendor" "read")
+(java.util.PropertyPermission "file.separator" "read")
+(java.util.PropertyPermission "path.separator" "read")
+(java.util.PropertyPermission "java.vm.name" "read")
+(java.util.PropertyPermission "java.vm.specification.vendor" "read")
+(java.util.PropertyPermission "org.osgi.framework.*" "read")
+(java.io.FilePermission "" "read")
+(java.io.FilePermission "-" "read,write,delete")
+
+# Added for OSGi SP R3 - this likely is not needed any more
+(org.osgi.framework.PackagePermission "java.*" "import")
+# Added for OSGi R4.3
+(org.osgi.framework.CapabilityPermission "osgi.ee" "require")
+# Added for OSGi R6
+(org.osgi.framework.CapabilityPermission "osgi.native" "require")
