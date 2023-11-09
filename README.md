@@ -22,7 +22,7 @@
 
 - [记录的一些知识点](./Web/渗透/README.md)
 
-- [HTB刷题笔记](./Web/渗透/hackthebox/README.md)
+- [HTB刷题笔记](./Web/渗透/hackthebox/)
 
 ## Go
 
