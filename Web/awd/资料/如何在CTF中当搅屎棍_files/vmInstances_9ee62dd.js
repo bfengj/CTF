@@ -1,0 +1,1 @@
+define("base/atom/vmInstances",["require"],function(t){function n(t){return"[object String]"===Object.prototype.toString.call(t)}function r(t){return"[object Object]"===Object.prototype.toString.call(t)}function e(t){for(var n in t)return!1;return!0}function o(t,e){t&&n(t)&&r(e)&&(c[t]=e)}function u(t){return t&&n(t)?e(c[t])?null:c[t]:null}var c={};return{get:u,set:o}});

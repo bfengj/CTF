@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/ -->
+<html class="theme-next pisces use-motion" lang="zh-Hans" data-redeviation-bs-uid="z8t70wonvkr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="./Prepare For AWD _ virtua1&#39;s blog_files/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="./Prepare For AWD _ virtua1&#39;s blog_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="./Prepare For AWD _ virtua1&#39;s blog_files/main.css" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://virtua11.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://virtua11.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://virtua11.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://virtua11.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF,AWD,">
+
+
+
+
+
+  <link rel="alternate" href="https://virtua11.github.io/atom.xml" title="virtua1&#39;s blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="CTF线下AWD攻防赛的准备参加的CTF线下赛不多，看了很多网上的文章，决定写一篇自己的AWD准备的文章。本人web狗，只在总结了AWD中web的套路，二进制目前还没有接触orz 0x01 修改ssh密码很多比赛主办方给出的ssh密码是默认的，或者密码是随机的长串字母数字，首先应该修改ssh密码，改成队伍所以人都知道，注意不要用弱密码。其次不多见的是主办方给了ssh弱密码，就是所有队伍的ssh密码">
+<meta name="keywords" content="CTF,AWD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prepare For AWD">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/Prepare For AWD/index.html">
+<meta property="og:site_name" content="virtua1&#39;s blog">
+<meta property="og:description" content="CTF线下AWD攻防赛的准备参加的CTF线下赛不多，看了很多网上的文章，决定写一篇自己的AWD准备的文章。本人web狗，只在总结了AWD中web的套路，二进制目前还没有接触orz 0x01 修改ssh密码很多比赛主办方给出的ssh密码是默认的，或者密码是随机的长串字母数字，首先应该修改ssh密码，改成队伍所以人都知道，注意不要用弱密码。其次不多见的是主办方给了ssh弱密码，就是所有队伍的ssh密码">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-05T10:16:52.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Prepare For AWD">
+<meta name="twitter:description" content="CTF线下AWD攻防赛的准备参加的CTF线下赛不多，看了很多网上的文章，决定写一篇自己的AWD准备的文章。本人web狗，只在总结了AWD中web的套路，二进制目前还没有接触orz 0x01 修改ssh密码很多比赛主办方给出的ssh密码是默认的，或者密码是随机的长串字母数字，首先应该修改ssh密码，改成队伍所以人都知道，注意不要用弱密码。其次不多见的是主办方给了ssh弱密码，就是所有队伍的ssh密码">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/05/Prepare%20For%20AWD/">
+
+
+
+
+
+  <title>Prepare For AWD | virtua1's blog</title>
+  
+
+
+
+
+
+
+
+
+<style type="text/css">.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}</style><style type="text/css">.fancybox-margin{margin-right:0px;}</style><style class="redeviation-bs-style" data-name="content">/*! (c) Philipp Koenig under GPL-3.0 */
+body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-overlay.redeviation-bs-visible,body>#redeviation-bs-sidebar.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity .3s,transform .3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos=right]{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos=right]>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div{background:rgba(0,0,0,0)}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:auto !important;speak:none;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s .3s,height 0s .3s,opacity .3s,transform .3s}body>#redeviation-bs-sidebar[data-pos=right]{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity .3s,transform .3s}body>#redeviation-bs-sidebar.sidepanel{width:100% !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;color-scheme:auto !important;transition:opacity .3s}</style></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="https://virtua11.github.io/" class="brand" rel="start" style="opacity: 1;">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title" style="opacity: 1; top: 0px;">virtua1's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle" style="opacity: 1; top: 0px;">萌新 | Web | Sqli</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
+          <a href="https://virtua11.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about" style="opacity: 1; transform: translateY(0px);">
+          <a href="https://virtua11.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags" style="opacity: 1; transform: translateY(0px);">
+          <a href="https://virtua11.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories" style="opacity: 1; transform: translateY(0px);">
+          <a href="https://virtua11.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives" style="opacity: 1; transform: translateY(0px);">
+          <a href="https://virtua11.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search" style="opacity: 1; transform: translateY(0px);">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block" style="opacity: 1; display: block;">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/Prepare%20For%20AWD/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="virtua1">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="virtua1&#39;s blog">
+    </span>
+
+    
+      <header class="post-header" style="opacity: 1; display: block; transform: translateY(0px);">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Prepare For AWD</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T18:10:08+08:00">
+                2018-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://virtua11.github.io/categories/AWD/" itemprop="url" rel="index">
+                    <span itemprop="name">AWD</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody" style="opacity: 1; display: block; transform: translateY(0px);">
+
+      
+      
+
+      
+        <h1 id="CTF线下AWD攻防赛的准备"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#CTF%E7%BA%BF%E4%B8%8BAWD%E6%94%BB%E9%98%B2%E8%B5%9B%E7%9A%84%E5%87%86%E5%A4%87" class="headerlink" title="CTF线下AWD攻防赛的准备"></a>CTF线下AWD攻防赛的准备</h1><p>参加的CTF线下赛不多，看了很多网上的文章，决定写一篇自己的AWD准备的文章。本人web狗，只在总结了AWD中web的套路，二进制目前还没有接触orz</p>
+<h3 id="0x01-修改ssh密码"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x01-%E4%BF%AE%E6%94%B9ssh%E5%AF%86%E7%A0%81" class="headerlink" title="0x01 修改ssh密码"></a>0x01 修改ssh密码</h3><p>很多比赛主办方给出的ssh密码是默认的，或者密码是随机的长串字母数字，首先应该修改ssh密码，改成队伍所以人都知道，注意不要用弱密码。<br>其次不多见的是主办方给了ssh弱密码，就是所有队伍的ssh密码都是一样的，这时候手速一定要快，防止密码被别人人修改，那还没登陆就gg了，如果可能脚本修改其他队伍的密码，做一些不可描述的事情hhh。</p>
+<p>准备<code>change_ssh脚本</code></p>
+<h3 id="0x02-dump源码"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x02-dump%E6%BA%90%E7%A0%81" class="headerlink" title="0x02 dump源码"></a>0x02 dump源码</h3><p>一般比赛是不会给出源码的，需要从自己的服务器dump下来。速度一定要快。修改完ssh密码接着就dump源码。注意dump源码一定要在上waf、文件监控执行，保留最初始的源码。有助于审计和恢复源码。方法有两种：</p>
+<h5 id="1、利用图形化软件XFTP或者FileZilla-Client直接下载源码。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E5%88%A9%E7%94%A8%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%BD%AF%E4%BB%B6XFTP%E6%88%96%E8%80%85FileZilla-Client%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E3%80%82" class="headerlink" title="1、利用图形化软件XFTP或者FileZilla Client直接下载源码。"></a>1、利用图形化软件XFTP或者FileZilla Client直接下载源码。</h5><h5 id="2、利用命令："><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E5%88%A9%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A" class="headerlink" title="2、利用命令："></a>2、利用命令：</h5><p><code>scp -r -P Port remote_username@\remote_ip:remote_folder local_file</code><br>命令不好用，自我感觉还是用图形化软件吧。</p>
+<h5 id="3、备份web目录："><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E5%A4%87%E4%BB%BDweb%E7%9B%AE%E5%BD%95%EF%BC%9A" class="headerlink" title="3、备份web目录："></a>3、备份web目录：</h5><p><code>tar -zcvf web.tar.gz /var/www/html/</code></p>
+<h3 id="0x02-备份数据库"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x02-%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93" class="headerlink" title="0x02 备份数据库"></a>0x02 备份数据库</h3><h5 id="1、找数据库配置文件，找到db-name、db-user和db-passwd"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E6%89%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E6%89%BE%E5%88%B0db-name%E3%80%81db-user%E5%92%8Cdb-passwd" class="headerlink" title="1、找数据库配置文件，找到db_name、db_user和db_passwd"></a>1、找数据库配置文件，找到db_name、db_user和db_passwd</h5><h5 id="2、登陆数据库，命令备份数据库"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E7%99%BB%E9%99%86%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93" class="headerlink" title="2、登陆数据库，命令备份数据库:"></a>2、登陆数据库，命令备份数据库:</h5><p><code>mysqldump -u db_user -p db_passwd db_name &gt; bak.sql</code>//备份指定数据库<br><code>cd /var/lib/mysql</code><br><code>mysqldump -u db_user -p db_passwd &gt; bak.sql</code>//先进入数据库目录再备份<br><code>mysqldump --all-databases &gt; bak.sql</code> //备份所有数据库</p>
+<h5 id="3、还原数据库："><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E8%BF%98%E5%8E%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A" class="headerlink" title="3、还原数据库："></a>3、还原数据库：</h5><p><code>mysql -u db_user -p db_passwd db_name &lt; bak.sql</code> //还原指定数据库<br><code>cd /var/lib/mysql</code><br><code>mysql -u db_user db_passwd &lt; bak.sql</code> //先进入数据库目录再还原<br>还有一种方法：<br><code>mysql -u db_name -p</code><br> input passwd 进入mysql控制台<code>mysql&gt;</code><br> <code>mysql&gt; show databases;</code>看看有哪些数据库<br> <code>mysql&gt; create database test ;</code> 建立要还原的数据库<br> <code>mysql&gt; use test;</code>切换到刚创建的数据库<br> <code>mysql&gt; source test.sql;</code> 导入数据库</p>
+<p> ps：如果是数据库弱密码的话，尝试能不能登陆数据库改密码、写shell、或者删库。<br> 准备 <code>AWD_weaksql脚本、修改密码脚本、删库脚本</code></p>
+<h3 id="0x03-上waf"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x03-%E4%B8%8Awaf" class="headerlink" title="0x03 上waf"></a>0x03 上waf</h3><p> waf能不能上要看主办方的check机制，一定要小心，特别容易checkdown，导致失分。<br> 准备 <code>waf.php</code></p>
+<h3 id="0x04-上流量监控脚本"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x04-%E4%B8%8A%E6%B5%81%E9%87%8F%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC" class="headerlink" title="0x04 上流量监控脚本"></a>0x04 上流量监控脚本</h3><p> 流量监控脚本要让入口文件或所有文件包含<br> <code>require_once('monitor.php');</code><br> <code>find /var/www/html  -type f -path "*.php" | xargs sed -i "s/&lt;?php/&lt;?php\n require_once('\/tem\/waf.php');\n/g"</code><br> 准备 <code>monitor.php</code></p>
+<h3 id="0x05-D盾木马查杀"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x05-D%E7%9B%BE%E6%9C%A8%E9%A9%AC%E6%9F%A5%E6%9D%80" class="headerlink" title="0x05 D盾木马查杀"></a>0x05 D盾木马查杀</h3><p> 把dump下来的源码扔进D盾查杀。发现后门先清理自己的服务器，能修改则修改不能修改则注释掉。</p>
+<p> 经常出现一些难以发现的后门，即使盾扫出来，也不会利用的，如上次蓝帽杯初赛的weekly后门，还有代码执行的后门。</p>
+<p> ps：需要总结常见的变形后门。</p>
+<h3 id="0x06-代码审计"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x06-%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1" class="headerlink" title="0x06 代码审计"></a>0x06 代码审计</h3><p>一般利用seay源代码审计工具，虽然没什么用，大致有个审计的方向。<br>几点思路：</p>
+<ol>
+<li>比赛可能是一些主流的cms，查找cms，如果有外网可以直接搜cms，看最近爆出的漏洞和下载最新版本的cms，直接覆盖安装，可以修复很多漏洞。</li>
+<li>白盒审计结合黑盒测试，要注意网站后台是否是弱密码，或者容易爆破，如果是弱密码，可以先改一波其他队伍的，再测试是否有漏洞，特别是在模板更新、资料修改的地方。</li>
+<li><p>常见的漏洞有：<br><strong> sql注入</strong><br><strong> 文件上传</strong><br><strong> 文件包含</strong><br><strong> 命令执行</strong><br><strong> 代码执行</strong></p>
+<h6 id="最常见的就是各种rce-要巧妙利用。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B0%B1%E6%98%AF%E5%90%84%E7%A7%8Drce-%E8%A6%81%E5%B7%A7%E5%A6%99%E5%88%A9%E7%94%A8%E3%80%82" class="headerlink" title="最常见的就是各种rce,要巧妙利用。"></a>最常见的就是各种rce,要巧妙利用。</h6></li>
+<li><p>可能水平有限，根本审不出什么漏洞，要时刻注意文件监控脚本，看被打的流量，及时补洞。种植后门一般是批量，所以后门的路径和密码都是一样的，所以也可以利用被人种下的后门攻击一波。注意监控到的流量一般包含很多混淆流量，不容易看。<br>上次蓝帽初赛并没有抓到有用的被打流量，这个还是得好好测试下。</p>
+</li>
+</ol>
+<h3 id="防御"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E9%98%B2%E5%BE%A1" class="headerlink" title="防御"></a>防御</h3><h4 id="1-waf慎重。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1-waf%E6%85%8E%E9%87%8D%E3%80%82" class="headerlink" title="1. waf慎重。"></a>1. waf慎重。</h4><h4 id="2-多留意有没有被种下后门或者不死马之类的，多备份几次源码，用D盾扫，很容易扫到其他队伍的后门。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2-%E5%A4%9A%E7%95%99%E6%84%8F%E6%9C%89%E6%B2%A1%E6%9C%89%E8%A2%AB%E7%A7%8D%E4%B8%8B%E5%90%8E%E9%97%A8%E6%88%96%E8%80%85%E4%B8%8D%E6%AD%BB%E9%A9%AC%E4%B9%8B%E7%B1%BB%E7%9A%84%EF%BC%8C%E5%A4%9A%E5%A4%87%E4%BB%BD%E5%87%A0%E6%AC%A1%E6%BA%90%E7%A0%81%EF%BC%8C%E7%94%A8D%E7%9B%BE%E6%89%AB%EF%BC%8C%E5%BE%88%E5%AE%B9%E6%98%93%E6%89%AB%E5%88%B0%E5%85%B6%E4%BB%96%E9%98%9F%E4%BC%8D%E7%9A%84%E5%90%8E%E9%97%A8%E3%80%82" class="headerlink" title="2. 多留意有没有被种下后门或者不死马之类的，多备份几次源码，用D盾扫，很容易扫到其他队伍的后门。"></a>2. 多留意有没有被种下后门或者不死马之类的，多备份几次源码，用D盾扫，很容易扫到其他队伍的后门。</h4><h6 id="克制不死马的方法：脚本、命令、骚套路"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%85%8B%E5%88%B6%E4%B8%8D%E6%AD%BB%E9%A9%AC%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%E8%84%9A%E6%9C%AC%E3%80%81%E5%91%BD%E4%BB%A4%E3%80%81%E9%AA%9A%E5%A5%97%E8%B7%AF" class="headerlink" title="克制不死马的方法：脚本、命令、骚套路"></a>克制不死马的方法：脚本、命令、骚套路</h6><h4 id="3-修改数据库、后台、ssh密码之类的前边提到了，不再累述。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E5%90%8E%E5%8F%B0%E3%80%81ssh%E5%AF%86%E7%A0%81%E4%B9%8B%E7%B1%BB%E7%9A%84%E5%89%8D%E8%BE%B9%E6%8F%90%E5%88%B0%E4%BA%86%EF%BC%8C%E4%B8%8D%E5%86%8D%E7%B4%AF%E8%BF%B0%E3%80%82" class="headerlink" title="3. 修改数据库、后台、ssh密码之类的前边提到了，不再累述。"></a>3. 修改数据库、后台、ssh密码之类的前边提到了，不再累述。</h4><h4 id="4-权限加固，如upload文件夹的权限设置为644，再尝试修改所有可写目录，这里要注意防止checkdown，一些shell命令："><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#4-%E6%9D%83%E9%99%90%E5%8A%A0%E5%9B%BA%EF%BC%8C%E5%A6%82upload%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E4%B8%BA644%EF%BC%8C%E5%86%8D%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9%E6%89%80%E6%9C%89%E5%8F%AF%E5%86%99%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%BF%99%E9%87%8C%E8%A6%81%E6%B3%A8%E6%84%8F%E9%98%B2%E6%AD%A2checkdown%EF%BC%8C%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4%EF%BC%9A" class="headerlink" title="4.  权限加固，如upload文件夹的权限设置为644，再尝试修改所有可写目录，这里要注意防止checkdown，一些shell命令："></a>4. <strong> 权限加固</strong>，如upload文件夹的权限设置为644，再尝试修改所有可写目录，这里要注意防止checkdown，一些shell命令：</h4><ul>
+<li>查找命令find</li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:: 全盘查找可写目录（可写文件 -type f）</span><br><span class="line">$ find / -type d -writable 2&gt;/dev/null | grep -v -P '(^/proc)|(^/dev)' | more -500</span><br><span class="line"></span><br><span class="line">:: 将当前目录下的所有可写目录修改成不可写（该操作请慎重执行，可写文件 -type f）</span><br><span class="line">$ find . -type d -writable | xargs chmod 644</span><br><span class="line"></span><br><span class="line">:: 打印ctf用户拥有的所有文件</span><br><span class="line">$ find / -type f -user ctf -print 2&gt;/dev/null | grep -v -P '(^/proc)|(^/dev)'</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>设置权限命令chmod</li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">:: 完整命令</span><br><span class="line">$ chmod u=rwx g=rw o=r filename</span><br><span class="line"></span><br><span class="line">:: 所有权限类别增加可执行权限 </span><br><span class="line">$ chmod a+x filename</span><br><span class="line"></span><br><span class="line">:: 将当前目录下所有文件和子目录的用户组可写权限删除</span><br><span class="line">$ chmod g-w . -R</span><br><span class="line"></span><br><span class="line">:: 配置rw-r--r--权限</span><br><span class="line">$ chmod 644 filename</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>设置所有权命令chown</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:: 将当前目录下所有文件和子目录的拥有者和所属用户组修改为user和group，该命令一般需要root权限</span><br><span class="line"><span class="meta">#</span> chown user:group . -R</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>设置不可修改命令chattr</li>
+</ul>
+<p>在常见的Linux扩展文件系统中（如ext2/ext3/ext4等），可以借助某种文件属性将文件设置为不可修改（immutable）。一旦设置，任何用户（包括超级用户）都不能删除修改该文件，除非其不可修改的属性被移除。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">:: 设置不可修改</span><br><span class="line"><span class="meta">#</span> chattr +i file</span><br><span class="line"><span class="meta">#</span> chattr +i -R directory</span><br><span class="line"></span><br><span class="line">:: 恢复可修改</span><br><span class="line"><span class="meta">#</span> chattr -i file</span><br><span class="line"><span class="meta">#</span> chattr -i -R directory</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="5-文件监控-除了监控脚本外，还有一些命令："><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#5-%E6%96%87%E4%BB%B6%E7%9B%91%E6%8E%A7-%E9%99%A4%E4%BA%86%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC%E5%A4%96%EF%BC%8C%E8%BF%98%E6%9C%89%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%EF%BC%9A" class="headerlink" title="5. 文件监控 除了监控脚本外，还有一些命令："></a>5.<strong> 文件监控</strong> 除了监控脚本外，还有一些命令：</h4><ul>
+<li>访问监控</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:: 打印全盘最近5分钟内访问过的所有文件</span><br><span class="line"><span class="meta">$</span> find / -type f -amin -5 -print</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>修改监控</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:: 每5分钟监视全盘最近5分钟内修改过的所有文件</span><br><span class="line"><span class="meta">$</span> watch -d -n 300 find / -type f -mmin -5 -print</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>新增监视</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:: 每5分钟监视全盘最近5分钟内新增的所有文件</span><br><span class="line"><span class="meta">$</span> watch -d -n 300 find / -type f -mmin -5 -print</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>变化监视</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:: 最终神器</span><br><span class="line">:: 每1分钟监视指定目录最近5分钟内修改(mmin)、新增(cmin)的所有目录和文件，并将变化的部分突出</span><br><span class="line"><span class="meta">$</span> watch -d -n 60 'find /var/www/html \( -mmin -5 -or -cmin -5 \) -print 2&gt;/dev/null'</span><br><span class="line"></span><br><span class="line">:: 每1分钟监视指定目录最近5分钟内访问(amin)的所有目录和文件，并将变化的部分突出</span><br><span class="line"><span class="meta">$</span> watch -d -n 60 'find /var/www/html -amin -5 -print 2&gt;/dev/null'</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="6-进程监控"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#6-%E8%BF%9B%E7%A8%8B%E7%9B%91%E6%8E%A7" class="headerlink" title="6.  进程监控 "></a>6. <strong> 进程监控 </strong></h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:: 每1分钟监视进程新增情况(未测试)</span><br><span class="line">$ watch -d -n 60 find /proc -type f -cmin -5 -print 2&gt;/dev/null</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:: 显示所有当前进程</span><br><span class="line">$ ps -aux</span><br><span class="line">:: 查看www-data启动的进程</span><br><span class="line">$ ps -u www-data</span><br><span class="line">$ ps -aux | grep www-data</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:: 应确保在杀死父进程前，先杀死其所有子进程</span><br><span class="line">$ kill -pid &lt;pid&gt;</span><br><span class="line">:: 给父进程发送TERM信号，试图杀死它和它的子进程</span><br><span class="line">$ kill -TERM &lt;ppid&gt;</span><br><span class="line">:: 迫使进程在运行时突然终止，不推荐使用，除非其他办法都无效</span><br><span class="line">$ kill -9 &lt;pid&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="蛇皮修复法"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E8%9B%87%E7%9A%AE%E4%BF%AE%E5%A4%8D%E6%B3%95" class="headerlink" title="蛇皮修复法"></a>蛇皮修复法</h4><p><strong>总结check方式发现check每5分钟只会请求一次index.php和admin.php(因为这里抓到了流量)<br>且均为get方式，无参数访问。<br>这意味着check可能只通过判断状态响应头是否为200，或者是否当前页面有某些关键信息，来判断主机存活。于是我很蛇皮的ctrl+s保存了index.php和admin.php的前端。然后删光了web2所有文件，将两个纯静态html+静态文件夹上传到服务器。。。<br>然后就很舒服的过了check，并且永远没有再被攻击……XD<br>真的服了这个check机制了~</strong></p>
+<h4 id="7-最重要的还是审计！审计！审计！！所以努力吧，少年！！"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#7-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%BF%98%E6%98%AF%E5%AE%A1%E8%AE%A1%EF%BC%81%E5%AE%A1%E8%AE%A1%EF%BC%81%E5%AE%A1%E8%AE%A1%EF%BC%81%EF%BC%81%E6%89%80%E4%BB%A5%E5%8A%AA%E5%8A%9B%E5%90%A7%EF%BC%8C%E5%B0%91%E5%B9%B4%EF%BC%81%EF%BC%81" class="headerlink" title="7.最重要的还是审计！审计！审计！！所以努力吧，少年！！"></a>7.最重要的还是审计！审计！审计！！所以努力吧，少年！！</h4><h3 id="攻击"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E6%94%BB%E5%87%BB" class="headerlink" title="攻击"></a>攻击</h3><h4 id="1、熟悉常见漏洞的基础上审计，然后利用审计出来的漏洞，编写自动化脚本，脚本需要提前准备，比赛时来不及手动orz"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E7%86%9F%E6%82%89%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%AE%A1%E8%AE%A1%EF%BC%8C%E7%84%B6%E5%90%8E%E5%88%A9%E7%94%A8%E5%AE%A1%E8%AE%A1%E5%87%BA%E6%9D%A5%E7%9A%84%E6%BC%8F%E6%B4%9E%EF%BC%8C%E7%BC%96%E5%86%99%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E6%8F%90%E5%89%8D%E5%87%86%E5%A4%87%EF%BC%8C%E6%AF%94%E8%B5%9B%E6%97%B6%E6%9D%A5%E4%B8%8D%E5%8F%8A%E6%89%8B%E5%8A%A8orz" class="headerlink" title="1、熟悉常见漏洞的基础上审计，然后利用审计出来的漏洞，编写自动化脚本，脚本需要提前准备，比赛时来不及手动orz"></a>1、熟悉常见漏洞的基础上审计，然后利用审计出来的漏洞，编写自动化脚本，脚本需要提前准备，比赛时来不及手动orz</h4><h6 id="注入、文件上传、文件包含、命令执行以及以预留后门利用的脚本"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E6%B3%A8%E5%85%A5%E3%80%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E3%80%81%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E4%BB%A5%E5%8F%8A%E4%BB%A5%E9%A2%84%E7%95%99%E5%90%8E%E9%97%A8%E5%88%A9%E7%94%A8%E7%9A%84%E8%84%9A%E6%9C%AC" class="headerlink" title="注入、文件上传、文件包含、命令执行以及以预留后门利用的脚本"></a>注入、文件上传、文件包含、命令执行以及以预留后门利用的脚本</h6><h6 id="利用shell-get-flag-的脚本"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%88%A9%E7%94%A8shell-get-flag-%E7%9A%84%E8%84%9A%E6%9C%AC" class="headerlink" title="利用shell get flag 的脚本"></a>利用shell get flag 的脚本</h6><h6 id="自动提交flag的脚本"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4flag%E7%9A%84%E8%84%9A%E6%9C%AC" class="headerlink" title="自动提交flag的脚本"></a>自动提交flag的脚本</h6><h4 id="2、上传各种木马"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E4%B8%8A%E4%BC%A0%E5%90%84%E7%A7%8D%E6%9C%A8%E9%A9%AC" class="headerlink" title="2、上传各种木马"></a>2、上传各种木马</h4><h6 id="不死马"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E4%B8%8D%E6%AD%BB%E9%A9%AC" class="headerlink" title="不死马"></a>不死马</h6><h6 id="MD5马"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#MD5%E9%A9%AC" class="headerlink" title="MD5马"></a>MD5马</h6><h6 id="内存马"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%86%85%E5%AD%98%E9%A9%AC" class="headerlink" title="内存马"></a>内存马</h6><h6 id="各种变态马"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%90%84%E7%A7%8D%E5%8F%98%E6%80%81%E9%A9%AC" class="headerlink" title="各种变态马"></a>各种变态马</h6><h4 id="3、攻击的时候注意打混淆流量"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E6%94%BB%E5%87%BB%E7%9A%84%E6%97%B6%E5%80%99%E6%B3%A8%E6%84%8F%E6%89%93%E6%B7%B7%E6%B7%86%E6%B5%81%E9%87%8F" class="headerlink" title="3、攻击的时候注意打混淆流量"></a>3、攻击的时候注意打混淆流量</h4><h6 id="同样在看被打的流量时要注意识别混淆流量"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%90%8C%E6%A0%B7%E5%9C%A8%E7%9C%8B%E8%A2%AB%E6%89%93%E7%9A%84%E6%B5%81%E9%87%8F%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E8%AF%86%E5%88%AB%E6%B7%B7%E6%B7%86%E6%B5%81%E9%87%8F" class="headerlink" title="同样在看被打的流量时要注意识别混淆流量"></a>同样在看被打的流量时要注意识别混淆流量</h6><h2 id="AWD生存的前置技能"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#AWD%E7%94%9F%E5%AD%98%E7%9A%84%E5%89%8D%E7%BD%AE%E6%8A%80%E8%83%BD" class="headerlink" title="AWD生存的前置技能"></a>AWD生存的前置技能</h2><h3 id="个人觉得要想在AWD中生存，以下技能是必需的："><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E4%B8%AA%E4%BA%BA%E8%A7%89%E5%BE%97%E8%A6%81%E6%83%B3%E5%9C%A8AWD%E4%B8%AD%E7%94%9F%E5%AD%98%EF%BC%8C%E4%BB%A5%E4%B8%8B%E6%8A%80%E8%83%BD%E6%98%AF%E5%BF%85%E9%9C%80%E7%9A%84%EF%BC%9A" class="headerlink" title="个人觉得要想在AWD中生存，以下技能是必需的："></a>个人觉得要想在AWD中生存，以下技能是必需的：</h3><h4 id="1、熟知常见漏洞的原理"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E7%86%9F%E7%9F%A5%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8E%9F%E7%90%86" class="headerlink" title="1、熟知常见漏洞的原理"></a>1、熟知常见漏洞的原理</h4><h4 id="2、通过代码审计识别漏洞，审计cms的能力，审计php能力。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E8%AF%86%E5%88%AB%E6%BC%8F%E6%B4%9E%EF%BC%8C%E5%AE%A1%E8%AE%A1cms%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%8C%E5%AE%A1%E8%AE%A1php%E8%83%BD%E5%8A%9B%E3%80%82" class="headerlink" title="2、通过代码审计识别漏洞，审计cms的能力，审计php能力。"></a>2、通过代码审计识别漏洞，审计cms的能力，审计php能力。</h4><h4 id="3、漏洞利用能力。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E8%83%BD%E5%8A%9B%E3%80%82" class="headerlink" title="3、漏洞利用能力。"></a>3、漏洞利用能力。</h4><h4 id="4、python脚本编写能力。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#4%E3%80%81python%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E8%83%BD%E5%8A%9B%E3%80%82" class="headerlink" title="4、python脚本编写能力。"></a>4、python脚本编写能力。</h4><h4 id="5、linux运维命令。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#5%E3%80%81linux%E8%BF%90%E7%BB%B4%E5%91%BD%E4%BB%A4%E3%80%82" class="headerlink" title="5、linux运维命令。"></a>5、linux运维命令。</h4><h4 id="6、一句话木马的原理、利用和防御能力。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#6%E3%80%81%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E7%9A%84%E5%8E%9F%E7%90%86%E3%80%81%E5%88%A9%E7%94%A8%E5%92%8C%E9%98%B2%E5%BE%A1%E8%83%BD%E5%8A%9B%E3%80%82" class="headerlink" title="6、一句话木马的原理、利用和防御能力。"></a>6、一句话木马的原理、利用和防御能力。</h4><h4 id="7、linux-vim编辑器的使用。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#7%E3%80%81linux-vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E3%80%82" class="headerlink" title="7、linux vim编辑器的使用。"></a>7、linux vim编辑器的使用。</h4><h4 id="8、良好的心理素质、快速的反应能力。"><a href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#8%E3%80%81%E8%89%AF%E5%A5%BD%E7%9A%84%E5%BF%83%E7%90%86%E7%B4%A0%E8%B4%A8%E3%80%81%E5%BF%AB%E9%80%9F%E7%9A%84%E5%8F%8D%E5%BA%94%E8%83%BD%E5%8A%9B%E3%80%82" class="headerlink" title="8、良好的心理素质、快速的反应能力。"></a>8、良好的心理素质、快速的反应能力。</h4>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-heart"></i>有错指正哦！-------------</div>
+    
+</div>
+      
+    </div>
+
+
+   
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="https://virtua11.github.io/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+          
+            <a href="https://virtua11.github.io/tags/AWD/" rel="tag"><i class="fa fa-tag"></i> AWD</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="https://virtua11.github.io/2018/07/13/web%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/" rel="next" title="web中常见的源码泄露">
+                <i class="fa fa-chevron-left"></i> web中常见的源码泄露
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar" style="margin-top: 380px; margin-left: initial;">
+    
+    <div class="sidebar-inner affix-top" style="opacity: 1; display: block; transform: initial;">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel" style="">
+        <div class="site-overview" style="max-height: 689px;">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="./Prepare For AWD _ virtua1&#39;s blog_files/logo.jpg" alt="virtua1">
+            
+              <p class="site-author-name" itemprop="name">virtua1</p>
+              <p class="site-description motion-element" itemprop="description">Stay Hungry, Stay Foolish</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="https://virtua11.github.io/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="https://virtua11.github.io/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="https://virtua11.github.io/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="https://virtua11.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                大佬'blog
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.venenof.com/" title="浩神师哥" target="_blank">浩神师哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://asuralinmo.github.io/" title="YT" target="_blank">YT</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://arbitgod.github.io/" title="pwn哥" target="_blank">pwn哥</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc" style="width: calc(100% + 0px); max-height: 689px;">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#CTF%E7%BA%BF%E4%B8%8BAWD%E6%94%BB%E9%98%B2%E8%B5%9B%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">CTF线下AWD攻防赛的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x01-%E4%BF%AE%E6%94%B9ssh%E5%AF%86%E7%A0%81"><span class="nav-number">1.0.1.</span> <span class="nav-text">0x01 修改ssh密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x02-dump%E6%BA%90%E7%A0%81"><span class="nav-number">1.0.2.</span> <span class="nav-text">0x02 dump源码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E5%88%A9%E7%94%A8%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%BD%AF%E4%BB%B6XFTP%E6%88%96%E8%80%85FileZilla-Client%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E3%80%82"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">1、利用图形化软件XFTP或者FileZilla Client直接下载源码。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E5%88%A9%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">2、利用命令：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E5%A4%87%E4%BB%BDweb%E7%9B%AE%E5%BD%95%EF%BC%9A"><span class="nav-number">1.0.2.0.3.</span> <span class="nav-text">3、备份web目录：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x02-%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.0.3.</span> <span class="nav-text">0x02 备份数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E6%89%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E6%89%BE%E5%88%B0db-name%E3%80%81db-user%E5%92%8Cdb-passwd"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">1、找数据库配置文件，找到db_name、db_user和db_passwd</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E7%99%BB%E9%99%86%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">2、登陆数据库，命令备份数据库:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E8%BF%98%E5%8E%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">3、还原数据库：</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x03-%E4%B8%8Awaf"><span class="nav-number">1.0.4.</span> <span class="nav-text">0x03 上waf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x04-%E4%B8%8A%E6%B5%81%E9%87%8F%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.5.</span> <span class="nav-text">0x04 上流量监控脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x05-D%E7%9B%BE%E6%9C%A8%E9%A9%AC%E6%9F%A5%E6%9D%80"><span class="nav-number">1.0.6.</span> <span class="nav-text">0x05 D盾木马查杀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#0x06-%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="nav-number">1.0.7.</span> <span class="nav-text">0x06 代码审计</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B0%B1%E6%98%AF%E5%90%84%E7%A7%8Drce-%E8%A6%81%E5%B7%A7%E5%A6%99%E5%88%A9%E7%94%A8%E3%80%82"><span class="nav-number">1.0.7.0.0.1.</span> <span class="nav-text">最常见的就是各种rce,要巧妙利用。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E9%98%B2%E5%BE%A1"><span class="nav-number">1.0.8.</span> <span class="nav-text">防御</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1-waf%E6%85%8E%E9%87%8D%E3%80%82"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">1. waf慎重。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2-%E5%A4%9A%E7%95%99%E6%84%8F%E6%9C%89%E6%B2%A1%E6%9C%89%E8%A2%AB%E7%A7%8D%E4%B8%8B%E5%90%8E%E9%97%A8%E6%88%96%E8%80%85%E4%B8%8D%E6%AD%BB%E9%A9%AC%E4%B9%8B%E7%B1%BB%E7%9A%84%EF%BC%8C%E5%A4%9A%E5%A4%87%E4%BB%BD%E5%87%A0%E6%AC%A1%E6%BA%90%E7%A0%81%EF%BC%8C%E7%94%A8D%E7%9B%BE%E6%89%AB%EF%BC%8C%E5%BE%88%E5%AE%B9%E6%98%93%E6%89%AB%E5%88%B0%E5%85%B6%E4%BB%96%E9%98%9F%E4%BC%8D%E7%9A%84%E5%90%8E%E9%97%A8%E3%80%82"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">2. 多留意有没有被种下后门或者不死马之类的，多备份几次源码，用D盾扫，很容易扫到其他队伍的后门。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%85%8B%E5%88%B6%E4%B8%8D%E6%AD%BB%E9%A9%AC%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%E8%84%9A%E6%9C%AC%E3%80%81%E5%91%BD%E4%BB%A4%E3%80%81%E9%AA%9A%E5%A5%97%E8%B7%AF"><span class="nav-number">1.0.8.2.0.1.</span> <span class="nav-text">克制不死马的方法：脚本、命令、骚套路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E5%90%8E%E5%8F%B0%E3%80%81ssh%E5%AF%86%E7%A0%81%E4%B9%8B%E7%B1%BB%E7%9A%84%E5%89%8D%E8%BE%B9%E6%8F%90%E5%88%B0%E4%BA%86%EF%BC%8C%E4%B8%8D%E5%86%8D%E7%B4%AF%E8%BF%B0%E3%80%82"><span class="nav-number">1.0.8.3.</span> <span class="nav-text">3. 修改数据库、后台、ssh密码之类的前边提到了，不再累述。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#4-%E6%9D%83%E9%99%90%E5%8A%A0%E5%9B%BA%EF%BC%8C%E5%A6%82upload%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E4%B8%BA644%EF%BC%8C%E5%86%8D%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9%E6%89%80%E6%9C%89%E5%8F%AF%E5%86%99%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%BF%99%E9%87%8C%E8%A6%81%E6%B3%A8%E6%84%8F%E9%98%B2%E6%AD%A2checkdown%EF%BC%8C%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.0.8.4.</span> <span class="nav-text">4.  权限加固，如upload文件夹的权限设置为644，再尝试修改所有可写目录，这里要注意防止checkdown，一些shell命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#5-%E6%96%87%E4%BB%B6%E7%9B%91%E6%8E%A7-%E9%99%A4%E4%BA%86%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC%E5%A4%96%EF%BC%8C%E8%BF%98%E6%9C%89%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.0.8.5.</span> <span class="nav-text">5. 文件监控 除了监控脚本外，还有一些命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#6-%E8%BF%9B%E7%A8%8B%E7%9B%91%E6%8E%A7"><span class="nav-number">1.0.8.6.</span> <span class="nav-text">6.  进程监控 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E8%9B%87%E7%9A%AE%E4%BF%AE%E5%A4%8D%E6%B3%95"><span class="nav-number">1.0.8.7.</span> <span class="nav-text">蛇皮修复法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#7-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%BF%98%E6%98%AF%E5%AE%A1%E8%AE%A1%EF%BC%81%E5%AE%A1%E8%AE%A1%EF%BC%81%E5%AE%A1%E8%AE%A1%EF%BC%81%EF%BC%81%E6%89%80%E4%BB%A5%E5%8A%AA%E5%8A%9B%E5%90%A7%EF%BC%8C%E5%B0%91%E5%B9%B4%EF%BC%81%EF%BC%81"><span class="nav-number">1.0.8.8.</span> <span class="nav-text">7.最重要的还是审计！审计！审计！！所以努力吧，少年！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E6%94%BB%E5%87%BB"><span class="nav-number">1.0.9.</span> <span class="nav-text">攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E7%86%9F%E6%82%89%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%AE%A1%E8%AE%A1%EF%BC%8C%E7%84%B6%E5%90%8E%E5%88%A9%E7%94%A8%E5%AE%A1%E8%AE%A1%E5%87%BA%E6%9D%A5%E7%9A%84%E6%BC%8F%E6%B4%9E%EF%BC%8C%E7%BC%96%E5%86%99%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E6%8F%90%E5%89%8D%E5%87%86%E5%A4%87%EF%BC%8C%E6%AF%94%E8%B5%9B%E6%97%B6%E6%9D%A5%E4%B8%8D%E5%8F%8A%E6%89%8B%E5%8A%A8orz"><span class="nav-number">1.0.9.1.</span> <span class="nav-text">1、熟悉常见漏洞的基础上审计，然后利用审计出来的漏洞，编写自动化脚本，脚本需要提前准备，比赛时来不及手动orz</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E6%B3%A8%E5%85%A5%E3%80%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E3%80%81%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E4%BB%A5%E5%8F%8A%E4%BB%A5%E9%A2%84%E7%95%99%E5%90%8E%E9%97%A8%E5%88%A9%E7%94%A8%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.9.1.0.1.</span> <span class="nav-text">注入、文件上传、文件包含、命令执行以及以预留后门利用的脚本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%88%A9%E7%94%A8shell-get-flag-%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.9.1.0.2.</span> <span class="nav-text">利用shell get flag 的脚本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4flag%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.9.1.0.3.</span> <span class="nav-text">自动提交flag的脚本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E4%B8%8A%E4%BC%A0%E5%90%84%E7%A7%8D%E6%9C%A8%E9%A9%AC"><span class="nav-number">1.0.9.2.</span> <span class="nav-text">2、上传各种木马</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E4%B8%8D%E6%AD%BB%E9%A9%AC"><span class="nav-number">1.0.9.2.0.1.</span> <span class="nav-text">不死马</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#MD5%E9%A9%AC"><span class="nav-number">1.0.9.2.0.2.</span> <span class="nav-text">MD5马</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%86%85%E5%AD%98%E9%A9%AC"><span class="nav-number">1.0.9.2.0.3.</span> <span class="nav-text">内存马</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%90%84%E7%A7%8D%E5%8F%98%E6%80%81%E9%A9%AC"><span class="nav-number">1.0.9.2.0.4.</span> <span class="nav-text">各种变态马</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E6%94%BB%E5%87%BB%E7%9A%84%E6%97%B6%E5%80%99%E6%B3%A8%E6%84%8F%E6%89%93%E6%B7%B7%E6%B7%86%E6%B5%81%E9%87%8F"><span class="nav-number">1.0.9.3.</span> <span class="nav-text">3、攻击的时候注意打混淆流量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E5%90%8C%E6%A0%B7%E5%9C%A8%E7%9C%8B%E8%A2%AB%E6%89%93%E7%9A%84%E6%B5%81%E9%87%8F%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E8%AF%86%E5%88%AB%E6%B7%B7%E6%B7%86%E6%B5%81%E9%87%8F"><span class="nav-number">1.0.9.3.0.1.</span> <span class="nav-text">同样在看被打的流量时要注意识别混淆流量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#AWD%E7%94%9F%E5%AD%98%E7%9A%84%E5%89%8D%E7%BD%AE%E6%8A%80%E8%83%BD"><span class="nav-number">1.1.</span> <span class="nav-text">AWD生存的前置技能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#%E4%B8%AA%E4%BA%BA%E8%A7%89%E5%BE%97%E8%A6%81%E6%83%B3%E5%9C%A8AWD%E4%B8%AD%E7%94%9F%E5%AD%98%EF%BC%8C%E4%BB%A5%E4%B8%8B%E6%8A%80%E8%83%BD%E6%98%AF%E5%BF%85%E9%9C%80%E7%9A%84%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">个人觉得要想在AWD中生存，以下技能是必需的：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#1%E3%80%81%E7%86%9F%E7%9F%A5%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1、熟知常见漏洞的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#2%E3%80%81%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E8%AF%86%E5%88%AB%E6%BC%8F%E6%B4%9E%EF%BC%8C%E5%AE%A1%E8%AE%A1cms%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%8C%E5%AE%A1%E8%AE%A1php%E8%83%BD%E5%8A%9B%E3%80%82"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2、通过代码审计识别漏洞，审计cms的能力，审计php能力。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#3%E3%80%81%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E8%83%BD%E5%8A%9B%E3%80%82"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">3、漏洞利用能力。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#4%E3%80%81python%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E8%83%BD%E5%8A%9B%E3%80%82"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">4、python脚本编写能力。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#5%E3%80%81linux%E8%BF%90%E7%BB%B4%E5%91%BD%E4%BB%A4%E3%80%82"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">5、linux运维命令。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#6%E3%80%81%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E7%9A%84%E5%8E%9F%E7%90%86%E3%80%81%E5%88%A9%E7%94%A8%E5%92%8C%E9%98%B2%E5%BE%A1%E8%83%BD%E5%8A%9B%E3%80%82"><span class="nav-number">1.1.1.6.</span> <span class="nav-text">6、一句话木马的原理、利用和防御能力。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#7%E3%80%81linux-vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E3%80%82"><span class="nav-number">1.1.1.7.</span> <span class="nav-text">7、linux vim编辑器的使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://virtua11.github.io/2018/09/05/Prepare%20For%20AWD/#8%E3%80%81%E8%89%AF%E5%A5%BD%E7%9A%84%E5%BF%83%E7%90%86%E7%B4%A0%E8%B4%A8%E3%80%81%E5%BF%AB%E9%80%9F%E7%9A%84%E5%8F%8D%E5%BA%94%E8%83%BD%E5%8A%9B%E3%80%82"><span class="nav-number">1.1.1.8.</span> <span class="nav-text">8、良好的心理素质、快速的反应能力。</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async="" src="./Prepare For AWD _ virtua1&#39;s blog_files/busuanzi.pure.mini.js"></script>
+<div class="copyright">© <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">virtua1</span>
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/index.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/jquery.lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/canvas-nest.min.js"></script><canvas id="c_n11" width="1512" height="802" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/utils.js"></script>
+
+  <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/motion.js"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/affix.js"></script>
+
+  <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/pisces.js"></script>
+
+
+
+  
+  <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/scrollspy.js"></script>
+<script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/post-details.js"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/bootstrap.js"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" src="./Prepare For AWD _ virtua1&#39;s blog_files/love.js"></script>
+<bookmark-sidebar-93sucb6pf9o id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"><template shadowrootmode="closed"><iframe style="margin:0;padding: 0;border: none;width: 100%;height: 100%;"></iframe></template></bookmark-sidebar-93sucb6pf9o><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight redeviation-bs-visible" data-pos="left" style="height: 100%; top: 0%;"><div><span></span></div></div></body></html>

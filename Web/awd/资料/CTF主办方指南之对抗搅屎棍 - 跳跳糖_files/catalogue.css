@@ -1,0 +1,38 @@
+#catalogue-container {
+    position: sticky;
+    top:10px;
+}
+#catalogue {
+    width: 200px;
+    word-break: break-all;
+    text-align: left;
+    transform-origin: left top;
+}
+#catalogue strong {
+    font-weight: normal;
+}
+
+#catalogue h1,
+#catalogue h2,
+#catalogue h3,
+#catalogue h4,
+#catalogue h5,
+#catalogue h6 {
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+#catalogue h2 {
+    padding-left: 16px;
+}
+#catalogue h3 {
+    padding-left: 32px;
+}
+#catalogue h4 {
+    padding-left: 48px;
+}
+#catalogue h5 {
+    padding-left: 64px;
+}
+#catalogue h6 {
+    padding-left: 80px;
+}

