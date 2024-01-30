@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../../../.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../awd/AWDJavaWebPatch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../go/gogs/test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2022-SUSCTF/baby gadget v1.0/lib/quartz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2022-鹏城杯-final/60.209.18.2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2022-鹏城杯/高手高手高高手/192.168.1.116" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2023-nwpu-新生赛/AutoBlue-MS17-010" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2023-nwpu-新生赛/CVE-2021-3129" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2023-nwpu-新生赛/CVE-2021-3129-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2023-nwpu-新生赛/CVE-2021-3129_exploit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2023-nwpu-新生赛/MS17-010-Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../祥云杯 2021/ezyii/source/closure" vcs="Git" />
+  </component>
+</project>
