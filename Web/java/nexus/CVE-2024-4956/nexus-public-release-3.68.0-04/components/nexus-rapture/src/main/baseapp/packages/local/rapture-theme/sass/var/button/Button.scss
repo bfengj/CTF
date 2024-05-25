@@ -1,0 +1,65 @@
+/**
+ * @class Ext.button.Button
+ */
+
+$nx-button-font-weight: 600;
+
+$button-default-color: $iq-grey-700;
+$button-default-color-over: $iq-grey-700;
+$button-default-color-focus: $iq-grey-900;
+$button-default-color-pressed: $iq-grey-700;
+$button-default-color-disabled: $iq-grey-700;
+
+$button-default-border-color: $iq-grey-400;
+$button-default-border-color-over: $iq-grey-700;
+$button-default-border-color-focus: $iq-grey-900;
+$button-default-border-color-pressed: $iq-grey-700;
+$button-default-border-color-disabled: $iq-grey-400;
+
+$button-small-font-size: $font-size-body;
+$button-small-font-size-over: $font-size-body;
+$button-small-font-size-focus: $font-size-body;
+$button-small-font-size-pressed: $font-size-body;
+$button-small-font-size-disabled: $font-size-body;
+
+$button-small-font-weight: $nx-button-font-weight;
+$button-small-font-weight-over: $nx-button-font-weight;
+$button-small-font-weight-focus: $nx-button-font-weight;
+$button-small-font-weight-pressed: $nx-button-font-weight;
+$button-small-font-weight-disabled: $nx-button-font-weight;
+
+$button-medium-font-weight: $nx-button-font-weight;
+$button-medium-font-weight-over: $nx-button-font-weight;
+$button-medium-font-weight-focus: $nx-button-font-weight;
+$button-medium-font-weight-pressed: $nx-button-font-weight;
+$button-medium-font-weight-disabled: $nx-button-font-weight;
+
+$button-default-glyph-color: $iq-grey-700;
+$button-default-glyph-opacity: 1;
+
+$button-toolbar-color: $iq-grey-700;
+$button-toolbar-color-over: $iq-grey-900;
+$button-toolbar-color-focus: $iq-grey-900;
+$button-toolbar-color-pressed: $iq-grey-900;
+$button-toolbar-color-disabled: $iq-grey-700;
+
+$button-toolbar-border-color: $iq-grey-400;
+$button-toolbar-border-color-over: $iq-grey-700;
+$button-toolbar-border-color-focus: $iq-grey-900;
+$button-toolbar-border-color-pressed: $iq-grey-700;
+$button-toolbar-border-color-disabled: $iq-grey-400;
+
+$button-toolbar-glyph-color: $iq-grey-700;
+$button-toolbar-glyph-color-disabled: $iq-grey-700;
+
+$button-toolbar-glyph-opacity: 1;
+
+$button-toolbar-opacity-disabled: .65;
+
+$button-opacity-disabled: .65;
+
+$button-toolbar-background-gradient: $iq-grey-100 $iq-grey-100;
+$button-toolbar-background-gradient-over: $iq-grey-100 $iq-grey-100;
+$button-toolbar-background-gradient-focus: $iq-grey-100 $iq-grey-100;
+$button-toolbar-background-gradient-pressed: $iq-grey-100 $iq-grey-100;
+$button-toolbar-background-gradient-disabled: $iq-grey-100 $iq-grey-100;

@@ -1,0 +1,104 @@
+/**
+ * @class Ext.grid.Panel
+ */
+
+/**
+ * ui: 'borderless'
+ */
+@include extjs-panel-ui(
+  $ui: 'borderless',
+
+  $ui-body-border-width: 0,
+  $ui-padding: 5px 0 0 0
+);
+
+/**
+ * cls: 'nx-rowexpander'
+ */
+.nx-rowexpander {
+  padding: 5px;
+
+  tbody {
+    td:first-child {
+      padding-right: 5px;
+      font-weight: bold;
+    }
+  }
+}
+
+/**
+ * cls: 'nx-disabled-row'
+ */
+.nx-disabled-row {
+  td {
+    color: $color-dark-gray;
+
+    button {
+      color: $color-dark-gray;
+    }
+  }
+}
+
+.x-grid-item {
+  .x-grid-row {
+    .x-grid-item-focused {
+      .x-grid-cell-inner:before {
+        border: none;
+      }
+    }
+  }
+}
+
+.x-panel-nx-subsection-framed .grid-with-border {
+  .x-grid-header-ct {
+    border-left: 1px solid $color-gainsboro !important;
+    border-right: 1px solid $color-gainsboro !important;
+  }
+  .x-grid-view {
+    border-left: 1px solid $color-gainsboro !important;
+    border-right: 1px solid $color-gainsboro !important;
+    border-bottom: 1px solid $color-gainsboro !important;
+  }
+  .x-grid-item:last-child {
+    border-bottom-width: 0;
+  }
+}
+
+.nx-drilldown-master {
+  .x-grid-item {
+    padding: 2px 0;
+  }
+}
+
+.x-grid-empty {
+  font-size: 1.5em;
+  margin-top: 1em;
+  text-align: center;
+
+  .panel {
+    margin: 2em auto auto;
+    width: 75%;
+
+    .title {
+      margin: 0.5em;
+      .icon {
+        font-family: "Font Awesome 5 Free" !important;
+        font-size: 1.25em;
+        padding: 0.25em;
+
+        &:before {
+          content: "\f059" !important;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .title.alert {
+      color: rgb(207, 76, 53);
+
+      .icon:before {
+        content: "\f06a" !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+/**
+ * @class NX.view.header.QuickSearch
+ */
+
+/**
+ * Style for the main header search field.
+ */
+.nx-quicksearch .x-form-trigger-wrap {
+  border-radius: 11px;
+  padding-left: 3px;
+  padding-right: 0px;
+  background-color: $color-charcoal;
+  border-color: $color-night-rider;
+
+  .nx-searchbox-icon {
+    color: $color-white;
+    padding: 0 0 2px 2px;
+  }
+
+  input.x-form-field,
+  .x-trigger-cell,
+  .x-form-trigger,
+  .x-form-trigger-input-cell {
+    background-color: $color-none;
+  }
+
+  input.x-form-field,
+  .x-trigger-cell,
+  .x-form-trigger,
+  .x-form-text {
+    color: $color-white;
+    //IE11 seems to be the only culprit that makes the above defined color also be used in placeholder text
+    &:-ms-input-placeholder {
+      color: $color-gray !important;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+/**
+ * @class NX.view.feature.Content
+ */
+
+@include extjs-panel-ui(
+    $ui: 'nx-feature-content',
+    $ui-body-background-color: $color-light-smoke,
+    $ui-tool-background-image: $panel-light-tool-background-image,
+    $ui-wrap-border-width: 0
+);
+
+@include extjs-panel-ui(
+    $ui: 'nx-feature-header',
+    $ui-body-background-color: $color-white,
+    $ui-wrap-border-width: 0
+);
+
+.nx-feature-content {
+  .nx-feature-group {
+    border-top: 1px $color-gainsboro solid !important;
+    margin: 0 !important;
+  }
+}
+
+.nx-feature-content .x-panel-body .x-toolbar {
+  padding: 6px 0 8px 8px;
+  &.x-toolbar-footer {
+    background-color: $color-white;
+  }
+}
+
+.nx-feature-content .x-panel-body .x-panel-nx-subsection-framed > div + .x-toolbar,
+.nx-feature-content .x-panel-body .nx-actions.x-toolbar {
+  padding: 0 8px 0 0;
+  .x-toolbar-item {
+    margin: 6px 0 6px 8px;
+  }
+}
+
+// Global routing preview test result grid toolbar
+.x-panel-nx-subsection-framed .x-toolbar-default-docked-top {
+  padding: 0;
+  .x-toolbar-item {
+    margin: 0;
+  }
+}
+
+.nx-feature-header {
+  border-width: 10px 8px 10px 10px !important;
+  border-color: $color-white !important;
+  border-style: solid;
+
+  .nx-icon {
+    font-size: $font-size-h2;
+    line-height: 32px;
+    text-align: center;
+  }
+}
+
+.nx-feature-name {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-h2;
+  top: -1px !important;
+  padding-left: 6px;
+}
+
+.nx-feature-description {
+  font-size: $font-size-body;
+  font-weight: $font-weight-body;
+  top: 5px !important;
+  white-space: nowrap;
+  padding-left: 6px;
+}
+

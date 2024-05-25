@@ -1,0 +1,4 @@
+CREATE USER nxrmUser PASSWORD 'nxrmPassword';
+
+CREATE DATABASE nexus;
+GRANT ALL PRIVILEGES ON DATABASE nexus to nxrmUser;

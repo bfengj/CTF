@@ -1,0 +1,160 @@
+/**
+ * @class Ext.button.Button
+ */
+
+/**
+ * ui: 'default'
+ *
+ * This is not namespaced, because 'default' is the theme a component
+ * receives when 'ui' is not set.
+ */
+
+@include extjs-button-small-ui(
+  $ui: 'default',
+
+  $background-color: $iq-grey-100,
+  $background-color-over: $iq-grey-100,
+  $background-color-focus: $iq-grey-100,
+  $background-color-pressed: $iq-grey-100,
+  $background-color-disabled: $iq-grey-100,
+
+  $background-gradient: $iq-grey-100 $iq-grey-100,
+  $background-gradient-over: $iq-grey-100 $iq-grey-100,
+  $background-gradient-focus: $iq-grey-100 $iq-grey-100,
+  $background-gradient-pressed: $iq-grey-100 $iq-grey-100,
+  $background-gradient-disabled: $iq-grey-100 $iq-grey-100
+);
+
+/**
+ * ui: 'nx-plain'
+ */
+
+@include extjs-button-small-ui(
+  $ui: 'nx-plain',
+
+  $background-color: $iq-grey-100,
+  $background-color-over: $iq-grey-100,
+  $background-color-focus: $iq-grey-100,
+  $background-color-pressed: $iq-grey-100,
+  $background-color-disabled: $iq-grey-100,
+
+  $background-gradient: $iq-grey-100 $iq-grey-100,
+  $background-gradient-over: $iq-grey-100 $iq-grey-100,
+  $background-gradient-focus: $iq-grey-100 $iq-grey-100,
+  $background-gradient-pressed: $iq-grey-100 $iq-grey-100,
+  $background-gradient-disabled: $iq-grey-100 $iq-grey-100
+);
+
+/**
+ * ui: 'nx-primary'
+ */
+
+@include extjs-button-small-ui(
+  $ui: 'nx-primary',
+
+  $background-color: $iq-blue-500,
+  $background-color-over: $iq-blue-500,
+  $background-color-focus: $iq-blue-500,
+  $background-color-pressed: $iq-blue-700,
+  $background-color-disabled: $iq-blue-500,
+
+  $background-gradient: $iq-blue-500 $iq-blue-500,
+  $background-gradient-over: $iq-blue-500 $iq-blue-500,
+  $background-gradient-focus: $iq-blue-700 $iq-blue-700,
+  $background-gradient-pressed: $iq-blue-700 $iq-blue-700,
+  $background-gradient-disabled: $iq-blue-500 $iq-blue-500,
+
+  $border-color: $iq-blue-500,
+  $border-color-over: $iq-blue-700,
+  $border-color-pressed: $iq-blue-700,
+  $border-color-disabled: $iq-blue-500,
+
+  $color: $nx-blue-100
+);
+
+/**
+ * ui: 'nx-danger'
+ */
+
+@include extjs-button-small-ui(
+  $ui: 'nx-danger',
+
+  $background-color: $iq-red-700,
+  $background-color-over: $iq-red-700,
+  $background-color-focus: $iq-red-700,
+  $background-color-pressed: $iq-red-700,
+  $background-color-disabled: $iq-red-700,
+
+  $background-gradient: $iq-red-700 $iq-red-700,
+  $background-gradient-over: $iq-red-700 $iq-red-700,
+  $background-gradient-focus: $iq-red-700 $iq-red-700,
+  $background-gradient-pressed: $iq-red-700 $iq-red-700,
+  $background-gradient-disabled: $iq-red-700 $iq-red-700,
+
+  $border-color: $iq-red-800,
+  $border-color-over: $iq-red-900,
+  $border-color-pressed: $iq-red-900,
+  $border-color-disabled: $iq-red-800,
+
+  $color: $nx-blue-100
+);
+
+/**
+ * ui: 'nx-warning'
+ */
+
+@include extjs-button-small-ui(
+  $ui: 'nx-warning',
+
+  $background-color: $color-sea-buckthorn,
+  $background-color-over: $color-zest,
+  $background-color-focus: $color-sea-buckthorn,
+  $background-color-pressed: $color-afghan-tan,
+  $background-color-disabled: $color-sea-buckthorn,
+
+  $background-gradient: $color-sea-buckthorn $color-tahiti-gold,
+  $background-gradient-over: $color-zest $color-rich-gold,
+  $background-gradient-focus: $color-sea-buckthorn $color-tahiti-gold,
+  $background-gradient-pressed: $color-afghan-tan $color-russet,
+  $background-gradient-disabled: $color-sea-buckthorn $color-tahiti-gold
+);
+
+/**
+ * ui: 'nx-success'
+ */
+
+@include extjs-button-small-ui(
+  $ui: 'nx-success',
+
+  $background-color: $color-elf-green,
+  $background-color-over: $color-salem,
+  $background-color-focus: $color-elf-green,
+  $background-color-pressed: $color-fun-green,
+  $background-color-disabled: $color-elf-green,
+
+  $background-gradient: $color-elf-green $color-dark-pigment-green,
+  $background-gradient-over: $color-salem $color-jewel,
+  $background-gradient-focus: $color-elf-green $color-dark-pigment-green,
+  $background-gradient-pressed: $color-fun-green $color-dark-jewel,
+  $background-gradient-disabled: $color-elf-green $color-dark-pigment-green
+);
+
+// Fix glyph font size so the top of the icon isn’t cropped
+.x-btn-default-small,
+.x-btn-plain-small,
+.x-btn-primary-small,
+.x-btn-danger-small,
+.x-btn-warning-small,
+.x-btn-success-small {
+  .x-btn-glyph {
+    font-size: $font-size-body;
+  }
+}
+
+.x-btn-nx-primary-small,
+.x-btn-nx-primary-medium {
+  .x-btn-glyph,
+  .x-fa {
+    color: rgb(254, 254, 254);
+  }
+}

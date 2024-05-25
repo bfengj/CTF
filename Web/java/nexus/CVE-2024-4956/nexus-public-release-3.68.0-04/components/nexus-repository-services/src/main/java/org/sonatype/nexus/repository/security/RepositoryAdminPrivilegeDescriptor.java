@@ -1,0 +1,180 @@
+/*
+ * Sonatype Nexus (TM) Open Source Version
+ * Copyright (c) 2008-present Sonatype, Inc.
+ * All rights reserved. Includes the third-party code listed at http://links.sonatype.com/products/nexus/oss/attributions.
+ *
+ * This program and the accompanying materials are made available under the terms of the Eclipse Public License Version 1.0,
+ * which accompanies this distribution and is available at http://www.eclipse.org/legal/epl-v10.html.
+ *
+ * Sonatype Nexus (TM) Professional Version is available from Sonatype, Inc. "Sonatype" and "Sonatype Nexus" are trademarks
+ * of Sonatype, Inc. Apache Maven is a trademark of the Apache Software Foundation. M2eclipse is a trademark of the
+ * Eclipse Foundation. All other trademarks are the property of their respective owners.
+ */
+package org.sonatype.nexus.repository.security;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
+import org.sonatype.goodies.i18n.I18N;
+import org.sonatype.goodies.i18n.MessageBundle;
+import org.sonatype.nexus.formfields.FormField;
+import org.sonatype.nexus.formfields.RepositoryCombobox;
+import org.sonatype.nexus.formfields.SetOfCheckboxesFormField;
+import org.sonatype.nexus.formfields.StringTextFormField;
+import org.sonatype.nexus.repository.Format;
+import org.sonatype.nexus.repository.manager.RepositoryManager;
+import org.sonatype.nexus.repository.security.rest.ApiPrivilegeRepositoryAdmin;
+import org.sonatype.nexus.repository.security.rest.ApiPrivilegeRepositoryAdminRequest;
+import org.sonatype.nexus.security.config.CPrivilege;
+import org.sonatype.nexus.security.config.CPrivilegeBuilder;
+import org.sonatype.nexus.security.privilege.Privilege;
+import org.sonatype.nexus.security.privilege.PrivilegeDescriptor;
+import org.sonatype.nexus.security.privilege.rest.PrivilegeAction;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import org.apache.shiro.authz.Permission;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static org.sonatype.nexus.common.app.FeatureFlags.REACT_PRIVILEGES_NAMED;
+
+/**
+ * Repository admin {@link PrivilegeDescriptor}.
+ *
+ * @see RepositoryAdminPermission
+ * @since 3.0
+ */
+@Named(RepositoryAdminPrivilegeDescriptor.TYPE)
+@Singleton
+public class RepositoryAdminPrivilegeDescriptor
+    extends RepositoryPrivilegeDescriptorSupport<ApiPrivilegeRepositoryAdmin, ApiPrivilegeRepositoryAdminRequest>
+{
+  public static final String TYPE = RepositoryAdminPermission.DOMAIN;
+
+  public static final String P_FORMAT = "format";
+
+  public static final String P_REPOSITORY = "repository";
+
+  public static final String P_ACTIONS = "actions";
+
+  private interface Messages
+      extends MessageBundle
+  {
+    @DefaultMessage("Repository Admin")
+    String name();
+
+    @DefaultMessage("Format")
+    String format();
+
+    @DefaultMessage("The format(s) for the repository")
+    String formatHelp();
+
+    @DefaultMessage("Repository")
+    String repository();
+
+    @DefaultMessage("The repository name")
+    String repositoryHelp();
+
+    @DefaultMessage("Actions")
+    String actions();
+
+    @DefaultMessage("A comma-delimited list (without whitespace) of actions allowed with this privilege; " +
+        "options include browse, read, edit, add, delete, and a wildcard (*) " +
+        "<a href='https://links.sonatype.com/products/nxrm3/docs/privileges' target='_blank'>Help</a>")
+    String actionsHelp();
+
+    @DefaultMessage("The actions you wish to allow")
+    String actionsCheckboxesHelp();
+  }
+
+  private static final Messages messages = I18N.create(Messages.class);
+
+  private final List<FormField> formFields;
+
+  private static final String P_OPTIONS = "options";
+
+  @Inject
+  public RepositoryAdminPrivilegeDescriptor(
+      final RepositoryManager repositoryManager,
+      final List<Format> formats,
+      @Named(REACT_PRIVILEGES_NAMED) final boolean isReactPrivileges)
+  {
+    super(TYPE, repositoryManager, formats);
+    this.formFields = ImmutableList.of(
+        new StringTextFormField(
+            P_FORMAT,
+            messages.format(),
+            messages.formatHelp(),
+            FormField.MANDATORY
+        ),
+        new RepositoryCombobox(
+            P_REPOSITORY,
+            messages.repository(),
+            messages.repositoryHelp(),
+            true
+        ).includeAnEntryForAllRepositories(),
+        isReactPrivileges ?
+        new SetOfCheckboxesFormField(
+              P_ACTIONS,
+              messages.actions(),
+              messages.actionsCheckboxesHelp(),
+              FormField.MANDATORY
+        ).withAttribute(P_OPTIONS, PrivilegeAction.getBreadActionStrings()) :
+        new StringTextFormField(
+            P_ACTIONS,
+            messages.actions(),
+            messages.actionsHelp(),
+            FormField.MANDATORY,
+            "(^(browse|read|edit|add|delete)(,(browse|read|edit|add|delete)){0,4}$)|(^\\*$)"
+        )
+    );
+  }
+
+  @Override
+  public Permission createPermission(final CPrivilege privilege) {
+    checkNotNull(privilege);
+    String format = readProperty(privilege, P_FORMAT, ALL);
+    String name = readProperty(privilege, P_REPOSITORY, ALL);
+    List<String> actions = readListProperty(privilege, P_ACTIONS, ALL);
+    return new RepositoryAdminPermission(format, name, actions);
+  }
+
+  @Override
+  public List<FormField> getFormFields() {
+    return formFields;
+  }
+
+  @Override
+  public String getName() {
+    return messages.name();
+  }
+
+  //
+  // Helpers
+  //
+
+  public static String id(final String format, final String name, final String... actions) {
+    return String.format("nx-%s-%s-%s-%s", TYPE, format, name, Joiner.on(',').join(actions));
+  }
+
+  public static CPrivilege privilege(final String format, final String name, final String... actions) {
+    checkArgument(actions.length > 0);
+    return new CPrivilegeBuilder()
+        .type(TYPE)
+        .id(id(format, name, actions))
+        .description(String.format("%s for %s repository administration", humanizeActions(actions), humanizeName(name, format)))
+        .property(P_FORMAT, format)
+        .property(P_REPOSITORY, name)
+        .property(P_ACTIONS, actions)
+        .create();
+  }
+
+  @Override
+  public ApiPrivilegeRepositoryAdmin createApiPrivilegeImpl(final Privilege privilege) {
+    return new ApiPrivilegeRepositoryAdmin(privilege);
+  }
+}

@@ -1,0 +1,149 @@
+/**
+ * Colors
+ */
+
+// Transparency
+$color-none:               rgba(0, 0, 0, 0);
+
+// Shell
+$color-black:              #000000;
+$color-almost-black:       #222222;
+$color-night-rider:        #333333;
+$color-charcoal:           #444444;
+$color-dark-gray:          #777777;
+$color-gray:               #AAAAAA;
+$color-light-gray:         #CBCBCB;
+$color-lighter-gray:       #CECECE;
+$color-gainsboro:          #DDDDDD;
+$color-smoke:              #EBEBEB;
+$color-light-smoke:        #F4F4F4;
+$color-white:              #FFFFFF;
+
+// Severity
+$color-cerise:             #DB2852;
+$color-sun:                #F2862F;
+$color-energy-yellow:      #F5C649;
+$color-cobalt:             #0047B2;
+$color-cerulean-blue:      #2476C3;
+
+// Forms
+$color-citrus:             #84C900;
+$color-free-speech-red:    #C70000;
+$color-light-blue:         #85BEE9;
+// Tooltips
+$color-energy-yellow:      #F5C649;
+$color-floral-white:       #FFFAEE;
+
+// Dashboard
+$color-nxrm-green:         rgb(41, 180, 115);
+$color-pigment-green:      #0B9743;
+$color-madang:             #B6E9AB;
+$color-venetian-red:       #BC0430;
+$color-beauty-bush:        #EDB2AF;
+$color-navy-blue:          #006BBF;
+$color-cornflower:         #96CAEE;
+$color-affair:             #875393;
+$color-east-side:          #B087B9;
+$color-blue-chalk:         #DAC5DF;
+
+// Font Awesome Icons
+$color-navy-blue:          #006BBF;
+$color-smalt:              #014E8A;
+$color-prussian-blue:      #013A68;
+$color-white:              #FFFFFF;
+$color-gainsboro:          #DDDDDD;
+$color-gray:               #AAAAAA;
+
+// Buttons
+$color-white:              #FFFFFF;
+$color-light-gainsboro:    #E6E6E6;
+$color-light-gray:         #CBCBCB;
+$color-silver:             #B8B8B8;
+$color-suva-gray:          #919191;
+$color-gray:               #808080;
+$color-denim:              #197AC5;
+$color-light-cobalt:       #0161AD;
+$color-dark-denim:         #14629E;
+$color-smalt:              #014E8A;
+$color-dark-cerulean:      #0F4976;
+$color-prussian-blue:      #013A68;
+$color-light-cerise:       #DE3D63;
+$color-alert-purple:       #953EA9;
+$color-brick-red:          #C6254B;
+$color-old-rose:           #B2314F;
+$color-fire-brick:         #9E1E3C;
+$color-shiraz:             #85253B;
+$color-falu-red:           #77162D;
+$color-sea-buckthorn:      #F39244;
+$color-tahiti-gold:        #DA792B;
+$color-zest:               #C17536;
+$color-rich-gold:          #AE6122;
+$color-afghan-tan:         #925829;
+$color-russet:             #83491A;
+$color-elf-green:          #23A156;
+$color-dark-pigment-green: #0B893D;
+$color-salem:              #1C8145;
+$color-jewel:              #096E31;
+$color-fun-green:          #156134;
+$color-dark-jewel:         #0C4F26;
+
+// Links
+$color-outreach-blue:      #336699;
+$color-outreach-dark-blue: #003366;
+
+// Bootstrap colours
+$nx-green-100: #d4edda;
+$nx-green-500: #28a745;
+$nx-green-700: #155724;
+$nx-blue-100: #fefefe;
+$nx-blue-500:  #0066bb;
+$nx-blue-700: #070707;
+$nx-yellow-100: #fcf8e3;
+$nx-yellow-500: #fcf8e3;
+$nx-yellow-700: #9d6800;
+$nx-red-100: #fce2e2;
+$nx-red-500: #831d1d;
+$nx-red-700: #831d1d;
+
+// IQ colour palette
+$iq-sonatype-blue: #336699;
+$iq-sonatype-orange: #f89100;
+
+$iq-blue-100: #d9ecfb;
+$iq-blue-200: #97cbee;
+$iq-blue-300: #92cbff;
+$iq-blue-500: #2476c3;
+$iq-blue-600: #006bbf;
+$iq-blue-700: #0046b1;
+
+$iq-green-200: #b6e9ab;
+$iq-green-500: #84c900;
+$iq-green-700: #099843;
+
+$iq-yellow-100: #fcf8e3;
+$iq-yellow-200: #fdecaf;
+$iq-yellow-300: #ffd6a2;
+$iq-yellow-400: #f5c648;
+$iq-yellow-500: #f4861d;
+$iq-yellow-700: #9d6800;
+
+$iq-red-100: #fce2e2;
+$iq-red-200: #edb1af;
+$iq-red-300: #dd9595;
+$iq-red-400: #ff9493;
+$iq-red-500: #bc012f;
+$iq-red-600: #c70000;
+$iq-red-700: #831d1d;
+$iq-red-800: #5c0000;
+$iq-red-900: #5d0000;
+
+$iq-purple-200: #dbc6df;
+$iq-purple-400: #b087ba;
+$iq-purple-700: #885195;
+
+$iq-grey-100: #f5f5f5;
+$iq-grey-200: #eaeaea;
+$iq-grey-300: #dedede;
+$iq-grey-400: #cacaca;
+$iq-grey-700: #575757;
+$iq-grey-900: #070707;

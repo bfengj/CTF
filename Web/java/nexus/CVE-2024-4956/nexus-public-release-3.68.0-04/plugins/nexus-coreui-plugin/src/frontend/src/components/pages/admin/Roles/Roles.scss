@@ -1,0 +1,82 @@
+/**
+ * Sonatype Nexus (TM) Open Source Version
+ * Copyright (c) 2008-present Sonatype, Inc.
+ * All rights reserved. Includes the third-party code listed at http://links.sonatype.com/products/nexus/oss/attributions.
+ *
+ * This program and the accompanying materials are made available under the terms of the Eclipse Public License Version 1.0,
+ * which accompanies this distribution and is available at http://www.eclipse.org/legal/epl-v10.html.
+ *
+ * Sonatype Nexus (TM) Professional Version is available from Sonatype, Inc. "Sonatype" and "Sonatype Nexus" are trademarks
+ * of Sonatype, Inc. Apache Maven is a trademark of the Apache Software Foundation. M2eclipse is a trademark of the
+ * Eclipse Foundation. All other trademarks are the property of their respective owners.
+ */
+
+.modal-button {
+    float: right;
+    margin-right: 0;
+}
+
+.modal-table {
+    margin-bottom: 0;
+}
+
+.modal-section-title {
+    display: inline;
+}
+
+.nx-modal__filter {
+    float: right;
+    margin-top: 24px;
+    margin-bottom: 6px;
+}
+
+.nx-modal__filter-box {
+  display: grid;
+  justify-content: end;
+}
+
+.modal-selection-section {
+    width: 650px;
+    margin: 30px 0;
+}
+
+tr.counter-row th {
+    background-color: var(--nx-color-component-background);
+    border-bottom: 1px solid var(--nx-color-border-secondary);
+    text-transform: capitalize;
+}
+
+.modal-pagination {
+    border: 1px solid var(--nx-color-border);
+    border-radius: var(--nx-border-radius);
+}
+
+.counter-cell {
+    padding: 16px;
+}
+
+.modal-selection-section {
+    .nx-transfer-list__half {
+        width: 650px;
+        margin-top: var(--nx-spacing-8x)
+    }
+
+    .nx-legend {
+        display: none;
+    }
+}
+
+.nx-modal-content {
+  .select-column {
+    width: 10%;
+
+    .nx-checkbox {
+      margin: auto;
+      padding-right: 20px;
+    }
+  }
+
+  .name-column {
+    width: 40%;
+  }
+}

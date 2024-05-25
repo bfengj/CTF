@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    Sonatype Nexus (TM) Open Source Version
+    Copyright (c) 2008-present Sonatype, Inc.
+    All rights reserved. Includes the third-party code listed at http://links.sonatype.com/products/nexus/oss/attributions.
+
+    This program and the accompanying materials are made available under the terms of the Eclipse Public License Version 1.0,
+    which accompanies this distribution and is available at http://www.eclipse.org/legal/epl-v10.html.
+
+    Sonatype Nexus (TM) Professional Version is available from Sonatype, Inc. "Sonatype" and "Sonatype Nexus" are trademarks
+    of Sonatype, Inc. Apache Maven is a trademark of the Apache Software Foundation. M2eclipse is a trademark of the
+    Eclipse Foundation. All other trademarks are the property of their respective owners.
+
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${namespace}">
+
+  <insert id="extendSchema">
+    ALTER TABLE maven2_component ADD COLUMN IF NOT EXISTS
+        base_version VARCHAR NULL;
+
+    CREATE INDEX IF NOT EXISTS idx_maven2_component_base_version ON maven2_component (base_version);
+  </insert>
+
+  <update id="updateBaseVersion" parameterType="Maven2ComponentData">
+    UPDATE maven2_component SET base_version = #{baseVersion}
+    WHERE<include refid="componentCoordinateMatch"/>;
+  </update>
+
+  <select id="findGavsWithSnaphots" resultType="org.sonatype.nexus.content.maven.store.GAV">
+    SELECT namespace as "group", name, base_version, COUNT(*) AS count FROM maven2_component
+    WHERE repository_id = #{repositoryId} AND base_version LIKE '%-SNAPSHOT'
+    GROUP BY namespace, name, base_version
+    HAVING COUNT(*) &gt; #{minimumRetained};
+  </select>
+
+  <resultMap id="BlobComponentAssetsDataMap"
+             type="org.sonatype.nexus.content.maven.store.Maven2ComponentData"
+             extends="ComponentAssetsDataMap">
+    <collection property="assets"
+                javaType="List"
+                ofType="org.sonatype.nexus.repository.content.store.AssetData"
+                notNullColumn="asset_id"
+                fetchType="eager">
+      <id property="assetId" column="asset_id"/>
+      <result property="componentId" column="component_id"/>
+      <result property="assetBlobId" column="asset_blob_id"/>
+      <association property="assetBlob" column="blob"
+                   javaType="org.sonatype.nexus.repository.content.store.AssetBlobData">
+        <id property="assetBlobId" column="asset_blob_id"/>
+        <result property="blobCreated" column="blob_created"/>
+      </association>
+    </collection>
+  </resultMap>
+
+  <select id="findComponentsForGav" resultType="Maven2ComponentData" resultMap="BlobComponentAssetsDataMap">
+    SELECT c.*, a.asset_id, a.asset_blob_id, b.blob_created
+    FROM maven2_component c
+           LEFT JOIN maven2_asset as a ON c.component_id = a.component_id
+           LEFT JOIN maven2_asset_blob as b ON a.asset_blob_id = b.asset_blob_id
+    WHERE (c.name = #{name} AND c.namespace = #{group})
+      AND c.repository_id = #{repositoryId}
+      AND (c.base_version = #{baseVersion} OR
+           c.base_version = #{releaseVersion})
+      AND c.base_version LIKE '%-SNAPSHOT'
+    ORDER BY version DESC;
+  </select>
+
+  <select id="selectSnapshotsAfterRelease" resultType="int">
+  SELECT DISTINCT(snapshots.component_id) FROM maven2_component snapshots, maven2_component releases
+  WHERE snapshots.repository_id = #{repositoryId}
+  AND snapshots.name = releases.name
+  AND snapshots.namespace = releases.namespace
+  AND snapshots.base_version LIKE '%-SNAPSHOT'
+  AND snapshots.last_updated &lt;= (CURRENT_TIMESTAMP - CAST(#{gracePeriod} AS INT) * INTERVAL '1' DAY)
+  AND releases.base_version = REPLACE(snapshots.base_version, '-SNAPSHOT', '');
+  </select>
+
+  <select id="selectUnusedSnapshots" resultType="Integer">
+    SELECT maven2_component.component_id
+    FROM maven2_component
+           INNER JOIN maven2_asset ON maven2_component.component_id = maven2_asset.component_id
+           LEFT JOIN maven2_asset_blob ON maven2_asset.asset_blob_id = maven2_asset_blob.asset_blob_id
+    WHERE maven2_component.repository_id = #{repositoryId}
+      AND maven2_component.base_version LIKE '%-SNAPSHOT'
+    GROUP BY maven2_component.component_id
+    HAVING max(coalesce(maven2_asset.last_downloaded, maven2_asset_blob.blob_created)) &lt; #{olderThan}
+    ORDER BY maven2_component.component_id
+    LIMIT #{limit}
+  </select>
+
+  <select id="getBaseVersions" resultType="String">
+    SELECT DISTINCT base_version
+      FROM maven2_component
+     WHERE namespace = #{namespace}
+       AND name = #{name}
+       AND repository_id = #{repositoryId};
+  </select>
+
+</mapper>

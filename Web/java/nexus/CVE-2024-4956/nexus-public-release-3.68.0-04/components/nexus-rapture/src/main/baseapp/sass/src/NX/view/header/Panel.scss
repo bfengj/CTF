@@ -1,0 +1,87 @@
+/**
+ * @class NX.view.header.Panel
+ */
+
+.nx-header-panel {
+  .x-toolbar {
+    background-color: $color-almost-black;
+    padding: 0 0 0 10px;
+  }
+
+  .productname {
+    color: $color-white;
+    font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    height: 22px;
+    line-height: 1.2em;
+  }
+
+  .productspec {
+    color: $color-white;
+    font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+    line-height: 1.1em;
+  }
+
+  .x-btn-icon-el-nx-header-medium {
+    font-size: $font-size-h2;
+    line-height: $font-size-h2;
+    height: $font-size-h2;
+  }
+
+  .nx-health-button-red span span {
+    color: $color-venetian-red;
+  }
+
+  .nx-health-button-red:hover span span {
+    color: $color-venetian-red;
+  }
+
+  .nx-health-button-green {
+    &:hover span span {
+      color: $color-white;
+    }
+
+    span span {
+      color: $color-nxrm-green;
+    }
+  }
+
+  .nx-health-button-green span span {
+    color: $color-nxrm-green;
+  }
+}
+
+@include extjs-button-medium-ui(
+    $ui: 'nx-header',
+    $background-color: transparent,
+    $background-color-over: $color-nxrm-green,
+    $background-color-focus: transparent,
+    $background-color-pressed: $color-nxrm-green,
+    $background-color-disabled: transparent,
+    $color: $color-white,
+    $color-over: $color-white,
+    $color-focus: $color-white,
+    $color-pressed: $color-white,
+    $color-disabled: $color-white,
+    $border-width: 0,
+    $background-gradient: transparent,
+    $background-gradient-over: transparent,
+    $background-gradient-focus: transparent,
+    $background-gradient-pressed: transparent,
+    $background-gradient-disabled: transparent,
+    $glyph-color: $color-white,
+    $glyph-opacity: 1
+);
+
+.x-btn-nx-header-medium,
+.nx-modebutton {
+  border-radius: 0;
+  height: 49px;
+  padding: 0 6px 3px 6px;
+
+  .x-btn-inner {
+    padding: 2px 5px 0 5px;
+  }
+}
