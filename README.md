@@ -261,7 +261,6 @@ shiro似乎是之前记的，有点问题。。。。
 - [RCTF2021-Web复现](./Web/writeup/RCTF2021-Web复现.md)
 - [WMCTF-2021-Web](./Web/writeup/WMCTF-2021-Web.md)
 - [第四届强网”拟态防御国际精英挑战赛-Web](./Web/writeup/第四届强网”拟态防御国际精英挑战赛-Web.md)
-- [第四届强网拟态-EasyFilter](./Web/writeup/第四届强网拟态-EasyFilter.md)
 - [第五空间2021-Web-WP](./Web/writeup/第五空间2021-Web-WP.md)
 - [鹤城杯2021-Web](./Web/writeup/鹤城杯2021-Web.md)
 - [红帽杯2021Web部分题目复现](./Web/writeup/红帽杯2021Web部分题目复现.md)
