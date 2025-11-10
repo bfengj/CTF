@@ -27,7 +27,7 @@ php go-pear.phar
 
 
 
-其次就是需要开启`register_argc_argv`这个东西。这个东西之前做ctfshow的PHP特性的时候遇到过一次，如果存在php.ini的话，默认是Off。如果没有php.ini则默认是Off。
+其次就是需要开启`register_argc_argv`这个东西。这个东西之前做ctfshow的PHP特性的时候遇到过一次，如果存在php.ini的话，默认是Off。如果没有php.ini则默认是On。
 
 PHP官方提供的镜像里面也是默认没有php.ini，所以也是默认开启了这个`register_argc_argv`：
 
